@@ -41,3 +41,7 @@
 *.synctex.gz(busy)
 *.pdfsync
 *.pdf
+## Misc
+/scripts/mace4
+/scripts/prover9
+/scripts/isofilter
