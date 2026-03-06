@@ -1,0 +1,14 @@
+name = "equational_associative"
+defaultTargets = ["equational_associative"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+
+[[lean_lib]]
+name = "equational_associative"

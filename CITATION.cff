@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: >
+  If you use this project in your work, please cite it using the metadata below.
+title: "Associative equational theories"
+version: 0.0.0
+date-released: Mar 6, 2026
+authors:
+  - family-names: Brox
+    given-names: Jose
+    orcid: https://orcid.org/0000-0001-9822-5838
+  - family-names: Le Floch
+    given-names: Bruno
+    orcid: https://orcid.org/0000-0002-3965-9705
+repository-code: https://github.com/blefloch/equational_associative
+url: https://github.com/blefloch/equational_associative
+abstract: >
+  A project to determine implications between conjunctions of 738 equational laws of semigroups, and formalize them in the Lean4 proof assistant language. Sequel to the Equational Theories Project.
+
+keywords:
+  - universal algebra
+  - formalization project
