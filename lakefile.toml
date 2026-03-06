@@ -1,5 +1,5 @@
-name = "equational_associative"
-defaultTargets = ["equational_associative"]
+name = "associative_theories"
+defaultTargets = ["associative_theories"]
 
 [leanOptions]
 pp.unicode.fun = true
@@ -9,6 +9,10 @@ relaxedAutoImplicit = false
 [[require]]
 name = "mathlib"
 scope = "leanprover-community"
+rev = "v4.20.0"
 
 [[lean_lib]]
-name = "equational_associative"
+name = "equational_theories"
+
+[[lean_lib]]
+name = "associative_theories"

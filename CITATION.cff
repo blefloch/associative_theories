@@ -11,8 +11,8 @@ authors:
   - family-names: Le Floch
     given-names: Bruno
     orcid: https://orcid.org/0000-0002-3965-9705
-repository-code: https://github.com/blefloch/equational_associative
-url: https://github.com/blefloch/equational_associative
+repository-code: https://github.com/blefloch/associative_theories
+url: https://github.com/blefloch/associative_theories
 abstract: >
   A project to determine implications between conjunctions of 738 equational laws of semigroups, and formalize them in the Lean4 proof assistant language. Sequel to the Equational Theories Project.
 
