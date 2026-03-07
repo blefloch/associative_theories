@@ -1,0 +1,180 @@
+\documentclass[12pt]{amsart}
+
+% Packages
+\usepackage{amsaddr}
+\usepackage{amsmath, amssymb, amsthm}
+% \usepackage{thmtools}
+\usepackage{geometry}
+% \usepackage{graphicx}
+% \usepackage{enumitem}
+\usepackage{xcolor}
+% \usepackage{mathtools}
+% \usepackage{tikz}
+% \usepackage{tikz-cd}
+% \usepackage{quiver}
+% \usepackage{mathrsfs}
+% \usepackage{proof}
+% \usepackage{todonotes}
+% \usepackage{array}
+% \usepackage{booktabs}
+% \usepackage{siunitx}
+% \usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc}
+% \usepackage{lmodern}
+% \usepackage{fancyvrb}
+% \fvset{commandchars=\\\{\}}
+% \usepackage{pmboxdraw}
+% \usepackage{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Minimal set of definitions, keywords etc to highlight
+% the specific Lean code examples in the paper.  A better
+% listings language definition is given in lstlean.tex
+% on the Lean4 repository, but its Apache license would
+% complicate our CC-BY arXiv submission
+%
+\usepackage{listings}
+\lstnewenvironment{lean}{\lstset{language=lean}}{}
+\definecolor{kwcolor}{rgb}{0.8, 0.1, 0.1}    % red
+\definecolor{taccolor}{rgb}{0.1, 0.1, 0.8}    % blue
+\definecolor{opcolor}{rgb}{0.5, 0.1, 0.5}    % purple
+\lstdefinelanguage{lean} {
+  basicstyle = {\small \ttfamily},
+  columns = fullflexible,
+  keepspaces = true,
+  morecomment = [s][\color{green!50!black}]{@[}{]},
+  morekeywords = [1]{theorem, by, fun, let, have, obtain},
+  keywordstyle = [1]{\ttfamily\color{kwcolor}},
+  morekeywords = [2]{use, constructor, intro, only, simp, decide, decideFin, by_contra, subsumption},
+  keywordstyle = [2]{\ttfamily\color{taccolor}},
+  literate =
+  {:=}{{{\color{kwcolor}\raise1pt\hbox{:}\hspace{-1pt}=}}}{2}
+  {=>}{{{\color{kwcolor}=>}}}{2}
+  {∃}{{{\color{opcolor}\ensuremath{\exists}}}}{1}
+  {∧}{{{\color{opcolor}\ensuremath{\wedge}}}}{1}
+  {¬}{{{\color{opcolor}\ensuremath{\lnot}}}}{1}
+  {×}{{{\color{opcolor}\ensuremath{\times}}}}{1}
+  {◇}{{{\color{opcolor}\ensuremath{\diamond}}}}{1}
+  {·}{{{\color{taccolor}\ensuremath{\bullet}}}}{1}
+  {≠}{{{\color{opcolor}\ensuremath{\neq}}}}{1}
+  {ℕ}{{\ensuremath{\mathbb{N}}}}{1}
+  {⟨}{{\ensuremath{\langle}}}{1}
+  {⟩}{{\ensuremath{\rangle}}}{1}
+  {«}{\color{gray}{\guillemetleft}}{1}
+  {»}{{\color{gray}\guillemetright}\color{black}}{1}
+  ,
+}
+\usepackage{iftex}
+\ifpdftex\else
+\usepackage{newunicodechar}
+\newunicodechar{∃}{\ensuremath{\exists}}
+\newunicodechar{∧}{\ensuremath{\wedge}}
+\newunicodechar{¬}{\ensuremath{\lnot}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{◇}{\ensuremath{\diamond}}
+\newunicodechar{·}{\ensuremath{\bullet}}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{ℕ}{\ensuremath{\mathbb{N}}}
+\newunicodechar{⟨}{\ensuremath{\langle}}
+\newunicodechar{⟩}{\ensuremath{\rangle}}
+\newunicodechar{«}{\guillemetleft}
+\newunicodechar{»}{\guillemetright}
+\newunicodechar{–}{\textendash}
+\newunicodechar{’}{\textquoteright}
+\newunicodechar{“}{\textquotedblleft}
+\newunicodechar{”}{\textquotedblright}
+\newunicodechar{š}{\v s}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+
+% Page Setup
+\geometry{a4paper, margin=1in}
+\setlength{\parindent}{0pt} % No indent for paragraphs
+%\setlength{\parskip}{0.8\baselineskip plus 0.2\baselineskip minus 0.2\baselineskip}   % Spacing between paragraphs
+% Theorem Styles
+\newtheorem{theorem}{Theorem}[section]
+\renewcommand{\theHtheorem}{\theHsection.\the\value{theorem}}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+% Commands
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\x}{\mathrm{x}}
+\newcommand{\y}{\mathrm{y}}
+\newcommand{\z}{\mathrm{z}}
+\newcommand{\w}{\mathrm{w}}
+\newcommand{\uu}{\mathrm{u}}
+\newcommand{\vv}{\mathrm{v}}
+\newcommand{\op}{\diamond}
+\newcommand{\formaleq}{\simeq}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\nmodels}{\not\models}
+\newcommand{\modelsfin}{\models_{\mathrm{fin}}}
+\newcommand{\nmodelsfin}{\nmodels_{\mathrm{fin}}}
+\newcommand{\Magma}{{\mathcal{M}}}
+\newcommand{\MagmaN}{{\mathcal{N}}}
+\newcommand{\Eq}[1]{\mathrm{E}#1}
+\newcommand{\E}{\mathrm{E}}
+
+
+% Title Information
+\title[Associative Equational Theories]{Associative Equational Theories and their Implication Semi-Lattice}
+\author{Jose Brox}
+\address{IMUVA-Mathematics Research Institute, Universidad de Valladolid, josebrox@uva.es, ORCID 0000-0001-9822-5838}
+\author{Bruno Le Floch}
+\address{CNRS and Laboratoire de Physique Th\'eorique et Hautes \'Energies, Sorbonne Universit\'e, blefloch@lpthe.jussieu.fr, ORCID 0000-0002-3965-9705}
+\date{April 2026}
+
+\begin{document}
+
+\begin{abstract}
+  We consider the $738$ simplest equational laws for an associative binary operation, and the $2^{738}$ arbitrary conjunctions thereof.
+  We determine that there are only $456$ equivalence classes of such associative equational theories, and find all implications between them.
+  The conjunction operation makes this set of theories into a semi-lattice.
+  These results are formalized by an end-to-end theorem in \emph{Lean}.
+  This is a semigroup analogue of the \emph{Equational Theories Project}, but extended to conjunctions of equations.
+\end{abstract}
+
+%\maketitle
+\begingroup
+\def\uppercasenonmath#1{} % this disables uppercasing title
+\let\MakeUppercase\relax % this disables uppercasing authors
+\maketitle
+\endgroup
+
+{
+\setlength{\parskip}{0em}
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+
+\input{intro}
+\input{informal}
+\input{formalization}
+\input{nicetheories}
+\input{countermodels}
+
+\appendix
+\crefalias{section}{appendix}
+\raggedbottom
+\input{alltheories}
+\input{acknowledgements}
+
+\bibliographystyle{plainurl}
+\bibliography{references}
+
+\end{document}
