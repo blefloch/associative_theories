@@ -1,7 +1,7 @@
 """Find implications between conjunctions of semigroup laws
 
 Using the mace4/Prover9 ATP and countermodels from the file
-semigroups_countermodels.py, this first finds all implications
+countermodels.py, this first finds all implications
 between conjunctions of the 4694 magma equational laws under
 the additional assumption of associativity (Equation 4512).
 """
@@ -11,9 +11,9 @@ from ATP_utils import models, prove, test_eq_with_magma
 from collections import defaultdict
 
 try:
-    from semigroups_countermodels import *
+    from countermodels import *
 except ModuleNotFoundError:
-    with open("semigroups_countermodels.py", "w") as f:
+    with open("countermodels.py", "w") as f:
         print("""from ATP_utils import test_eq_with_magma
 
 countermodel_list = []
@@ -28,7 +28,7 @@ def add_model(m):
     else:
         raise ValueError(mag)
 """, file=f)
-    from semigroups_countermodels import *
+    from countermodels import *
 
 one_has_model = {1: [True] * len(countermodel_list), 2: [False] * len(countermodel_list)}
 

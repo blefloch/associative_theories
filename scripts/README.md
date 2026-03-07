@@ -12,5 +12,8 @@
   equations (excluding the tautological one) and 456 equivalence
   classes of conjunctions thereof
 
-- `semigroups_countermodels.py` provides a list of countermodels
-  used by `semigroups-1.py`
+- `countermodels.py` provides a list of countermodels used by
+  `semigroups-1.py`
+
+- `countermodels_5.py` provides more countermodels that are useful
+  for some implications at order 5
