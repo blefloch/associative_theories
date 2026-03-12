@@ -110,7 +110,7 @@ for eq1_id in range(3, 4695):
 
 print(len(one_rep), sorted(one_rep))
 if unknown_consequences:
-    print(unknown_consequences)
+    print(dict(unknown_consequences))
 # print(one_to_rep)
 
 consequences = defaultdict(set, {k: v.intersection(one_rep) for k, v in consequences.items()})
@@ -151,12 +151,19 @@ while pending:
             if (len(multi_rep) % 100) == 0:
                 print(sorted(multi_rep))
 
-print(sorted(multi_rep, key=(lambda x:(len(x), x))))
+print(len(multi_rep), sorted(multi_rep, key=(lambda x:(len(x), x))))
 
-with open("semigroups-reps.out", "w") as f:
-    print(f"one_rep_list = {sorted(one_rep)}", file=f)
-    print(f"multi_rep_list = {sorted([eqs for eqs in multi_rep if len(eqs) > 1], key=(lambda x:(len(x), x)))}", file=f)
+long_classes = sorted(tuple(sorted(v.union([4512]))) for v in consequences.values() if v)
+eq_to_long_class = {k[0]: tuple(sorted(v.union([4512]))) for k, v in consequences.items() if len(k) == 1 and v}
 
 with open("semigroups_to_rep_out.py", "w") as f:
+    print(f"one_rep_list = {sorted(one_rep)}", file=f)
+    print(f"multi_rep_list = {sorted([eqs for eqs in multi_rep if len(eqs) > 1], key=(lambda x:(len(x), x)))}", file=f)
     print(f"one_to_rep = {one_to_rep}", file=f)
     print(f"multi_to_rep = {multi_to_rep}", file=f)
+
+with open("../data/long_classes.json", "w") as f:
+    f.write('[\n    ' + ',\n    '.join(map(str, long_classes)) + '\n]\n')
+
+with open("../data/eq_to_long_class.json", "w") as f:
+    f.write('{\n    ' + ',\n    '.join(f'"{k}": {v}' for k, v in eq_to_long_class.items()) + '\n}\n')
