@@ -163,7 +163,7 @@ with open("semigroups_to_rep_out.py", "w") as f:
     print(f"multi_to_rep = {multi_to_rep}", file=f)
 
 with open("../data/long_classes.json", "w") as f:
-    f.write('[\n    ' + ',\n    '.join(map(str, long_classes)) + '\n]\n')
+    f.write('[\n    ' + ',\n    '.join(str(tuple(c)) for c in long_classes) + '\n]\n')
 
 with open("../data/eq_to_long_class.json", "w") as f:
-    f.write('{\n    ' + ',\n    '.join(f'"{k}": {v}' for k, v in eq_to_long_class.items()) + '\n}\n')
+    f.write('{\n    ' + ',\n    '.join(f'"{k}": {tuple(v)}' for k, v in eq_to_long_class.items()) + '\n}\n')
