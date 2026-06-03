@@ -17,7 +17,7 @@
 % \usepackage{todonotes}
 % \usepackage{array}
 % \usepackage{booktabs}
-% \usepackage{siunitx}
+\usepackage{siunitx}
 % \usepackage[utf8]{inputenc}
 % \usepackage[T1]{fontenc}
 % \usepackage{lmodern}
@@ -92,7 +92,7 @@
 
 % Page Setup
 \geometry{a4paper, margin=1in}
-\setlength{\parindent}{0pt} % No indent for paragraphs
+% \setlength{\parindent}{0pt} % No indent for paragraphs
 %\setlength{\parskip}{0.8\baselineskip plus 0.2\baselineskip minus 0.2\baselineskip}   % Spacing between paragraphs
 % Theorem Styles
 \newtheorem{theorem}{Theorem}[section]
@@ -132,7 +132,7 @@
 
 
 % Title Information
-\title[Associative Equational Theories]{Associative Equational Theories and their Implication Semi-Lattice}
+\title[Associative Equational Theories]{Implication semilattice of associative equational theories}
 \author{Jose Brox}
 \address{IMUVA-Mathematics Research Institute, Universidad de Valladolid, josebrox@uva.es, ORCID 0000-0001-9822-5838}
 \author{Bruno Le Floch}
@@ -142,7 +142,7 @@
 \begin{document}
 
 \begin{abstract}
-  We consider the $738$ simplest equational laws for an associative binary operation, and the $2^{738}$ arbitrary conjunctions thereof.
+  We consider the $738$ simplest equational laws for an associative binary operation, and all of their conjunctions.
   We determine that there are only $456$ equivalence classes of such associative equational theories, and find all implications between them.
   The conjunction operation makes this set of theories into a semi-lattice.
   These results are formalized by an end-to-end theorem in \emph{Lean}.
@@ -157,7 +157,7 @@
 \endgroup
 
 {
-\setlength{\parskip}{0em}
+%\setlength{\parskip}{0em}
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
