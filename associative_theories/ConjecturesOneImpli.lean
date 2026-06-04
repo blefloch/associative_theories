@@ -1,4 +1,3 @@
-import equational_theories.FactsSyntax
 import equational_theories.Equations.All
 
 /- Generated file collecting conjectures about single equations -/

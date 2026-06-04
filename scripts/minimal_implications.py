@@ -9,11 +9,11 @@ with open("../data/eq_to_long_class.json", 'r') as f:
 def one_conjecture(id1, id2):
     return f"theorem Equation{id1}_4512_implies_Equation{id2} (G : Type*) [Magma G]\n    (eq{id1} : Equation{id1} G) (eq4512 : Equation4512 G) : Equation{id2} G := sorry\n"
 
-def conjecture_preamble():
+def conjecture_preamble(how_many = "single", facts = False):
     preamble = ""
-    preamble += "import equational_theories.FactsSyntax\n"
+    if facts: preamble += "import equational_theories.FactsSyntax\n"
     preamble += "import equational_theories.Equations.All\n"
-    preamble += "\n/- Generated file collecting conjectures about single equations -/\n"
+    preamble += f"\n/- Generated file collecting conjectures about {how_many} equations -/\n"
     preamble += "\nnamespace Conjectures\n"
     return preamble
 def conjecture_postamble():
