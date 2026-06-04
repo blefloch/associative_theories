@@ -7,7 +7,7 @@ with open("../data/eq_to_long_class.json", 'r') as f:
     eq_to_long_class = {int(k): v for k, v in json.load(f).items()}
 
 def one_conjecture(id1, id2):
-    return f"@[equational_result]\nconjecture Equation{id1}_implies_Equation{id2} (G : Type*) [Magma G] (_ : Equation{id1} G) : Equation{id2} G"
+    return f"conjecture Equation{id1}_4512_implies_Equation{id2} (G : Type*) [Magma G] (_ : Equation{id1} G) (_ : Equation4512 G) : Equation{id2} G"
 
 def conjecture_preamble():
     preamble = ""
