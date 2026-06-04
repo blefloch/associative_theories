@@ -7,7 +7,7 @@ with open("../data/eq_to_long_class.json", 'r') as f:
     eq_to_long_class = {int(k): v for k, v in json.load(f).items()}
 
 def one_conjecture(id1, id2):
-    return f"conjecture Equation{id1}_4512_implies_Equation{id2} (G : Type*) [Magma G] (_ : Equation{id1} G) (_ : Equation4512 G) : Equation{id2} G"
+    return f"theorem Equation{id1}_4512_implies_Equation{id2} (G : Type*) [Magma G]\n    (h1 : Equation{id1} G) (h2 : Equation4512 G) : Equation{id2} G := sorry\n"
 
 def conjecture_preamble():
     preamble = ""
@@ -42,5 +42,8 @@ with open("../associative_theories/ConjecturesOneImpli.lean", "w") as f:
         print(one_conjecture(id1, id2), file=f)
     print(conjecture_postamble(), file=f)
 
-
-
+implication_proofs = []
+for id1, id2 in sorted(set(DG.edges()).difference(DGred.edges())):
+    print(nx.shortest_path(DGred, source=id1, target=id2))
+    quit()
+    pass
