@@ -1,7 +1,5 @@
 import equational_theories.FactsSyntax
-import equational_theories.EquationalResult
 import equational_theories.Equations.All
-import Mathlib.Data.Set.Finite.Basic
 
 /- Generated file collecting conjectures about single equations -/
 
