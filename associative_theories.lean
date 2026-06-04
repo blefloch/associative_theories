@@ -1,3 +1,4 @@
 import equational_theories.Equations.All
 import associative_theories.Countermodels
 import associative_theories.ConjecturesOneEquiv
+import associative_theories.ConjecturesOneImpli
