@@ -7,11 +7,8 @@ import associative_theories.OneImpliDeduced
 
 open Conjectures
 
-theorem CC2_equiv (G : Type*) [Magma G] : ConjunctionClass2 G <-> ConjunctionClass2_long G := by
-constructor
-intro h
-obtain ⟨eq2, eq4512⟩ := h
-exact ⟨Equation2_4512_implies_Equation1 G eq2 eq4512,
+theorem CC2_implies_long (G : Type*) [Magma G] : ConjunctionClass2 G -> ConjunctionClass2_long G := fun ⟨eq2, eq4512⟩ => ⟨
+  Equation2_4512_implies_Equation1 G eq2 eq4512,
   eq2,
   Equation2_4512_implies_Equation3 G eq2 eq4512,
   Equation2_4512_implies_Equation4 G eq2 eq4512,
@@ -134,6 +131,7 @@ exact ⟨Equation2_4512_implies_Equation1 G eq2 eq4512,
   Equation2_4512_implies_Equation4364 G eq2 eq4512,
   Equation2_4512_implies_Equation4369 G eq2 eq4512,
   eq4512⟩
-intro h
-obtain ⟨_,h2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,h4512⟩ := h
-exact ⟨h2, h4512⟩
+
+theorem CC2_implied_by_long (G : Type*) [Magma G] : ConjunctionClass2_long G -> ConjunctionClass2 G := fun ⟨_,h2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,h4512⟩ => ⟨h2, h4512⟩
+
+theorem CC2_equiv (G : Type*) [Magma G] : ConjunctionClass2 G <-> ConjunctionClass2_long G := Iff.intro (CC2_implies_long G) (CC2_implied_by_long G)
