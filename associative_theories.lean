@@ -4,3 +4,6 @@ import associative_theories.ConjecturesOneEquiv
 import associative_theories.ConjecturesOneImpli
 import associative_theories.ConjecturesTwo
 import associative_theories.OneImpliDeduced
+import associative_theories.ConjunctionRepresentatives
+import associative_theories.ConjunctionRepresentativesLong
+import associative_theories.ShortLongEquiv
