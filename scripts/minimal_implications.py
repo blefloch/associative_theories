@@ -84,6 +84,7 @@ def oneimplideduced_preamble():
 
 with open("../associative_theories/OneImpliDeduced.lean", "w") as f:
     print(oneimplideduced_preamble(), file=f)
+    print("theorem Equation4512_implies_Equation1 (G : Type*) [Magma G] (_ : Equation4512 G) : Equation1 G := by rw [Equation1]; intros; rfl\n", file=f)
     for p in implication_proofs:
         print(one_proof(p), file=f)
 

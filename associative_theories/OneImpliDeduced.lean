@@ -6,6 +6,8 @@ import associative_theories.ConjecturesOneImpli
 open Conjectures
 
 
+theorem Equation4512_implies_Equation1 (G : Type*) [Magma G] (_ : Equation4512 G) : Equation1 G := by rw [Equation1]; intros; rfl
+
 theorem Equation2_4512_implies_Equation1 (G : Type*) [Magma G]
   (eq2 : Equation2 G) (eq4512 : Equation4512 G) : Equation1 G := by
   have eq66 := Equation2_4512_implies_Equation66 G eq2 eq4512
