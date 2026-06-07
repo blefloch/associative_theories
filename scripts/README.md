@@ -34,7 +34,10 @@
 - `organize_associative_theories.py` produces the main data file with
   all of the available information, `../data/associative_theories.json`
 
-- `minimal_implications.py`
+- `minimal_implications.py` produces `../data/explicitly_proven.json`
+  which gives the list of implications to be proven using algebraic
+  manipulation.  All others can be deduced by graph manipulations
+  without knowing what the equation numbers correspond to
 
 ## Scripts producing Lean code for the formalization
 
