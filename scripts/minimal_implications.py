@@ -158,7 +158,7 @@ with open("../associative_theories/ConjecturesTwo.lean", "w") as f:
 
 
 ###### For each class, ensure that the short class implies the long one
-with open("../data/associative_conjunctions.json", "r") as f:
+with open("../data/associative_theories.json", "r") as f:
     representatives = json.load(f)
 
 pair_to_long_class = {}
@@ -184,7 +184,7 @@ def get_pair_consequences(eq_set):
 
 for d in representatives:
     clid = d["id"]
-    scl = d["lexicographic"]
+    scl = d["early"]
     lcl = d["long"]
     mcl = scl + list(explicit_consequences[tuple(scl[:-1])])
     consequences = get_pair_consequences(mcl)

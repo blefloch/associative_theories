@@ -1,7 +1,7 @@
 import equational_theories.Equations.All
 import equational_theories.FactsSyntax
-import associative_theories.ConjunctionRepresentatives
-import associative_theories.ConjunctionRepresentativesLong
+import associative_theories.AssociativeTheoriesEarly
+import associative_theories.AssociativeTheoriesLong
 import associative_theories.ConjecturesOneImpli
 import associative_theories.ConjecturesTwo
 import associative_theories.OneImpliDeduced
@@ -11,18 +11,18 @@ import associative_theories.OneImpliDeduced
 open Conjectures
 
 
-theorem CC1_implies_long (G : Type*) [Magma G] (h : ConjunctionClass1 G) : ConjunctionClass1_long G := by
+theorem AT1_implies_long (G : Type*) [Magma G] (h : AssociativeTheory1 G) : AssociativeTheory1_long G := by
   constructor
   rw [Equation1]; intros; rfl
   exact h
 
-theorem CC1_implied_by_long (G : Type*) [Magma G] : ConjunctionClass1_long G -> ConjunctionClass1 G :=
+theorem AT1_implied_by_long (G : Type*) [Magma G] : AssociativeTheory1_long G -> AssociativeTheory1 G :=
 fun ⟨_, h4512⟩ => h4512
 
-theorem CC1_equiv (G : Type*) [Magma G] : ConjunctionClass1 G <-> ConjunctionClass1_long G :=
-Iff.intro (CC1_implies_long G) (CC1_implied_by_long G)
+theorem AT1_equiv (G : Type*) [Magma G] : AssociativeTheory1 G <-> AssociativeTheory1_long G :=
+Iff.intro (AT1_implies_long G) (AT1_implied_by_long G)
 
-theorem CC2_implies_long (G : Type*) [Magma G] (h : ConjunctionClass2 G) : ConjunctionClass2_long G := by
+theorem AT2_implies_long (G : Type*) [Magma G] (h : AssociativeTheory2 G) : AssociativeTheory2_long G := by
   obtain ⟨eq2, eq4512⟩ := h
   have eq1 := Equation2_4512_implies_Equation1 G eq2 eq4512
   have eq3 := Equation2_4512_implies_Equation3 G eq2 eq4512
@@ -147,13 +147,13 @@ theorem CC2_implies_long (G : Type*) [Magma G] (h : ConjunctionClass2 G) : Conju
   have eq4369 := Equation2_4512_implies_Equation4369 G eq2 eq4512
   exact ⟨eq1, eq2, eq3, eq4, eq5, eq8, eq10, eq11, eq14, eq16, eq38, eq39, eq40, eq41, eq43, eq47, eq56, eq66, eq75, eq307, eq308, eq309, eq310, eq311, eq312, eq313, eq314, eq315, eq316, eq318, eq323, eq325, eq326, eq327, eq329, eq332, eq333, eq343, eq411, eq419, eq429, eq440, eq477, eq504, eq513, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq3306, eq3308, eq3309, eq3315, eq3316, eq3319, eq3322, eq3323, eq3326, eq3331, eq3334, eq3342, eq3346, eq3350, eq3353, eq3388, eq3414, eq4268, eq4269, eq4270, eq4271, eq4272, eq4273, eq4274, eq4275, eq4276, eq4277, eq4278, eq4279, eq4280, eq4283, eq4284, eq4286, eq4287, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4300, eq4301, eq4304, eq4305, eq4314, eq4315, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC2_implied_by_long (G : Type*) [Magma G] : ConjunctionClass2_long G -> ConjunctionClass2 G :=
+theorem AT2_implied_by_long (G : Type*) [Magma G] : AssociativeTheory2_long G -> AssociativeTheory2 G :=
 fun ⟨_, h2, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h2, h4512⟩
 
-theorem CC2_equiv (G : Type*) [Magma G] : ConjunctionClass2 G <-> ConjunctionClass2_long G :=
-Iff.intro (CC2_implies_long G) (CC2_implied_by_long G)
+theorem AT2_equiv (G : Type*) [Magma G] : AssociativeTheory2 G <-> AssociativeTheory2_long G :=
+Iff.intro (AT2_implies_long G) (AT2_implied_by_long G)
 
-theorem CC3_implies_long (G : Type*) [Magma G] (h : ConjunctionClass3 G) : ConjunctionClass3_long G := by
+theorem AT3_implies_long (G : Type*) [Magma G] (h : AssociativeTheory3 G) : AssociativeTheory3_long G := by
   obtain ⟨eq3, eq4512⟩ := h
   have eq1 := Equation3_4512_implies_Equation1 G eq3 eq4512
   have eq8 := Equation3_4512_implies_Equation8 G eq3 eq4512
@@ -170,13 +170,13 @@ theorem CC3_implies_long (G : Type*) [Magma G] (h : ConjunctionClass3 G) : Conju
   have eq4284 := Equation3_4512_implies_Equation4284 G eq3 eq4512
   exact ⟨eq1, eq3, eq8, eq47, eq307, eq323, eq326, eq411, eq3253, eq3306, eq3309, eq3316, eq3319, eq4284, eq4512⟩
 
-theorem CC3_implied_by_long (G : Type*) [Magma G] : ConjunctionClass3_long G -> ConjunctionClass3 G :=
+theorem AT3_implied_by_long (G : Type*) [Magma G] : AssociativeTheory3_long G -> AssociativeTheory3 G :=
 fun ⟨_, h3, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h3, h4512⟩
 
-theorem CC3_equiv (G : Type*) [Magma G] : ConjunctionClass3 G <-> ConjunctionClass3_long G :=
-Iff.intro (CC3_implies_long G) (CC3_implied_by_long G)
+theorem AT3_equiv (G : Type*) [Magma G] : AssociativeTheory3 G <-> AssociativeTheory3_long G :=
+Iff.intro (AT3_implies_long G) (AT3_implied_by_long G)
 
-theorem CC4_implies_long (G : Type*) [Magma G] (h : ConjunctionClass4 G) : ConjunctionClass4_long G := by
+theorem AT4_implies_long (G : Type*) [Magma G] (h : AssociativeTheory4 G) : AssociativeTheory4_long G := by
   obtain ⟨eq4, eq4512⟩ := h
   have eq1 := Equation4_4512_implies_Equation1 G eq4 eq4512
   have eq3 := Equation4_4512_implies_Equation3 G eq4 eq4512
@@ -236,13 +236,13 @@ theorem CC4_implies_long (G : Type*) [Magma G] (h : ConjunctionClass4 G) : Conju
   have eq4358 := Equation4_4512_implies_Equation4358 G eq4 eq4512
   exact ⟨eq1, eq3, eq4, eq8, eq10, eq11, eq38, eq47, eq56, eq307, eq308, eq309, eq310, eq311, eq323, eq325, eq326, eq327, eq329, eq411, eq419, eq429, eq440, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3306, eq3308, eq3309, eq3315, eq3316, eq3319, eq3322, eq3323, eq3326, eq3331, eq3334, eq4268, eq4269, eq4270, eq4271, eq4283, eq4284, eq4286, eq4287, eq4288, eq4314, eq4315, eq4318, eq4358, eq4512⟩
 
-theorem CC4_implied_by_long (G : Type*) [Magma G] : ConjunctionClass4_long G -> ConjunctionClass4 G :=
+theorem AT4_implied_by_long (G : Type*) [Magma G] : AssociativeTheory4_long G -> AssociativeTheory4 G :=
 fun ⟨_, _, h4, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h4, h4512⟩
 
-theorem CC4_equiv (G : Type*) [Magma G] : ConjunctionClass4 G <-> ConjunctionClass4_long G :=
-Iff.intro (CC4_implies_long G) (CC4_implied_by_long G)
+theorem AT4_equiv (G : Type*) [Magma G] : AssociativeTheory4 G <-> AssociativeTheory4_long G :=
+Iff.intro (AT4_implies_long G) (AT4_implied_by_long G)
 
-theorem CC5_implies_long (G : Type*) [Magma G] (h : ConjunctionClass5 G) : ConjunctionClass5_long G := by
+theorem AT5_implies_long (G : Type*) [Magma G] (h : AssociativeTheory5 G) : AssociativeTheory5_long G := by
   obtain ⟨eq5, eq4512⟩ := h
   have eq1 := Equation5_4512_implies_Equation1 G eq5 eq4512
   have eq3 := Equation5_4512_implies_Equation3 G eq5 eq4512
@@ -302,13 +302,13 @@ theorem CC5_implies_long (G : Type*) [Magma G] (h : ConjunctionClass5 G) : Conju
   have eq4362 := Equation5_4512_implies_Equation4362 G eq5 eq4512
   exact ⟨eq1, eq3, eq5, eq8, eq10, eq16, eq39, eq47, eq75, eq307, eq309, eq312, eq315, eq318, eq323, eq326, eq329, eq333, eq343, eq411, eq419, eq429, eq513, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3274, eq3278, eq3292, eq3300, eq3306, eq3309, eq3316, eq3319, eq3322, eq3326, eq3334, eq3346, eq3353, eq3388, eq3414, eq4269, eq4272, eq4275, eq4278, eq4284, eq4287, eq4291, eq4296, eq4300, eq4304, eq4320, eq4327, eq4362, eq4512⟩
 
-theorem CC5_implied_by_long (G : Type*) [Magma G] : ConjunctionClass5_long G -> ConjunctionClass5 G :=
+theorem AT5_implied_by_long (G : Type*) [Magma G] : AssociativeTheory5_long G -> AssociativeTheory5 G :=
 fun ⟨_, _, h5, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h5, h4512⟩
 
-theorem CC5_equiv (G : Type*) [Magma G] : ConjunctionClass5 G <-> ConjunctionClass5_long G :=
-Iff.intro (CC5_implies_long G) (CC5_implied_by_long G)
+theorem AT5_equiv (G : Type*) [Magma G] : AssociativeTheory5 G <-> AssociativeTheory5_long G :=
+Iff.intro (AT5_implies_long G) (AT5_implied_by_long G)
 
-theorem CC6_implies_long (G : Type*) [Magma G] (h : ConjunctionClass6 G) : ConjunctionClass6_long G := by
+theorem AT6_implies_long (G : Type*) [Magma G] (h : AssociativeTheory6 G) : AssociativeTheory6_long G := by
   obtain ⟨eq8, eq4512⟩ := h
   have eq1 := Equation8_4512_implies_Equation1 G eq8 eq4512
   have eq411 := Equation8_4512_implies_Equation411 G eq8 eq4512
@@ -317,13 +317,13 @@ theorem CC6_implies_long (G : Type*) [Magma G] (h : ConjunctionClass6 G) : Conju
   have eq3319 := Equation8_4512_implies_Equation3319 G eq8 eq4512
   exact ⟨eq1, eq8, eq411, eq3253, eq3306, eq3319, eq4512⟩
 
-theorem CC6_implied_by_long (G : Type*) [Magma G] : ConjunctionClass6_long G -> ConjunctionClass6 G :=
+theorem AT6_implied_by_long (G : Type*) [Magma G] : AssociativeTheory6_long G -> AssociativeTheory6 G :=
 fun ⟨_, h8, _, _, _, _, h4512⟩ => ⟨h8, h4512⟩
 
-theorem CC6_equiv (G : Type*) [Magma G] : ConjunctionClass6 G <-> ConjunctionClass6_long G :=
-Iff.intro (CC6_implies_long G) (CC6_implied_by_long G)
+theorem AT6_equiv (G : Type*) [Magma G] : AssociativeTheory6 G <-> AssociativeTheory6_long G :=
+Iff.intro (AT6_implies_long G) (AT6_implied_by_long G)
 
-theorem CC7_implies_long (G : Type*) [Magma G] (h : ConjunctionClass7 G) : ConjunctionClass7_long G := by
+theorem AT7_implies_long (G : Type*) [Magma G] (h : AssociativeTheory7 G) : AssociativeTheory7_long G := by
   obtain ⟨eq10, eq4512⟩ := h
   have eq1 := Equation10_4512_implies_Equation1 G eq10 eq4512
   have eq3 := Equation10_4512_implies_Equation3 G eq10 eq4512
@@ -354,13 +354,13 @@ theorem CC7_implies_long (G : Type*) [Magma G] (h : ConjunctionClass7 G) : Conju
   have eq4287 := Equation10_4512_implies_Equation4287 G eq10 eq4512
   exact ⟨eq1, eq3, eq8, eq10, eq47, eq307, eq309, eq323, eq326, eq329, eq411, eq419, eq429, eq3253, eq3255, eq3258, eq3261, eq3264, eq3306, eq3309, eq3316, eq3319, eq3322, eq3326, eq3334, eq4269, eq4284, eq4287, eq4512⟩
 
-theorem CC7_implied_by_long (G : Type*) [Magma G] : ConjunctionClass7_long G -> ConjunctionClass7 G :=
+theorem AT7_implied_by_long (G : Type*) [Magma G] : AssociativeTheory7_long G -> AssociativeTheory7 G :=
 fun ⟨_, _, _, h10, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h10, h4512⟩
 
-theorem CC7_equiv (G : Type*) [Magma G] : ConjunctionClass7 G <-> ConjunctionClass7_long G :=
-Iff.intro (CC7_implies_long G) (CC7_implied_by_long G)
+theorem AT7_equiv (G : Type*) [Magma G] : AssociativeTheory7 G <-> AssociativeTheory7_long G :=
+Iff.intro (AT7_implies_long G) (AT7_implied_by_long G)
 
-theorem CC8_implies_long (G : Type*) [Magma G] (h : ConjunctionClass8 G) : ConjunctionClass8_long G := by
+theorem AT8_implies_long (G : Type*) [Magma G] (h : AssociativeTheory8 G) : AssociativeTheory8_long G := by
   obtain ⟨eq11, eq4512⟩ := h
   have eq1 := Equation11_4512_implies_Equation1 G eq11 eq4512
   have eq8 := Equation11_4512_implies_Equation8 G eq11 eq4512
@@ -384,13 +384,13 @@ theorem CC8_implies_long (G : Type*) [Magma G] (h : ConjunctionClass8 G) : Conju
   have eq4358 := Equation11_4512_implies_Equation4358 G eq11 eq4512
   exact ⟨eq1, eq8, eq11, eq411, eq419, eq429, eq440, eq3253, eq3256, eq3259, eq3261, eq3306, eq3308, eq3315, eq3319, eq3323, eq3331, eq3334, eq4270, eq4283, eq4358, eq4512⟩
 
-theorem CC8_implied_by_long (G : Type*) [Magma G] : ConjunctionClass8_long G -> ConjunctionClass8 G :=
+theorem AT8_implied_by_long (G : Type*) [Magma G] : AssociativeTheory8_long G -> AssociativeTheory8 G :=
 fun ⟨_, _, h11, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h11, h4512⟩
 
-theorem CC8_equiv (G : Type*) [Magma G] : ConjunctionClass8 G <-> ConjunctionClass8_long G :=
-Iff.intro (CC8_implies_long G) (CC8_implied_by_long G)
+theorem AT8_equiv (G : Type*) [Magma G] : AssociativeTheory8 G <-> AssociativeTheory8_long G :=
+Iff.intro (AT8_implies_long G) (AT8_implied_by_long G)
 
-theorem CC9_implies_long (G : Type*) [Magma G] (h : ConjunctionClass9 G) : ConjunctionClass9_long G := by
+theorem AT9_implies_long (G : Type*) [Magma G] (h : AssociativeTheory9 G) : AssociativeTheory9_long G := by
   obtain ⟨eq14, eq4512⟩ := h
   have eq1 := Equation14_4512_implies_Equation1 G eq14 eq4512
   have eq8 := Equation14_4512_implies_Equation8 G eq14 eq4512
@@ -439,13 +439,13 @@ theorem CC9_implies_long (G : Type*) [Magma G] (h : ConjunctionClass9 G) : Conju
   have eq4369 := Equation14_4512_implies_Equation4369 G eq14 eq4512
   exact ⟨eq1, eq8, eq11, eq14, eq16, eq40, eq43, eq411, eq419, eq429, eq440, eq477, eq504, eq513, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq3306, eq3308, eq3315, eq3319, eq3323, eq3331, eq3334, eq3342, eq3346, eq3350, eq3353, eq3388, eq3414, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC9_implied_by_long (G : Type*) [Magma G] : ConjunctionClass9_long G -> ConjunctionClass9 G :=
+theorem AT9_implied_by_long (G : Type*) [Magma G] : AssociativeTheory9_long G -> AssociativeTheory9 G :=
 fun ⟨_, _, _, h14, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h14, h4512⟩
 
-theorem CC9_equiv (G : Type*) [Magma G] : ConjunctionClass9 G <-> ConjunctionClass9_long G :=
-Iff.intro (CC9_implies_long G) (CC9_implied_by_long G)
+theorem AT9_equiv (G : Type*) [Magma G] : AssociativeTheory9 G <-> AssociativeTheory9_long G :=
+Iff.intro (AT9_implies_long G) (AT9_implied_by_long G)
 
-theorem CC10_implies_long (G : Type*) [Magma G] (h : ConjunctionClass10 G) : ConjunctionClass10_long G := by
+theorem AT10_implies_long (G : Type*) [Magma G] (h : AssociativeTheory10 G) : AssociativeTheory10_long G := by
   obtain ⟨eq16, eq4512⟩ := h
   have eq1 := Equation16_4512_implies_Equation1 G eq16 eq4512
   have eq8 := Equation16_4512_implies_Equation8 G eq16 eq4512
@@ -469,13 +469,13 @@ theorem CC10_implies_long (G : Type*) [Magma G] (h : ConjunctionClass10 G) : Con
   have eq4362 := Equation16_4512_implies_Equation4362 G eq16 eq4512
   exact ⟨eq1, eq8, eq16, eq411, eq419, eq429, eq513, eq3253, eq3261, eq3271, eq3278, eq3306, eq3319, eq3334, eq3346, eq3353, eq3388, eq3414, eq4275, eq4320, eq4362, eq4512⟩
 
-theorem CC10_implied_by_long (G : Type*) [Magma G] : ConjunctionClass10_long G -> ConjunctionClass10 G :=
+theorem AT10_implied_by_long (G : Type*) [Magma G] : AssociativeTheory10_long G -> AssociativeTheory10 G :=
 fun ⟨_, _, h16, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h16, h4512⟩
 
-theorem CC10_equiv (G : Type*) [Magma G] : ConjunctionClass10 G <-> ConjunctionClass10_long G :=
-Iff.intro (CC10_implies_long G) (CC10_implied_by_long G)
+theorem AT10_equiv (G : Type*) [Magma G] : AssociativeTheory10 G <-> AssociativeTheory10_long G :=
+Iff.intro (AT10_implies_long G) (AT10_implied_by_long G)
 
-theorem CC11_implies_long (G : Type*) [Magma G] (h : ConjunctionClass11 G) : ConjunctionClass11_long G := by
+theorem AT11_implies_long (G : Type*) [Magma G] (h : AssociativeTheory11 G) : AssociativeTheory11_long G := by
   obtain ⟨eq38, eq4512⟩ := h
   have eq1 := Equation38_4512_implies_Equation1 G eq38 eq4512
   have eq307 := Equation38_4512_implies_Equation307 G eq38 eq4512
@@ -524,13 +524,13 @@ theorem CC11_implies_long (G : Type*) [Magma G] (h : ConjunctionClass11 G) : Con
   have eq4358 := Equation38_4512_implies_Equation4358 G eq38 eq4512
   exact ⟨eq1, eq38, eq307, eq308, eq309, eq310, eq311, eq323, eq325, eq326, eq327, eq329, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3306, eq3308, eq3309, eq3315, eq3316, eq3319, eq3322, eq3323, eq3326, eq3331, eq3334, eq4268, eq4269, eq4270, eq4271, eq4283, eq4284, eq4286, eq4287, eq4288, eq4314, eq4315, eq4318, eq4358, eq4512⟩
 
-theorem CC11_implied_by_long (G : Type*) [Magma G] : ConjunctionClass11_long G -> ConjunctionClass11 G :=
+theorem AT11_implied_by_long (G : Type*) [Magma G] : AssociativeTheory11_long G -> AssociativeTheory11 G :=
 fun ⟨_, h38, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h38, h4512⟩
 
-theorem CC11_equiv (G : Type*) [Magma G] : ConjunctionClass11 G <-> ConjunctionClass11_long G :=
-Iff.intro (CC11_implies_long G) (CC11_implied_by_long G)
+theorem AT11_equiv (G : Type*) [Magma G] : AssociativeTheory11 G <-> AssociativeTheory11_long G :=
+Iff.intro (AT11_implies_long G) (AT11_implied_by_long G)
 
-theorem CC12_implies_long (G : Type*) [Magma G] (h : ConjunctionClass12 G) : ConjunctionClass12_long G := by
+theorem AT12_implies_long (G : Type*) [Magma G] (h : AssociativeTheory12 G) : AssociativeTheory12_long G := by
   obtain ⟨eq39, eq4512⟩ := h
   have eq1 := Equation39_4512_implies_Equation1 G eq39 eq4512
   have eq307 := Equation39_4512_implies_Equation307 G eq39 eq4512
@@ -579,13 +579,13 @@ theorem CC12_implies_long (G : Type*) [Magma G] (h : ConjunctionClass12 G) : Con
   have eq4362 := Equation39_4512_implies_Equation4362 G eq39 eq4512
   exact ⟨eq1, eq39, eq307, eq309, eq312, eq315, eq318, eq323, eq326, eq329, eq333, eq343, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3274, eq3278, eq3292, eq3300, eq3306, eq3309, eq3316, eq3319, eq3322, eq3326, eq3334, eq3346, eq3353, eq3388, eq3414, eq4269, eq4272, eq4275, eq4278, eq4284, eq4287, eq4291, eq4296, eq4300, eq4304, eq4320, eq4327, eq4362, eq4512⟩
 
-theorem CC12_implied_by_long (G : Type*) [Magma G] : ConjunctionClass12_long G -> ConjunctionClass12 G :=
+theorem AT12_implied_by_long (G : Type*) [Magma G] : AssociativeTheory12_long G -> AssociativeTheory12 G :=
 fun ⟨_, h39, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h39, h4512⟩
 
-theorem CC12_equiv (G : Type*) [Magma G] : ConjunctionClass12 G <-> ConjunctionClass12_long G :=
-Iff.intro (CC12_implies_long G) (CC12_implied_by_long G)
+theorem AT12_equiv (G : Type*) [Magma G] : AssociativeTheory12 G <-> AssociativeTheory12_long G :=
+Iff.intro (AT12_implies_long G) (AT12_implied_by_long G)
 
-theorem CC13_implies_long (G : Type*) [Magma G] (h : ConjunctionClass13 G) : ConjunctionClass13_long G := by
+theorem AT13_implies_long (G : Type*) [Magma G] (h : AssociativeTheory13 G) : AssociativeTheory13_long G := by
   obtain ⟨eq38, eq39, eq4512⟩ := h
   have eq41 := Equation38_39_4512_implies_Equation41 G eq38 eq39 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -689,13 +689,13 @@ theorem CC13_implies_long (G : Type*) [Magma G] (h : ConjunctionClass13 G) : Con
   have eq4369 := Equation41_4512_implies_Equation4369 G eq41 eq4512
   exact ⟨eq1, eq38, eq39, eq40, eq41, eq43, eq307, eq308, eq309, eq310, eq311, eq312, eq313, eq314, eq315, eq316, eq318, eq323, eq325, eq326, eq327, eq329, eq332, eq333, eq343, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq3306, eq3308, eq3309, eq3315, eq3316, eq3319, eq3322, eq3323, eq3326, eq3331, eq3334, eq3342, eq3346, eq3350, eq3353, eq3388, eq3414, eq4268, eq4269, eq4270, eq4271, eq4272, eq4273, eq4274, eq4275, eq4276, eq4277, eq4278, eq4279, eq4280, eq4283, eq4284, eq4286, eq4287, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4300, eq4301, eq4304, eq4305, eq4314, eq4315, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC13_implied_by_long (G : Type*) [Magma G] : ConjunctionClass13_long G -> ConjunctionClass13 G :=
+theorem AT13_implied_by_long (G : Type*) [Magma G] : AssociativeTheory13_long G -> AssociativeTheory13 G :=
 fun ⟨_, h38, h39, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h38, h39, h4512⟩
 
-theorem CC13_equiv (G : Type*) [Magma G] : ConjunctionClass13 G <-> ConjunctionClass13_long G :=
-Iff.intro (CC13_implies_long G) (CC13_implied_by_long G)
+theorem AT13_equiv (G : Type*) [Magma G] : AssociativeTheory13 G <-> AssociativeTheory13_long G :=
+Iff.intro (AT13_implies_long G) (AT13_implied_by_long G)
 
-theorem CC14_implies_long (G : Type*) [Magma G] (h : ConjunctionClass14 G) : ConjunctionClass14_long G := by
+theorem AT14_implies_long (G : Type*) [Magma G] (h : AssociativeTheory14 G) : AssociativeTheory14_long G := by
   obtain ⟨eq40, eq4512⟩ := h
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
   have eq3253 := Equation40_4512_implies_Equation3253 G eq40 eq4512
@@ -710,13 +710,13 @@ theorem CC14_implies_long (G : Type*) [Magma G] (h : ConjunctionClass14 G) : Con
   have eq4297 := Equation40_4512_implies_Equation4297 G eq40 eq4512
   exact ⟨eq1, eq40, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq4270, eq4275, eq4290, eq4297, eq4512⟩
 
-theorem CC14_implied_by_long (G : Type*) [Magma G] : ConjunctionClass14_long G -> ConjunctionClass14 G :=
+theorem AT14_implied_by_long (G : Type*) [Magma G] : AssociativeTheory14_long G -> AssociativeTheory14 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h4512⟩
 
-theorem CC14_equiv (G : Type*) [Magma G] : ConjunctionClass14 G <-> ConjunctionClass14_long G :=
-Iff.intro (CC14_implies_long G) (CC14_implied_by_long G)
+theorem AT14_equiv (G : Type*) [Magma G] : AssociativeTheory14 G <-> AssociativeTheory14_long G :=
+Iff.intro (AT14_implies_long G) (AT14_implied_by_long G)
 
-theorem CC15_implies_long (G : Type*) [Magma G] (h : ConjunctionClass15 G) : ConjunctionClass15_long G := by
+theorem AT15_implies_long (G : Type*) [Magma G] (h : AssociativeTheory15 G) : AssociativeTheory15_long G := by
   obtain ⟨eq43, eq4512⟩ := h
   have eq1 := Equation43_4512_implies_Equation1 G eq43 eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -728,13 +728,13 @@ theorem CC15_implies_long (G : Type*) [Magma G] (h : ConjunctionClass15 G) : Con
   have eq4369 := Equation43_4512_implies_Equation4369 G eq43 eq4512
   exact ⟨eq1, eq43, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC15_implied_by_long (G : Type*) [Magma G] : ConjunctionClass15_long G -> ConjunctionClass15 G :=
+theorem AT15_implied_by_long (G : Type*) [Magma G] : AssociativeTheory15_long G -> AssociativeTheory15 G :=
 fun ⟨_, h43, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h4512⟩
 
-theorem CC15_equiv (G : Type*) [Magma G] : ConjunctionClass15 G <-> ConjunctionClass15_long G :=
-Iff.intro (CC15_implies_long G) (CC15_implied_by_long G)
+theorem AT15_equiv (G : Type*) [Magma G] : AssociativeTheory15 G <-> AssociativeTheory15_long G :=
+Iff.intro (AT15_implies_long G) (AT15_implied_by_long G)
 
-theorem CC16_implies_long (G : Type*) [Magma G] (h : ConjunctionClass16 G) : ConjunctionClass16_long G := by
+theorem AT16_implies_long (G : Type*) [Magma G] (h : AssociativeTheory16 G) : AssociativeTheory16_long G := by
   obtain ⟨eq3, eq43, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -771,13 +771,13 @@ theorem CC16_implies_long (G : Type*) [Magma G] (h : ConjunctionClass16 G) : Con
   have eq3353 := Equation332_4512_implies_Equation3353 G eq332 eq4512
   exact ⟨eq1, eq3, eq8, eq43, eq47, eq307, eq323, eq325, eq326, eq332, eq333, eq411, eq3253, eq3306, eq3308, eq3309, eq3315, eq3316, eq3319, eq3342, eq3346, eq3353, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC16_implied_by_long (G : Type*) [Magma G] : ConjunctionClass16_long G -> ConjunctionClass16 G :=
+theorem AT16_implied_by_long (G : Type*) [Magma G] : AssociativeTheory16_long G -> AssociativeTheory16 G :=
 fun ⟨_, h3, _, h43, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h3, h43, h4512⟩
 
-theorem CC16_equiv (G : Type*) [Magma G] : ConjunctionClass16 G <-> ConjunctionClass16_long G :=
-Iff.intro (CC16_implies_long G) (CC16_implied_by_long G)
+theorem AT16_equiv (G : Type*) [Magma G] : AssociativeTheory16 G <-> AssociativeTheory16_long G :=
+Iff.intro (AT16_implies_long G) (AT16_implied_by_long G)
 
-theorem CC17_implies_long (G : Type*) [Magma G] (h : ConjunctionClass17 G) : ConjunctionClass17_long G := by
+theorem AT17_implies_long (G : Type*) [Magma G] (h : AssociativeTheory17 G) : AssociativeTheory17_long G := by
   obtain ⟨eq8, eq43, eq4512⟩ := h
   have eq1 := Equation8_4512_implies_Equation1 G eq8 eq4512
   have eq411 := Equation8_4512_implies_Equation411 G eq8 eq4512
@@ -798,13 +798,13 @@ theorem CC17_implies_long (G : Type*) [Magma G] (h : ConjunctionClass17 G) : Con
   have eq3353 := Equation3342_4512_implies_Equation3353 G eq3342 eq4512
   exact ⟨eq1, eq8, eq43, eq411, eq3253, eq3306, eq3308, eq3315, eq3319, eq3342, eq3346, eq3353, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC17_implied_by_long (G : Type*) [Magma G] : ConjunctionClass17_long G -> ConjunctionClass17 G :=
+theorem AT17_implied_by_long (G : Type*) [Magma G] : AssociativeTheory17_long G -> AssociativeTheory17 G :=
 fun ⟨_, h8, h43, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h8, h43, h4512⟩
 
-theorem CC17_equiv (G : Type*) [Magma G] : ConjunctionClass17 G <-> ConjunctionClass17_long G :=
-Iff.intro (CC17_implies_long G) (CC17_implied_by_long G)
+theorem AT17_equiv (G : Type*) [Magma G] : AssociativeTheory17 G <-> AssociativeTheory17_long G :=
+Iff.intro (AT17_implies_long G) (AT17_implied_by_long G)
 
-theorem CC18_implies_long (G : Type*) [Magma G] (h : ConjunctionClass18 G) : ConjunctionClass18_long G := by
+theorem AT18_implies_long (G : Type*) [Magma G] (h : AssociativeTheory18 G) : AssociativeTheory18_long G := by
   obtain ⟨eq40, eq43, eq4512⟩ := h
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
   have eq3253 := Equation40_4512_implies_Equation3253 G eq40 eq4512
@@ -828,24 +828,24 @@ theorem CC18_implies_long (G : Type*) [Magma G] (h : ConjunctionClass18 G) : Con
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq40, eq43, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC18_implied_by_long (G : Type*) [Magma G] : ConjunctionClass18_long G -> ConjunctionClass18 G :=
+theorem AT18_implied_by_long (G : Type*) [Magma G] : AssociativeTheory18_long G -> AssociativeTheory18 G :=
 fun ⟨_, h40, h43, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h43, h4512⟩
 
-theorem CC18_equiv (G : Type*) [Magma G] : ConjunctionClass18 G <-> ConjunctionClass18_long G :=
-Iff.intro (CC18_implies_long G) (CC18_implied_by_long G)
+theorem AT18_equiv (G : Type*) [Magma G] : AssociativeTheory18 G <-> AssociativeTheory18_long G :=
+Iff.intro (AT18_implies_long G) (AT18_implied_by_long G)
 
-theorem CC19_implies_long (G : Type*) [Magma G] (h : ConjunctionClass19 G) : ConjunctionClass19_long G := by
+theorem AT19_implies_long (G : Type*) [Magma G] (h : AssociativeTheory19 G) : AssociativeTheory19_long G := by
   obtain ⟨eq47, eq4512⟩ := h
   have eq1 := Equation47_4512_implies_Equation1 G eq47 eq4512
   exact ⟨eq1, eq47, eq4512⟩
 
-theorem CC19_implied_by_long (G : Type*) [Magma G] : ConjunctionClass19_long G -> ConjunctionClass19 G :=
+theorem AT19_implied_by_long (G : Type*) [Magma G] : AssociativeTheory19_long G -> AssociativeTheory19 G :=
 fun ⟨_, h47, h4512⟩ => ⟨h47, h4512⟩
 
-theorem CC19_equiv (G : Type*) [Magma G] : ConjunctionClass19 G <-> ConjunctionClass19_long G :=
-Iff.intro (CC19_implies_long G) (CC19_implied_by_long G)
+theorem AT19_equiv (G : Type*) [Magma G] : AssociativeTheory19 G <-> AssociativeTheory19_long G :=
+Iff.intro (AT19_implies_long G) (AT19_implied_by_long G)
 
-theorem CC20_implies_long (G : Type*) [Magma G] (h : ConjunctionClass20 G) : ConjunctionClass20_long G := by
+theorem AT20_implies_long (G : Type*) [Magma G] (h : AssociativeTheory20 G) : AssociativeTheory20_long G := by
   obtain ⟨eq43, eq47, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -857,25 +857,25 @@ theorem CC20_implies_long (G : Type*) [Magma G] (h : ConjunctionClass20 G) : Con
   have eq4369 := Equation43_4512_implies_Equation4369 G eq43 eq4512
   exact ⟨eq1, eq43, eq47, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC20_implied_by_long (G : Type*) [Magma G] : ConjunctionClass20_long G -> ConjunctionClass20 G :=
+theorem AT20_implied_by_long (G : Type*) [Magma G] : AssociativeTheory20_long G -> AssociativeTheory20 G :=
 fun ⟨_, h43, h47, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h47, h4512⟩
 
-theorem CC20_equiv (G : Type*) [Magma G] : ConjunctionClass20 G <-> ConjunctionClass20_long G :=
-Iff.intro (CC20_implies_long G) (CC20_implied_by_long G)
+theorem AT20_equiv (G : Type*) [Magma G] : AssociativeTheory20 G <-> AssociativeTheory20_long G :=
+Iff.intro (AT20_implies_long G) (AT20_implied_by_long G)
 
-theorem CC21_implies_long (G : Type*) [Magma G] (h : ConjunctionClass21 G) : ConjunctionClass21_long G := by
+theorem AT21_implies_long (G : Type*) [Magma G] (h : AssociativeTheory21 G) : AssociativeTheory21_long G := by
   obtain ⟨eq56, eq4512⟩ := h
   have eq1 := Equation56_4512_implies_Equation1 G eq56 eq4512
   have eq47 := Equation56_4512_implies_Equation47 G eq56 eq4512
   exact ⟨eq1, eq47, eq56, eq4512⟩
 
-theorem CC21_implied_by_long (G : Type*) [Magma G] : ConjunctionClass21_long G -> ConjunctionClass21 G :=
+theorem AT21_implied_by_long (G : Type*) [Magma G] : AssociativeTheory21_long G -> AssociativeTheory21 G :=
 fun ⟨_, _, h56, h4512⟩ => ⟨h56, h4512⟩
 
-theorem CC21_equiv (G : Type*) [Magma G] : ConjunctionClass21 G <-> ConjunctionClass21_long G :=
-Iff.intro (CC21_implies_long G) (CC21_implied_by_long G)
+theorem AT21_equiv (G : Type*) [Magma G] : AssociativeTheory21 G <-> AssociativeTheory21_long G :=
+Iff.intro (AT21_implies_long G) (AT21_implied_by_long G)
 
-theorem CC22_implies_long (G : Type*) [Magma G] (h : ConjunctionClass22 G) : ConjunctionClass22_long G := by
+theorem AT22_implies_long (G : Type*) [Magma G] (h : AssociativeTheory22 G) : AssociativeTheory22_long G := by
   obtain ⟨eq43, eq56, eq4512⟩ := h
   have eq66 := Equation43_56_4512_implies_Equation66 G eq43 eq56 eq4512
   have eq1 := Equation56_4512_implies_Equation1 G eq56 eq4512
@@ -891,50 +891,50 @@ theorem CC22_implies_long (G : Type*) [Magma G] (h : ConjunctionClass22 G) : Con
   have eq4369 := Equation66_4512_implies_Equation4369 G eq66 eq4512
   exact ⟨eq1, eq43, eq47, eq56, eq66, eq75, eq4276, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC22_implied_by_long (G : Type*) [Magma G] : ConjunctionClass22_long G -> ConjunctionClass22 G :=
+theorem AT22_implied_by_long (G : Type*) [Magma G] : AssociativeTheory22_long G -> AssociativeTheory22 G :=
 fun ⟨_, h43, _, h56, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h56, h4512⟩
 
-theorem CC22_equiv (G : Type*) [Magma G] : ConjunctionClass22 G <-> ConjunctionClass22_long G :=
-Iff.intro (CC22_implies_long G) (CC22_implied_by_long G)
+theorem AT22_equiv (G : Type*) [Magma G] : AssociativeTheory22 G <-> AssociativeTheory22_long G :=
+Iff.intro (AT22_implies_long G) (AT22_implied_by_long G)
 
-theorem CC23_implies_long (G : Type*) [Magma G] (h : ConjunctionClass23 G) : ConjunctionClass23_long G := by
+theorem AT23_implies_long (G : Type*) [Magma G] (h : AssociativeTheory23 G) : AssociativeTheory23_long G := by
   obtain ⟨eq75, eq4512⟩ := h
   have eq1 := Equation75_4512_implies_Equation1 G eq75 eq4512
   have eq47 := Equation75_4512_implies_Equation47 G eq75 eq4512
   exact ⟨eq1, eq47, eq75, eq4512⟩
 
-theorem CC23_implied_by_long (G : Type*) [Magma G] : ConjunctionClass23_long G -> ConjunctionClass23 G :=
+theorem AT23_implied_by_long (G : Type*) [Magma G] : AssociativeTheory23_long G -> AssociativeTheory23 G :=
 fun ⟨_, _, h75, h4512⟩ => ⟨h75, h4512⟩
 
-theorem CC23_equiv (G : Type*) [Magma G] : ConjunctionClass23 G <-> ConjunctionClass23_long G :=
-Iff.intro (CC23_implies_long G) (CC23_implied_by_long G)
+theorem AT23_equiv (G : Type*) [Magma G] : AssociativeTheory23 G <-> AssociativeTheory23_long G :=
+Iff.intro (AT23_implies_long G) (AT23_implied_by_long G)
 
-theorem CC24_implies_long (G : Type*) [Magma G] (h : ConjunctionClass24 G) : ConjunctionClass24_long G := by
+theorem AT24_implies_long (G : Type*) [Magma G] (h : AssociativeTheory24 G) : AssociativeTheory24_long G := by
   obtain ⟨eq56, eq75, eq4512⟩ := h
   have eq4276 := Equation56_75_4512_implies_Equation4276 G eq56 eq75 eq4512
   have eq1 := Equation56_4512_implies_Equation1 G eq56 eq4512
   have eq47 := Equation56_4512_implies_Equation47 G eq56 eq4512
   exact ⟨eq1, eq47, eq56, eq75, eq4276, eq4512⟩
 
-theorem CC24_implied_by_long (G : Type*) [Magma G] : ConjunctionClass24_long G -> ConjunctionClass24 G :=
+theorem AT24_implied_by_long (G : Type*) [Magma G] : AssociativeTheory24_long G -> AssociativeTheory24 G :=
 fun ⟨_, _, h56, h75, _, h4512⟩ => ⟨h56, h75, h4512⟩
 
-theorem CC24_equiv (G : Type*) [Magma G] : ConjunctionClass24 G <-> ConjunctionClass24_long G :=
-Iff.intro (CC24_implies_long G) (CC24_implied_by_long G)
+theorem AT24_equiv (G : Type*) [Magma G] : AssociativeTheory24 G <-> AssociativeTheory24_long G :=
+Iff.intro (AT24_implies_long G) (AT24_implied_by_long G)
 
-theorem CC25_implies_long (G : Type*) [Magma G] (h : ConjunctionClass25 G) : ConjunctionClass25_long G := by
+theorem AT25_implies_long (G : Type*) [Magma G] (h : AssociativeTheory25 G) : AssociativeTheory25_long G := by
   obtain ⟨eq307, eq4512⟩ := h
   have eq1 := Equation307_4512_implies_Equation1 G eq307 eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4512⟩
 
-theorem CC25_implied_by_long (G : Type*) [Magma G] : ConjunctionClass25_long G -> ConjunctionClass25 G :=
+theorem AT25_implied_by_long (G : Type*) [Magma G] : AssociativeTheory25_long G -> AssociativeTheory25 G :=
 fun ⟨_, h307, _, h4512⟩ => ⟨h307, h4512⟩
 
-theorem CC25_equiv (G : Type*) [Magma G] : ConjunctionClass25 G <-> ConjunctionClass25_long G :=
-Iff.intro (CC25_implies_long G) (CC25_implied_by_long G)
+theorem AT25_equiv (G : Type*) [Magma G] : AssociativeTheory25 G <-> AssociativeTheory25_long G :=
+Iff.intro (AT25_implies_long G) (AT25_implied_by_long G)
 
-theorem CC26_implies_long (G : Type*) [Magma G] (h : ConjunctionClass26 G) : ConjunctionClass26_long G := by
+theorem AT26_implies_long (G : Type*) [Magma G] (h : AssociativeTheory26 G) : AssociativeTheory26_long G := by
   obtain ⟨eq40, eq307, eq4512⟩ := h
   have eq316 := Equation40_307_4512_implies_Equation316 G eq40 eq307 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -967,13 +967,13 @@ theorem CC26_implies_long (G : Type*) [Magma G] (h : ConjunctionClass26 G) : Con
   have eq4343 := Equation316_4512_implies_Equation4343 G eq316 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3261, eq3271, eq3278, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4512⟩
 
-theorem CC26_implied_by_long (G : Type*) [Magma G] : ConjunctionClass26_long G -> ConjunctionClass26 G :=
+theorem AT26_implied_by_long (G : Type*) [Magma G] : AssociativeTheory26_long G -> AssociativeTheory26 G :=
 fun ⟨_, h40, h307, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h307, h4512⟩
 
-theorem CC26_equiv (G : Type*) [Magma G] : ConjunctionClass26 G <-> ConjunctionClass26_long G :=
-Iff.intro (CC26_implies_long G) (CC26_implied_by_long G)
+theorem AT26_equiv (G : Type*) [Magma G] : AssociativeTheory26 G <-> AssociativeTheory26_long G :=
+Iff.intro (AT26_implies_long G) (AT26_implied_by_long G)
 
-theorem CC27_implies_long (G : Type*) [Magma G] (h : ConjunctionClass27 G) : ConjunctionClass27_long G := by
+theorem AT27_implies_long (G : Type*) [Magma G] (h : AssociativeTheory27 G) : AssociativeTheory27_long G := by
   obtain ⟨eq43, eq307, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -986,13 +986,13 @@ theorem CC27_implies_long (G : Type*) [Magma G] (h : ConjunctionClass27 G) : Con
   have eq4369 := Equation43_4512_implies_Equation4369 G eq43 eq4512
   exact ⟨eq1, eq43, eq307, eq3253, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC27_implied_by_long (G : Type*) [Magma G] : ConjunctionClass27_long G -> ConjunctionClass27 G :=
+theorem AT27_implied_by_long (G : Type*) [Magma G] : AssociativeTheory27_long G -> AssociativeTheory27 G :=
 fun ⟨_, h43, h307, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h307, h4512⟩
 
-theorem CC27_equiv (G : Type*) [Magma G] : ConjunctionClass27 G <-> ConjunctionClass27_long G :=
-Iff.intro (CC27_implies_long G) (CC27_implied_by_long G)
+theorem AT27_equiv (G : Type*) [Magma G] : AssociativeTheory27 G <-> AssociativeTheory27_long G :=
+Iff.intro (AT27_implies_long G) (AT27_implied_by_long G)
 
-theorem CC28_implies_long (G : Type*) [Magma G] (h : ConjunctionClass28 G) : ConjunctionClass28_long G := by
+theorem AT28_implies_long (G : Type*) [Magma G] (h : AssociativeTheory28 G) : AssociativeTheory28_long G := by
   obtain ⟨eq40, eq43, eq307, eq4512⟩ := h
   have eq316 := Equation40_307_4512_implies_Equation316 G eq40 eq307 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -1055,13 +1055,13 @@ theorem CC28_implies_long (G : Type*) [Magma G] (h : ConjunctionClass28 G) : Con
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq40, eq43, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC28_implied_by_long (G : Type*) [Magma G] : ConjunctionClass28_long G -> ConjunctionClass28 G :=
+theorem AT28_implied_by_long (G : Type*) [Magma G] : AssociativeTheory28_long G -> AssociativeTheory28 G :=
 fun ⟨_, h40, h43, h307, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h43, h307, h4512⟩
 
-theorem CC28_equiv (G : Type*) [Magma G] : ConjunctionClass28 G <-> ConjunctionClass28_long G :=
-Iff.intro (CC28_implies_long G) (CC28_implied_by_long G)
+theorem AT28_equiv (G : Type*) [Magma G] : AssociativeTheory28 G <-> AssociativeTheory28_long G :=
+Iff.intro (AT28_implies_long G) (AT28_implied_by_long G)
 
-theorem CC29_implies_long (G : Type*) [Magma G] (h : ConjunctionClass29 G) : ConjunctionClass29_long G := by
+theorem AT29_implies_long (G : Type*) [Magma G] (h : AssociativeTheory29 G) : AssociativeTheory29_long G := by
   obtain ⟨eq308, eq4512⟩ := h
   have eq1 := Equation308_4512_implies_Equation1 G eq308 eq4512
   have eq307 := Equation308_4512_implies_Equation307 G eq308 eq4512
@@ -1071,13 +1071,13 @@ theorem CC29_implies_long (G : Type*) [Magma G] (h : ConjunctionClass29 G) : Con
   have eq4268 := Equation308_4512_implies_Equation4268 G eq308 eq4512
   exact ⟨eq1, eq307, eq308, eq3253, eq3255, eq3256, eq4268, eq4512⟩
 
-theorem CC29_implied_by_long (G : Type*) [Magma G] : ConjunctionClass29_long G -> ConjunctionClass29 G :=
+theorem AT29_implied_by_long (G : Type*) [Magma G] : AssociativeTheory29_long G -> AssociativeTheory29 G :=
 fun ⟨_, _, h308, _, _, _, _, h4512⟩ => ⟨h308, h4512⟩
 
-theorem CC29_equiv (G : Type*) [Magma G] : ConjunctionClass29 G <-> ConjunctionClass29_long G :=
-Iff.intro (CC29_implies_long G) (CC29_implied_by_long G)
+theorem AT29_equiv (G : Type*) [Magma G] : AssociativeTheory29 G <-> AssociativeTheory29_long G :=
+Iff.intro (AT29_implies_long G) (AT29_implied_by_long G)
 
-theorem CC30_implies_long (G : Type*) [Magma G] (h : ConjunctionClass30 G) : ConjunctionClass30_long G := by
+theorem AT30_implies_long (G : Type*) [Magma G] (h : AssociativeTheory30 G) : AssociativeTheory30_long G := by
   obtain ⟨eq309, eq4512⟩ := h
   have eq1 := Equation309_4512_implies_Equation1 G eq309 eq4512
   have eq307 := Equation309_4512_implies_Equation307 G eq309 eq4512
@@ -1090,13 +1090,13 @@ theorem CC30_implies_long (G : Type*) [Magma G] (h : ConjunctionClass30 G) : Con
   have eq4284 := Equation309_4512_implies_Equation4284 G eq309 eq4512
   exact ⟨eq1, eq307, eq309, eq3253, eq3255, eq3258, eq3261, eq3264, eq4269, eq4284, eq4512⟩
 
-theorem CC30_implied_by_long (G : Type*) [Magma G] : ConjunctionClass30_long G -> ConjunctionClass30 G :=
+theorem AT30_implied_by_long (G : Type*) [Magma G] : AssociativeTheory30_long G -> AssociativeTheory30 G :=
 fun ⟨_, _, h309, _, _, _, _, _, _, _, h4512⟩ => ⟨h309, h4512⟩
 
-theorem CC30_equiv (G : Type*) [Magma G] : ConjunctionClass30 G <-> ConjunctionClass30_long G :=
-Iff.intro (CC30_implies_long G) (CC30_implied_by_long G)
+theorem AT30_equiv (G : Type*) [Magma G] : AssociativeTheory30 G <-> AssociativeTheory30_long G :=
+Iff.intro (AT30_implies_long G) (AT30_implied_by_long G)
 
-theorem CC31_implies_long (G : Type*) [Magma G] (h : ConjunctionClass31 G) : ConjunctionClass31_long G := by
+theorem AT31_implies_long (G : Type*) [Magma G] (h : AssociativeTheory31 G) : AssociativeTheory31_long G := by
   obtain ⟨eq40, eq309, eq4512⟩ := h
   have eq313 := Equation40_309_4512_implies_Equation313 G eq40 eq309 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -1155,13 +1155,13 @@ theorem CC31_implies_long (G : Type*) [Magma G] (h : ConjunctionClass31 G) : Con
   have eq4343 := Equation313_4512_implies_Equation4343 G eq313 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4512⟩
 
-theorem CC31_implied_by_long (G : Type*) [Magma G] : ConjunctionClass31_long G -> ConjunctionClass31 G :=
+theorem AT31_implied_by_long (G : Type*) [Magma G] : AssociativeTheory31_long G -> AssociativeTheory31 G :=
 fun ⟨_, h40, _, _, h309, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h309, h4512⟩
 
-theorem CC31_equiv (G : Type*) [Magma G] : ConjunctionClass31 G <-> ConjunctionClass31_long G :=
-Iff.intro (CC31_implies_long G) (CC31_implied_by_long G)
+theorem AT31_equiv (G : Type*) [Magma G] : AssociativeTheory31 G <-> AssociativeTheory31_long G :=
+Iff.intro (AT31_implies_long G) (AT31_implied_by_long G)
 
-theorem CC32_implies_long (G : Type*) [Magma G] (h : ConjunctionClass32 G) : ConjunctionClass32_long G := by
+theorem AT32_implies_long (G : Type*) [Magma G] (h : AssociativeTheory32 G) : AssociativeTheory32_long G := by
   obtain ⟨eq308, eq309, eq4512⟩ := h
   have eq3265 := Equation308_309_4512_implies_Equation3265 G eq308 eq309 eq4512
   have eq3260 := Equation308_309_4512_implies_Equation3260 G eq308 eq309 eq4512
@@ -1186,13 +1186,13 @@ theorem CC32_implies_long (G : Type*) [Magma G] (h : ConjunctionClass32 G) : Con
   have eq4283 := Equation4286_4512_implies_Equation4283 G eq4286 eq4512
   exact ⟨eq1, eq307, eq308, eq309, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq4268, eq4269, eq4270, eq4283, eq4284, eq4286, eq4288, eq4314, eq4318, eq4512⟩
 
-theorem CC32_implied_by_long (G : Type*) [Magma G] : ConjunctionClass32_long G -> ConjunctionClass32 G :=
+theorem AT32_implied_by_long (G : Type*) [Magma G] : AssociativeTheory32_long G -> AssociativeTheory32 G :=
 fun ⟨_, _, h308, h309, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h308, h309, h4512⟩
 
-theorem CC32_equiv (G : Type*) [Magma G] : ConjunctionClass32 G <-> ConjunctionClass32_long G :=
-Iff.intro (CC32_implies_long G) (CC32_implied_by_long G)
+theorem AT32_equiv (G : Type*) [Magma G] : AssociativeTheory32 G <-> AssociativeTheory32_long G :=
+Iff.intro (AT32_implies_long G) (AT32_implied_by_long G)
 
-theorem CC33_implies_long (G : Type*) [Magma G] (h : ConjunctionClass33 G) : ConjunctionClass33_long G := by
+theorem AT33_implies_long (G : Type*) [Magma G] (h : AssociativeTheory33 G) : AssociativeTheory33_long G := by
   obtain ⟨eq310, eq4512⟩ := h
   have eq1 := Equation310_4512_implies_Equation1 G eq310 eq4512
   have eq307 := Equation310_4512_implies_Equation307 G eq310 eq4512
@@ -1209,13 +1209,13 @@ theorem CC33_implies_long (G : Type*) [Magma G] (h : ConjunctionClass33 G) : Con
   have eq4288 := Equation310_4512_implies_Equation4288 G eq310 eq4512
   exact ⟨eq1, eq307, eq308, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3261, eq4268, eq4270, eq4284, eq4288, eq4512⟩
 
-theorem CC33_implied_by_long (G : Type*) [Magma G] : ConjunctionClass33_long G -> ConjunctionClass33 G :=
+theorem AT33_implied_by_long (G : Type*) [Magma G] : AssociativeTheory33_long G -> AssociativeTheory33 G :=
 fun ⟨_, _, _, h310, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h310, h4512⟩
 
-theorem CC33_equiv (G : Type*) [Magma G] : ConjunctionClass33 G <-> ConjunctionClass33_long G :=
-Iff.intro (CC33_implies_long G) (CC33_implied_by_long G)
+theorem AT33_equiv (G : Type*) [Magma G] : AssociativeTheory33 G <-> AssociativeTheory33_long G :=
+Iff.intro (AT33_implies_long G) (AT33_implied_by_long G)
 
-theorem CC34_implies_long (G : Type*) [Magma G] (h : ConjunctionClass34 G) : ConjunctionClass34_long G := by
+theorem AT34_implies_long (G : Type*) [Magma G] (h : AssociativeTheory34 G) : AssociativeTheory34_long G := by
   obtain ⟨eq311, eq4512⟩ := h
   have eq1 := Equation311_4512_implies_Equation1 G eq311 eq4512
   have eq307 := Equation311_4512_implies_Equation307 G eq311 eq4512
@@ -1247,13 +1247,13 @@ theorem CC34_implies_long (G : Type*) [Magma G] (h : ConjunctionClass34 G) : Con
   have eq4358 := Equation311_4512_implies_Equation4358 G eq311 eq4512
   exact ⟨eq1, eq307, eq308, eq309, eq310, eq311, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq4268, eq4269, eq4270, eq4271, eq4283, eq4284, eq4286, eq4287, eq4288, eq4314, eq4315, eq4318, eq4358, eq4512⟩
 
-theorem CC34_implied_by_long (G : Type*) [Magma G] : ConjunctionClass34_long G -> ConjunctionClass34 G :=
+theorem AT34_implied_by_long (G : Type*) [Magma G] : AssociativeTheory34_long G -> AssociativeTheory34 G :=
 fun ⟨_, _, _, _, _, h311, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h311, h4512⟩
 
-theorem CC34_equiv (G : Type*) [Magma G] : ConjunctionClass34 G <-> ConjunctionClass34_long G :=
-Iff.intro (CC34_implies_long G) (CC34_implied_by_long G)
+theorem AT34_equiv (G : Type*) [Magma G] : AssociativeTheory34 G <-> AssociativeTheory34_long G :=
+Iff.intro (AT34_implies_long G) (AT34_implied_by_long G)
 
-theorem CC35_implies_long (G : Type*) [Magma G] (h : ConjunctionClass35 G) : ConjunctionClass35_long G := by
+theorem AT35_implies_long (G : Type*) [Magma G] (h : AssociativeTheory35 G) : AssociativeTheory35_long G := by
   obtain ⟨eq40, eq311, eq4512⟩ := h
   have eq314 := Equation40_311_4512_implies_Equation314 G eq40 eq311 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -1328,13 +1328,13 @@ theorem CC35_implies_long (G : Type*) [Magma G] (h : ConjunctionClass35 G) : Con
   have eq4369 := Equation314_4512_implies_Equation4369 G eq314 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq311, eq312, eq313, eq314, eq315, eq316, eq318, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4269, eq4270, eq4271, eq4272, eq4273, eq4274, eq4275, eq4276, eq4277, eq4278, eq4279, eq4280, eq4283, eq4284, eq4286, eq4287, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4300, eq4301, eq4304, eq4305, eq4314, eq4315, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC35_implied_by_long (G : Type*) [Magma G] : ConjunctionClass35_long G -> ConjunctionClass35 G :=
+theorem AT35_implied_by_long (G : Type*) [Magma G] : AssociativeTheory35_long G -> AssociativeTheory35 G :=
 fun ⟨_, h40, _, _, _, _, h311, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h311, h4512⟩
 
-theorem CC35_equiv (G : Type*) [Magma G] : ConjunctionClass35 G <-> ConjunctionClass35_long G :=
-Iff.intro (CC35_implies_long G) (CC35_implied_by_long G)
+theorem AT35_equiv (G : Type*) [Magma G] : AssociativeTheory35 G <-> AssociativeTheory35_long G :=
+Iff.intro (AT35_implies_long G) (AT35_implied_by_long G)
 
-theorem CC36_implies_long (G : Type*) [Magma G] (h : ConjunctionClass36 G) : ConjunctionClass36_long G := by
+theorem AT36_implies_long (G : Type*) [Magma G] (h : AssociativeTheory36 G) : AssociativeTheory36_long G := by
   obtain ⟨eq43, eq311, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -1410,13 +1410,13 @@ theorem CC36_implies_long (G : Type*) [Magma G] (h : ConjunctionClass36 G) : Con
   have eq4300 := Equation314_4512_implies_Equation4300 G eq314 eq4512
   exact ⟨eq1, eq40, eq43, eq307, eq308, eq309, eq310, eq311, eq312, eq313, eq314, eq315, eq316, eq318, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4269, eq4270, eq4271, eq4272, eq4273, eq4274, eq4275, eq4276, eq4277, eq4278, eq4279, eq4280, eq4283, eq4284, eq4286, eq4287, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4300, eq4301, eq4304, eq4305, eq4314, eq4315, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC36_implied_by_long (G : Type*) [Magma G] : ConjunctionClass36_long G -> ConjunctionClass36 G :=
+theorem AT36_implied_by_long (G : Type*) [Magma G] : AssociativeTheory36_long G -> AssociativeTheory36 G :=
 fun ⟨_, _, h43, _, _, _, _, h311, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h311, h4512⟩
 
-theorem CC36_equiv (G : Type*) [Magma G] : ConjunctionClass36 G <-> ConjunctionClass36_long G :=
-Iff.intro (CC36_implies_long G) (CC36_implied_by_long G)
+theorem AT36_equiv (G : Type*) [Magma G] : AssociativeTheory36 G <-> AssociativeTheory36_long G :=
+Iff.intro (AT36_implies_long G) (AT36_implied_by_long G)
 
-theorem CC37_implies_long (G : Type*) [Magma G] (h : ConjunctionClass37 G) : ConjunctionClass37_long G := by
+theorem AT37_implies_long (G : Type*) [Magma G] (h : AssociativeTheory37 G) : AssociativeTheory37_long G := by
   obtain ⟨eq312, eq4512⟩ := h
   have eq1 := Equation312_4512_implies_Equation1 G eq312 eq4512
   have eq307 := Equation312_4512_implies_Equation307 G eq312 eq4512
@@ -1426,13 +1426,13 @@ theorem CC37_implies_long (G : Type*) [Magma G] (h : ConjunctionClass37 G) : Con
   have eq4272 := Equation312_4512_implies_Equation4272 G eq312 eq4512
   exact ⟨eq1, eq307, eq312, eq3253, eq3258, eq3278, eq4272, eq4512⟩
 
-theorem CC37_implied_by_long (G : Type*) [Magma G] : ConjunctionClass37_long G -> ConjunctionClass37 G :=
+theorem AT37_implied_by_long (G : Type*) [Magma G] : AssociativeTheory37_long G -> AssociativeTheory37 G :=
 fun ⟨_, _, h312, _, _, _, _, h4512⟩ => ⟨h312, h4512⟩
 
-theorem CC37_equiv (G : Type*) [Magma G] : ConjunctionClass37 G <-> ConjunctionClass37_long G :=
-Iff.intro (CC37_implies_long G) (CC37_implied_by_long G)
+theorem AT37_equiv (G : Type*) [Magma G] : AssociativeTheory37 G <-> AssociativeTheory37_long G :=
+Iff.intro (AT37_implies_long G) (AT37_implied_by_long G)
 
-theorem CC38_implies_long (G : Type*) [Magma G] (h : ConjunctionClass38 G) : ConjunctionClass38_long G := by
+theorem AT38_implies_long (G : Type*) [Magma G] (h : AssociativeTheory38 G) : AssociativeTheory38_long G := by
   obtain ⟨eq309, eq312, eq4512⟩ := h
   have eq3274 := Equation309_312_4512_implies_Equation3274 G eq309 eq312 eq4512
   have eq3292 := Equation309_312_4512_implies_Equation3292 G eq309 eq312 eq4512
@@ -1457,13 +1457,13 @@ theorem CC38_implies_long (G : Type*) [Magma G] (h : ConjunctionClass38 G) : Con
   have eq4320 := Equation4327_4512_implies_Equation4320 G eq4327 eq4512
   exact ⟨eq1, eq307, eq309, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3274, eq3278, eq3292, eq4269, eq4272, eq4275, eq4284, eq4291, eq4296, eq4304, eq4320, eq4327, eq4512⟩
 
-theorem CC38_implied_by_long (G : Type*) [Magma G] : ConjunctionClass38_long G -> ConjunctionClass38 G :=
+theorem AT38_implied_by_long (G : Type*) [Magma G] : AssociativeTheory38_long G -> AssociativeTheory38 G :=
 fun ⟨_, _, h309, h312, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h309, h312, h4512⟩
 
-theorem CC38_equiv (G : Type*) [Magma G] : ConjunctionClass38 G <-> ConjunctionClass38_long G :=
-Iff.intro (CC38_implies_long G) (CC38_implied_by_long G)
+theorem AT38_equiv (G : Type*) [Magma G] : AssociativeTheory38 G <-> AssociativeTheory38_long G :=
+Iff.intro (AT38_implies_long G) (AT38_implied_by_long G)
 
-theorem CC39_implies_long (G : Type*) [Magma G] (h : ConjunctionClass39 G) : ConjunctionClass39_long G := by
+theorem AT39_implies_long (G : Type*) [Magma G] (h : AssociativeTheory39 G) : AssociativeTheory39_long G := by
   obtain ⟨eq315, eq4512⟩ := h
   have eq1 := Equation315_4512_implies_Equation1 G eq315 eq4512
   have eq307 := Equation315_4512_implies_Equation307 G eq315 eq4512
@@ -1480,13 +1480,13 @@ theorem CC39_implies_long (G : Type*) [Magma G] (h : ConjunctionClass39 G) : Con
   have eq4304 := Equation315_4512_implies_Equation4304 G eq315 eq4512
   exact ⟨eq1, eq307, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3271, eq3278, eq4272, eq4275, eq4284, eq4304, eq4512⟩
 
-theorem CC39_implied_by_long (G : Type*) [Magma G] : ConjunctionClass39_long G -> ConjunctionClass39 G :=
+theorem AT39_implied_by_long (G : Type*) [Magma G] : AssociativeTheory39_long G -> AssociativeTheory39 G :=
 fun ⟨_, _, _, h315, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h315, h4512⟩
 
-theorem CC39_equiv (G : Type*) [Magma G] : ConjunctionClass39 G <-> ConjunctionClass39_long G :=
-Iff.intro (CC39_implies_long G) (CC39_implied_by_long G)
+theorem AT39_equiv (G : Type*) [Magma G] : AssociativeTheory39 G <-> AssociativeTheory39_long G :=
+Iff.intro (AT39_implies_long G) (AT39_implied_by_long G)
 
-theorem CC40_implies_long (G : Type*) [Magma G] (h : ConjunctionClass40 G) : ConjunctionClass40_long G := by
+theorem AT40_implies_long (G : Type*) [Magma G] (h : AssociativeTheory40 G) : AssociativeTheory40_long G := by
   obtain ⟨eq318, eq4512⟩ := h
   have eq1 := Equation318_4512_implies_Equation1 G eq318 eq4512
   have eq307 := Equation318_4512_implies_Equation307 G eq318 eq4512
@@ -1518,13 +1518,13 @@ theorem CC40_implies_long (G : Type*) [Magma G] (h : ConjunctionClass40 G) : Con
   have eq4362 := Equation318_4512_implies_Equation4362 G eq318 eq4512
   exact ⟨eq1, eq307, eq309, eq312, eq315, eq318, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3274, eq3278, eq3292, eq3300, eq4269, eq4272, eq4275, eq4278, eq4284, eq4287, eq4291, eq4296, eq4300, eq4304, eq4320, eq4327, eq4362, eq4512⟩
 
-theorem CC40_implied_by_long (G : Type*) [Magma G] : ConjunctionClass40_long G -> ConjunctionClass40 G :=
+theorem AT40_implied_by_long (G : Type*) [Magma G] : AssociativeTheory40_long G -> AssociativeTheory40 G :=
 fun ⟨_, _, _, _, _, h318, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h318, h4512⟩
 
-theorem CC40_equiv (G : Type*) [Magma G] : ConjunctionClass40 G <-> ConjunctionClass40_long G :=
-Iff.intro (CC40_implies_long G) (CC40_implied_by_long G)
+theorem AT40_equiv (G : Type*) [Magma G] : AssociativeTheory40 G <-> AssociativeTheory40_long G :=
+Iff.intro (AT40_implies_long G) (AT40_implied_by_long G)
 
-theorem CC41_implies_long (G : Type*) [Magma G] (h : ConjunctionClass41 G) : ConjunctionClass41_long G := by
+theorem AT41_implies_long (G : Type*) [Magma G] (h : AssociativeTheory41 G) : AssociativeTheory41_long G := by
   obtain ⟨eq323, eq4512⟩ := h
   have eq1 := Equation323_4512_implies_Equation1 G eq323 eq4512
   have eq307 := Equation323_4512_implies_Equation307 G eq323 eq4512
@@ -1532,13 +1532,13 @@ theorem CC41_implies_long (G : Type*) [Magma G] (h : ConjunctionClass41 G) : Con
   have eq3306 := Equation323_4512_implies_Equation3306 G eq323 eq4512
   exact ⟨eq1, eq307, eq323, eq3253, eq3306, eq4512⟩
 
-theorem CC41_implied_by_long (G : Type*) [Magma G] : ConjunctionClass41_long G -> ConjunctionClass41 G :=
+theorem AT41_implied_by_long (G : Type*) [Magma G] : AssociativeTheory41_long G -> AssociativeTheory41 G :=
 fun ⟨_, _, h323, _, _, h4512⟩ => ⟨h323, h4512⟩
 
-theorem CC41_equiv (G : Type*) [Magma G] : ConjunctionClass41 G <-> ConjunctionClass41_long G :=
-Iff.intro (CC41_implies_long G) (CC41_implied_by_long G)
+theorem AT41_equiv (G : Type*) [Magma G] : AssociativeTheory41 G <-> AssociativeTheory41_long G :=
+Iff.intro (AT41_implies_long G) (AT41_implied_by_long G)
 
-theorem CC42_implies_long (G : Type*) [Magma G] (h : ConjunctionClass42 G) : ConjunctionClass42_long G := by
+theorem AT42_implies_long (G : Type*) [Magma G] (h : AssociativeTheory42 G) : AssociativeTheory42_long G := by
   obtain ⟨eq43, eq323, eq4512⟩ := h
   have eq332 := Equation43_323_4512_implies_Equation332 G eq43 eq323 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -1571,13 +1571,13 @@ theorem CC42_implies_long (G : Type*) [Magma G] (h : ConjunctionClass42 G) : Con
   have eq4343 := Equation332_4512_implies_Equation4343 G eq332 eq4512
   exact ⟨eq1, eq43, eq307, eq323, eq325, eq326, eq332, eq333, eq3253, eq3306, eq3308, eq3309, eq3315, eq3316, eq3319, eq3342, eq3346, eq3353, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC42_implied_by_long (G : Type*) [Magma G] : ConjunctionClass42_long G -> ConjunctionClass42 G :=
+theorem AT42_implied_by_long (G : Type*) [Magma G] : AssociativeTheory42_long G -> AssociativeTheory42 G :=
 fun ⟨_, h43, _, h323, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h323, h4512⟩
 
-theorem CC42_equiv (G : Type*) [Magma G] : ConjunctionClass42 G <-> ConjunctionClass42_long G :=
-Iff.intro (CC42_implies_long G) (CC42_implied_by_long G)
+theorem AT42_equiv (G : Type*) [Magma G] : AssociativeTheory42 G <-> AssociativeTheory42_long G :=
+Iff.intro (AT42_implies_long G) (AT42_implied_by_long G)
 
-theorem CC43_implies_long (G : Type*) [Magma G] (h : ConjunctionClass43 G) : ConjunctionClass43_long G := by
+theorem AT43_implies_long (G : Type*) [Magma G] (h : AssociativeTheory43 G) : AssociativeTheory43_long G := by
   obtain ⟨eq309, eq323, eq4512⟩ := h
   have eq329 := Equation309_323_4512_implies_Equation329 G eq309 eq323 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -1600,13 +1600,13 @@ theorem CC43_implies_long (G : Type*) [Magma G] (h : ConjunctionClass43 G) : Con
   have eq4287 := Equation329_4512_implies_Equation4287 G eq329 eq4512
   exact ⟨eq1, eq307, eq309, eq323, eq326, eq329, eq3253, eq3255, eq3258, eq3261, eq3264, eq3306, eq3309, eq3316, eq3319, eq3322, eq3326, eq3334, eq4269, eq4284, eq4287, eq4512⟩
 
-theorem CC43_implied_by_long (G : Type*) [Magma G] : ConjunctionClass43_long G -> ConjunctionClass43 G :=
+theorem AT43_implied_by_long (G : Type*) [Magma G] : AssociativeTheory43_long G -> AssociativeTheory43 G :=
 fun ⟨_, _, h309, h323, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h309, h323, h4512⟩
 
-theorem CC43_equiv (G : Type*) [Magma G] : ConjunctionClass43 G <-> ConjunctionClass43_long G :=
-Iff.intro (CC43_implies_long G) (CC43_implied_by_long G)
+theorem AT43_equiv (G : Type*) [Magma G] : AssociativeTheory43 G <-> AssociativeTheory43_long G :=
+Iff.intro (AT43_implies_long G) (AT43_implied_by_long G)
 
-theorem CC44_implies_long (G : Type*) [Magma G] (h : ConjunctionClass44 G) : ConjunctionClass44_long G := by
+theorem AT44_implies_long (G : Type*) [Magma G] (h : AssociativeTheory44 G) : AssociativeTheory44_long G := by
   obtain ⟨eq312, eq323, eq4512⟩ := h
   have eq343 := Equation312_323_4512_implies_Equation343 G eq312 eq323 eq4512
   have eq1 := Equation312_4512_implies_Equation1 G eq312 eq4512
@@ -1625,13 +1625,13 @@ theorem CC44_implies_long (G : Type*) [Magma G] (h : ConjunctionClass44 G) : Con
   have eq4300 := Equation343_4512_implies_Equation4300 G eq343 eq4512
   exact ⟨eq1, eq307, eq312, eq323, eq333, eq343, eq3253, eq3258, eq3278, eq3306, eq3316, eq3326, eq3353, eq3414, eq4272, eq4291, eq4300, eq4512⟩
 
-theorem CC44_implied_by_long (G : Type*) [Magma G] : ConjunctionClass44_long G -> ConjunctionClass44 G :=
+theorem AT44_implied_by_long (G : Type*) [Magma G] : AssociativeTheory44_long G -> AssociativeTheory44 G :=
 fun ⟨_, _, h312, h323, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h312, h323, h4512⟩
 
-theorem CC44_equiv (G : Type*) [Magma G] : ConjunctionClass44 G <-> ConjunctionClass44_long G :=
-Iff.intro (CC44_implies_long G) (CC44_implied_by_long G)
+theorem AT44_equiv (G : Type*) [Magma G] : AssociativeTheory44 G <-> AssociativeTheory44_long G :=
+Iff.intro (AT44_implies_long G) (AT44_implied_by_long G)
 
-theorem CC45_implies_long (G : Type*) [Magma G] (h : ConjunctionClass45 G) : ConjunctionClass45_long G := by
+theorem AT45_implies_long (G : Type*) [Magma G] (h : AssociativeTheory45 G) : AssociativeTheory45_long G := by
   obtain ⟨eq325, eq4512⟩ := h
   have eq1 := Equation325_4512_implies_Equation1 G eq325 eq4512
   have eq307 := Equation325_4512_implies_Equation307 G eq325 eq4512
@@ -1643,13 +1643,13 @@ theorem CC45_implies_long (G : Type*) [Magma G] (h : ConjunctionClass45 G) : Con
   have eq4314 := Equation325_4512_implies_Equation4314 G eq325 eq4512
   exact ⟨eq1, eq307, eq325, eq326, eq3253, eq3315, eq3316, eq3319, eq4314, eq4512⟩
 
-theorem CC45_implied_by_long (G : Type*) [Magma G] : ConjunctionClass45_long G -> ConjunctionClass45 G :=
+theorem AT45_implied_by_long (G : Type*) [Magma G] : AssociativeTheory45_long G -> AssociativeTheory45 G :=
 fun ⟨_, _, h325, _, _, _, _, _, _, h4512⟩ => ⟨h325, h4512⟩
 
-theorem CC45_equiv (G : Type*) [Magma G] : ConjunctionClass45 G <-> ConjunctionClass45_long G :=
-Iff.intro (CC45_implies_long G) (CC45_implied_by_long G)
+theorem AT45_equiv (G : Type*) [Magma G] : AssociativeTheory45 G <-> AssociativeTheory45_long G :=
+Iff.intro (AT45_implies_long G) (AT45_implied_by_long G)
 
-theorem CC46_implies_long (G : Type*) [Magma G] (h : ConjunctionClass46 G) : ConjunctionClass46_long G := by
+theorem AT46_implies_long (G : Type*) [Magma G] (h : AssociativeTheory46 G) : AssociativeTheory46_long G := by
   obtain ⟨eq3, eq325, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq8 := Equation3_4512_implies_Equation8 G eq3 eq4512
@@ -1670,13 +1670,13 @@ theorem CC46_implies_long (G : Type*) [Magma G] (h : ConjunctionClass46 G) : Con
   have eq3308 := Equation3306_4283_4512_implies_Equation3308 G eq3306 eq4283 eq4512
   exact ⟨eq1, eq3, eq8, eq47, eq307, eq323, eq325, eq326, eq411, eq3253, eq3306, eq3308, eq3309, eq3315, eq3316, eq3319, eq4283, eq4284, eq4314, eq4512⟩
 
-theorem CC46_implied_by_long (G : Type*) [Magma G] : ConjunctionClass46_long G -> ConjunctionClass46 G :=
+theorem AT46_implied_by_long (G : Type*) [Magma G] : AssociativeTheory46_long G -> AssociativeTheory46 G :=
 fun ⟨_, h3, _, _, _, _, h325, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h3, h325, h4512⟩
 
-theorem CC46_equiv (G : Type*) [Magma G] : ConjunctionClass46 G <-> ConjunctionClass46_long G :=
-Iff.intro (CC46_implies_long G) (CC46_implied_by_long G)
+theorem AT46_equiv (G : Type*) [Magma G] : AssociativeTheory46 G <-> AssociativeTheory46_long G :=
+Iff.intro (AT46_implies_long G) (AT46_implied_by_long G)
 
-theorem CC47_implies_long (G : Type*) [Magma G] (h : ConjunctionClass47 G) : ConjunctionClass47_long G := by
+theorem AT47_implies_long (G : Type*) [Magma G] (h : AssociativeTheory47 G) : AssociativeTheory47_long G := by
   obtain ⟨eq308, eq325, eq4512⟩ := h
   have eq327 := Equation308_325_4512_implies_Equation327 G eq308 eq325 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -1695,13 +1695,13 @@ theorem CC47_implies_long (G : Type*) [Magma G] (h : ConjunctionClass47 G) : Con
   have eq4315 := Equation327_4512_implies_Equation4315 G eq327 eq4512
   exact ⟨eq1, eq307, eq308, eq325, eq326, eq327, eq3253, eq3255, eq3256, eq3315, eq3316, eq3319, eq3322, eq3323, eq4268, eq4314, eq4315, eq4512⟩
 
-theorem CC47_implied_by_long (G : Type*) [Magma G] : ConjunctionClass47_long G -> ConjunctionClass47 G :=
+theorem AT47_implied_by_long (G : Type*) [Magma G] : AssociativeTheory47_long G -> AssociativeTheory47 G :=
 fun ⟨_, _, h308, h325, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h308, h325, h4512⟩
 
-theorem CC47_equiv (G : Type*) [Magma G] : ConjunctionClass47 G <-> ConjunctionClass47_long G :=
-Iff.intro (CC47_implies_long G) (CC47_implied_by_long G)
+theorem AT47_equiv (G : Type*) [Magma G] : AssociativeTheory47 G <-> AssociativeTheory47_long G :=
+Iff.intro (AT47_implies_long G) (AT47_implied_by_long G)
 
-theorem CC48_implies_long (G : Type*) [Magma G] (h : ConjunctionClass48 G) : ConjunctionClass48_long G := by
+theorem AT48_implies_long (G : Type*) [Magma G] (h : AssociativeTheory48 G) : AssociativeTheory48_long G := by
   obtain ⟨eq323, eq325, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation323_4512_implies_Equation307 G eq323 eq4512
@@ -1718,13 +1718,13 @@ theorem CC48_implies_long (G : Type*) [Magma G] (h : ConjunctionClass48 G) : Con
   have eq3308 := Equation3306_4283_4512_implies_Equation3308 G eq3306 eq4283 eq4512
   exact ⟨eq1, eq307, eq323, eq325, eq326, eq3253, eq3306, eq3308, eq3309, eq3315, eq3316, eq3319, eq4283, eq4284, eq4314, eq4512⟩
 
-theorem CC48_implied_by_long (G : Type*) [Magma G] : ConjunctionClass48_long G -> ConjunctionClass48 G :=
+theorem AT48_implied_by_long (G : Type*) [Magma G] : AssociativeTheory48_long G -> AssociativeTheory48 G :=
 fun ⟨_, _, h323, h325, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h323, h325, h4512⟩
 
-theorem CC48_equiv (G : Type*) [Magma G] : ConjunctionClass48 G <-> ConjunctionClass48_long G :=
-Iff.intro (CC48_implies_long G) (CC48_implied_by_long G)
+theorem AT48_equiv (G : Type*) [Magma G] : AssociativeTheory48 G <-> AssociativeTheory48_long G :=
+Iff.intro (AT48_implies_long G) (AT48_implied_by_long G)
 
-theorem CC49_implies_long (G : Type*) [Magma G] (h : ConjunctionClass49 G) : ConjunctionClass49_long G := by
+theorem AT49_implies_long (G : Type*) [Magma G] (h : AssociativeTheory49 G) : AssociativeTheory49_long G := by
   obtain ⟨eq326, eq4512⟩ := h
   have eq1 := Equation326_4512_implies_Equation1 G eq326 eq4512
   have eq307 := Equation326_4512_implies_Equation307 G eq326 eq4512
@@ -1732,13 +1732,13 @@ theorem CC49_implies_long (G : Type*) [Magma G] (h : ConjunctionClass49 G) : Con
   have eq3319 := Equation326_4512_implies_Equation3319 G eq326 eq4512
   exact ⟨eq1, eq307, eq326, eq3253, eq3319, eq4512⟩
 
-theorem CC49_implied_by_long (G : Type*) [Magma G] : ConjunctionClass49_long G -> ConjunctionClass49 G :=
+theorem AT49_implied_by_long (G : Type*) [Magma G] : AssociativeTheory49_long G -> AssociativeTheory49 G :=
 fun ⟨_, _, h326, _, _, h4512⟩ => ⟨h326, h4512⟩
 
-theorem CC49_equiv (G : Type*) [Magma G] : ConjunctionClass49 G <-> ConjunctionClass49_long G :=
-Iff.intro (CC49_implies_long G) (CC49_implied_by_long G)
+theorem AT49_equiv (G : Type*) [Magma G] : AssociativeTheory49 G <-> AssociativeTheory49_long G :=
+Iff.intro (AT49_implies_long G) (AT49_implied_by_long G)
 
-theorem CC50_implies_long (G : Type*) [Magma G] (h : ConjunctionClass50 G) : ConjunctionClass50_long G := by
+theorem AT50_implies_long (G : Type*) [Magma G] (h : AssociativeTheory50 G) : AssociativeTheory50_long G := by
   obtain ⟨eq323, eq326, eq4512⟩ := h
   have eq3309 := Equation323_326_4512_implies_Equation3309 G eq323 eq326 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -1750,13 +1750,13 @@ theorem CC50_implies_long (G : Type*) [Magma G] (h : ConjunctionClass50 G) : Con
   have eq4284 := Equation3309_4512_implies_Equation4284 G eq3309 eq4512
   exact ⟨eq1, eq307, eq323, eq326, eq3253, eq3306, eq3309, eq3316, eq3319, eq4284, eq4512⟩
 
-theorem CC50_implied_by_long (G : Type*) [Magma G] : ConjunctionClass50_long G -> ConjunctionClass50 G :=
+theorem AT50_implied_by_long (G : Type*) [Magma G] : AssociativeTheory50_long G -> AssociativeTheory50 G :=
 fun ⟨_, _, h323, h326, _, _, _, _, _, _, h4512⟩ => ⟨h323, h326, h4512⟩
 
-theorem CC50_equiv (G : Type*) [Magma G] : ConjunctionClass50 G <-> ConjunctionClass50_long G :=
-Iff.intro (CC50_implies_long G) (CC50_implied_by_long G)
+theorem AT50_equiv (G : Type*) [Magma G] : AssociativeTheory50 G <-> AssociativeTheory50_long G :=
+Iff.intro (AT50_implies_long G) (AT50_implied_by_long G)
 
-theorem CC51_implies_long (G : Type*) [Magma G] (h : ConjunctionClass51 G) : ConjunctionClass51_long G := by
+theorem AT51_implies_long (G : Type*) [Magma G] (h : AssociativeTheory51 G) : AssociativeTheory51_long G := by
   obtain ⟨eq333, eq4512⟩ := h
   have eq1 := Equation333_4512_implies_Equation1 G eq333 eq4512
   have eq307 := Equation333_4512_implies_Equation307 G eq333 eq4512
@@ -1768,13 +1768,13 @@ theorem CC51_implies_long (G : Type*) [Magma G] (h : ConjunctionClass51 G) : Con
   have eq4291 := Equation333_4512_implies_Equation4291 G eq333 eq4512
   exact ⟨eq1, eq307, eq323, eq333, eq3253, eq3306, eq3316, eq3353, eq4291, eq4512⟩
 
-theorem CC51_implied_by_long (G : Type*) [Magma G] : ConjunctionClass51_long G -> ConjunctionClass51 G :=
+theorem AT51_implied_by_long (G : Type*) [Magma G] : AssociativeTheory51_long G -> AssociativeTheory51 G :=
 fun ⟨_, _, _, h333, _, _, _, _, _, h4512⟩ => ⟨h333, h4512⟩
 
-theorem CC51_equiv (G : Type*) [Magma G] : ConjunctionClass51 G <-> ConjunctionClass51_long G :=
-Iff.intro (CC51_implies_long G) (CC51_implied_by_long G)
+theorem AT51_equiv (G : Type*) [Magma G] : AssociativeTheory51 G <-> AssociativeTheory51_long G :=
+Iff.intro (AT51_implies_long G) (AT51_implied_by_long G)
 
-theorem CC52_implies_long (G : Type*) [Magma G] (h : ConjunctionClass52 G) : ConjunctionClass52_long G := by
+theorem AT52_implies_long (G : Type*) [Magma G] (h : AssociativeTheory52 G) : AssociativeTheory52_long G := by
   obtain ⟨eq3, eq333, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq8 := Equation3_4512_implies_Equation8 G eq3 eq4512
@@ -1795,13 +1795,13 @@ theorem CC52_implies_long (G : Type*) [Magma G] (h : ConjunctionClass52 G) : Con
   have eq3346 := Equation3319_4320_4512_implies_Equation3346 G eq3319 eq4320 eq4512
   exact ⟨eq1, eq3, eq8, eq47, eq307, eq323, eq326, eq333, eq411, eq3253, eq3306, eq3309, eq3316, eq3319, eq3346, eq3353, eq4284, eq4291, eq4320, eq4512⟩
 
-theorem CC52_implied_by_long (G : Type*) [Magma G] : ConjunctionClass52_long G -> ConjunctionClass52 G :=
+theorem AT52_implied_by_long (G : Type*) [Magma G] : AssociativeTheory52_long G -> AssociativeTheory52 G :=
 fun ⟨_, h3, _, _, _, _, _, h333, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h3, h333, h4512⟩
 
-theorem CC52_equiv (G : Type*) [Magma G] : ConjunctionClass52 G <-> ConjunctionClass52_long G :=
-Iff.intro (CC52_implies_long G) (CC52_implied_by_long G)
+theorem AT52_equiv (G : Type*) [Magma G] : AssociativeTheory52 G <-> AssociativeTheory52_long G :=
+Iff.intro (AT52_implies_long G) (AT52_implied_by_long G)
 
-theorem CC53_implies_long (G : Type*) [Magma G] (h : ConjunctionClass53 G) : ConjunctionClass53_long G := by
+theorem AT53_implies_long (G : Type*) [Magma G] (h : AssociativeTheory53 G) : AssociativeTheory53_long G := by
   obtain ⟨eq326, eq333, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation333_4512_implies_Equation307 G eq333 eq4512
@@ -1818,24 +1818,24 @@ theorem CC53_implies_long (G : Type*) [Magma G] (h : ConjunctionClass53 G) : Con
   have eq3346 := Equation3319_4320_4512_implies_Equation3346 G eq3319 eq4320 eq4512
   exact ⟨eq1, eq307, eq323, eq326, eq333, eq3253, eq3306, eq3309, eq3316, eq3319, eq3346, eq3353, eq4284, eq4291, eq4320, eq4512⟩
 
-theorem CC53_implied_by_long (G : Type*) [Magma G] : ConjunctionClass53_long G -> ConjunctionClass53 G :=
+theorem AT53_implied_by_long (G : Type*) [Magma G] : AssociativeTheory53_long G -> AssociativeTheory53 G :=
 fun ⟨_, _, _, h326, h333, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h326, h333, h4512⟩
 
-theorem CC53_equiv (G : Type*) [Magma G] : ConjunctionClass53 G <-> ConjunctionClass53_long G :=
-Iff.intro (CC53_implies_long G) (CC53_implied_by_long G)
+theorem AT53_equiv (G : Type*) [Magma G] : AssociativeTheory53 G <-> AssociativeTheory53_long G :=
+Iff.intro (AT53_implies_long G) (AT53_implied_by_long G)
 
-theorem CC54_implies_long (G : Type*) [Magma G] (h : ConjunctionClass54 G) : ConjunctionClass54_long G := by
+theorem AT54_implies_long (G : Type*) [Magma G] (h : AssociativeTheory54 G) : AssociativeTheory54_long G := by
   obtain ⟨eq411, eq4512⟩ := h
   have eq1 := Equation411_4512_implies_Equation1 G eq411 eq4512
   exact ⟨eq1, eq411, eq4512⟩
 
-theorem CC54_implied_by_long (G : Type*) [Magma G] : ConjunctionClass54_long G -> ConjunctionClass54 G :=
+theorem AT54_implied_by_long (G : Type*) [Magma G] : AssociativeTheory54_long G -> AssociativeTheory54 G :=
 fun ⟨_, h411, h4512⟩ => ⟨h411, h4512⟩
 
-theorem CC54_equiv (G : Type*) [Magma G] : ConjunctionClass54 G <-> ConjunctionClass54_long G :=
-Iff.intro (CC54_implies_long G) (CC54_implied_by_long G)
+theorem AT54_equiv (G : Type*) [Magma G] : AssociativeTheory54 G <-> AssociativeTheory54_long G :=
+Iff.intro (AT54_implies_long G) (AT54_implied_by_long G)
 
-theorem CC55_implies_long (G : Type*) [Magma G] (h : ConjunctionClass55 G) : ConjunctionClass55_long G := by
+theorem AT55_implies_long (G : Type*) [Magma G] (h : AssociativeTheory55 G) : AssociativeTheory55_long G := by
   obtain ⟨eq43, eq411, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -1847,13 +1847,13 @@ theorem CC55_implies_long (G : Type*) [Magma G] (h : ConjunctionClass55 G) : Con
   have eq4369 := Equation43_4512_implies_Equation4369 G eq43 eq4512
   exact ⟨eq1, eq43, eq411, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC55_implied_by_long (G : Type*) [Magma G] : ConjunctionClass55_long G -> ConjunctionClass55 G :=
+theorem AT55_implied_by_long (G : Type*) [Magma G] : AssociativeTheory55_long G -> AssociativeTheory55 G :=
 fun ⟨_, h43, h411, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h411, h4512⟩
 
-theorem CC55_equiv (G : Type*) [Magma G] : ConjunctionClass55 G <-> ConjunctionClass55_long G :=
-Iff.intro (CC55_implies_long G) (CC55_implied_by_long G)
+theorem AT55_equiv (G : Type*) [Magma G] : AssociativeTheory55 G <-> AssociativeTheory55_long G :=
+Iff.intro (AT55_implies_long G) (AT55_implied_by_long G)
 
-theorem CC56_implies_long (G : Type*) [Magma G] (h : ConjunctionClass56 G) : ConjunctionClass56_long G := by
+theorem AT56_implies_long (G : Type*) [Magma G] (h : AssociativeTheory56 G) : AssociativeTheory56_long G := by
   obtain ⟨eq419, eq4512⟩ := h
   have eq1 := Equation419_4512_implies_Equation1 G eq419 eq4512
   have eq8 := Equation419_4512_implies_Equation8 G eq419 eq4512
@@ -1866,13 +1866,13 @@ theorem CC56_implies_long (G : Type*) [Magma G] (h : ConjunctionClass56 G) : Con
   have eq3334 := Equation419_4512_implies_Equation3334 G eq419 eq4512
   exact ⟨eq1, eq8, eq411, eq419, eq429, eq3253, eq3261, eq3306, eq3319, eq3334, eq4512⟩
 
-theorem CC56_implied_by_long (G : Type*) [Magma G] : ConjunctionClass56_long G -> ConjunctionClass56 G :=
+theorem AT56_implied_by_long (G : Type*) [Magma G] : AssociativeTheory56_long G -> AssociativeTheory56 G :=
 fun ⟨_, _, _, h419, _, _, _, _, _, _, h4512⟩ => ⟨h419, h4512⟩
 
-theorem CC56_equiv (G : Type*) [Magma G] : ConjunctionClass56 G <-> ConjunctionClass56_long G :=
-Iff.intro (CC56_implies_long G) (CC56_implied_by_long G)
+theorem AT56_equiv (G : Type*) [Magma G] : AssociativeTheory56 G <-> AssociativeTheory56_long G :=
+Iff.intro (AT56_implies_long G) (AT56_implied_by_long G)
 
-theorem CC57_implies_long (G : Type*) [Magma G] (h : ConjunctionClass57 G) : ConjunctionClass57_long G := by
+theorem AT57_implies_long (G : Type*) [Magma G] (h : AssociativeTheory57 G) : AssociativeTheory57_long G := by
   obtain ⟨eq429, eq4512⟩ := h
   have eq1 := Equation429_4512_implies_Equation1 G eq429 eq4512
   have eq8 := Equation429_4512_implies_Equation8 G eq429 eq4512
@@ -1882,25 +1882,25 @@ theorem CC57_implies_long (G : Type*) [Magma G] (h : ConjunctionClass57 G) : Con
   have eq3319 := Equation429_4512_implies_Equation3319 G eq429 eq4512
   exact ⟨eq1, eq8, eq411, eq429, eq3253, eq3306, eq3319, eq4512⟩
 
-theorem CC57_implied_by_long (G : Type*) [Magma G] : ConjunctionClass57_long G -> ConjunctionClass57 G :=
+theorem AT57_implied_by_long (G : Type*) [Magma G] : AssociativeTheory57_long G -> AssociativeTheory57 G :=
 fun ⟨_, _, _, h429, _, _, _, h4512⟩ => ⟨h429, h4512⟩
 
-theorem CC57_equiv (G : Type*) [Magma G] : ConjunctionClass57 G <-> ConjunctionClass57_long G :=
-Iff.intro (CC57_implies_long G) (CC57_implied_by_long G)
+theorem AT57_equiv (G : Type*) [Magma G] : AssociativeTheory57 G <-> AssociativeTheory57_long G :=
+Iff.intro (AT57_implies_long G) (AT57_implied_by_long G)
 
-theorem CC58_implies_long (G : Type*) [Magma G] (h : ConjunctionClass58 G) : ConjunctionClass58_long G := by
+theorem AT58_implies_long (G : Type*) [Magma G] (h : AssociativeTheory58 G) : AssociativeTheory58_long G := by
   obtain ⟨eq440, eq4512⟩ := h
   have eq1 := Equation440_4512_implies_Equation1 G eq440 eq4512
   have eq411 := Equation440_4512_implies_Equation411 G eq440 eq4512
   exact ⟨eq1, eq411, eq440, eq4512⟩
 
-theorem CC58_implied_by_long (G : Type*) [Magma G] : ConjunctionClass58_long G -> ConjunctionClass58 G :=
+theorem AT58_implied_by_long (G : Type*) [Magma G] : AssociativeTheory58_long G -> AssociativeTheory58 G :=
 fun ⟨_, _, h440, h4512⟩ => ⟨h440, h4512⟩
 
-theorem CC58_equiv (G : Type*) [Magma G] : ConjunctionClass58 G <-> ConjunctionClass58_long G :=
-Iff.intro (CC58_implies_long G) (CC58_implied_by_long G)
+theorem AT58_equiv (G : Type*) [Magma G] : AssociativeTheory58 G <-> AssociativeTheory58_long G :=
+Iff.intro (AT58_implies_long G) (AT58_implied_by_long G)
 
-theorem CC59_implies_long (G : Type*) [Magma G] (h : ConjunctionClass59 G) : ConjunctionClass59_long G := by
+theorem AT59_implies_long (G : Type*) [Magma G] (h : AssociativeTheory59 G) : AssociativeTheory59_long G := by
   obtain ⟨eq43, eq440, eq4512⟩ := h
   have eq477 := Equation43_440_4512_implies_Equation477 G eq43 eq440 eq4512
   have eq1 := Equation440_4512_implies_Equation1 G eq440 eq4512
@@ -1916,13 +1916,13 @@ theorem CC59_implies_long (G : Type*) [Magma G] (h : ConjunctionClass59 G) : Con
   have eq513 := Equation477_4512_implies_Equation513 G eq477 eq4512
   exact ⟨eq1, eq43, eq411, eq440, eq477, eq504, eq513, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC59_implied_by_long (G : Type*) [Magma G] : ConjunctionClass59_long G -> ConjunctionClass59 G :=
+theorem AT59_implied_by_long (G : Type*) [Magma G] : AssociativeTheory59_long G -> AssociativeTheory59 G :=
 fun ⟨_, h43, _, h440, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h440, h4512⟩
 
-theorem CC59_equiv (G : Type*) [Magma G] : ConjunctionClass59 G <-> ConjunctionClass59_long G :=
-Iff.intro (CC59_implies_long G) (CC59_implied_by_long G)
+theorem AT59_equiv (G : Type*) [Magma G] : AssociativeTheory59 G <-> AssociativeTheory59_long G :=
+Iff.intro (AT59_implies_long G) (AT59_implied_by_long G)
 
-theorem CC60_implies_long (G : Type*) [Magma G] (h : ConjunctionClass60 G) : ConjunctionClass60_long G := by
+theorem AT60_implies_long (G : Type*) [Magma G] (h : AssociativeTheory60 G) : AssociativeTheory60_long G := by
   obtain ⟨eq504, eq4512⟩ := h
   have eq1 := Equation504_4512_implies_Equation1 G eq504 eq4512
   have eq411 := Equation504_4512_implies_Equation411 G eq504 eq4512
@@ -1931,48 +1931,48 @@ theorem CC60_implies_long (G : Type*) [Magma G] (h : ConjunctionClass60 G) : Con
   have eq4290 := Equation504_4512_implies_Equation4290 G eq504 eq4512
   exact ⟨eq1, eq411, eq440, eq504, eq513, eq4290, eq4512⟩
 
-theorem CC60_implied_by_long (G : Type*) [Magma G] : ConjunctionClass60_long G -> ConjunctionClass60 G :=
+theorem AT60_implied_by_long (G : Type*) [Magma G] : AssociativeTheory60_long G -> AssociativeTheory60 G :=
 fun ⟨_, _, _, h504, _, _, h4512⟩ => ⟨h504, h4512⟩
 
-theorem CC60_equiv (G : Type*) [Magma G] : ConjunctionClass60 G <-> ConjunctionClass60_long G :=
-Iff.intro (CC60_implies_long G) (CC60_implied_by_long G)
+theorem AT60_equiv (G : Type*) [Magma G] : AssociativeTheory60 G <-> AssociativeTheory60_long G :=
+Iff.intro (AT60_implies_long G) (AT60_implied_by_long G)
 
-theorem CC61_implies_long (G : Type*) [Magma G] (h : ConjunctionClass61 G) : ConjunctionClass61_long G := by
+theorem AT61_implies_long (G : Type*) [Magma G] (h : AssociativeTheory61 G) : AssociativeTheory61_long G := by
   obtain ⟨eq513, eq4512⟩ := h
   have eq1 := Equation513_4512_implies_Equation1 G eq513 eq4512
   have eq411 := Equation513_4512_implies_Equation411 G eq513 eq4512
   exact ⟨eq1, eq411, eq513, eq4512⟩
 
-theorem CC61_implied_by_long (G : Type*) [Magma G] : ConjunctionClass61_long G -> ConjunctionClass61 G :=
+theorem AT61_implied_by_long (G : Type*) [Magma G] : AssociativeTheory61_long G -> AssociativeTheory61 G :=
 fun ⟨_, _, h513, h4512⟩ => ⟨h513, h4512⟩
 
-theorem CC61_equiv (G : Type*) [Magma G] : ConjunctionClass61 G <-> ConjunctionClass61_long G :=
-Iff.intro (CC61_implies_long G) (CC61_implied_by_long G)
+theorem AT61_equiv (G : Type*) [Magma G] : AssociativeTheory61 G <-> AssociativeTheory61_long G :=
+Iff.intro (AT61_implies_long G) (AT61_implied_by_long G)
 
-theorem CC62_implies_long (G : Type*) [Magma G] (h : ConjunctionClass62 G) : ConjunctionClass62_long G := by
+theorem AT62_implies_long (G : Type*) [Magma G] (h : AssociativeTheory62 G) : AssociativeTheory62_long G := by
   obtain ⟨eq440, eq513, eq4512⟩ := h
   have eq1 := Equation440_4512_implies_Equation1 G eq440 eq4512
   have eq411 := Equation440_4512_implies_Equation411 G eq440 eq4512
   exact ⟨eq1, eq411, eq440, eq513, eq4512⟩
 
-theorem CC62_implied_by_long (G : Type*) [Magma G] : ConjunctionClass62_long G -> ConjunctionClass62 G :=
+theorem AT62_implied_by_long (G : Type*) [Magma G] : AssociativeTheory62_long G -> AssociativeTheory62 G :=
 fun ⟨_, _, h440, h513, h4512⟩ => ⟨h440, h513, h4512⟩
 
-theorem CC62_equiv (G : Type*) [Magma G] : ConjunctionClass62 G <-> ConjunctionClass62_long G :=
-Iff.intro (CC62_implies_long G) (CC62_implied_by_long G)
+theorem AT62_equiv (G : Type*) [Magma G] : AssociativeTheory62 G <-> AssociativeTheory62_long G :=
+Iff.intro (AT62_implies_long G) (AT62_implied_by_long G)
 
-theorem CC63_implies_long (G : Type*) [Magma G] (h : ConjunctionClass63 G) : ConjunctionClass63_long G := by
+theorem AT63_implies_long (G : Type*) [Magma G] (h : AssociativeTheory63 G) : AssociativeTheory63_long G := by
   obtain ⟨eq3253, eq4512⟩ := h
   have eq1 := Equation3253_4512_implies_Equation1 G eq3253 eq4512
   exact ⟨eq1, eq3253, eq4512⟩
 
-theorem CC63_implied_by_long (G : Type*) [Magma G] : ConjunctionClass63_long G -> ConjunctionClass63 G :=
+theorem AT63_implied_by_long (G : Type*) [Magma G] : AssociativeTheory63_long G -> AssociativeTheory63 G :=
 fun ⟨_, h3253, h4512⟩ => ⟨h3253, h4512⟩
 
-theorem CC63_equiv (G : Type*) [Magma G] : ConjunctionClass63 G <-> ConjunctionClass63_long G :=
-Iff.intro (CC63_implies_long G) (CC63_implied_by_long G)
+theorem AT63_equiv (G : Type*) [Magma G] : AssociativeTheory63 G <-> AssociativeTheory63_long G :=
+Iff.intro (AT63_implies_long G) (AT63_implied_by_long G)
 
-theorem CC64_implies_long (G : Type*) [Magma G] (h : ConjunctionClass64 G) : ConjunctionClass64_long G := by
+theorem AT64_implies_long (G : Type*) [Magma G] (h : AssociativeTheory64 G) : AssociativeTheory64_long G := by
   obtain ⟨eq43, eq3253, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -1984,26 +1984,26 @@ theorem CC64_implies_long (G : Type*) [Magma G] (h : ConjunctionClass64 G) : Con
   have eq4369 := Equation43_4512_implies_Equation4369 G eq43 eq4512
   exact ⟨eq1, eq43, eq3253, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC64_implied_by_long (G : Type*) [Magma G] : ConjunctionClass64_long G -> ConjunctionClass64 G :=
+theorem AT64_implied_by_long (G : Type*) [Magma G] : AssociativeTheory64_long G -> AssociativeTheory64 G :=
 fun ⟨_, h43, h3253, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h3253, h4512⟩
 
-theorem CC64_equiv (G : Type*) [Magma G] : ConjunctionClass64 G <-> ConjunctionClass64_long G :=
-Iff.intro (CC64_implies_long G) (CC64_implied_by_long G)
+theorem AT64_equiv (G : Type*) [Magma G] : AssociativeTheory64 G <-> AssociativeTheory64_long G :=
+Iff.intro (AT64_implies_long G) (AT64_implied_by_long G)
 
-theorem CC65_implies_long (G : Type*) [Magma G] (h : ConjunctionClass65 G) : ConjunctionClass65_long G := by
+theorem AT65_implies_long (G : Type*) [Magma G] (h : AssociativeTheory65 G) : AssociativeTheory65_long G := by
   obtain ⟨eq3255, eq4512⟩ := h
   have eq1 := Equation3255_4512_implies_Equation1 G eq3255 eq4512
   have eq307 := Equation3255_4512_implies_Equation307 G eq3255 eq4512
   have eq3253 := Equation3255_4512_implies_Equation3253 G eq3255 eq4512
   exact ⟨eq1, eq307, eq3253, eq3255, eq4512⟩
 
-theorem CC65_implied_by_long (G : Type*) [Magma G] : ConjunctionClass65_long G -> ConjunctionClass65 G :=
+theorem AT65_implied_by_long (G : Type*) [Magma G] : AssociativeTheory65_long G -> AssociativeTheory65 G :=
 fun ⟨_, _, _, h3255, h4512⟩ => ⟨h3255, h4512⟩
 
-theorem CC65_equiv (G : Type*) [Magma G] : ConjunctionClass65 G <-> ConjunctionClass65_long G :=
-Iff.intro (CC65_implies_long G) (CC65_implied_by_long G)
+theorem AT65_equiv (G : Type*) [Magma G] : AssociativeTheory65 G <-> AssociativeTheory65_long G :=
+Iff.intro (AT65_implies_long G) (AT65_implied_by_long G)
 
-theorem CC66_implies_long (G : Type*) [Magma G] (h : ConjunctionClass66 G) : ConjunctionClass66_long G := by
+theorem AT66_implies_long (G : Type*) [Magma G] (h : AssociativeTheory66 G) : AssociativeTheory66_long G := by
   obtain ⟨eq326, eq3255, eq4512⟩ := h
   have eq3322 := Equation326_3255_4512_implies_Equation3322 G eq326 eq3255 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -2013,38 +2013,38 @@ theorem CC66_implies_long (G : Type*) [Magma G] (h : ConjunctionClass66 G) : Con
   have eq3319 := Equation3322_4512_implies_Equation3319 G eq3322 eq4512
   exact ⟨eq1, eq307, eq326, eq3253, eq3255, eq3316, eq3319, eq3322, eq4512⟩
 
-theorem CC66_implied_by_long (G : Type*) [Magma G] : ConjunctionClass66_long G -> ConjunctionClass66 G :=
+theorem AT66_implied_by_long (G : Type*) [Magma G] : AssociativeTheory66_long G -> AssociativeTheory66 G :=
 fun ⟨_, _, h326, _, h3255, _, _, _, h4512⟩ => ⟨h326, h3255, h4512⟩
 
-theorem CC66_equiv (G : Type*) [Magma G] : ConjunctionClass66 G <-> ConjunctionClass66_long G :=
-Iff.intro (CC66_implies_long G) (CC66_implied_by_long G)
+theorem AT66_equiv (G : Type*) [Magma G] : AssociativeTheory66 G <-> AssociativeTheory66_long G :=
+Iff.intro (AT66_implies_long G) (AT66_implied_by_long G)
 
-theorem CC67_implies_long (G : Type*) [Magma G] (h : ConjunctionClass67 G) : ConjunctionClass67_long G := by
+theorem AT67_implies_long (G : Type*) [Magma G] (h : AssociativeTheory67 G) : AssociativeTheory67_long G := by
   obtain ⟨eq3256, eq4512⟩ := h
   have eq1 := Equation3256_4512_implies_Equation1 G eq3256 eq4512
   have eq3253 := Equation3256_4512_implies_Equation3253 G eq3256 eq4512
   exact ⟨eq1, eq3253, eq3256, eq4512⟩
 
-theorem CC67_implied_by_long (G : Type*) [Magma G] : ConjunctionClass67_long G -> ConjunctionClass67 G :=
+theorem AT67_implied_by_long (G : Type*) [Magma G] : AssociativeTheory67_long G -> AssociativeTheory67 G :=
 fun ⟨_, _, h3256, h4512⟩ => ⟨h3256, h4512⟩
 
-theorem CC67_equiv (G : Type*) [Magma G] : ConjunctionClass67 G <-> ConjunctionClass67_long G :=
-Iff.intro (CC67_implies_long G) (CC67_implied_by_long G)
+theorem AT67_equiv (G : Type*) [Magma G] : AssociativeTheory67 G <-> AssociativeTheory67_long G :=
+Iff.intro (AT67_implies_long G) (AT67_implied_by_long G)
 
-theorem CC68_implies_long (G : Type*) [Magma G] (h : ConjunctionClass68 G) : ConjunctionClass68_long G := by
+theorem AT68_implies_long (G : Type*) [Magma G] (h : AssociativeTheory68 G) : AssociativeTheory68_long G := by
   obtain ⟨eq3258, eq4512⟩ := h
   have eq1 := Equation3258_4512_implies_Equation1 G eq3258 eq4512
   have eq307 := Equation3258_4512_implies_Equation307 G eq3258 eq4512
   have eq3253 := Equation3258_4512_implies_Equation3253 G eq3258 eq4512
   exact ⟨eq1, eq307, eq3253, eq3258, eq4512⟩
 
-theorem CC68_implied_by_long (G : Type*) [Magma G] : ConjunctionClass68_long G -> ConjunctionClass68 G :=
+theorem AT68_implied_by_long (G : Type*) [Magma G] : AssociativeTheory68_long G -> AssociativeTheory68 G :=
 fun ⟨_, _, _, h3258, h4512⟩ => ⟨h3258, h4512⟩
 
-theorem CC68_equiv (G : Type*) [Magma G] : ConjunctionClass68 G <-> ConjunctionClass68_long G :=
-Iff.intro (CC68_implies_long G) (CC68_implied_by_long G)
+theorem AT68_equiv (G : Type*) [Magma G] : AssociativeTheory68 G <-> AssociativeTheory68_long G :=
+Iff.intro (AT68_implies_long G) (AT68_implied_by_long G)
 
-theorem CC69_implies_long (G : Type*) [Magma G] (h : ConjunctionClass69 G) : ConjunctionClass69_long G := by
+theorem AT69_implies_long (G : Type*) [Magma G] (h : AssociativeTheory69 G) : AssociativeTheory69_long G := by
   obtain ⟨eq323, eq3258, eq4512⟩ := h
   have eq3326 := Equation323_3258_4512_implies_Equation3326 G eq323 eq3258 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -2054,13 +2054,13 @@ theorem CC69_implies_long (G : Type*) [Magma G] (h : ConjunctionClass69 G) : Con
   have eq3316 := Equation3326_4512_implies_Equation3316 G eq3326 eq4512
   exact ⟨eq1, eq307, eq323, eq3253, eq3258, eq3306, eq3316, eq3326, eq4512⟩
 
-theorem CC69_implied_by_long (G : Type*) [Magma G] : ConjunctionClass69_long G -> ConjunctionClass69 G :=
+theorem AT69_implied_by_long (G : Type*) [Magma G] : AssociativeTheory69_long G -> AssociativeTheory69 G :=
 fun ⟨_, _, h323, _, h3258, _, _, _, h4512⟩ => ⟨h323, h3258, h4512⟩
 
-theorem CC69_equiv (G : Type*) [Magma G] : ConjunctionClass69 G <-> ConjunctionClass69_long G :=
-Iff.intro (CC69_implies_long G) (CC69_implied_by_long G)
+theorem AT69_equiv (G : Type*) [Magma G] : AssociativeTheory69 G <-> AssociativeTheory69_long G :=
+Iff.intro (AT69_implies_long G) (AT69_implied_by_long G)
 
-theorem CC70_implies_long (G : Type*) [Magma G] (h : ConjunctionClass70 G) : ConjunctionClass70_long G := by
+theorem AT70_implies_long (G : Type*) [Magma G] (h : AssociativeTheory70 G) : AssociativeTheory70_long G := by
   obtain ⟨eq3255, eq3258, eq4512⟩ := h
   have eq3261 := Equation3255_3258_4512_implies_Equation3261 G eq3255 eq3258 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -2069,13 +2069,13 @@ theorem CC70_implies_long (G : Type*) [Magma G] (h : ConjunctionClass70 G) : Con
   have eq4284 := Equation307_3261_4512_implies_Equation4284 G eq307 eq3261 eq4512
   exact ⟨eq1, eq307, eq3253, eq3255, eq3258, eq3261, eq4284, eq4512⟩
 
-theorem CC70_implied_by_long (G : Type*) [Magma G] : ConjunctionClass70_long G -> ConjunctionClass70 G :=
+theorem AT70_implied_by_long (G : Type*) [Magma G] : AssociativeTheory70_long G -> AssociativeTheory70 G :=
 fun ⟨_, _, _, h3255, h3258, _, _, h4512⟩ => ⟨h3255, h3258, h4512⟩
 
-theorem CC70_equiv (G : Type*) [Magma G] : ConjunctionClass70 G <-> ConjunctionClass70_long G :=
-Iff.intro (CC70_implies_long G) (CC70_implied_by_long G)
+theorem AT70_equiv (G : Type*) [Magma G] : AssociativeTheory70 G <-> AssociativeTheory70_long G :=
+Iff.intro (AT70_implies_long G) (AT70_implied_by_long G)
 
-theorem CC71_implies_long (G : Type*) [Magma G] (h : ConjunctionClass71 G) : ConjunctionClass71_long G := by
+theorem AT71_implies_long (G : Type*) [Magma G] (h : AssociativeTheory71 G) : AssociativeTheory71_long G := by
   obtain ⟨eq3259, eq4512⟩ := h
   have eq1 := Equation3259_4512_implies_Equation1 G eq3259 eq4512
   have eq3253 := Equation3259_4512_implies_Equation3253 G eq3259 eq4512
@@ -2084,13 +2084,13 @@ theorem CC71_implies_long (G : Type*) [Magma G] (h : ConjunctionClass71 G) : Con
   have eq4270 := Equation3259_4512_implies_Equation4270 G eq3259 eq4512
   exact ⟨eq1, eq3253, eq3256, eq3259, eq3261, eq4270, eq4512⟩
 
-theorem CC71_implied_by_long (G : Type*) [Magma G] : ConjunctionClass71_long G -> ConjunctionClass71 G :=
+theorem AT71_implied_by_long (G : Type*) [Magma G] : AssociativeTheory71_long G -> AssociativeTheory71 G :=
 fun ⟨_, _, _, h3259, _, _, h4512⟩ => ⟨h3259, h4512⟩
 
-theorem CC71_equiv (G : Type*) [Magma G] : ConjunctionClass71 G <-> ConjunctionClass71_long G :=
-Iff.intro (CC71_implies_long G) (CC71_implied_by_long G)
+theorem AT71_equiv (G : Type*) [Magma G] : AssociativeTheory71 G <-> AssociativeTheory71_long G :=
+Iff.intro (AT71_implies_long G) (AT71_implied_by_long G)
 
-theorem CC72_implies_long (G : Type*) [Magma G] (h : ConjunctionClass72 G) : ConjunctionClass72_long G := by
+theorem AT72_implies_long (G : Type*) [Magma G] (h : AssociativeTheory72 G) : AssociativeTheory72_long G := by
   obtain ⟨eq3260, eq4512⟩ := h
   have eq1 := Equation3260_4512_implies_Equation1 G eq3260 eq4512
   have eq307 := Equation3260_4512_implies_Equation307 G eq3260 eq4512
@@ -2108,13 +2108,13 @@ theorem CC72_implies_long (G : Type*) [Magma G] (h : ConjunctionClass72 G) : Con
   have eq4288 := Equation3260_4512_implies_Equation4288 G eq3260 eq4512
   exact ⟨eq1, eq307, eq308, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq4268, eq4270, eq4284, eq4288, eq4512⟩
 
-theorem CC72_implied_by_long (G : Type*) [Magma G] : ConjunctionClass72_long G -> ConjunctionClass72 G :=
+theorem AT72_implied_by_long (G : Type*) [Magma G] : AssociativeTheory72_long G -> AssociativeTheory72 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, h3260, _, _, _, _, _, h4512⟩ => ⟨h3260, h4512⟩
 
-theorem CC72_equiv (G : Type*) [Magma G] : ConjunctionClass72 G <-> ConjunctionClass72_long G :=
-Iff.intro (CC72_implies_long G) (CC72_implied_by_long G)
+theorem AT72_equiv (G : Type*) [Magma G] : AssociativeTheory72 G <-> AssociativeTheory72_long G :=
+Iff.intro (AT72_implies_long G) (AT72_implied_by_long G)
 
-theorem CC73_implies_long (G : Type*) [Magma G] (h : ConjunctionClass73 G) : ConjunctionClass73_long G := by
+theorem AT73_implies_long (G : Type*) [Magma G] (h : AssociativeTheory73 G) : AssociativeTheory73_long G := by
   obtain ⟨eq40, eq3260, eq4512⟩ := h
   have eq3273 := Equation40_3260_4512_implies_Equation3273 G eq40 eq3260 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -2150,25 +2150,25 @@ theorem CC73_implies_long (G : Type*) [Magma G] (h : ConjunctionClass73 G) : Con
   have eq4343 := Equation3273_4512_implies_Equation4343 G eq3273 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3271, eq3273, eq3278, eq3292, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4512⟩
 
-theorem CC73_implied_by_long (G : Type*) [Magma G] : ConjunctionClass73_long G -> ConjunctionClass73 G :=
+theorem AT73_implied_by_long (G : Type*) [Magma G] : AssociativeTheory73_long G -> AssociativeTheory73 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, h3260, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h3260, h4512⟩
 
-theorem CC73_equiv (G : Type*) [Magma G] : ConjunctionClass73 G <-> ConjunctionClass73_long G :=
-Iff.intro (CC73_implies_long G) (CC73_implied_by_long G)
+theorem AT73_equiv (G : Type*) [Magma G] : AssociativeTheory73 G <-> AssociativeTheory73_long G :=
+Iff.intro (AT73_implies_long G) (AT73_implied_by_long G)
 
-theorem CC74_implies_long (G : Type*) [Magma G] (h : ConjunctionClass74 G) : ConjunctionClass74_long G := by
+theorem AT74_implies_long (G : Type*) [Magma G] (h : AssociativeTheory74 G) : AssociativeTheory74_long G := by
   obtain ⟨eq3261, eq4512⟩ := h
   have eq1 := Equation3261_4512_implies_Equation1 G eq3261 eq4512
   have eq3253 := Equation3261_4512_implies_Equation3253 G eq3261 eq4512
   exact ⟨eq1, eq3253, eq3261, eq4512⟩
 
-theorem CC74_implied_by_long (G : Type*) [Magma G] : ConjunctionClass74_long G -> ConjunctionClass74 G :=
+theorem AT74_implied_by_long (G : Type*) [Magma G] : AssociativeTheory74_long G -> AssociativeTheory74 G :=
 fun ⟨_, _, h3261, h4512⟩ => ⟨h3261, h4512⟩
 
-theorem CC74_equiv (G : Type*) [Magma G] : ConjunctionClass74 G <-> ConjunctionClass74_long G :=
-Iff.intro (CC74_implies_long G) (CC74_implied_by_long G)
+theorem AT74_equiv (G : Type*) [Magma G] : AssociativeTheory74 G <-> AssociativeTheory74_long G :=
+Iff.intro (AT74_implies_long G) (AT74_implied_by_long G)
 
-theorem CC75_implies_long (G : Type*) [Magma G] (h : ConjunctionClass75 G) : ConjunctionClass75_long G := by
+theorem AT75_implies_long (G : Type*) [Magma G] (h : AssociativeTheory75 G) : AssociativeTheory75_long G := by
   obtain ⟨eq3264, eq4512⟩ := h
   have eq1 := Equation3264_4512_implies_Equation1 G eq3264 eq4512
   have eq307 := Equation3264_4512_implies_Equation307 G eq3264 eq4512
@@ -2179,13 +2179,13 @@ theorem CC75_implies_long (G : Type*) [Magma G] (h : ConjunctionClass75 G) : Con
   have eq4284 := Equation3264_4512_implies_Equation4284 G eq3264 eq4512
   exact ⟨eq1, eq307, eq3253, eq3255, eq3258, eq3261, eq3264, eq4284, eq4512⟩
 
-theorem CC75_implied_by_long (G : Type*) [Magma G] : ConjunctionClass75_long G -> ConjunctionClass75 G :=
+theorem AT75_implied_by_long (G : Type*) [Magma G] : AssociativeTheory75_long G -> AssociativeTheory75 G :=
 fun ⟨_, _, _, _, _, _, h3264, _, h4512⟩ => ⟨h3264, h4512⟩
 
-theorem CC75_equiv (G : Type*) [Magma G] : ConjunctionClass75 G <-> ConjunctionClass75_long G :=
-Iff.intro (CC75_implies_long G) (CC75_implied_by_long G)
+theorem AT75_equiv (G : Type*) [Magma G] : AssociativeTheory75 G <-> AssociativeTheory75_long G :=
+Iff.intro (AT75_implies_long G) (AT75_implied_by_long G)
 
-theorem CC76_implies_long (G : Type*) [Magma G] (h : ConjunctionClass76 G) : ConjunctionClass76_long G := by
+theorem AT76_implies_long (G : Type*) [Magma G] (h : AssociativeTheory76 G) : AssociativeTheory76_long G := by
   obtain ⟨eq40, eq3264, eq4512⟩ := h
   have eq3275 := Equation40_3264_4512_implies_Equation3275 G eq40 eq3264 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -2220,13 +2220,13 @@ theorem CC76_implies_long (G : Type*) [Magma G] (h : ConjunctionClass76 G) : Con
   have eq4343 := Equation3275_4512_implies_Equation4343 G eq3275 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3261, eq3264, eq3271, eq3275, eq3278, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4512⟩
 
-theorem CC76_implied_by_long (G : Type*) [Magma G] : ConjunctionClass76_long G -> ConjunctionClass76 G :=
+theorem AT76_implied_by_long (G : Type*) [Magma G] : AssociativeTheory76_long G -> AssociativeTheory76 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, h3264, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h3264, h4512⟩
 
-theorem CC76_equiv (G : Type*) [Magma G] : ConjunctionClass76 G <-> ConjunctionClass76_long G :=
-Iff.intro (CC76_implies_long G) (CC76_implied_by_long G)
+theorem AT76_equiv (G : Type*) [Magma G] : AssociativeTheory76 G <-> AssociativeTheory76_long G :=
+Iff.intro (AT76_implies_long G) (AT76_implied_by_long G)
 
-theorem CC77_implies_long (G : Type*) [Magma G] (h : ConjunctionClass77 G) : ConjunctionClass77_long G := by
+theorem AT77_implies_long (G : Type*) [Magma G] (h : AssociativeTheory77 G) : AssociativeTheory77_long G := by
   obtain ⟨eq308, eq3264, eq4512⟩ := h
   have eq1 := Equation3264_4512_implies_Equation1 G eq3264 eq4512
   have eq307 := Equation3264_4512_implies_Equation307 G eq3264 eq4512
@@ -2243,13 +2243,13 @@ theorem CC77_implies_long (G : Type*) [Magma G] (h : ConjunctionClass77 G) : Con
   have eq4288 := Equation4268_4270_4512_implies_Equation4288 G eq4268 eq4270 eq4512
   exact ⟨eq1, eq307, eq308, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3261, eq3264, eq4268, eq4270, eq4284, eq4288, eq4512⟩
 
-theorem CC77_implied_by_long (G : Type*) [Magma G] : ConjunctionClass77_long G -> ConjunctionClass77 G :=
+theorem AT77_implied_by_long (G : Type*) [Magma G] : AssociativeTheory77_long G -> AssociativeTheory77 G :=
 fun ⟨_, _, h308, _, _, _, _, _, _, _, h3264, _, _, _, _, h4512⟩ => ⟨h308, h3264, h4512⟩
 
-theorem CC77_equiv (G : Type*) [Magma G] : ConjunctionClass77 G <-> ConjunctionClass77_long G :=
-Iff.intro (CC77_implies_long G) (CC77_implied_by_long G)
+theorem AT77_equiv (G : Type*) [Magma G] : AssociativeTheory77 G <-> AssociativeTheory77_long G :=
+Iff.intro (AT77_implies_long G) (AT77_implied_by_long G)
 
-theorem CC78_implies_long (G : Type*) [Magma G] (h : ConjunctionClass78 G) : ConjunctionClass78_long G := by
+theorem AT78_implies_long (G : Type*) [Magma G] (h : AssociativeTheory78 G) : AssociativeTheory78_long G := by
   obtain ⟨eq312, eq3264, eq4512⟩ := h
   have eq1 := Equation312_4512_implies_Equation1 G eq312 eq4512
   have eq307 := Equation312_4512_implies_Equation307 G eq312 eq4512
@@ -2266,13 +2266,13 @@ theorem CC78_implies_long (G : Type*) [Magma G] (h : ConjunctionClass78 G) : Con
   have eq4304 := Equation4272_4275_4512_implies_Equation4304 G eq4272 eq4275 eq4512
   exact ⟨eq1, eq307, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3278, eq4272, eq4275, eq4284, eq4304, eq4512⟩
 
-theorem CC78_implied_by_long (G : Type*) [Magma G] : ConjunctionClass78_long G -> ConjunctionClass78 G :=
+theorem AT78_implied_by_long (G : Type*) [Magma G] : AssociativeTheory78_long G -> AssociativeTheory78 G :=
 fun ⟨_, _, h312, _, _, _, _, _, h3264, _, _, _, _, _, _, h4512⟩ => ⟨h312, h3264, h4512⟩
 
-theorem CC78_equiv (G : Type*) [Magma G] : ConjunctionClass78 G <-> ConjunctionClass78_long G :=
-Iff.intro (CC78_implies_long G) (CC78_implied_by_long G)
+theorem AT78_equiv (G : Type*) [Magma G] : AssociativeTheory78 G <-> AssociativeTheory78_long G :=
+Iff.intro (AT78_implies_long G) (AT78_implied_by_long G)
 
-theorem CC79_implies_long (G : Type*) [Magma G] (h : ConjunctionClass79 G) : ConjunctionClass79_long G := by
+theorem AT79_implies_long (G : Type*) [Magma G] (h : AssociativeTheory79 G) : AssociativeTheory79_long G := by
   obtain ⟨eq3260, eq3264, eq4512⟩ := h
   have eq1 := Equation3264_4512_implies_Equation1 G eq3264 eq4512
   have eq307 := Equation3264_4512_implies_Equation307 G eq3264 eq4512
@@ -2290,13 +2290,13 @@ theorem CC79_implies_long (G : Type*) [Magma G] (h : ConjunctionClass79 G) : Con
   have eq4288 := Equation3260_4512_implies_Equation4288 G eq3260 eq4512
   exact ⟨eq1, eq307, eq308, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq4268, eq4270, eq4284, eq4288, eq4512⟩
 
-theorem CC79_implied_by_long (G : Type*) [Magma G] : ConjunctionClass79_long G -> ConjunctionClass79 G :=
+theorem AT79_implied_by_long (G : Type*) [Magma G] : AssociativeTheory79_long G -> AssociativeTheory79 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, h3260, _, h3264, _, _, _, _, h4512⟩ => ⟨h3260, h3264, h4512⟩
 
-theorem CC79_equiv (G : Type*) [Magma G] : ConjunctionClass79 G <-> ConjunctionClass79_long G :=
-Iff.intro (CC79_implies_long G) (CC79_implied_by_long G)
+theorem AT79_equiv (G : Type*) [Magma G] : AssociativeTheory79 G <-> AssociativeTheory79_long G :=
+Iff.intro (AT79_implies_long G) (AT79_implied_by_long G)
 
-theorem CC80_implies_long (G : Type*) [Magma G] (h : ConjunctionClass80 G) : ConjunctionClass80_long G := by
+theorem AT80_implies_long (G : Type*) [Magma G] (h : AssociativeTheory80 G) : AssociativeTheory80_long G := by
   obtain ⟨eq40, eq3260, eq3264, eq4512⟩ := h
   have eq3273 := Equation40_3260_4512_implies_Equation3273 G eq40 eq3260 eq4512
   have eq3275 := Equation40_3264_4512_implies_Equation3275 G eq40 eq3264 eq4512
@@ -2333,13 +2333,13 @@ theorem CC80_implies_long (G : Type*) [Magma G] (h : ConjunctionClass80 G) : Con
   have eq4304 := Equation3273_4512_implies_Equation4304 G eq3273 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3271, eq3273, eq3275, eq3278, eq3292, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4512⟩
 
-theorem CC80_implied_by_long (G : Type*) [Magma G] : ConjunctionClass80_long G -> ConjunctionClass80 G :=
+theorem AT80_implied_by_long (G : Type*) [Magma G] : AssociativeTheory80_long G -> AssociativeTheory80 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, h3260, _, h3264, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h3260, h3264, h4512⟩
 
-theorem CC80_equiv (G : Type*) [Magma G] : ConjunctionClass80 G <-> ConjunctionClass80_long G :=
-Iff.intro (CC80_implies_long G) (CC80_implied_by_long G)
+theorem AT80_equiv (G : Type*) [Magma G] : AssociativeTheory80 G <-> AssociativeTheory80_long G :=
+Iff.intro (AT80_implies_long G) (AT80_implied_by_long G)
 
-theorem CC81_implies_long (G : Type*) [Magma G] (h : ConjunctionClass81 G) : ConjunctionClass81_long G := by
+theorem AT81_implies_long (G : Type*) [Magma G] (h : AssociativeTheory81 G) : AssociativeTheory81_long G := by
   obtain ⟨eq3265, eq4512⟩ := h
   have eq1 := Equation3265_4512_implies_Equation1 G eq3265 eq4512
   have eq307 := Equation3265_4512_implies_Equation307 G eq3265 eq4512
@@ -2357,13 +2357,13 @@ theorem CC81_implies_long (G : Type*) [Magma G] (h : ConjunctionClass81 G) : Con
   have eq4288 := Equation3265_4512_implies_Equation4288 G eq3265 eq4512
   exact ⟨eq1, eq307, eq308, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3261, eq3265, eq4268, eq4270, eq4284, eq4288, eq4512⟩
 
-theorem CC81_implied_by_long (G : Type*) [Magma G] : ConjunctionClass81_long G -> ConjunctionClass81 G :=
+theorem AT81_implied_by_long (G : Type*) [Magma G] : AssociativeTheory81_long G -> AssociativeTheory81 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, h3265, _, _, _, _, h4512⟩ => ⟨h3265, h4512⟩
 
-theorem CC81_equiv (G : Type*) [Magma G] : ConjunctionClass81 G <-> ConjunctionClass81_long G :=
-Iff.intro (CC81_implies_long G) (CC81_implied_by_long G)
+theorem AT81_equiv (G : Type*) [Magma G] : AssociativeTheory81 G <-> AssociativeTheory81_long G :=
+Iff.intro (AT81_implies_long G) (AT81_implied_by_long G)
 
-theorem CC82_implies_long (G : Type*) [Magma G] (h : ConjunctionClass82 G) : ConjunctionClass82_long G := by
+theorem AT82_implies_long (G : Type*) [Magma G] (h : AssociativeTheory82 G) : AssociativeTheory82_long G := by
   obtain ⟨eq40, eq3265, eq4512⟩ := h
   have eq3290 := Equation40_3265_4512_implies_Equation3290 G eq40 eq3265 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -2399,13 +2399,13 @@ theorem CC82_implies_long (G : Type*) [Magma G] (h : ConjunctionClass82 G) : Con
   have eq4343 := Equation3290_4512_implies_Equation4343 G eq3290 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3261, eq3265, eq3271, eq3274, eq3278, eq3290, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4512⟩
 
-theorem CC82_implied_by_long (G : Type*) [Magma G] : ConjunctionClass82_long G -> ConjunctionClass82 G :=
+theorem AT82_implied_by_long (G : Type*) [Magma G] : AssociativeTheory82_long G -> AssociativeTheory82 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, h3265, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h3265, h4512⟩
 
-theorem CC82_equiv (G : Type*) [Magma G] : ConjunctionClass82 G <-> ConjunctionClass82_long G :=
-Iff.intro (CC82_implies_long G) (CC82_implied_by_long G)
+theorem AT82_equiv (G : Type*) [Magma G] : AssociativeTheory82 G <-> AssociativeTheory82_long G :=
+Iff.intro (AT82_implies_long G) (AT82_implied_by_long G)
 
-theorem CC83_implies_long (G : Type*) [Magma G] (h : ConjunctionClass83 G) : ConjunctionClass83_long G := by
+theorem AT83_implies_long (G : Type*) [Magma G] (h : AssociativeTheory83 G) : AssociativeTheory83_long G := by
   obtain ⟨eq3260, eq3265, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3265_4512_implies_Equation307 G eq3265 eq4512
@@ -2423,13 +2423,13 @@ theorem CC83_implies_long (G : Type*) [Magma G] (h : ConjunctionClass83 G) : Con
   have eq4288 := Equation3265_4512_implies_Equation4288 G eq3265 eq4512
   exact ⟨eq1, eq307, eq308, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3265, eq4268, eq4270, eq4284, eq4288, eq4512⟩
 
-theorem CC83_implied_by_long (G : Type*) [Magma G] : ConjunctionClass83_long G -> ConjunctionClass83 G :=
+theorem AT83_implied_by_long (G : Type*) [Magma G] : AssociativeTheory83_long G -> AssociativeTheory83 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, h3260, _, h3265, _, _, _, _, h4512⟩ => ⟨h3260, h3265, h4512⟩
 
-theorem CC83_equiv (G : Type*) [Magma G] : ConjunctionClass83 G <-> ConjunctionClass83_long G :=
-Iff.intro (CC83_implies_long G) (CC83_implied_by_long G)
+theorem AT83_equiv (G : Type*) [Magma G] : AssociativeTheory83 G <-> AssociativeTheory83_long G :=
+Iff.intro (AT83_implies_long G) (AT83_implied_by_long G)
 
-theorem CC84_implies_long (G : Type*) [Magma G] (h : ConjunctionClass84 G) : ConjunctionClass84_long G := by
+theorem AT84_implies_long (G : Type*) [Magma G] (h : AssociativeTheory84 G) : AssociativeTheory84_long G := by
   obtain ⟨eq40, eq3260, eq3265, eq4512⟩ := h
   have eq3290 := Equation40_3265_4512_implies_Equation3290 G eq40 eq3265 eq4512
   have eq3273 := Equation40_3260_4512_implies_Equation3273 G eq40 eq3260 eq4512
@@ -2467,13 +2467,13 @@ theorem CC84_implies_long (G : Type*) [Magma G] (h : ConjunctionClass84 G) : Con
   have eq3274 := Equation3290_4512_implies_Equation3274 G eq3290 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3265, eq3271, eq3273, eq3274, eq3278, eq3290, eq3292, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4512⟩
 
-theorem CC84_implied_by_long (G : Type*) [Magma G] : ConjunctionClass84_long G -> ConjunctionClass84 G :=
+theorem AT84_implied_by_long (G : Type*) [Magma G] : AssociativeTheory84_long G -> AssociativeTheory84 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, h3260, _, h3265, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h3260, h3265, h4512⟩
 
-theorem CC84_equiv (G : Type*) [Magma G] : ConjunctionClass84 G <-> ConjunctionClass84_long G :=
-Iff.intro (CC84_implies_long G) (CC84_implied_by_long G)
+theorem AT84_equiv (G : Type*) [Magma G] : AssociativeTheory84 G <-> AssociativeTheory84_long G :=
+Iff.intro (AT84_implies_long G) (AT84_implied_by_long G)
 
-theorem CC85_implies_long (G : Type*) [Magma G] (h : ConjunctionClass85 G) : ConjunctionClass85_long G := by
+theorem AT85_implies_long (G : Type*) [Magma G] (h : AssociativeTheory85 G) : AssociativeTheory85_long G := by
   obtain ⟨eq3264, eq3265, eq4512⟩ := h
   have eq1 := Equation3264_4512_implies_Equation1 G eq3264 eq4512
   have eq307 := Equation3264_4512_implies_Equation307 G eq3264 eq4512
@@ -2491,13 +2491,13 @@ theorem CC85_implies_long (G : Type*) [Magma G] (h : ConjunctionClass85 G) : Con
   have eq4288 := Equation3265_4512_implies_Equation4288 G eq3265 eq4512
   exact ⟨eq1, eq307, eq308, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3261, eq3264, eq3265, eq4268, eq4270, eq4284, eq4288, eq4512⟩
 
-theorem CC85_implied_by_long (G : Type*) [Magma G] : ConjunctionClass85_long G -> ConjunctionClass85 G :=
+theorem AT85_implied_by_long (G : Type*) [Magma G] : AssociativeTheory85_long G -> AssociativeTheory85 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, h3264, h3265, _, _, _, _, h4512⟩ => ⟨h3264, h3265, h4512⟩
 
-theorem CC85_equiv (G : Type*) [Magma G] : ConjunctionClass85 G <-> ConjunctionClass85_long G :=
-Iff.intro (CC85_implies_long G) (CC85_implied_by_long G)
+theorem AT85_equiv (G : Type*) [Magma G] : AssociativeTheory85 G <-> AssociativeTheory85_long G :=
+Iff.intro (AT85_implies_long G) (AT85_implied_by_long G)
 
-theorem CC86_implies_long (G : Type*) [Magma G] (h : ConjunctionClass86 G) : ConjunctionClass86_long G := by
+theorem AT86_implies_long (G : Type*) [Magma G] (h : AssociativeTheory86 G) : AssociativeTheory86_long G := by
   obtain ⟨eq40, eq3264, eq3265, eq4512⟩ := h
   have eq3290 := Equation40_3265_4512_implies_Equation3290 G eq40 eq3265 eq4512
   have eq3275 := Equation40_3264_4512_implies_Equation3275 G eq40 eq3264 eq4512
@@ -2534,13 +2534,13 @@ theorem CC86_implies_long (G : Type*) [Magma G] (h : ConjunctionClass86 G) : Con
   have eq3274 := Equation3290_4512_implies_Equation3274 G eq3290 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3261, eq3264, eq3265, eq3271, eq3274, eq3275, eq3278, eq3290, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4512⟩
 
-theorem CC86_implied_by_long (G : Type*) [Magma G] : ConjunctionClass86_long G -> ConjunctionClass86 G :=
+theorem AT86_implied_by_long (G : Type*) [Magma G] : AssociativeTheory86_long G -> AssociativeTheory86 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, h3264, h3265, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h3264, h3265, h4512⟩
 
-theorem CC86_equiv (G : Type*) [Magma G] : ConjunctionClass86 G <-> ConjunctionClass86_long G :=
-Iff.intro (CC86_implies_long G) (CC86_implied_by_long G)
+theorem AT86_equiv (G : Type*) [Magma G] : AssociativeTheory86 G <-> AssociativeTheory86_long G :=
+Iff.intro (AT86_implies_long G) (AT86_implied_by_long G)
 
-theorem CC87_implies_long (G : Type*) [Magma G] (h : ConjunctionClass87 G) : ConjunctionClass87_long G := by
+theorem AT87_implies_long (G : Type*) [Magma G] (h : AssociativeTheory87 G) : AssociativeTheory87_long G := by
   obtain ⟨eq3260, eq3264, eq3265, eq4512⟩ := h
   have eq1 := Equation3264_4512_implies_Equation1 G eq3264 eq4512
   have eq307 := Equation3264_4512_implies_Equation307 G eq3264 eq4512
@@ -2558,13 +2558,13 @@ theorem CC87_implies_long (G : Type*) [Magma G] (h : ConjunctionClass87 G) : Con
   have eq4288 := Equation3265_4512_implies_Equation4288 G eq3265 eq4512
   exact ⟨eq1, eq307, eq308, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq4268, eq4270, eq4284, eq4288, eq4512⟩
 
-theorem CC87_implied_by_long (G : Type*) [Magma G] : ConjunctionClass87_long G -> ConjunctionClass87 G :=
+theorem AT87_implied_by_long (G : Type*) [Magma G] : AssociativeTheory87_long G -> AssociativeTheory87 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, h3260, _, h3264, h3265, _, _, _, _, h4512⟩ => ⟨h3260, h3264, h3265, h4512⟩
 
-theorem CC87_equiv (G : Type*) [Magma G] : ConjunctionClass87 G <-> ConjunctionClass87_long G :=
-Iff.intro (CC87_implies_long G) (CC87_implied_by_long G)
+theorem AT87_equiv (G : Type*) [Magma G] : AssociativeTheory87 G <-> AssociativeTheory87_long G :=
+Iff.intro (AT87_implies_long G) (AT87_implied_by_long G)
 
-theorem CC88_implies_long (G : Type*) [Magma G] (h : ConjunctionClass88 G) : ConjunctionClass88_long G := by
+theorem AT88_implies_long (G : Type*) [Magma G] (h : AssociativeTheory88 G) : AssociativeTheory88_long G := by
   obtain ⟨eq40, eq3260, eq3264, eq3265, eq4512⟩ := h
   have eq3290 := Equation40_3265_4512_implies_Equation3290 G eq40 eq3265 eq4512
   have eq3275 := Equation40_3264_4512_implies_Equation3275 G eq40 eq3264 eq4512
@@ -2603,13 +2603,13 @@ theorem CC88_implies_long (G : Type*) [Magma G] (h : ConjunctionClass88 G) : Con
   have eq3274 := Equation3290_4512_implies_Equation3274 G eq3290 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4512⟩
 
-theorem CC88_implied_by_long (G : Type*) [Magma G] : ConjunctionClass88_long G -> ConjunctionClass88 G :=
+theorem AT88_implied_by_long (G : Type*) [Magma G] : AssociativeTheory88_long G -> AssociativeTheory88 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, h3260, _, h3264, h3265, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h3260, h3264, h3265, h4512⟩
 
-theorem CC88_equiv (G : Type*) [Magma G] : ConjunctionClass88 G <-> ConjunctionClass88_long G :=
-Iff.intro (CC88_implies_long G) (CC88_implied_by_long G)
+theorem AT88_equiv (G : Type*) [Magma G] : AssociativeTheory88 G <-> AssociativeTheory88_long G :=
+Iff.intro (AT88_implies_long G) (AT88_implied_by_long G)
 
-theorem CC89_implies_long (G : Type*) [Magma G] (h : ConjunctionClass89 G) : ConjunctionClass89_long G := by
+theorem AT89_implies_long (G : Type*) [Magma G] (h : AssociativeTheory89 G) : AssociativeTheory89_long G := by
   obtain ⟨eq3267, eq4512⟩ := h
   have eq1 := Equation3267_4512_implies_Equation1 G eq3267 eq4512
   have eq307 := Equation3267_4512_implies_Equation307 G eq3267 eq4512
@@ -2630,13 +2630,13 @@ theorem CC89_implies_long (G : Type*) [Magma G] (h : ConjunctionClass89 G) : Con
   have eq4288 := Equation3267_4512_implies_Equation4288 G eq3267 eq4512
   exact ⟨eq1, eq307, eq308, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq4268, eq4270, eq4284, eq4288, eq4512⟩
 
-theorem CC89_implied_by_long (G : Type*) [Magma G] : ConjunctionClass89_long G -> ConjunctionClass89 G :=
+theorem AT89_implied_by_long (G : Type*) [Magma G] : AssociativeTheory89_long G -> AssociativeTheory89 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, h4512⟩ => ⟨h3267, h4512⟩
 
-theorem CC89_equiv (G : Type*) [Magma G] : ConjunctionClass89 G <-> ConjunctionClass89_long G :=
-Iff.intro (CC89_implies_long G) (CC89_implied_by_long G)
+theorem AT89_equiv (G : Type*) [Magma G] : AssociativeTheory89 G <-> AssociativeTheory89_long G :=
+Iff.intro (AT89_implies_long G) (AT89_implied_by_long G)
 
-theorem CC90_implies_long (G : Type*) [Magma G] (h : ConjunctionClass90 G) : ConjunctionClass90_long G := by
+theorem AT90_implies_long (G : Type*) [Magma G] (h : AssociativeTheory90 G) : AssociativeTheory90_long G := by
   obtain ⟨eq40, eq3267, eq4512⟩ := h
   have eq3277 := Equation40_3267_4512_implies_Equation3277 G eq40 eq3267 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -2680,13 +2680,13 @@ theorem CC90_implies_long (G : Type*) [Magma G] (h : ConjunctionClass90 G) : Con
   have eq4343 := Equation3277_4512_implies_Equation4343 G eq3277 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4512⟩
 
-theorem CC90_implied_by_long (G : Type*) [Magma G] : ConjunctionClass90_long G -> ConjunctionClass90 G :=
+theorem AT90_implied_by_long (G : Type*) [Magma G] : AssociativeTheory90_long G -> AssociativeTheory90 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h3267, h4512⟩
 
-theorem CC90_equiv (G : Type*) [Magma G] : ConjunctionClass90 G <-> ConjunctionClass90_long G :=
-Iff.intro (CC90_implies_long G) (CC90_implied_by_long G)
+theorem AT90_equiv (G : Type*) [Magma G] : AssociativeTheory90 G <-> AssociativeTheory90_long G :=
+Iff.intro (AT90_implies_long G) (AT90_implied_by_long G)
 
-theorem CC91_implies_long (G : Type*) [Magma G] (h : ConjunctionClass91 G) : ConjunctionClass91_long G := by
+theorem AT91_implies_long (G : Type*) [Magma G] (h : AssociativeTheory91 G) : AssociativeTheory91_long G := by
   obtain ⟨eq43, eq3267, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -2753,13 +2753,13 @@ theorem CC91_implies_long (G : Type*) [Magma G] (h : ConjunctionClass91 G) : Con
   have eq3300 := Equation3277_4512_implies_Equation3300 G eq3277 eq4512
   exact ⟨eq1, eq40, eq43, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC91_implied_by_long (G : Type*) [Magma G] : ConjunctionClass91_long G -> ConjunctionClass91 G :=
+theorem AT91_implied_by_long (G : Type*) [Magma G] : AssociativeTheory91_long G -> AssociativeTheory91 G :=
 fun ⟨_, _, h43, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h3267, h4512⟩
 
-theorem CC91_equiv (G : Type*) [Magma G] : ConjunctionClass91 G <-> ConjunctionClass91_long G :=
-Iff.intro (CC91_implies_long G) (CC91_implied_by_long G)
+theorem AT91_equiv (G : Type*) [Magma G] : AssociativeTheory91 G <-> AssociativeTheory91_long G :=
+Iff.intro (AT91_implies_long G) (AT91_implied_by_long G)
 
-theorem CC92_implies_long (G : Type*) [Magma G] (h : ConjunctionClass92 G) : ConjunctionClass92_long G := by
+theorem AT92_implies_long (G : Type*) [Magma G] (h : AssociativeTheory92 G) : AssociativeTheory92_long G := by
   obtain ⟨eq309, eq3267, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3267_4512_implies_Equation307 G eq3267 eq4512
@@ -2785,13 +2785,13 @@ theorem CC92_implies_long (G : Type*) [Magma G] (h : ConjunctionClass92 G) : Con
   have eq4283 := Equation4286_4512_implies_Equation4283 G eq4286 eq4512
   exact ⟨eq1, eq307, eq308, eq309, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq4268, eq4269, eq4270, eq4283, eq4284, eq4286, eq4288, eq4314, eq4318, eq4512⟩
 
-theorem CC92_implied_by_long (G : Type*) [Magma G] : ConjunctionClass92_long G -> ConjunctionClass92 G :=
+theorem AT92_implied_by_long (G : Type*) [Magma G] : AssociativeTheory92_long G -> AssociativeTheory92 G :=
 fun ⟨_, _, _, h309, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h309, h3267, h4512⟩
 
-theorem CC92_equiv (G : Type*) [Magma G] : ConjunctionClass92 G <-> ConjunctionClass92_long G :=
-Iff.intro (CC92_implies_long G) (CC92_implied_by_long G)
+theorem AT92_equiv (G : Type*) [Magma G] : AssociativeTheory92 G <-> AssociativeTheory92_long G :=
+Iff.intro (AT92_implies_long G) (AT92_implied_by_long G)
 
-theorem CC93_implies_long (G : Type*) [Magma G] (h : ConjunctionClass93 G) : ConjunctionClass93_long G := by
+theorem AT93_implies_long (G : Type*) [Magma G] (h : AssociativeTheory93 G) : AssociativeTheory93_long G := by
   obtain ⟨eq40, eq309, eq3267, eq4512⟩ := h
   have eq3277 := Equation40_3267_4512_implies_Equation3277 G eq40 eq3267 eq4512
   have eq313 := Equation40_309_4512_implies_Equation313 G eq40 eq309 eq4512
@@ -2852,13 +2852,13 @@ theorem CC93_implies_long (G : Type*) [Magma G] (h : ConjunctionClass93 G) : Con
   have eq4331 := Equation313_4512_implies_Equation4331 G eq313 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4512⟩
 
-theorem CC93_implied_by_long (G : Type*) [Magma G] : ConjunctionClass93_long G -> ConjunctionClass93 G :=
+theorem AT93_implied_by_long (G : Type*) [Magma G] : AssociativeTheory93_long G -> AssociativeTheory93 G :=
 fun ⟨_, h40, _, _, h309, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h309, h3267, h4512⟩
 
-theorem CC93_equiv (G : Type*) [Magma G] : ConjunctionClass93 G <-> ConjunctionClass93_long G :=
-Iff.intro (CC93_implies_long G) (CC93_implied_by_long G)
+theorem AT93_equiv (G : Type*) [Magma G] : AssociativeTheory93 G <-> AssociativeTheory93_long G :=
+Iff.intro (AT93_implies_long G) (AT93_implied_by_long G)
 
-theorem CC94_implies_long (G : Type*) [Magma G] (h : ConjunctionClass94 G) : ConjunctionClass94_long G := by
+theorem AT94_implies_long (G : Type*) [Magma G] (h : AssociativeTheory94 G) : AssociativeTheory94_long G := by
   obtain ⟨eq3271, eq4512⟩ := h
   have eq1 := Equation3271_4512_implies_Equation1 G eq3271 eq4512
   have eq3253 := Equation3271_4512_implies_Equation3253 G eq3271 eq4512
@@ -2867,13 +2867,13 @@ theorem CC94_implies_long (G : Type*) [Magma G] (h : ConjunctionClass94 G) : Con
   have eq4275 := Equation3271_4512_implies_Equation4275 G eq3271 eq4512
   exact ⟨eq1, eq3253, eq3261, eq3271, eq3278, eq4275, eq4512⟩
 
-theorem CC94_implied_by_long (G : Type*) [Magma G] : ConjunctionClass94_long G -> ConjunctionClass94 G :=
+theorem AT94_implied_by_long (G : Type*) [Magma G] : AssociativeTheory94_long G -> AssociativeTheory94 G :=
 fun ⟨_, _, _, h3271, _, _, h4512⟩ => ⟨h3271, h4512⟩
 
-theorem CC94_equiv (G : Type*) [Magma G] : ConjunctionClass94 G <-> ConjunctionClass94_long G :=
-Iff.intro (CC94_implies_long G) (CC94_implied_by_long G)
+theorem AT94_equiv (G : Type*) [Magma G] : AssociativeTheory94 G <-> AssociativeTheory94_long G :=
+Iff.intro (AT94_implies_long G) (AT94_implied_by_long G)
 
-theorem CC95_implies_long (G : Type*) [Magma G] (h : ConjunctionClass95 G) : ConjunctionClass95_long G := by
+theorem AT95_implies_long (G : Type*) [Magma G] (h : AssociativeTheory95 G) : AssociativeTheory95_long G := by
   obtain ⟨eq3274, eq4512⟩ := h
   have eq1 := Equation3274_4512_implies_Equation1 G eq3274 eq4512
   have eq307 := Equation3274_4512_implies_Equation307 G eq3274 eq4512
@@ -2891,13 +2891,13 @@ theorem CC95_implies_long (G : Type*) [Magma G] (h : ConjunctionClass95 G) : Con
   have eq4304 := Equation3274_4512_implies_Equation4304 G eq3274 eq4512
   exact ⟨eq1, eq307, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3271, eq3274, eq3278, eq4272, eq4275, eq4284, eq4304, eq4512⟩
 
-theorem CC95_implied_by_long (G : Type*) [Magma G] : ConjunctionClass95_long G -> ConjunctionClass95 G :=
+theorem AT95_implied_by_long (G : Type*) [Magma G] : AssociativeTheory95_long G -> AssociativeTheory95 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, h3274, _, _, _, _, _, h4512⟩ => ⟨h3274, h4512⟩
 
-theorem CC95_equiv (G : Type*) [Magma G] : ConjunctionClass95 G <-> ConjunctionClass95_long G :=
-Iff.intro (CC95_implies_long G) (CC95_implied_by_long G)
+theorem AT95_equiv (G : Type*) [Magma G] : AssociativeTheory95 G <-> AssociativeTheory95_long G :=
+Iff.intro (AT95_implies_long G) (AT95_implied_by_long G)
 
-theorem CC96_implies_long (G : Type*) [Magma G] (h : ConjunctionClass96 G) : ConjunctionClass96_long G := by
+theorem AT96_implies_long (G : Type*) [Magma G] (h : AssociativeTheory96 G) : AssociativeTheory96_long G := by
   obtain ⟨eq3264, eq3274, eq4512⟩ := h
   have eq1 := Equation3264_4512_implies_Equation1 G eq3264 eq4512
   have eq307 := Equation3264_4512_implies_Equation307 G eq3264 eq4512
@@ -2915,25 +2915,25 @@ theorem CC96_implies_long (G : Type*) [Magma G] (h : ConjunctionClass96 G) : Con
   have eq4304 := Equation3274_4512_implies_Equation4304 G eq3274 eq4512
   exact ⟨eq1, eq307, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3274, eq3278, eq4272, eq4275, eq4284, eq4304, eq4512⟩
 
-theorem CC96_implied_by_long (G : Type*) [Magma G] : ConjunctionClass96_long G -> ConjunctionClass96 G :=
+theorem AT96_implied_by_long (G : Type*) [Magma G] : AssociativeTheory96_long G -> AssociativeTheory96 G :=
 fun ⟨_, _, _, _, _, _, _, _, h3264, _, h3274, _, _, _, _, _, h4512⟩ => ⟨h3264, h3274, h4512⟩
 
-theorem CC96_equiv (G : Type*) [Magma G] : ConjunctionClass96 G <-> ConjunctionClass96_long G :=
-Iff.intro (CC96_implies_long G) (CC96_implied_by_long G)
+theorem AT96_equiv (G : Type*) [Magma G] : AssociativeTheory96 G <-> AssociativeTheory96_long G :=
+Iff.intro (AT96_implies_long G) (AT96_implied_by_long G)
 
-theorem CC97_implies_long (G : Type*) [Magma G] (h : ConjunctionClass97 G) : ConjunctionClass97_long G := by
+theorem AT97_implies_long (G : Type*) [Magma G] (h : AssociativeTheory97 G) : AssociativeTheory97_long G := by
   obtain ⟨eq3278, eq4512⟩ := h
   have eq1 := Equation3278_4512_implies_Equation1 G eq3278 eq4512
   have eq3253 := Equation3278_4512_implies_Equation3253 G eq3278 eq4512
   exact ⟨eq1, eq3253, eq3278, eq4512⟩
 
-theorem CC97_implied_by_long (G : Type*) [Magma G] : ConjunctionClass97_long G -> ConjunctionClass97 G :=
+theorem AT97_implied_by_long (G : Type*) [Magma G] : AssociativeTheory97_long G -> AssociativeTheory97 G :=
 fun ⟨_, _, h3278, h4512⟩ => ⟨h3278, h4512⟩
 
-theorem CC97_equiv (G : Type*) [Magma G] : ConjunctionClass97 G <-> ConjunctionClass97_long G :=
-Iff.intro (CC97_implies_long G) (CC97_implied_by_long G)
+theorem AT97_equiv (G : Type*) [Magma G] : AssociativeTheory97 G <-> AssociativeTheory97_long G :=
+Iff.intro (AT97_implies_long G) (AT97_implied_by_long G)
 
-theorem CC98_implies_long (G : Type*) [Magma G] (h : ConjunctionClass98 G) : ConjunctionClass98_long G := by
+theorem AT98_implies_long (G : Type*) [Magma G] (h : AssociativeTheory98 G) : AssociativeTheory98_long G := by
   obtain ⟨eq3292, eq4512⟩ := h
   have eq1 := Equation3292_4512_implies_Equation1 G eq3292 eq4512
   have eq307 := Equation3292_4512_implies_Equation307 G eq3292 eq4512
@@ -2951,13 +2951,13 @@ theorem CC98_implies_long (G : Type*) [Magma G] (h : ConjunctionClass98 G) : Con
   have eq4304 := Equation3292_4512_implies_Equation4304 G eq3292 eq4512
   exact ⟨eq1, eq307, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3271, eq3278, eq3292, eq4272, eq4275, eq4284, eq4304, eq4512⟩
 
-theorem CC98_implied_by_long (G : Type*) [Magma G] : ConjunctionClass98_long G -> ConjunctionClass98 G :=
+theorem AT98_implied_by_long (G : Type*) [Magma G] : AssociativeTheory98_long G -> AssociativeTheory98 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, h3292, _, _, _, _, h4512⟩ => ⟨h3292, h4512⟩
 
-theorem CC98_equiv (G : Type*) [Magma G] : ConjunctionClass98 G <-> ConjunctionClass98_long G :=
-Iff.intro (CC98_implies_long G) (CC98_implied_by_long G)
+theorem AT98_equiv (G : Type*) [Magma G] : AssociativeTheory98 G <-> AssociativeTheory98_long G :=
+Iff.intro (AT98_implies_long G) (AT98_implied_by_long G)
 
-theorem CC99_implies_long (G : Type*) [Magma G] (h : ConjunctionClass99 G) : ConjunctionClass99_long G := by
+theorem AT99_implies_long (G : Type*) [Magma G] (h : AssociativeTheory99 G) : AssociativeTheory99_long G := by
   obtain ⟨eq3264, eq3292, eq4512⟩ := h
   have eq1 := Equation3264_4512_implies_Equation1 G eq3264 eq4512
   have eq307 := Equation3264_4512_implies_Equation307 G eq3264 eq4512
@@ -2975,13 +2975,13 @@ theorem CC99_implies_long (G : Type*) [Magma G] (h : ConjunctionClass99 G) : Con
   have eq4304 := Equation3292_4512_implies_Equation4304 G eq3292 eq4512
   exact ⟨eq1, eq307, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3278, eq3292, eq4272, eq4275, eq4284, eq4304, eq4512⟩
 
-theorem CC99_implied_by_long (G : Type*) [Magma G] : ConjunctionClass99_long G -> ConjunctionClass99 G :=
+theorem AT99_implied_by_long (G : Type*) [Magma G] : AssociativeTheory99_long G -> AssociativeTheory99 G :=
 fun ⟨_, _, _, _, _, _, _, _, h3264, _, _, h3292, _, _, _, _, h4512⟩ => ⟨h3264, h3292, h4512⟩
 
-theorem CC99_equiv (G : Type*) [Magma G] : ConjunctionClass99 G <-> ConjunctionClass99_long G :=
-Iff.intro (CC99_implies_long G) (CC99_implied_by_long G)
+theorem AT99_equiv (G : Type*) [Magma G] : AssociativeTheory99 G <-> AssociativeTheory99_long G :=
+Iff.intro (AT99_implies_long G) (AT99_implied_by_long G)
 
-theorem CC100_implies_long (G : Type*) [Magma G] (h : ConjunctionClass100 G) : ConjunctionClass100_long G := by
+theorem AT100_implies_long (G : Type*) [Magma G] (h : AssociativeTheory100 G) : AssociativeTheory100_long G := by
   obtain ⟨eq3274, eq3292, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3274_4512_implies_Equation307 G eq3274 eq4512
@@ -2999,13 +2999,13 @@ theorem CC100_implies_long (G : Type*) [Magma G] (h : ConjunctionClass100 G) : C
   have eq4304 := Equation3274_4512_implies_Equation4304 G eq3274 eq4512
   exact ⟨eq1, eq307, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3271, eq3274, eq3278, eq3292, eq4272, eq4275, eq4284, eq4304, eq4512⟩
 
-theorem CC100_implied_by_long (G : Type*) [Magma G] : ConjunctionClass100_long G -> ConjunctionClass100 G :=
+theorem AT100_implied_by_long (G : Type*) [Magma G] : AssociativeTheory100_long G -> AssociativeTheory100 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, h3274, _, h3292, _, _, _, _, h4512⟩ => ⟨h3274, h3292, h4512⟩
 
-theorem CC100_equiv (G : Type*) [Magma G] : ConjunctionClass100 G <-> ConjunctionClass100_long G :=
-Iff.intro (CC100_implies_long G) (CC100_implied_by_long G)
+theorem AT100_equiv (G : Type*) [Magma G] : AssociativeTheory100 G <-> AssociativeTheory100_long G :=
+Iff.intro (AT100_implies_long G) (AT100_implied_by_long G)
 
-theorem CC101_implies_long (G : Type*) [Magma G] (h : ConjunctionClass101 G) : ConjunctionClass101_long G := by
+theorem AT101_implies_long (G : Type*) [Magma G] (h : AssociativeTheory101 G) : AssociativeTheory101_long G := by
   obtain ⟨eq3264, eq3274, eq3292, eq4512⟩ := h
   have eq1 := Equation3264_4512_implies_Equation1 G eq3264 eq4512
   have eq307 := Equation3264_4512_implies_Equation307 G eq3264 eq4512
@@ -3023,13 +3023,13 @@ theorem CC101_implies_long (G : Type*) [Magma G] (h : ConjunctionClass101 G) : C
   have eq4304 := Equation3274_4512_implies_Equation4304 G eq3274 eq4512
   exact ⟨eq1, eq307, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3274, eq3278, eq3292, eq4272, eq4275, eq4284, eq4304, eq4512⟩
 
-theorem CC101_implied_by_long (G : Type*) [Magma G] : ConjunctionClass101_long G -> ConjunctionClass101 G :=
+theorem AT101_implied_by_long (G : Type*) [Magma G] : AssociativeTheory101_long G -> AssociativeTheory101 G :=
 fun ⟨_, _, _, _, _, _, _, _, h3264, _, h3274, _, h3292, _, _, _, _, h4512⟩ => ⟨h3264, h3274, h3292, h4512⟩
 
-theorem CC101_equiv (G : Type*) [Magma G] : ConjunctionClass101 G <-> ConjunctionClass101_long G :=
-Iff.intro (CC101_implies_long G) (CC101_implied_by_long G)
+theorem AT101_equiv (G : Type*) [Magma G] : AssociativeTheory101 G <-> AssociativeTheory101_long G :=
+Iff.intro (AT101_implies_long G) (AT101_implied_by_long G)
 
-theorem CC102_implies_long (G : Type*) [Magma G] (h : ConjunctionClass102 G) : ConjunctionClass102_long G := by
+theorem AT102_implies_long (G : Type*) [Magma G] (h : AssociativeTheory102 G) : AssociativeTheory102_long G := by
   obtain ⟨eq3300, eq4512⟩ := h
   have eq1 := Equation3300_4512_implies_Equation1 G eq3300 eq4512
   have eq307 := Equation3300_4512_implies_Equation307 G eq3300 eq4512
@@ -3050,13 +3050,13 @@ theorem CC102_implies_long (G : Type*) [Magma G] (h : ConjunctionClass102 G) : C
   have eq4304 := Equation3300_4512_implies_Equation4304 G eq3300 eq4512
   exact ⟨eq1, eq307, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3274, eq3278, eq3292, eq3300, eq4272, eq4275, eq4284, eq4304, eq4512⟩
 
-theorem CC102_implied_by_long (G : Type*) [Magma G] : ConjunctionClass102_long G -> ConjunctionClass102 G :=
+theorem AT102_implied_by_long (G : Type*) [Magma G] : AssociativeTheory102_long G -> AssociativeTheory102 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, h3300, _, _, _, _, h4512⟩ => ⟨h3300, h4512⟩
 
-theorem CC102_equiv (G : Type*) [Magma G] : ConjunctionClass102 G <-> ConjunctionClass102_long G :=
-Iff.intro (CC102_implies_long G) (CC102_implied_by_long G)
+theorem AT102_equiv (G : Type*) [Magma G] : AssociativeTheory102 G <-> AssociativeTheory102_long G :=
+Iff.intro (AT102_implies_long G) (AT102_implied_by_long G)
 
-theorem CC103_implies_long (G : Type*) [Magma G] (h : ConjunctionClass103 G) : ConjunctionClass103_long G := by
+theorem AT103_implies_long (G : Type*) [Magma G] (h : AssociativeTheory103 G) : AssociativeTheory103_long G := by
   obtain ⟨eq309, eq3300, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3300_4512_implies_Equation307 G eq3300 eq4512
@@ -3082,25 +3082,25 @@ theorem CC103_implies_long (G : Type*) [Magma G] (h : ConjunctionClass103 G) : C
   have eq4320 := Equation4327_4512_implies_Equation4320 G eq4327 eq4512
   exact ⟨eq1, eq307, eq309, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3274, eq3278, eq3292, eq3300, eq4269, eq4272, eq4275, eq4284, eq4291, eq4296, eq4304, eq4320, eq4327, eq4512⟩
 
-theorem CC103_implied_by_long (G : Type*) [Magma G] : ConjunctionClass103_long G -> ConjunctionClass103 G :=
+theorem AT103_implied_by_long (G : Type*) [Magma G] : AssociativeTheory103_long G -> AssociativeTheory103 G :=
 fun ⟨_, _, h309, _, _, _, _, _, _, _, _, _, _, _, h3300, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h309, h3300, h4512⟩
 
-theorem CC103_equiv (G : Type*) [Magma G] : ConjunctionClass103 G <-> ConjunctionClass103_long G :=
-Iff.intro (CC103_implies_long G) (CC103_implied_by_long G)
+theorem AT103_equiv (G : Type*) [Magma G] : AssociativeTheory103 G <-> AssociativeTheory103_long G :=
+Iff.intro (AT103_implies_long G) (AT103_implied_by_long G)
 
-theorem CC104_implies_long (G : Type*) [Magma G] (h : ConjunctionClass104 G) : ConjunctionClass104_long G := by
+theorem AT104_implies_long (G : Type*) [Magma G] (h : AssociativeTheory104 G) : AssociativeTheory104_long G := by
   obtain ⟨eq3306, eq4512⟩ := h
   have eq1 := Equation3306_4512_implies_Equation1 G eq3306 eq4512
   have eq3253 := Equation3306_4512_implies_Equation3253 G eq3306 eq4512
   exact ⟨eq1, eq3253, eq3306, eq4512⟩
 
-theorem CC104_implied_by_long (G : Type*) [Magma G] : ConjunctionClass104_long G -> ConjunctionClass104 G :=
+theorem AT104_implied_by_long (G : Type*) [Magma G] : AssociativeTheory104_long G -> AssociativeTheory104 G :=
 fun ⟨_, _, h3306, h4512⟩ => ⟨h3306, h4512⟩
 
-theorem CC104_equiv (G : Type*) [Magma G] : ConjunctionClass104 G <-> ConjunctionClass104_long G :=
-Iff.intro (CC104_implies_long G) (CC104_implied_by_long G)
+theorem AT104_equiv (G : Type*) [Magma G] : AssociativeTheory104 G <-> AssociativeTheory104_long G :=
+Iff.intro (AT104_implies_long G) (AT104_implied_by_long G)
 
-theorem CC105_implies_long (G : Type*) [Magma G] (h : ConjunctionClass105 G) : ConjunctionClass105_long G := by
+theorem AT105_implies_long (G : Type*) [Magma G] (h : AssociativeTheory105 G) : AssociativeTheory105_long G := by
   obtain ⟨eq40, eq3306, eq4512⟩ := h
   have eq3350 := Equation40_3306_4512_implies_Equation3350 G eq40 eq3306 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -3137,13 +3137,13 @@ theorem CC105_implies_long (G : Type*) [Magma G] (h : ConjunctionClass105 G) : C
   have eq4369 := Equation3350_4512_implies_Equation4369 G eq3350 eq4512
   exact ⟨eq1, eq40, eq43, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq3306, eq3308, eq3315, eq3319, eq3323, eq3331, eq3334, eq3342, eq3346, eq3350, eq3353, eq3388, eq3414, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC105_implied_by_long (G : Type*) [Magma G] : ConjunctionClass105_long G -> ConjunctionClass105 G :=
+theorem AT105_implied_by_long (G : Type*) [Magma G] : AssociativeTheory105_long G -> AssociativeTheory105 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, h3306, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h3306, h4512⟩
 
-theorem CC105_equiv (G : Type*) [Magma G] : ConjunctionClass105 G <-> ConjunctionClass105_long G :=
-Iff.intro (CC105_implies_long G) (CC105_implied_by_long G)
+theorem AT105_equiv (G : Type*) [Magma G] : AssociativeTheory105 G <-> AssociativeTheory105_long G :=
+Iff.intro (AT105_implies_long G) (AT105_implied_by_long G)
 
-theorem CC106_implies_long (G : Type*) [Magma G] (h : ConjunctionClass106 G) : ConjunctionClass106_long G := by
+theorem AT106_implies_long (G : Type*) [Magma G] (h : AssociativeTheory106 G) : AssociativeTheory106_long G := by
   obtain ⟨eq43, eq3306, eq4512⟩ := h
   have eq3342 := Equation43_3306_4512_implies_Equation3342 G eq43 eq3306 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -3162,13 +3162,13 @@ theorem CC106_implies_long (G : Type*) [Magma G] (h : ConjunctionClass106 G) : C
   have eq3353 := Equation3342_4512_implies_Equation3353 G eq3342 eq4512
   exact ⟨eq1, eq43, eq3253, eq3306, eq3308, eq3315, eq3319, eq3342, eq3346, eq3353, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC106_implied_by_long (G : Type*) [Magma G] : ConjunctionClass106_long G -> ConjunctionClass106 G :=
+theorem AT106_implied_by_long (G : Type*) [Magma G] : AssociativeTheory106_long G -> AssociativeTheory106 G :=
 fun ⟨_, h43, _, h3306, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h3306, h4512⟩
 
-theorem CC106_equiv (G : Type*) [Magma G] : ConjunctionClass106 G <-> ConjunctionClass106_long G :=
-Iff.intro (CC106_implies_long G) (CC106_implied_by_long G)
+theorem AT106_equiv (G : Type*) [Magma G] : AssociativeTheory106 G <-> AssociativeTheory106_long G :=
+Iff.intro (AT106_implies_long G) (AT106_implied_by_long G)
 
-theorem CC107_implies_long (G : Type*) [Magma G] (h : ConjunctionClass107 G) : ConjunctionClass107_long G := by
+theorem AT107_implies_long (G : Type*) [Magma G] (h : AssociativeTheory107 G) : AssociativeTheory107_long G := by
   obtain ⟨eq3256, eq3306, eq4512⟩ := h
   have eq3331 := Equation3256_3306_4512_implies_Equation3331 G eq3256 eq3306 eq4512
   have eq1 := Equation3256_4512_implies_Equation1 G eq3256 eq4512
@@ -3185,13 +3185,13 @@ theorem CC107_implies_long (G : Type*) [Magma G] (h : ConjunctionClass107 G) : C
   have eq4358 := Equation3331_4512_implies_Equation4358 G eq3331 eq4512
   exact ⟨eq1, eq3253, eq3256, eq3259, eq3261, eq3306, eq3308, eq3315, eq3319, eq3323, eq3331, eq3334, eq4270, eq4283, eq4358, eq4512⟩
 
-theorem CC107_implied_by_long (G : Type*) [Magma G] : ConjunctionClass107_long G -> ConjunctionClass107 G :=
+theorem AT107_implied_by_long (G : Type*) [Magma G] : AssociativeTheory107_long G -> AssociativeTheory107 G :=
 fun ⟨_, _, h3256, _, _, h3306, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h3256, h3306, h4512⟩
 
-theorem CC107_equiv (G : Type*) [Magma G] : ConjunctionClass107 G <-> ConjunctionClass107_long G :=
-Iff.intro (CC107_implies_long G) (CC107_implied_by_long G)
+theorem AT107_equiv (G : Type*) [Magma G] : AssociativeTheory107 G <-> AssociativeTheory107_long G :=
+Iff.intro (AT107_implies_long G) (AT107_implied_by_long G)
 
-theorem CC108_implies_long (G : Type*) [Magma G] (h : ConjunctionClass108 G) : ConjunctionClass108_long G := by
+theorem AT108_implies_long (G : Type*) [Magma G] (h : AssociativeTheory108 G) : AssociativeTheory108_long G := by
   obtain ⟨eq3261, eq3306, eq4512⟩ := h
   have eq3334 := Equation3261_3306_4512_implies_Equation3334 G eq3261 eq3306 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -3199,13 +3199,13 @@ theorem CC108_implies_long (G : Type*) [Magma G] (h : ConjunctionClass108 G) : C
   have eq3319 := Equation3334_4512_implies_Equation3319 G eq3334 eq4512
   exact ⟨eq1, eq3253, eq3261, eq3306, eq3319, eq3334, eq4512⟩
 
-theorem CC108_implied_by_long (G : Type*) [Magma G] : ConjunctionClass108_long G -> ConjunctionClass108 G :=
+theorem AT108_implied_by_long (G : Type*) [Magma G] : AssociativeTheory108_long G -> AssociativeTheory108 G :=
 fun ⟨_, _, h3261, h3306, _, _, h4512⟩ => ⟨h3261, h3306, h4512⟩
 
-theorem CC108_equiv (G : Type*) [Magma G] : ConjunctionClass108 G <-> ConjunctionClass108_long G :=
-Iff.intro (CC108_implies_long G) (CC108_implied_by_long G)
+theorem AT108_equiv (G : Type*) [Magma G] : AssociativeTheory108 G <-> AssociativeTheory108_long G :=
+Iff.intro (AT108_implies_long G) (AT108_implied_by_long G)
 
-theorem CC109_implies_long (G : Type*) [Magma G] (h : ConjunctionClass109 G) : ConjunctionClass109_long G := by
+theorem AT109_implies_long (G : Type*) [Magma G] (h : AssociativeTheory109 G) : AssociativeTheory109_long G := by
   obtain ⟨eq3271, eq3306, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation3306_4512_implies_Equation3253 G eq3306 eq4512
@@ -3222,13 +3222,13 @@ theorem CC109_implies_long (G : Type*) [Magma G] (h : ConjunctionClass109 G) : C
   have eq4362 := Equation3388_4512_implies_Equation4362 G eq3388 eq4512
   exact ⟨eq1, eq3253, eq3261, eq3271, eq3278, eq3306, eq3319, eq3334, eq3346, eq3353, eq3388, eq3414, eq4275, eq4320, eq4362, eq4512⟩
 
-theorem CC109_implied_by_long (G : Type*) [Magma G] : ConjunctionClass109_long G -> ConjunctionClass109 G :=
+theorem AT109_implied_by_long (G : Type*) [Magma G] : AssociativeTheory109_long G -> AssociativeTheory109 G :=
 fun ⟨_, _, _, h3271, _, h3306, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h3271, h3306, h4512⟩
 
-theorem CC109_equiv (G : Type*) [Magma G] : ConjunctionClass109 G <-> ConjunctionClass109_long G :=
-Iff.intro (CC109_implies_long G) (CC109_implied_by_long G)
+theorem AT109_equiv (G : Type*) [Magma G] : AssociativeTheory109 G <-> AssociativeTheory109_long G :=
+Iff.intro (AT109_implies_long G) (AT109_implied_by_long G)
 
-theorem CC110_implies_long (G : Type*) [Magma G] (h : ConjunctionClass110 G) : ConjunctionClass110_long G := by
+theorem AT110_implies_long (G : Type*) [Magma G] (h : AssociativeTheory110 G) : AssociativeTheory110_long G := by
   obtain ⟨eq3278, eq3306, eq4512⟩ := h
   have eq3414 := Equation3278_3306_4512_implies_Equation3414 G eq3278 eq3306 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -3236,13 +3236,13 @@ theorem CC110_implies_long (G : Type*) [Magma G] (h : ConjunctionClass110 G) : C
   have eq3353 := Equation3414_4512_implies_Equation3353 G eq3414 eq4512
   exact ⟨eq1, eq3253, eq3278, eq3306, eq3353, eq3414, eq4512⟩
 
-theorem CC110_implied_by_long (G : Type*) [Magma G] : ConjunctionClass110_long G -> ConjunctionClass110 G :=
+theorem AT110_implied_by_long (G : Type*) [Magma G] : AssociativeTheory110_long G -> AssociativeTheory110 G :=
 fun ⟨_, _, h3278, h3306, _, _, h4512⟩ => ⟨h3278, h3306, h4512⟩
 
-theorem CC110_equiv (G : Type*) [Magma G] : ConjunctionClass110 G <-> ConjunctionClass110_long G :=
-Iff.intro (CC110_implies_long G) (CC110_implied_by_long G)
+theorem AT110_equiv (G : Type*) [Magma G] : AssociativeTheory110 G <-> AssociativeTheory110_long G :=
+Iff.intro (AT110_implies_long G) (AT110_implied_by_long G)
 
-theorem CC111_implies_long (G : Type*) [Magma G] (h : ConjunctionClass111 G) : ConjunctionClass111_long G := by
+theorem AT111_implies_long (G : Type*) [Magma G] (h : AssociativeTheory111 G) : AssociativeTheory111_long G := by
   obtain ⟨eq3308, eq4512⟩ := h
   have eq1 := Equation3308_4512_implies_Equation1 G eq3308 eq4512
   have eq3253 := Equation3308_4512_implies_Equation3253 G eq3308 eq4512
@@ -3252,13 +3252,13 @@ theorem CC111_implies_long (G : Type*) [Magma G] (h : ConjunctionClass111 G) : C
   have eq4283 := Equation3308_4512_implies_Equation4283 G eq3308 eq4512
   exact ⟨eq1, eq3253, eq3306, eq3308, eq3315, eq3319, eq4283, eq4512⟩
 
-theorem CC111_implied_by_long (G : Type*) [Magma G] : ConjunctionClass111_long G -> ConjunctionClass111 G :=
+theorem AT111_implied_by_long (G : Type*) [Magma G] : AssociativeTheory111_long G -> AssociativeTheory111 G :=
 fun ⟨_, _, _, h3308, _, _, _, h4512⟩ => ⟨h3308, h4512⟩
 
-theorem CC111_equiv (G : Type*) [Magma G] : ConjunctionClass111 G <-> ConjunctionClass111_long G :=
-Iff.intro (CC111_implies_long G) (CC111_implied_by_long G)
+theorem AT111_equiv (G : Type*) [Magma G] : AssociativeTheory111 G <-> AssociativeTheory111_long G :=
+Iff.intro (AT111_implies_long G) (AT111_implied_by_long G)
 
-theorem CC112_implies_long (G : Type*) [Magma G] (h : ConjunctionClass112 G) : ConjunctionClass112_long G := by
+theorem AT112_implies_long (G : Type*) [Magma G] (h : AssociativeTheory112 G) : AssociativeTheory112_long G := by
   obtain ⟨eq8, eq3308, eq4512⟩ := h
   have eq1 := Equation8_4512_implies_Equation1 G eq8 eq4512
   have eq411 := Equation8_4512_implies_Equation411 G eq8 eq4512
@@ -3269,26 +3269,26 @@ theorem CC112_implies_long (G : Type*) [Magma G] (h : ConjunctionClass112 G) : C
   have eq4283 := Equation3308_4512_implies_Equation4283 G eq3308 eq4512
   exact ⟨eq1, eq8, eq411, eq3253, eq3306, eq3308, eq3315, eq3319, eq4283, eq4512⟩
 
-theorem CC112_implied_by_long (G : Type*) [Magma G] : ConjunctionClass112_long G -> ConjunctionClass112 G :=
+theorem AT112_implied_by_long (G : Type*) [Magma G] : AssociativeTheory112_long G -> AssociativeTheory112 G :=
 fun ⟨_, h8, _, _, _, h3308, _, _, _, h4512⟩ => ⟨h8, h3308, h4512⟩
 
-theorem CC112_equiv (G : Type*) [Magma G] : ConjunctionClass112 G <-> ConjunctionClass112_long G :=
-Iff.intro (CC112_implies_long G) (CC112_implied_by_long G)
+theorem AT112_equiv (G : Type*) [Magma G] : AssociativeTheory112 G <-> AssociativeTheory112_long G :=
+Iff.intro (AT112_implies_long G) (AT112_implied_by_long G)
 
-theorem CC113_implies_long (G : Type*) [Magma G] (h : ConjunctionClass113 G) : ConjunctionClass113_long G := by
+theorem AT113_implies_long (G : Type*) [Magma G] (h : AssociativeTheory113 G) : AssociativeTheory113_long G := by
   obtain ⟨eq3315, eq4512⟩ := h
   have eq1 := Equation3315_4512_implies_Equation1 G eq3315 eq4512
   have eq3253 := Equation3315_4512_implies_Equation3253 G eq3315 eq4512
   have eq3319 := Equation3315_4512_implies_Equation3319 G eq3315 eq4512
   exact ⟨eq1, eq3253, eq3315, eq3319, eq4512⟩
 
-theorem CC113_implied_by_long (G : Type*) [Magma G] : ConjunctionClass113_long G -> ConjunctionClass113 G :=
+theorem AT113_implied_by_long (G : Type*) [Magma G] : AssociativeTheory113_long G -> AssociativeTheory113 G :=
 fun ⟨_, _, h3315, _, h4512⟩ => ⟨h3315, h4512⟩
 
-theorem CC113_equiv (G : Type*) [Magma G] : ConjunctionClass113 G <-> ConjunctionClass113_long G :=
-Iff.intro (CC113_implies_long G) (CC113_implied_by_long G)
+theorem AT113_equiv (G : Type*) [Magma G] : AssociativeTheory113 G <-> AssociativeTheory113_long G :=
+Iff.intro (AT113_implies_long G) (AT113_implied_by_long G)
 
-theorem CC114_implies_long (G : Type*) [Magma G] (h : ConjunctionClass114 G) : ConjunctionClass114_long G := by
+theorem AT114_implies_long (G : Type*) [Magma G] (h : AssociativeTheory114 G) : AssociativeTheory114_long G := by
   obtain ⟨eq8, eq3315, eq4512⟩ := h
   have eq1 := Equation8_4512_implies_Equation1 G eq8 eq4512
   have eq411 := Equation8_4512_implies_Equation411 G eq8 eq4512
@@ -3297,13 +3297,13 @@ theorem CC114_implies_long (G : Type*) [Magma G] (h : ConjunctionClass114 G) : C
   have eq3319 := Equation8_4512_implies_Equation3319 G eq8 eq4512
   exact ⟨eq1, eq8, eq411, eq3253, eq3306, eq3315, eq3319, eq4512⟩
 
-theorem CC114_implied_by_long (G : Type*) [Magma G] : ConjunctionClass114_long G -> ConjunctionClass114 G :=
+theorem AT114_implied_by_long (G : Type*) [Magma G] : AssociativeTheory114_long G -> AssociativeTheory114 G :=
 fun ⟨_, h8, _, _, _, h3315, _, h4512⟩ => ⟨h8, h3315, h4512⟩
 
-theorem CC114_equiv (G : Type*) [Magma G] : ConjunctionClass114 G <-> ConjunctionClass114_long G :=
-Iff.intro (CC114_implies_long G) (CC114_implied_by_long G)
+theorem AT114_equiv (G : Type*) [Magma G] : AssociativeTheory114 G <-> AssociativeTheory114_long G :=
+Iff.intro (AT114_implies_long G) (AT114_implied_by_long G)
 
-theorem CC115_implies_long (G : Type*) [Magma G] (h : ConjunctionClass115 G) : ConjunctionClass115_long G := by
+theorem AT115_implies_long (G : Type*) [Magma G] (h : AssociativeTheory115 G) : AssociativeTheory115_long G := by
   obtain ⟨eq3256, eq3315, eq4512⟩ := h
   have eq3323 := Equation3256_3315_4512_implies_Equation3323 G eq3256 eq3315 eq4512
   have eq1 := Equation3256_4512_implies_Equation1 G eq3256 eq4512
@@ -3311,39 +3311,39 @@ theorem CC115_implies_long (G : Type*) [Magma G] (h : ConjunctionClass115 G) : C
   have eq3319 := Equation3315_4512_implies_Equation3319 G eq3315 eq4512
   exact ⟨eq1, eq3253, eq3256, eq3315, eq3319, eq3323, eq4512⟩
 
-theorem CC115_implied_by_long (G : Type*) [Magma G] : ConjunctionClass115_long G -> ConjunctionClass115 G :=
+theorem AT115_implied_by_long (G : Type*) [Magma G] : AssociativeTheory115_long G -> AssociativeTheory115 G :=
 fun ⟨_, _, h3256, h3315, _, _, h4512⟩ => ⟨h3256, h3315, h4512⟩
 
-theorem CC115_equiv (G : Type*) [Magma G] : ConjunctionClass115 G <-> ConjunctionClass115_long G :=
-Iff.intro (CC115_implies_long G) (CC115_implied_by_long G)
+theorem AT115_equiv (G : Type*) [Magma G] : AssociativeTheory115 G <-> AssociativeTheory115_long G :=
+Iff.intro (AT115_implies_long G) (AT115_implied_by_long G)
 
-theorem CC116_implies_long (G : Type*) [Magma G] (h : ConjunctionClass116 G) : ConjunctionClass116_long G := by
+theorem AT116_implies_long (G : Type*) [Magma G] (h : AssociativeTheory116 G) : AssociativeTheory116_long G := by
   obtain ⟨eq3306, eq3315, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation3306_4512_implies_Equation3253 G eq3306 eq4512
   have eq3319 := Equation3315_4512_implies_Equation3319 G eq3315 eq4512
   exact ⟨eq1, eq3253, eq3306, eq3315, eq3319, eq4512⟩
 
-theorem CC116_implied_by_long (G : Type*) [Magma G] : ConjunctionClass116_long G -> ConjunctionClass116 G :=
+theorem AT116_implied_by_long (G : Type*) [Magma G] : AssociativeTheory116_long G -> AssociativeTheory116 G :=
 fun ⟨_, _, h3306, h3315, _, h4512⟩ => ⟨h3306, h3315, h4512⟩
 
-theorem CC116_equiv (G : Type*) [Magma G] : ConjunctionClass116 G <-> ConjunctionClass116_long G :=
-Iff.intro (CC116_implies_long G) (CC116_implied_by_long G)
+theorem AT116_equiv (G : Type*) [Magma G] : AssociativeTheory116 G <-> AssociativeTheory116_long G :=
+Iff.intro (AT116_implies_long G) (AT116_implied_by_long G)
 
-theorem CC117_implies_long (G : Type*) [Magma G] (h : ConjunctionClass117 G) : ConjunctionClass117_long G := by
+theorem AT117_implies_long (G : Type*) [Magma G] (h : AssociativeTheory117 G) : AssociativeTheory117_long G := by
   obtain ⟨eq3316, eq4512⟩ := h
   have eq1 := Equation3316_4512_implies_Equation1 G eq3316 eq4512
   have eq307 := Equation3316_4512_implies_Equation307 G eq3316 eq4512
   have eq3253 := Equation3316_4512_implies_Equation3253 G eq3316 eq4512
   exact ⟨eq1, eq307, eq3253, eq3316, eq4512⟩
 
-theorem CC117_implied_by_long (G : Type*) [Magma G] : ConjunctionClass117_long G -> ConjunctionClass117 G :=
+theorem AT117_implied_by_long (G : Type*) [Magma G] : AssociativeTheory117_long G -> AssociativeTheory117 G :=
 fun ⟨_, _, _, h3316, h4512⟩ => ⟨h3316, h4512⟩
 
-theorem CC117_equiv (G : Type*) [Magma G] : ConjunctionClass117 G <-> ConjunctionClass117_long G :=
-Iff.intro (CC117_implies_long G) (CC117_implied_by_long G)
+theorem AT117_equiv (G : Type*) [Magma G] : AssociativeTheory117 G <-> AssociativeTheory117_long G :=
+Iff.intro (AT117_implies_long G) (AT117_implied_by_long G)
 
-theorem CC118_implies_long (G : Type*) [Magma G] (h : ConjunctionClass118 G) : ConjunctionClass118_long G := by
+theorem AT118_implies_long (G : Type*) [Magma G] (h : AssociativeTheory118 G) : AssociativeTheory118_long G := by
   obtain ⟨eq323, eq3316, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation323_4512_implies_Equation307 G eq323 eq4512
@@ -3351,13 +3351,13 @@ theorem CC118_implies_long (G : Type*) [Magma G] (h : ConjunctionClass118 G) : C
   have eq3306 := Equation323_4512_implies_Equation3306 G eq323 eq4512
   exact ⟨eq1, eq307, eq323, eq3253, eq3306, eq3316, eq4512⟩
 
-theorem CC118_implied_by_long (G : Type*) [Magma G] : ConjunctionClass118_long G -> ConjunctionClass118 G :=
+theorem AT118_implied_by_long (G : Type*) [Magma G] : AssociativeTheory118_long G -> AssociativeTheory118 G :=
 fun ⟨_, _, h323, _, _, h3316, h4512⟩ => ⟨h323, h3316, h4512⟩
 
-theorem CC118_equiv (G : Type*) [Magma G] : ConjunctionClass118 G <-> ConjunctionClass118_long G :=
-Iff.intro (CC118_implies_long G) (CC118_implied_by_long G)
+theorem AT118_equiv (G : Type*) [Magma G] : AssociativeTheory118 G <-> AssociativeTheory118_long G :=
+Iff.intro (AT118_implies_long G) (AT118_implied_by_long G)
 
-theorem CC119_implies_long (G : Type*) [Magma G] (h : ConjunctionClass119 G) : ConjunctionClass119_long G := by
+theorem AT119_implies_long (G : Type*) [Magma G] (h : AssociativeTheory119 G) : AssociativeTheory119_long G := by
   obtain ⟨eq326, eq3316, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3316_4512_implies_Equation307 G eq3316 eq4512
@@ -3365,37 +3365,37 @@ theorem CC119_implies_long (G : Type*) [Magma G] (h : ConjunctionClass119 G) : C
   have eq3319 := Equation326_4512_implies_Equation3319 G eq326 eq4512
   exact ⟨eq1, eq307, eq326, eq3253, eq3316, eq3319, eq4512⟩
 
-theorem CC119_implied_by_long (G : Type*) [Magma G] : ConjunctionClass119_long G -> ConjunctionClass119 G :=
+theorem AT119_implied_by_long (G : Type*) [Magma G] : AssociativeTheory119_long G -> AssociativeTheory119 G :=
 fun ⟨_, _, h326, _, h3316, _, h4512⟩ => ⟨h326, h3316, h4512⟩
 
-theorem CC119_equiv (G : Type*) [Magma G] : ConjunctionClass119 G <-> ConjunctionClass119_long G :=
-Iff.intro (CC119_implies_long G) (CC119_implied_by_long G)
+theorem AT119_equiv (G : Type*) [Magma G] : AssociativeTheory119 G <-> AssociativeTheory119_long G :=
+Iff.intro (AT119_implies_long G) (AT119_implied_by_long G)
 
-theorem CC120_implies_long (G : Type*) [Magma G] (h : ConjunctionClass120 G) : ConjunctionClass120_long G := by
+theorem AT120_implies_long (G : Type*) [Magma G] (h : AssociativeTheory120 G) : AssociativeTheory120_long G := by
   obtain ⟨eq3319, eq4512⟩ := h
   have eq1 := Equation3319_4512_implies_Equation1 G eq3319 eq4512
   have eq3253 := Equation3319_4512_implies_Equation3253 G eq3319 eq4512
   exact ⟨eq1, eq3253, eq3319, eq4512⟩
 
-theorem CC120_implied_by_long (G : Type*) [Magma G] : ConjunctionClass120_long G -> ConjunctionClass120 G :=
+theorem AT120_implied_by_long (G : Type*) [Magma G] : AssociativeTheory120_long G -> AssociativeTheory120 G :=
 fun ⟨_, _, h3319, h4512⟩ => ⟨h3319, h4512⟩
 
-theorem CC120_equiv (G : Type*) [Magma G] : ConjunctionClass120 G <-> ConjunctionClass120_long G :=
-Iff.intro (CC120_implies_long G) (CC120_implied_by_long G)
+theorem AT120_equiv (G : Type*) [Magma G] : AssociativeTheory120 G <-> AssociativeTheory120_long G :=
+Iff.intro (AT120_implies_long G) (AT120_implied_by_long G)
 
-theorem CC121_implies_long (G : Type*) [Magma G] (h : ConjunctionClass121 G) : ConjunctionClass121_long G := by
+theorem AT121_implies_long (G : Type*) [Magma G] (h : AssociativeTheory121 G) : AssociativeTheory121_long G := by
   obtain ⟨eq3306, eq3319, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation3306_4512_implies_Equation3253 G eq3306 eq4512
   exact ⟨eq1, eq3253, eq3306, eq3319, eq4512⟩
 
-theorem CC121_implied_by_long (G : Type*) [Magma G] : ConjunctionClass121_long G -> ConjunctionClass121 G :=
+theorem AT121_implied_by_long (G : Type*) [Magma G] : AssociativeTheory121_long G -> AssociativeTheory121 G :=
 fun ⟨_, _, h3306, h3319, h4512⟩ => ⟨h3306, h3319, h4512⟩
 
-theorem CC121_equiv (G : Type*) [Magma G] : ConjunctionClass121 G <-> ConjunctionClass121_long G :=
-Iff.intro (CC121_implies_long G) (CC121_implied_by_long G)
+theorem AT121_equiv (G : Type*) [Magma G] : AssociativeTheory121 G <-> AssociativeTheory121_long G :=
+Iff.intro (AT121_implies_long G) (AT121_implied_by_long G)
 
-theorem CC122_implies_long (G : Type*) [Magma G] (h : ConjunctionClass122 G) : ConjunctionClass122_long G := by
+theorem AT122_implies_long (G : Type*) [Magma G] (h : AssociativeTheory122 G) : AssociativeTheory122_long G := by
   obtain ⟨eq3346, eq4512⟩ := h
   have eq1 := Equation3346_4512_implies_Equation1 G eq3346 eq4512
   have eq3253 := Equation3346_4512_implies_Equation3253 G eq3346 eq4512
@@ -3405,13 +3405,13 @@ theorem CC122_implies_long (G : Type*) [Magma G] (h : ConjunctionClass122 G) : C
   have eq4320 := Equation3346_4512_implies_Equation4320 G eq3346 eq4512
   exact ⟨eq1, eq3253, eq3306, eq3319, eq3346, eq3353, eq4320, eq4512⟩
 
-theorem CC122_implied_by_long (G : Type*) [Magma G] : ConjunctionClass122_long G -> ConjunctionClass122 G :=
+theorem AT122_implied_by_long (G : Type*) [Magma G] : AssociativeTheory122_long G -> AssociativeTheory122 G :=
 fun ⟨_, _, _, _, h3346, _, _, h4512⟩ => ⟨h3346, h4512⟩
 
-theorem CC122_equiv (G : Type*) [Magma G] : ConjunctionClass122 G <-> ConjunctionClass122_long G :=
-Iff.intro (CC122_implies_long G) (CC122_implied_by_long G)
+theorem AT122_equiv (G : Type*) [Magma G] : AssociativeTheory122 G <-> AssociativeTheory122_long G :=
+Iff.intro (AT122_implies_long G) (AT122_implied_by_long G)
 
-theorem CC123_implies_long (G : Type*) [Magma G] (h : ConjunctionClass123 G) : ConjunctionClass123_long G := by
+theorem AT123_implies_long (G : Type*) [Magma G] (h : AssociativeTheory123 G) : AssociativeTheory123_long G := by
   obtain ⟨eq8, eq3346, eq4512⟩ := h
   have eq1 := Equation8_4512_implies_Equation1 G eq8 eq4512
   have eq411 := Equation8_4512_implies_Equation411 G eq8 eq4512
@@ -3422,26 +3422,26 @@ theorem CC123_implies_long (G : Type*) [Magma G] (h : ConjunctionClass123 G) : C
   have eq4320 := Equation3346_4512_implies_Equation4320 G eq3346 eq4512
   exact ⟨eq1, eq8, eq411, eq3253, eq3306, eq3319, eq3346, eq3353, eq4320, eq4512⟩
 
-theorem CC123_implied_by_long (G : Type*) [Magma G] : ConjunctionClass123_long G -> ConjunctionClass123 G :=
+theorem AT123_implied_by_long (G : Type*) [Magma G] : AssociativeTheory123_long G -> AssociativeTheory123 G :=
 fun ⟨_, h8, _, _, _, _, h3346, _, _, h4512⟩ => ⟨h8, h3346, h4512⟩
 
-theorem CC123_equiv (G : Type*) [Magma G] : ConjunctionClass123 G <-> ConjunctionClass123_long G :=
-Iff.intro (CC123_implies_long G) (CC123_implied_by_long G)
+theorem AT123_equiv (G : Type*) [Magma G] : AssociativeTheory123 G <-> AssociativeTheory123_long G :=
+Iff.intro (AT123_implies_long G) (AT123_implied_by_long G)
 
-theorem CC124_implies_long (G : Type*) [Magma G] (h : ConjunctionClass124 G) : ConjunctionClass124_long G := by
+theorem AT124_implies_long (G : Type*) [Magma G] (h : AssociativeTheory124 G) : AssociativeTheory124_long G := by
   obtain ⟨eq3353, eq4512⟩ := h
   have eq1 := Equation3353_4512_implies_Equation1 G eq3353 eq4512
   have eq3253 := Equation3353_4512_implies_Equation3253 G eq3353 eq4512
   have eq3306 := Equation3353_4512_implies_Equation3306 G eq3353 eq4512
   exact ⟨eq1, eq3253, eq3306, eq3353, eq4512⟩
 
-theorem CC124_implied_by_long (G : Type*) [Magma G] : ConjunctionClass124_long G -> ConjunctionClass124 G :=
+theorem AT124_implied_by_long (G : Type*) [Magma G] : AssociativeTheory124_long G -> AssociativeTheory124 G :=
 fun ⟨_, _, _, h3353, h4512⟩ => ⟨h3353, h4512⟩
 
-theorem CC124_equiv (G : Type*) [Magma G] : ConjunctionClass124 G <-> ConjunctionClass124_long G :=
-Iff.intro (CC124_implies_long G) (CC124_implied_by_long G)
+theorem AT124_equiv (G : Type*) [Magma G] : AssociativeTheory124 G <-> AssociativeTheory124_long G :=
+Iff.intro (AT124_implies_long G) (AT124_implied_by_long G)
 
-theorem CC125_implies_long (G : Type*) [Magma G] (h : ConjunctionClass125 G) : ConjunctionClass125_long G := by
+theorem AT125_implies_long (G : Type*) [Magma G] (h : AssociativeTheory125 G) : AssociativeTheory125_long G := by
   obtain ⟨eq8, eq3353, eq4512⟩ := h
   have eq1 := Equation8_4512_implies_Equation1 G eq8 eq4512
   have eq411 := Equation8_4512_implies_Equation411 G eq8 eq4512
@@ -3450,37 +3450,37 @@ theorem CC125_implies_long (G : Type*) [Magma G] (h : ConjunctionClass125 G) : C
   have eq3319 := Equation8_4512_implies_Equation3319 G eq8 eq4512
   exact ⟨eq1, eq8, eq411, eq3253, eq3306, eq3319, eq3353, eq4512⟩
 
-theorem CC125_implied_by_long (G : Type*) [Magma G] : ConjunctionClass125_long G -> ConjunctionClass125 G :=
+theorem AT125_implied_by_long (G : Type*) [Magma G] : AssociativeTheory125_long G -> AssociativeTheory125 G :=
 fun ⟨_, h8, _, _, _, _, h3353, h4512⟩ => ⟨h8, h3353, h4512⟩
 
-theorem CC125_equiv (G : Type*) [Magma G] : ConjunctionClass125 G <-> ConjunctionClass125_long G :=
-Iff.intro (CC125_implies_long G) (CC125_implied_by_long G)
+theorem AT125_equiv (G : Type*) [Magma G] : AssociativeTheory125 G <-> AssociativeTheory125_long G :=
+Iff.intro (AT125_implies_long G) (AT125_implied_by_long G)
 
-theorem CC126_implies_long (G : Type*) [Magma G] (h : ConjunctionClass126 G) : ConjunctionClass126_long G := by
+theorem AT126_implies_long (G : Type*) [Magma G] (h : AssociativeTheory126 G) : AssociativeTheory126_long G := by
   obtain ⟨eq3319, eq3353, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation3353_4512_implies_Equation3253 G eq3353 eq4512
   have eq3306 := Equation3353_4512_implies_Equation3306 G eq3353 eq4512
   exact ⟨eq1, eq3253, eq3306, eq3319, eq3353, eq4512⟩
 
-theorem CC126_implied_by_long (G : Type*) [Magma G] : ConjunctionClass126_long G -> ConjunctionClass126 G :=
+theorem AT126_implied_by_long (G : Type*) [Magma G] : AssociativeTheory126_long G -> AssociativeTheory126 G :=
 fun ⟨_, _, _, h3319, h3353, h4512⟩ => ⟨h3319, h3353, h4512⟩
 
-theorem CC126_equiv (G : Type*) [Magma G] : ConjunctionClass126 G <-> ConjunctionClass126_long G :=
-Iff.intro (CC126_implies_long G) (CC126_implied_by_long G)
+theorem AT126_equiv (G : Type*) [Magma G] : AssociativeTheory126 G <-> AssociativeTheory126_long G :=
+Iff.intro (AT126_implies_long G) (AT126_implied_by_long G)
 
-theorem CC127_implies_long (G : Type*) [Magma G] (h : ConjunctionClass127 G) : ConjunctionClass127_long G := by
+theorem AT127_implies_long (G : Type*) [Magma G] (h : AssociativeTheory127 G) : AssociativeTheory127_long G := by
   obtain ⟨eq4268, eq4512⟩ := h
   have eq1 := Equation4268_4512_implies_Equation1 G eq4268 eq4512
   exact ⟨eq1, eq4268, eq4512⟩
 
-theorem CC127_implied_by_long (G : Type*) [Magma G] : ConjunctionClass127_long G -> ConjunctionClass127 G :=
+theorem AT127_implied_by_long (G : Type*) [Magma G] : AssociativeTheory127_long G -> AssociativeTheory127 G :=
 fun ⟨_, h4268, h4512⟩ => ⟨h4268, h4512⟩
 
-theorem CC127_equiv (G : Type*) [Magma G] : ConjunctionClass127 G <-> ConjunctionClass127_long G :=
-Iff.intro (CC127_implies_long G) (CC127_implied_by_long G)
+theorem AT127_equiv (G : Type*) [Magma G] : AssociativeTheory127 G <-> AssociativeTheory127_long G :=
+Iff.intro (AT127_implies_long G) (AT127_implied_by_long G)
 
-theorem CC128_implies_long (G : Type*) [Magma G] (h : ConjunctionClass128 G) : ConjunctionClass128_long G := by
+theorem AT128_implies_long (G : Type*) [Magma G] (h : AssociativeTheory128 G) : AssociativeTheory128_long G := by
   obtain ⟨eq43, eq4268, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -3519,48 +3519,48 @@ theorem CC128_implies_long (G : Type*) [Magma G] (h : ConjunctionClass128 G) : C
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq43, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC128_implied_by_long (G : Type*) [Magma G] : ConjunctionClass128_long G -> ConjunctionClass128 G :=
+theorem AT128_implied_by_long (G : Type*) [Magma G] : AssociativeTheory128_long G -> AssociativeTheory128 G :=
 fun ⟨_, h43, h4268, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h4268, h4512⟩
 
-theorem CC128_equiv (G : Type*) [Magma G] : ConjunctionClass128 G <-> ConjunctionClass128_long G :=
-Iff.intro (CC128_implies_long G) (CC128_implied_by_long G)
+theorem AT128_equiv (G : Type*) [Magma G] : AssociativeTheory128 G <-> AssociativeTheory128_long G :=
+Iff.intro (AT128_implies_long G) (AT128_implied_by_long G)
 
-theorem CC129_implies_long (G : Type*) [Magma G] (h : ConjunctionClass129 G) : ConjunctionClass129_long G := by
+theorem AT129_implies_long (G : Type*) [Magma G] (h : AssociativeTheory129 G) : AssociativeTheory129_long G := by
   obtain ⟨eq4269, eq4512⟩ := h
   have eq1 := Equation4269_4512_implies_Equation1 G eq4269 eq4512
   exact ⟨eq1, eq4269, eq4512⟩
 
-theorem CC129_implied_by_long (G : Type*) [Magma G] : ConjunctionClass129_long G -> ConjunctionClass129 G :=
+theorem AT129_implied_by_long (G : Type*) [Magma G] : AssociativeTheory129_long G -> AssociativeTheory129 G :=
 fun ⟨_, h4269, h4512⟩ => ⟨h4269, h4512⟩
 
-theorem CC129_equiv (G : Type*) [Magma G] : ConjunctionClass129 G <-> ConjunctionClass129_long G :=
-Iff.intro (CC129_implies_long G) (CC129_implied_by_long G)
+theorem AT129_equiv (G : Type*) [Magma G] : AssociativeTheory129 G <-> AssociativeTheory129_long G :=
+Iff.intro (AT129_implies_long G) (AT129_implied_by_long G)
 
-theorem CC130_implies_long (G : Type*) [Magma G] (h : ConjunctionClass130 G) : ConjunctionClass130_long G := by
+theorem AT130_implies_long (G : Type*) [Magma G] (h : AssociativeTheory130 G) : AssociativeTheory130_long G := by
   obtain ⟨eq4268, eq4269, eq4512⟩ := h
   have eq4286 := Equation4268_4269_4512_implies_Equation4286 G eq4268 eq4269 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4286_4512_implies_Equation4283 G eq4286 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4283, eq4286, eq4512⟩
 
-theorem CC130_implied_by_long (G : Type*) [Magma G] : ConjunctionClass130_long G -> ConjunctionClass130 G :=
+theorem AT130_implied_by_long (G : Type*) [Magma G] : AssociativeTheory130_long G -> AssociativeTheory130 G :=
 fun ⟨_, h4268, h4269, _, _, h4512⟩ => ⟨h4268, h4269, h4512⟩
 
-theorem CC130_equiv (G : Type*) [Magma G] : ConjunctionClass130 G <-> ConjunctionClass130_long G :=
-Iff.intro (CC130_implies_long G) (CC130_implied_by_long G)
+theorem AT130_equiv (G : Type*) [Magma G] : AssociativeTheory130 G <-> AssociativeTheory130_long G :=
+Iff.intro (AT130_implies_long G) (AT130_implied_by_long G)
 
-theorem CC131_implies_long (G : Type*) [Magma G] (h : ConjunctionClass131 G) : ConjunctionClass131_long G := by
+theorem AT131_implies_long (G : Type*) [Magma G] (h : AssociativeTheory131 G) : AssociativeTheory131_long G := by
   obtain ⟨eq4270, eq4512⟩ := h
   have eq1 := Equation4270_4512_implies_Equation1 G eq4270 eq4512
   exact ⟨eq1, eq4270, eq4512⟩
 
-theorem CC131_implied_by_long (G : Type*) [Magma G] : ConjunctionClass131_long G -> ConjunctionClass131 G :=
+theorem AT131_implied_by_long (G : Type*) [Magma G] : AssociativeTheory131_long G -> AssociativeTheory131 G :=
 fun ⟨_, h4270, h4512⟩ => ⟨h4270, h4512⟩
 
-theorem CC131_equiv (G : Type*) [Magma G] : ConjunctionClass131 G <-> ConjunctionClass131_long G :=
-Iff.intro (CC131_implies_long G) (CC131_implied_by_long G)
+theorem AT131_equiv (G : Type*) [Magma G] : AssociativeTheory131 G <-> AssociativeTheory131_long G :=
+Iff.intro (AT131_implies_long G) (AT131_implied_by_long G)
 
-theorem CC132_implies_long (G : Type*) [Magma G] (h : ConjunctionClass132 G) : ConjunctionClass132_long G := by
+theorem AT132_implies_long (G : Type*) [Magma G] (h : AssociativeTheory132 G) : AssociativeTheory132_long G := by
   obtain ⟨eq43, eq4270, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -3577,39 +3577,39 @@ theorem CC132_implies_long (G : Type*) [Magma G] (h : ConjunctionClass132 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq43, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC132_implied_by_long (G : Type*) [Magma G] : ConjunctionClass132_long G -> ConjunctionClass132 G :=
+theorem AT132_implied_by_long (G : Type*) [Magma G] : AssociativeTheory132_long G -> AssociativeTheory132 G :=
 fun ⟨_, h43, h4270, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h4270, h4512⟩
 
-theorem CC132_equiv (G : Type*) [Magma G] : ConjunctionClass132 G <-> ConjunctionClass132_long G :=
-Iff.intro (CC132_implies_long G) (CC132_implied_by_long G)
+theorem AT132_equiv (G : Type*) [Magma G] : AssociativeTheory132 G <-> AssociativeTheory132_long G :=
+Iff.intro (AT132_implies_long G) (AT132_implied_by_long G)
 
-theorem CC133_implies_long (G : Type*) [Magma G] (h : ConjunctionClass133 G) : ConjunctionClass133_long G := by
+theorem AT133_implies_long (G : Type*) [Magma G] (h : AssociativeTheory133 G) : AssociativeTheory133_long G := by
   obtain ⟨eq4268, eq4270, eq4512⟩ := h
   have eq4288 := Equation4268_4270_4512_implies_Equation4288 G eq4268 eq4270 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4284 := Equation4288_4512_implies_Equation4284 G eq4288 eq4512
   exact ⟨eq1, eq4268, eq4270, eq4284, eq4288, eq4512⟩
 
-theorem CC133_implied_by_long (G : Type*) [Magma G] : ConjunctionClass133_long G -> ConjunctionClass133 G :=
+theorem AT133_implied_by_long (G : Type*) [Magma G] : AssociativeTheory133_long G -> AssociativeTheory133 G :=
 fun ⟨_, h4268, h4270, _, _, h4512⟩ => ⟨h4268, h4270, h4512⟩
 
-theorem CC133_equiv (G : Type*) [Magma G] : ConjunctionClass133 G <-> ConjunctionClass133_long G :=
-Iff.intro (CC133_implies_long G) (CC133_implied_by_long G)
+theorem AT133_equiv (G : Type*) [Magma G] : AssociativeTheory133 G <-> AssociativeTheory133_long G :=
+Iff.intro (AT133_implies_long G) (AT133_implied_by_long G)
 
-theorem CC134_implies_long (G : Type*) [Magma G] (h : ConjunctionClass134 G) : ConjunctionClass134_long G := by
+theorem AT134_implies_long (G : Type*) [Magma G] (h : AssociativeTheory134 G) : AssociativeTheory134_long G := by
   obtain ⟨eq4269, eq4270, eq4512⟩ := h
   have eq4318 := Equation4269_4270_4512_implies_Equation4318 G eq4269 eq4270 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4314 := Equation4318_4512_implies_Equation4314 G eq4318 eq4512
   exact ⟨eq1, eq4269, eq4270, eq4314, eq4318, eq4512⟩
 
-theorem CC134_implied_by_long (G : Type*) [Magma G] : ConjunctionClass134_long G -> ConjunctionClass134 G :=
+theorem AT134_implied_by_long (G : Type*) [Magma G] : AssociativeTheory134_long G -> AssociativeTheory134 G :=
 fun ⟨_, h4269, h4270, _, _, h4512⟩ => ⟨h4269, h4270, h4512⟩
 
-theorem CC134_equiv (G : Type*) [Magma G] : ConjunctionClass134 G <-> ConjunctionClass134_long G :=
-Iff.intro (CC134_implies_long G) (CC134_implied_by_long G)
+theorem AT134_equiv (G : Type*) [Magma G] : AssociativeTheory134 G <-> AssociativeTheory134_long G :=
+Iff.intro (AT134_implies_long G) (AT134_implied_by_long G)
 
-theorem CC135_implies_long (G : Type*) [Magma G] (h : ConjunctionClass135 G) : ConjunctionClass135_long G := by
+theorem AT135_implies_long (G : Type*) [Magma G] (h : AssociativeTheory135 G) : AssociativeTheory135_long G := by
   obtain ⟨eq4268, eq4269, eq4270, eq4512⟩ := h
   have eq4286 := Equation4268_4269_4512_implies_Equation4286 G eq4268 eq4269 eq4512
   have eq4288 := Equation4268_4270_4512_implies_Equation4288 G eq4268 eq4270 eq4512
@@ -3620,13 +3620,13 @@ theorem CC135_implies_long (G : Type*) [Magma G] (h : ConjunctionClass135 G) : C
   have eq4283 := Equation4286_4512_implies_Equation4283 G eq4286 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4270, eq4283, eq4284, eq4286, eq4288, eq4314, eq4318, eq4512⟩
 
-theorem CC135_implied_by_long (G : Type*) [Magma G] : ConjunctionClass135_long G -> ConjunctionClass135 G :=
+theorem AT135_implied_by_long (G : Type*) [Magma G] : AssociativeTheory135_long G -> AssociativeTheory135 G :=
 fun ⟨_, h4268, h4269, h4270, _, _, _, _, _, _, h4512⟩ => ⟨h4268, h4269, h4270, h4512⟩
 
-theorem CC135_equiv (G : Type*) [Magma G] : ConjunctionClass135 G <-> ConjunctionClass135_long G :=
-Iff.intro (CC135_implies_long G) (CC135_implied_by_long G)
+theorem AT135_equiv (G : Type*) [Magma G] : AssociativeTheory135 G <-> AssociativeTheory135_long G :=
+Iff.intro (AT135_implies_long G) (AT135_implied_by_long G)
 
-theorem CC136_implies_long (G : Type*) [Magma G] (h : ConjunctionClass136 G) : ConjunctionClass136_long G := by
+theorem AT136_implies_long (G : Type*) [Magma G] (h : AssociativeTheory136 G) : AssociativeTheory136_long G := by
   obtain ⟨eq4271, eq4512⟩ := h
   have eq1 := Equation4271_4512_implies_Equation1 G eq4271 eq4512
   have eq4268 := Equation4271_4512_implies_Equation4268 G eq4271 eq4512
@@ -3643,13 +3643,13 @@ theorem CC136_implies_long (G : Type*) [Magma G] (h : ConjunctionClass136 G) : C
   have eq4358 := Equation4271_4512_implies_Equation4358 G eq4271 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4270, eq4271, eq4283, eq4284, eq4286, eq4287, eq4288, eq4314, eq4315, eq4318, eq4358, eq4512⟩
 
-theorem CC136_implied_by_long (G : Type*) [Magma G] : ConjunctionClass136_long G -> ConjunctionClass136 G :=
+theorem AT136_implied_by_long (G : Type*) [Magma G] : AssociativeTheory136_long G -> AssociativeTheory136 G :=
 fun ⟨_, _, _, _, h4271, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h4271, h4512⟩
 
-theorem CC136_equiv (G : Type*) [Magma G] : ConjunctionClass136 G <-> ConjunctionClass136_long G :=
-Iff.intro (CC136_implies_long G) (CC136_implied_by_long G)
+theorem AT136_equiv (G : Type*) [Magma G] : AssociativeTheory136 G <-> AssociativeTheory136_long G :=
+Iff.intro (AT136_implies_long G) (AT136_implied_by_long G)
 
-theorem CC137_implies_long (G : Type*) [Magma G] (h : ConjunctionClass137 G) : ConjunctionClass137_long G := by
+theorem AT137_implies_long (G : Type*) [Magma G] (h : AssociativeTheory137 G) : AssociativeTheory137_long G := by
   obtain ⟨eq43, eq4271, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -3694,24 +3694,24 @@ theorem CC137_implies_long (G : Type*) [Magma G] (h : ConjunctionClass137 G) : C
   have eq4300 := Equation4274_4512_implies_Equation4300 G eq4274 eq4512
   exact ⟨eq1, eq43, eq4268, eq4269, eq4270, eq4271, eq4272, eq4273, eq4274, eq4275, eq4276, eq4277, eq4278, eq4279, eq4280, eq4283, eq4284, eq4286, eq4287, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4300, eq4301, eq4304, eq4305, eq4314, eq4315, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC137_implied_by_long (G : Type*) [Magma G] : ConjunctionClass137_long G -> ConjunctionClass137 G :=
+theorem AT137_implied_by_long (G : Type*) [Magma G] : AssociativeTheory137_long G -> AssociativeTheory137 G :=
 fun ⟨_, h43, _, _, _, h4271, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h4271, h4512⟩
 
-theorem CC137_equiv (G : Type*) [Magma G] : ConjunctionClass137 G <-> ConjunctionClass137_long G :=
-Iff.intro (CC137_implies_long G) (CC137_implied_by_long G)
+theorem AT137_equiv (G : Type*) [Magma G] : AssociativeTheory137 G <-> AssociativeTheory137_long G :=
+Iff.intro (AT137_implies_long G) (AT137_implied_by_long G)
 
-theorem CC138_implies_long (G : Type*) [Magma G] (h : ConjunctionClass138 G) : ConjunctionClass138_long G := by
+theorem AT138_implies_long (G : Type*) [Magma G] (h : AssociativeTheory138 G) : AssociativeTheory138_long G := by
   obtain ⟨eq4272, eq4512⟩ := h
   have eq1 := Equation4272_4512_implies_Equation1 G eq4272 eq4512
   exact ⟨eq1, eq4272, eq4512⟩
 
-theorem CC138_implied_by_long (G : Type*) [Magma G] : ConjunctionClass138_long G -> ConjunctionClass138 G :=
+theorem AT138_implied_by_long (G : Type*) [Magma G] : AssociativeTheory138_long G -> AssociativeTheory138 G :=
 fun ⟨_, h4272, h4512⟩ => ⟨h4272, h4512⟩
 
-theorem CC138_equiv (G : Type*) [Magma G] : ConjunctionClass138 G <-> ConjunctionClass138_long G :=
-Iff.intro (CC138_implies_long G) (CC138_implied_by_long G)
+theorem AT138_equiv (G : Type*) [Magma G] : AssociativeTheory138 G <-> AssociativeTheory138_long G :=
+Iff.intro (AT138_implies_long G) (AT138_implied_by_long G)
 
-theorem CC139_implies_long (G : Type*) [Magma G] (h : ConjunctionClass139 G) : ConjunctionClass139_long G := by
+theorem AT139_implies_long (G : Type*) [Magma G] (h : AssociativeTheory139 G) : AssociativeTheory139_long G := by
   obtain ⟨eq4268, eq4272, eq4512⟩ := h
   have eq4299 := Equation4268_4272_4512_implies_Equation4299 G eq4268 eq4272 eq4512
   have eq1 := Equation4272_4512_implies_Equation1 G eq4272 eq4512
@@ -3729,26 +3729,26 @@ theorem CC139_implies_long (G : Type*) [Magma G] (h : ConjunctionClass139 G) : C
   have eq4343 := Equation4299_4512_implies_Equation4343 G eq4299 eq4512
   exact ⟨eq1, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4512⟩
 
-theorem CC139_implied_by_long (G : Type*) [Magma G] : ConjunctionClass139_long G -> ConjunctionClass139 G :=
+theorem AT139_implied_by_long (G : Type*) [Magma G] : AssociativeTheory139_long G -> AssociativeTheory139 G :=
 fun ⟨_, h4268, _, h4272, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h4268, h4272, h4512⟩
 
-theorem CC139_equiv (G : Type*) [Magma G] : ConjunctionClass139 G <-> ConjunctionClass139_long G :=
-Iff.intro (CC139_implies_long G) (CC139_implied_by_long G)
+theorem AT139_equiv (G : Type*) [Magma G] : AssociativeTheory139 G <-> AssociativeTheory139_long G :=
+Iff.intro (AT139_implies_long G) (AT139_implied_by_long G)
 
-theorem CC140_implies_long (G : Type*) [Magma G] (h : ConjunctionClass140 G) : ConjunctionClass140_long G := by
+theorem AT140_implies_long (G : Type*) [Magma G] (h : AssociativeTheory140 G) : AssociativeTheory140_long G := by
   obtain ⟨eq4269, eq4272, eq4512⟩ := h
   have eq4327 := Equation4269_4272_4512_implies_Equation4327 G eq4269 eq4272 eq4512
   have eq1 := Equation4272_4512_implies_Equation1 G eq4272 eq4512
   have eq4320 := Equation4327_4512_implies_Equation4320 G eq4327 eq4512
   exact ⟨eq1, eq4269, eq4272, eq4320, eq4327, eq4512⟩
 
-theorem CC140_implied_by_long (G : Type*) [Magma G] : ConjunctionClass140_long G -> ConjunctionClass140 G :=
+theorem AT140_implied_by_long (G : Type*) [Magma G] : AssociativeTheory140_long G -> AssociativeTheory140 G :=
 fun ⟨_, h4269, h4272, _, _, h4512⟩ => ⟨h4269, h4272, h4512⟩
 
-theorem CC140_equiv (G : Type*) [Magma G] : ConjunctionClass140 G <-> ConjunctionClass140_long G :=
-Iff.intro (CC140_implies_long G) (CC140_implied_by_long G)
+theorem AT140_equiv (G : Type*) [Magma G] : AssociativeTheory140 G <-> AssociativeTheory140_long G :=
+Iff.intro (AT140_implies_long G) (AT140_implied_by_long G)
 
-theorem CC141_implies_long (G : Type*) [Magma G] (h : ConjunctionClass141 G) : ConjunctionClass141_long G := by
+theorem AT141_implies_long (G : Type*) [Magma G] (h : AssociativeTheory141 G) : AssociativeTheory141_long G := by
   obtain ⟨eq4268, eq4269, eq4272, eq4512⟩ := h
   have eq4299 := Equation4268_4272_4512_implies_Equation4299 G eq4268 eq4272 eq4512
   have eq4286 := Equation4268_4269_4512_implies_Equation4286 G eq4268 eq4269 eq4512
@@ -3781,13 +3781,13 @@ theorem CC141_implies_long (G : Type*) [Magma G] (h : ConjunctionClass141 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4512⟩
 
-theorem CC141_implied_by_long (G : Type*) [Magma G] : ConjunctionClass141_long G -> ConjunctionClass141 G :=
+theorem AT141_implied_by_long (G : Type*) [Magma G] : AssociativeTheory141_long G -> AssociativeTheory141 G :=
 fun ⟨_, h4268, h4269, _, h4272, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h4268, h4269, h4272, h4512⟩
 
-theorem CC141_equiv (G : Type*) [Magma G] : ConjunctionClass141 G <-> ConjunctionClass141_long G :=
-Iff.intro (CC141_implies_long G) (CC141_implied_by_long G)
+theorem AT141_equiv (G : Type*) [Magma G] : AssociativeTheory141 G <-> AssociativeTheory141_long G :=
+Iff.intro (AT141_implies_long G) (AT141_implied_by_long G)
 
-theorem CC142_implies_long (G : Type*) [Magma G] (h : ConjunctionClass142 G) : ConjunctionClass142_long G := by
+theorem AT142_implies_long (G : Type*) [Magma G] (h : AssociativeTheory142 G) : AssociativeTheory142_long G := by
   obtain ⟨eq4270, eq4272, eq4512⟩ := h
   have eq4280 := Equation4270_4272_4512_implies_Equation4280 G eq4270 eq4272 eq4512
   have eq1 := Equation4272_4512_implies_Equation1 G eq4272 eq4512
@@ -3795,13 +3795,13 @@ theorem CC142_implies_long (G : Type*) [Magma G] (h : ConjunctionClass142 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4270, eq4272, eq4276, eq4280, eq4343, eq4512⟩
 
-theorem CC142_implied_by_long (G : Type*) [Magma G] : ConjunctionClass142_long G -> ConjunctionClass142 G :=
+theorem AT142_implied_by_long (G : Type*) [Magma G] : AssociativeTheory142_long G -> AssociativeTheory142 G :=
 fun ⟨_, h4270, h4272, _, _, _, h4512⟩ => ⟨h4270, h4272, h4512⟩
 
-theorem CC142_equiv (G : Type*) [Magma G] : ConjunctionClass142 G <-> ConjunctionClass142_long G :=
-Iff.intro (CC142_implies_long G) (CC142_implied_by_long G)
+theorem AT142_equiv (G : Type*) [Magma G] : AssociativeTheory142 G <-> AssociativeTheory142_long G :=
+Iff.intro (AT142_implies_long G) (AT142_implied_by_long G)
 
-theorem CC143_implies_long (G : Type*) [Magma G] (h : ConjunctionClass143 G) : ConjunctionClass143_long G := by
+theorem AT143_implies_long (G : Type*) [Magma G] (h : AssociativeTheory143 G) : AssociativeTheory143_long G := by
   obtain ⟨eq4269, eq4270, eq4272, eq4512⟩ := h
   have eq4327 := Equation4269_4272_4512_implies_Equation4327 G eq4269 eq4272 eq4512
   have eq4318 := Equation4269_4270_4512_implies_Equation4318 G eq4269 eq4270 eq4512
@@ -3818,13 +3818,13 @@ theorem CC143_implies_long (G : Type*) [Magma G] (h : ConjunctionClass143 G) : C
   have eq4325 := Equation4331_4512_implies_Equation4325 G eq4331 eq4512
   exact ⟨eq1, eq4269, eq4270, eq4272, eq4273, eq4276, eq4279, eq4280, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4512⟩
 
-theorem CC143_implied_by_long (G : Type*) [Magma G] : ConjunctionClass143_long G -> ConjunctionClass143 G :=
+theorem AT143_implied_by_long (G : Type*) [Magma G] : AssociativeTheory143_long G -> AssociativeTheory143 G :=
 fun ⟨_, h4269, h4270, h4272, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h4269, h4270, h4272, h4512⟩
 
-theorem CC143_equiv (G : Type*) [Magma G] : ConjunctionClass143 G <-> ConjunctionClass143_long G :=
-Iff.intro (CC143_implies_long G) (CC143_implied_by_long G)
+theorem AT143_equiv (G : Type*) [Magma G] : AssociativeTheory143 G <-> AssociativeTheory143_long G :=
+Iff.intro (AT143_implies_long G) (AT143_implied_by_long G)
 
-theorem CC144_implies_long (G : Type*) [Magma G] (h : ConjunctionClass144 G) : ConjunctionClass144_long G := by
+theorem AT144_implies_long (G : Type*) [Magma G] (h : AssociativeTheory144 G) : AssociativeTheory144_long G := by
   obtain ⟨eq4271, eq4272, eq4512⟩ := h
   have eq4274 := Equation4271_4272_4512_implies_Equation4274 G eq4271 eq4272 eq4512
   have eq1 := Equation4272_4512_implies_Equation1 G eq4272 eq4512
@@ -3868,24 +3868,24 @@ theorem CC144_implies_long (G : Type*) [Magma G] (h : ConjunctionClass144 G) : C
   have eq4369 := Equation4274_4512_implies_Equation4369 G eq4274 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4270, eq4271, eq4272, eq4273, eq4274, eq4275, eq4276, eq4277, eq4278, eq4279, eq4280, eq4283, eq4284, eq4286, eq4287, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4300, eq4301, eq4304, eq4305, eq4314, eq4315, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC144_implied_by_long (G : Type*) [Magma G] : ConjunctionClass144_long G -> ConjunctionClass144 G :=
+theorem AT144_implied_by_long (G : Type*) [Magma G] : AssociativeTheory144_long G -> AssociativeTheory144 G :=
 fun ⟨_, _, _, _, h4271, h4272, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h4271, h4272, h4512⟩
 
-theorem CC144_equiv (G : Type*) [Magma G] : ConjunctionClass144 G <-> ConjunctionClass144_long G :=
-Iff.intro (CC144_implies_long G) (CC144_implied_by_long G)
+theorem AT144_equiv (G : Type*) [Magma G] : AssociativeTheory144 G <-> AssociativeTheory144_long G :=
+Iff.intro (AT144_implies_long G) (AT144_implied_by_long G)
 
-theorem CC145_implies_long (G : Type*) [Magma G] (h : ConjunctionClass145 G) : ConjunctionClass145_long G := by
+theorem AT145_implies_long (G : Type*) [Magma G] (h : AssociativeTheory145 G) : AssociativeTheory145_long G := by
   obtain ⟨eq4273, eq4512⟩ := h
   have eq1 := Equation4273_4512_implies_Equation1 G eq4273 eq4512
   exact ⟨eq1, eq4273, eq4512⟩
 
-theorem CC145_implied_by_long (G : Type*) [Magma G] : ConjunctionClass145_long G -> ConjunctionClass145 G :=
+theorem AT145_implied_by_long (G : Type*) [Magma G] : AssociativeTheory145_long G -> AssociativeTheory145 G :=
 fun ⟨_, h4273, h4512⟩ => ⟨h4273, h4512⟩
 
-theorem CC145_equiv (G : Type*) [Magma G] : ConjunctionClass145 G <-> ConjunctionClass145_long G :=
-Iff.intro (CC145_implies_long G) (CC145_implied_by_long G)
+theorem AT145_equiv (G : Type*) [Magma G] : AssociativeTheory145 G <-> AssociativeTheory145_long G :=
+Iff.intro (AT145_implies_long G) (AT145_implied_by_long G)
 
-theorem CC146_implies_long (G : Type*) [Magma G] (h : ConjunctionClass146 G) : ConjunctionClass146_long G := by
+theorem AT146_implies_long (G : Type*) [Magma G] (h : AssociativeTheory146 G) : AssociativeTheory146_long G := by
   obtain ⟨eq40, eq4273, eq4512⟩ := h
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
   have eq3253 := Equation40_4512_implies_Equation3253 G eq40 eq4512
@@ -3904,13 +3904,13 @@ theorem CC146_implies_long (G : Type*) [Magma G] (h : ConjunctionClass146 G) : C
   have eq4320 := Equation4325_4512_implies_Equation4320 G eq4325 eq4512
   exact ⟨eq1, eq40, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4512⟩
 
-theorem CC146_implied_by_long (G : Type*) [Magma G] : ConjunctionClass146_long G -> ConjunctionClass146 G :=
+theorem AT146_implied_by_long (G : Type*) [Magma G] : AssociativeTheory146_long G -> AssociativeTheory146 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, h4273, _, _, _, _, _, _, _, h4512⟩ => ⟨h40, h4273, h4512⟩
 
-theorem CC146_equiv (G : Type*) [Magma G] : ConjunctionClass146 G <-> ConjunctionClass146_long G :=
-Iff.intro (CC146_implies_long G) (CC146_implied_by_long G)
+theorem AT146_equiv (G : Type*) [Magma G] : AssociativeTheory146 G <-> AssociativeTheory146_long G :=
+Iff.intro (AT146_implies_long G) (AT146_implied_by_long G)
 
-theorem CC147_implies_long (G : Type*) [Magma G] (h : ConjunctionClass147 G) : ConjunctionClass147_long G := by
+theorem AT147_implies_long (G : Type*) [Magma G] (h : AssociativeTheory147 G) : AssociativeTheory147_long G := by
   obtain ⟨eq4268, eq4273, eq4512⟩ := h
   have eq4301 := Equation4268_4273_4512_implies_Equation4301 G eq4268 eq4273 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -3928,13 +3928,13 @@ theorem CC147_implies_long (G : Type*) [Magma G] (h : ConjunctionClass147 G) : C
   have eq4321 := Equation4301_4512_implies_Equation4321 G eq4301 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4273, eq4275, eq4276, eq4277, eq4279, eq4283, eq4286, eq4291, eq4293, eq4296, eq4301, eq4305, eq4321, eq4512⟩
 
-theorem CC147_implied_by_long (G : Type*) [Magma G] : ConjunctionClass147_long G -> ConjunctionClass147 G :=
+theorem AT147_implied_by_long (G : Type*) [Magma G] : AssociativeTheory147_long G -> AssociativeTheory147 G :=
 fun ⟨_, h4268, _, h4273, _, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h4268, h4273, h4512⟩
 
-theorem CC147_equiv (G : Type*) [Magma G] : ConjunctionClass147 G <-> ConjunctionClass147_long G :=
-Iff.intro (CC147_implies_long G) (CC147_implied_by_long G)
+theorem AT147_equiv (G : Type*) [Magma G] : AssociativeTheory147 G <-> AssociativeTheory147_long G :=
+Iff.intro (AT147_implies_long G) (AT147_implied_by_long G)
 
-theorem CC148_implies_long (G : Type*) [Magma G] (h : ConjunctionClass148 G) : ConjunctionClass148_long G := by
+theorem AT148_implies_long (G : Type*) [Magma G] (h : AssociativeTheory148 G) : AssociativeTheory148_long G := by
   obtain ⟨eq4269, eq4273, eq4512⟩ := h
   have eq4279 := Equation4269_4273_4512_implies_Equation4279 G eq4269 eq4273 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -3942,37 +3942,37 @@ theorem CC148_implies_long (G : Type*) [Magma G] (h : ConjunctionClass148 G) : C
   have eq4321 := Equation4279_4512_implies_Equation4321 G eq4279 eq4512
   exact ⟨eq1, eq4269, eq4273, eq4276, eq4279, eq4321, eq4512⟩
 
-theorem CC148_implied_by_long (G : Type*) [Magma G] : ConjunctionClass148_long G -> ConjunctionClass148 G :=
+theorem AT148_implied_by_long (G : Type*) [Magma G] : AssociativeTheory148_long G -> AssociativeTheory148 G :=
 fun ⟨_, h4269, h4273, _, _, _, h4512⟩ => ⟨h4269, h4273, h4512⟩
 
-theorem CC148_equiv (G : Type*) [Magma G] : ConjunctionClass148 G <-> ConjunctionClass148_long G :=
-Iff.intro (CC148_implies_long G) (CC148_implied_by_long G)
+theorem AT148_equiv (G : Type*) [Magma G] : AssociativeTheory148 G <-> AssociativeTheory148_long G :=
+Iff.intro (AT148_implies_long G) (AT148_implied_by_long G)
 
-theorem CC149_implies_long (G : Type*) [Magma G] (h : ConjunctionClass149 G) : ConjunctionClass149_long G := by
+theorem AT149_implies_long (G : Type*) [Magma G] (h : AssociativeTheory149 G) : AssociativeTheory149_long G := by
   obtain ⟨eq4270, eq4273, eq4512⟩ := h
   have eq4325 := Equation4270_4273_4512_implies_Equation4325 G eq4270 eq4273 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4325_4512_implies_Equation4320 G eq4325 eq4512
   exact ⟨eq1, eq4270, eq4273, eq4320, eq4325, eq4512⟩
 
-theorem CC149_implied_by_long (G : Type*) [Magma G] : ConjunctionClass149_long G -> ConjunctionClass149 G :=
+theorem AT149_implied_by_long (G : Type*) [Magma G] : AssociativeTheory149_long G -> AssociativeTheory149 G :=
 fun ⟨_, h4270, h4273, _, _, h4512⟩ => ⟨h4270, h4273, h4512⟩
 
-theorem CC149_equiv (G : Type*) [Magma G] : ConjunctionClass149 G <-> ConjunctionClass149_long G :=
-Iff.intro (CC149_implies_long G) (CC149_implied_by_long G)
+theorem AT149_equiv (G : Type*) [Magma G] : AssociativeTheory149 G <-> AssociativeTheory149_long G :=
+Iff.intro (AT149_implies_long G) (AT149_implied_by_long G)
 
-theorem CC150_implies_long (G : Type*) [Magma G] (h : ConjunctionClass150 G) : ConjunctionClass150_long G := by
+theorem AT150_implies_long (G : Type*) [Magma G] (h : AssociativeTheory150 G) : AssociativeTheory150_long G := by
   obtain ⟨eq4275, eq4512⟩ := h
   have eq1 := Equation4275_4512_implies_Equation1 G eq4275 eq4512
   exact ⟨eq1, eq4275, eq4512⟩
 
-theorem CC150_implied_by_long (G : Type*) [Magma G] : ConjunctionClass150_long G -> ConjunctionClass150 G :=
+theorem AT150_implied_by_long (G : Type*) [Magma G] : AssociativeTheory150_long G -> AssociativeTheory150 G :=
 fun ⟨_, h4275, h4512⟩ => ⟨h4275, h4512⟩
 
-theorem CC150_equiv (G : Type*) [Magma G] : ConjunctionClass150 G <-> ConjunctionClass150_long G :=
-Iff.intro (CC150_implies_long G) (CC150_implied_by_long G)
+theorem AT150_equiv (G : Type*) [Magma G] : AssociativeTheory150 G <-> AssociativeTheory150_long G :=
+Iff.intro (AT150_implies_long G) (AT150_implied_by_long G)
 
-theorem CC151_implies_long (G : Type*) [Magma G] (h : ConjunctionClass151 G) : ConjunctionClass151_long G := by
+theorem AT151_implies_long (G : Type*) [Magma G] (h : AssociativeTheory151 G) : AssociativeTheory151_long G := by
   obtain ⟨eq4268, eq4275, eq4512⟩ := h
   have eq4277 := Equation4268_4275_4512_implies_Equation4277 G eq4268 eq4275 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -3980,52 +3980,52 @@ theorem CC151_implies_long (G : Type*) [Magma G] (h : ConjunctionClass151 G) : C
   have eq4293 := Equation4277_4512_implies_Equation4293 G eq4277 eq4512
   exact ⟨eq1, eq4268, eq4275, eq4276, eq4277, eq4293, eq4512⟩
 
-theorem CC151_implied_by_long (G : Type*) [Magma G] : ConjunctionClass151_long G -> ConjunctionClass151 G :=
+theorem AT151_implied_by_long (G : Type*) [Magma G] : AssociativeTheory151_long G -> AssociativeTheory151 G :=
 fun ⟨_, h4268, h4275, _, _, _, h4512⟩ => ⟨h4268, h4275, h4512⟩
 
-theorem CC151_equiv (G : Type*) [Magma G] : ConjunctionClass151 G <-> ConjunctionClass151_long G :=
-Iff.intro (CC151_implies_long G) (CC151_implied_by_long G)
+theorem AT151_equiv (G : Type*) [Magma G] : AssociativeTheory151 G <-> AssociativeTheory151_long G :=
+Iff.intro (AT151_implies_long G) (AT151_implied_by_long G)
 
-theorem CC152_implies_long (G : Type*) [Magma G] (h : ConjunctionClass152 G) : ConjunctionClass152_long G := by
+theorem AT152_implies_long (G : Type*) [Magma G] (h : AssociativeTheory152 G) : AssociativeTheory152_long G := by
   obtain ⟨eq4269, eq4275, eq4512⟩ := h
   have eq4296 := Equation4269_4275_4512_implies_Equation4296 G eq4269 eq4275 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4291 := Equation4296_4512_implies_Equation4291 G eq4296 eq4512
   exact ⟨eq1, eq4269, eq4275, eq4291, eq4296, eq4512⟩
 
-theorem CC152_implied_by_long (G : Type*) [Magma G] : ConjunctionClass152_long G -> ConjunctionClass152 G :=
+theorem AT152_implied_by_long (G : Type*) [Magma G] : AssociativeTheory152_long G -> AssociativeTheory152 G :=
 fun ⟨_, h4269, h4275, _, _, h4512⟩ => ⟨h4269, h4275, h4512⟩
 
-theorem CC152_equiv (G : Type*) [Magma G] : ConjunctionClass152 G <-> ConjunctionClass152_long G :=
-Iff.intro (CC152_implies_long G) (CC152_implied_by_long G)
+theorem AT152_equiv (G : Type*) [Magma G] : AssociativeTheory152 G <-> AssociativeTheory152_long G :=
+Iff.intro (AT152_implies_long G) (AT152_implied_by_long G)
 
-theorem CC153_implies_long (G : Type*) [Magma G] (h : ConjunctionClass153 G) : ConjunctionClass153_long G := by
+theorem AT153_implies_long (G : Type*) [Magma G] (h : AssociativeTheory153 G) : AssociativeTheory153_long G := by
   obtain ⟨eq4270, eq4275, eq4512⟩ := h
   have eq4297 := Equation4270_4275_4512_implies_Equation4297 G eq4270 eq4275 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4297_4512_implies_Equation4290 G eq4297 eq4512
   exact ⟨eq1, eq4270, eq4275, eq4290, eq4297, eq4512⟩
 
-theorem CC153_implied_by_long (G : Type*) [Magma G] : ConjunctionClass153_long G -> ConjunctionClass153 G :=
+theorem AT153_implied_by_long (G : Type*) [Magma G] : AssociativeTheory153_long G -> AssociativeTheory153 G :=
 fun ⟨_, h4270, h4275, _, _, h4512⟩ => ⟨h4270, h4275, h4512⟩
 
-theorem CC153_equiv (G : Type*) [Magma G] : ConjunctionClass153 G <-> ConjunctionClass153_long G :=
-Iff.intro (CC153_implies_long G) (CC153_implied_by_long G)
+theorem AT153_equiv (G : Type*) [Magma G] : AssociativeTheory153 G <-> AssociativeTheory153_long G :=
+Iff.intro (AT153_implies_long G) (AT153_implied_by_long G)
 
-theorem CC154_implies_long (G : Type*) [Magma G] (h : ConjunctionClass154 G) : ConjunctionClass154_long G := by
+theorem AT154_implies_long (G : Type*) [Magma G] (h : AssociativeTheory154 G) : AssociativeTheory154_long G := by
   obtain ⟨eq4272, eq4275, eq4512⟩ := h
   have eq4304 := Equation4272_4275_4512_implies_Equation4304 G eq4272 eq4275 eq4512
   have eq1 := Equation4272_4512_implies_Equation1 G eq4272 eq4512
   have eq4284 := Equation4304_4512_implies_Equation4284 G eq4304 eq4512
   exact ⟨eq1, eq4272, eq4275, eq4284, eq4304, eq4512⟩
 
-theorem CC154_implied_by_long (G : Type*) [Magma G] : ConjunctionClass154_long G -> ConjunctionClass154 G :=
+theorem AT154_implied_by_long (G : Type*) [Magma G] : AssociativeTheory154_long G -> AssociativeTheory154 G :=
 fun ⟨_, h4272, h4275, _, _, h4512⟩ => ⟨h4272, h4275, h4512⟩
 
-theorem CC154_equiv (G : Type*) [Magma G] : ConjunctionClass154 G <-> ConjunctionClass154_long G :=
-Iff.intro (CC154_implies_long G) (CC154_implied_by_long G)
+theorem AT154_equiv (G : Type*) [Magma G] : AssociativeTheory154 G <-> AssociativeTheory154_long G :=
+Iff.intro (AT154_implies_long G) (AT154_implied_by_long G)
 
-theorem CC155_implies_long (G : Type*) [Magma G] (h : ConjunctionClass155 G) : ConjunctionClass155_long G := by
+theorem AT155_implies_long (G : Type*) [Magma G] (h : AssociativeTheory155 G) : AssociativeTheory155_long G := by
   obtain ⟨eq4269, eq4272, eq4275, eq4512⟩ := h
   have eq4304 := Equation4272_4275_4512_implies_Equation4304 G eq4272 eq4275 eq4512
   have eq4327 := Equation4269_4272_4512_implies_Equation4327 G eq4269 eq4272 eq4512
@@ -4036,26 +4036,26 @@ theorem CC155_implies_long (G : Type*) [Magma G] (h : ConjunctionClass155 G) : C
   have eq4284 := Equation4304_4512_implies_Equation4284 G eq4304 eq4512
   exact ⟨eq1, eq4269, eq4272, eq4275, eq4284, eq4291, eq4296, eq4304, eq4320, eq4327, eq4512⟩
 
-theorem CC155_implied_by_long (G : Type*) [Magma G] : ConjunctionClass155_long G -> ConjunctionClass155 G :=
+theorem AT155_implied_by_long (G : Type*) [Magma G] : AssociativeTheory155_long G -> AssociativeTheory155 G :=
 fun ⟨_, h4269, h4272, h4275, _, _, _, _, _, _, h4512⟩ => ⟨h4269, h4272, h4275, h4512⟩
 
-theorem CC155_equiv (G : Type*) [Magma G] : ConjunctionClass155 G <-> ConjunctionClass155_long G :=
-Iff.intro (CC155_implies_long G) (CC155_implied_by_long G)
+theorem AT155_equiv (G : Type*) [Magma G] : AssociativeTheory155 G <-> AssociativeTheory155_long G :=
+Iff.intro (AT155_implies_long G) (AT155_implied_by_long G)
 
-theorem CC156_implies_long (G : Type*) [Magma G] (h : ConjunctionClass156 G) : ConjunctionClass156_long G := by
+theorem AT156_implies_long (G : Type*) [Magma G] (h : AssociativeTheory156 G) : AssociativeTheory156_long G := by
   obtain ⟨eq4273, eq4275, eq4512⟩ := h
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4305_4512_implies_Equation4283 G eq4305 eq4512
   exact ⟨eq1, eq4273, eq4275, eq4283, eq4305, eq4512⟩
 
-theorem CC156_implied_by_long (G : Type*) [Magma G] : ConjunctionClass156_long G -> ConjunctionClass156 G :=
+theorem AT156_implied_by_long (G : Type*) [Magma G] : AssociativeTheory156_long G -> AssociativeTheory156 G :=
 fun ⟨_, h4273, h4275, _, _, h4512⟩ => ⟨h4273, h4275, h4512⟩
 
-theorem CC156_equiv (G : Type*) [Magma G] : ConjunctionClass156 G <-> ConjunctionClass156_long G :=
-Iff.intro (CC156_implies_long G) (CC156_implied_by_long G)
+theorem AT156_equiv (G : Type*) [Magma G] : AssociativeTheory156 G <-> AssociativeTheory156_long G :=
+Iff.intro (AT156_implies_long G) (AT156_implied_by_long G)
 
-theorem CC157_implies_long (G : Type*) [Magma G] (h : ConjunctionClass157 G) : ConjunctionClass157_long G := by
+theorem AT157_implies_long (G : Type*) [Magma G] (h : AssociativeTheory157 G) : AssociativeTheory157_long G := by
   obtain ⟨eq4270, eq4273, eq4275, eq4512⟩ := h
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   have eq4325 := Equation4270_4273_4512_implies_Equation4325 G eq4270 eq4273 eq4512
@@ -4066,24 +4066,24 @@ theorem CC157_implies_long (G : Type*) [Magma G] (h : ConjunctionClass157 G) : C
   have eq4283 := Equation4305_4512_implies_Equation4283 G eq4305 eq4512
   exact ⟨eq1, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4512⟩
 
-theorem CC157_implied_by_long (G : Type*) [Magma G] : ConjunctionClass157_long G -> ConjunctionClass157 G :=
+theorem AT157_implied_by_long (G : Type*) [Magma G] : AssociativeTheory157_long G -> AssociativeTheory157 G :=
 fun ⟨_, h4270, h4273, h4275, _, _, _, _, _, _, h4512⟩ => ⟨h4270, h4273, h4275, h4512⟩
 
-theorem CC157_equiv (G : Type*) [Magma G] : ConjunctionClass157 G <-> ConjunctionClass157_long G :=
-Iff.intro (CC157_implies_long G) (CC157_implied_by_long G)
+theorem AT157_equiv (G : Type*) [Magma G] : AssociativeTheory157 G <-> AssociativeTheory157_long G :=
+Iff.intro (AT157_implies_long G) (AT157_implied_by_long G)
 
-theorem CC158_implies_long (G : Type*) [Magma G] (h : ConjunctionClass158 G) : ConjunctionClass158_long G := by
+theorem AT158_implies_long (G : Type*) [Magma G] (h : AssociativeTheory158 G) : AssociativeTheory158_long G := by
   obtain ⟨eq4276, eq4512⟩ := h
   have eq1 := Equation4276_4512_implies_Equation1 G eq4276 eq4512
   exact ⟨eq1, eq4276, eq4512⟩
 
-theorem CC158_implied_by_long (G : Type*) [Magma G] : ConjunctionClass158_long G -> ConjunctionClass158 G :=
+theorem AT158_implied_by_long (G : Type*) [Magma G] : AssociativeTheory158_long G -> AssociativeTheory158 G :=
 fun ⟨_, h4276, h4512⟩ => ⟨h4276, h4512⟩
 
-theorem CC158_equiv (G : Type*) [Magma G] : ConjunctionClass158 G <-> ConjunctionClass158_long G :=
-Iff.intro (CC158_implies_long G) (CC158_implied_by_long G)
+theorem AT158_equiv (G : Type*) [Magma G] : AssociativeTheory158 G <-> AssociativeTheory158_long G :=
+Iff.intro (AT158_implies_long G) (AT158_implied_by_long G)
 
-theorem CC159_implies_long (G : Type*) [Magma G] (h : ConjunctionClass159 G) : ConjunctionClass159_long G := by
+theorem AT159_implies_long (G : Type*) [Magma G] (h : AssociativeTheory159 G) : AssociativeTheory159_long G := by
   obtain ⟨eq43, eq4276, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -4095,13 +4095,13 @@ theorem CC159_implies_long (G : Type*) [Magma G] (h : ConjunctionClass159 G) : C
   have eq4369 := Equation43_4512_implies_Equation4369 G eq43 eq4512
   exact ⟨eq1, eq43, eq4276, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC159_implied_by_long (G : Type*) [Magma G] : ConjunctionClass159_long G -> ConjunctionClass159 G :=
+theorem AT159_implied_by_long (G : Type*) [Magma G] : AssociativeTheory159_long G -> AssociativeTheory159 G :=
 fun ⟨_, h43, h4276, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h4276, h4512⟩
 
-theorem CC159_equiv (G : Type*) [Magma G] : ConjunctionClass159 G <-> ConjunctionClass159_long G :=
-Iff.intro (CC159_implies_long G) (CC159_implied_by_long G)
+theorem AT159_equiv (G : Type*) [Magma G] : AssociativeTheory159 G <-> AssociativeTheory159_long G :=
+Iff.intro (AT159_implies_long G) (AT159_implied_by_long G)
 
-theorem CC160_implies_long (G : Type*) [Magma G] (h : ConjunctionClass160 G) : ConjunctionClass160_long G := by
+theorem AT160_implies_long (G : Type*) [Magma G] (h : AssociativeTheory160 G) : AssociativeTheory160_long G := by
   obtain ⟨eq4278, eq4512⟩ := h
   have eq1 := Equation4278_4512_implies_Equation1 G eq4278 eq4512
   have eq4269 := Equation4278_4512_implies_Equation4269 G eq4278 eq4512
@@ -4118,60 +4118,60 @@ theorem CC160_implies_long (G : Type*) [Magma G] (h : ConjunctionClass160 G) : C
   have eq4362 := Equation4278_4512_implies_Equation4362 G eq4278 eq4512
   exact ⟨eq1, eq4269, eq4272, eq4275, eq4278, eq4284, eq4287, eq4291, eq4296, eq4300, eq4304, eq4320, eq4327, eq4362, eq4512⟩
 
-theorem CC160_implied_by_long (G : Type*) [Magma G] : ConjunctionClass160_long G -> ConjunctionClass160 G :=
+theorem AT160_implied_by_long (G : Type*) [Magma G] : AssociativeTheory160_long G -> AssociativeTheory160 G :=
 fun ⟨_, _, _, _, h4278, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h4278, h4512⟩
 
-theorem CC160_equiv (G : Type*) [Magma G] : ConjunctionClass160 G <-> ConjunctionClass160_long G :=
-Iff.intro (CC160_implies_long G) (CC160_implied_by_long G)
+theorem AT160_equiv (G : Type*) [Magma G] : AssociativeTheory160 G <-> AssociativeTheory160_long G :=
+Iff.intro (AT160_implies_long G) (AT160_implied_by_long G)
 
-theorem CC161_implies_long (G : Type*) [Magma G] (h : ConjunctionClass161 G) : ConjunctionClass161_long G := by
+theorem AT161_implies_long (G : Type*) [Magma G] (h : AssociativeTheory161 G) : AssociativeTheory161_long G := by
   obtain ⟨eq4283, eq4512⟩ := h
   have eq1 := Equation4283_4512_implies_Equation1 G eq4283 eq4512
   exact ⟨eq1, eq4283, eq4512⟩
 
-theorem CC161_implied_by_long (G : Type*) [Magma G] : ConjunctionClass161_long G -> ConjunctionClass161 G :=
+theorem AT161_implied_by_long (G : Type*) [Magma G] : AssociativeTheory161_long G -> AssociativeTheory161 G :=
 fun ⟨_, h4283, h4512⟩ => ⟨h4283, h4512⟩
 
-theorem CC161_equiv (G : Type*) [Magma G] : ConjunctionClass161 G <-> ConjunctionClass161_long G :=
-Iff.intro (CC161_implies_long G) (CC161_implied_by_long G)
+theorem AT161_equiv (G : Type*) [Magma G] : AssociativeTheory161 G <-> AssociativeTheory161_long G :=
+Iff.intro (AT161_implies_long G) (AT161_implied_by_long G)
 
-theorem CC162_implies_long (G : Type*) [Magma G] (h : ConjunctionClass162 G) : ConjunctionClass162_long G := by
+theorem AT162_implies_long (G : Type*) [Magma G] (h : AssociativeTheory162 G) : AssociativeTheory162_long G := by
   obtain ⟨eq47, eq4283, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq47, eq4283, eq4512⟩
 
-theorem CC162_implied_by_long (G : Type*) [Magma G] : ConjunctionClass162_long G -> ConjunctionClass162 G :=
+theorem AT162_implied_by_long (G : Type*) [Magma G] : AssociativeTheory162_long G -> AssociativeTheory162 G :=
 fun ⟨_, h47, h4283, h4512⟩ => ⟨h47, h4283, h4512⟩
 
-theorem CC162_equiv (G : Type*) [Magma G] : ConjunctionClass162 G <-> ConjunctionClass162_long G :=
-Iff.intro (CC162_implies_long G) (CC162_implied_by_long G)
+theorem AT162_equiv (G : Type*) [Magma G] : AssociativeTheory162 G <-> AssociativeTheory162_long G :=
+Iff.intro (AT162_implies_long G) (AT162_implied_by_long G)
 
-theorem CC163_implies_long (G : Type*) [Magma G] (h : ConjunctionClass163 G) : ConjunctionClass163_long G := by
+theorem AT163_implies_long (G : Type*) [Magma G] (h : AssociativeTheory163 G) : AssociativeTheory163_long G := by
   obtain ⟨eq56, eq4283, eq4512⟩ := h
   have eq4358 := Equation56_4283_4512_implies_Equation4358 G eq56 eq4283 eq4512
   have eq1 := Equation56_4512_implies_Equation1 G eq56 eq4512
   have eq47 := Equation56_4512_implies_Equation47 G eq56 eq4512
   exact ⟨eq1, eq47, eq56, eq4283, eq4358, eq4512⟩
 
-theorem CC163_implied_by_long (G : Type*) [Magma G] : ConjunctionClass163_long G -> ConjunctionClass163 G :=
+theorem AT163_implied_by_long (G : Type*) [Magma G] : AssociativeTheory163_long G -> AssociativeTheory163 G :=
 fun ⟨_, _, h56, h4283, _, h4512⟩ => ⟨h56, h4283, h4512⟩
 
-theorem CC163_equiv (G : Type*) [Magma G] : ConjunctionClass163 G <-> ConjunctionClass163_long G :=
-Iff.intro (CC163_implies_long G) (CC163_implied_by_long G)
+theorem AT163_equiv (G : Type*) [Magma G] : AssociativeTheory163 G <-> AssociativeTheory163_long G :=
+Iff.intro (AT163_implies_long G) (AT163_implied_by_long G)
 
-theorem CC164_implies_long (G : Type*) [Magma G] (h : ConjunctionClass164 G) : ConjunctionClass164_long G := by
+theorem AT164_implies_long (G : Type*) [Magma G] (h : AssociativeTheory164 G) : AssociativeTheory164_long G := by
   obtain ⟨eq307, eq4283, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4512⟩
 
-theorem CC164_implied_by_long (G : Type*) [Magma G] : ConjunctionClass164_long G -> ConjunctionClass164 G :=
+theorem AT164_implied_by_long (G : Type*) [Magma G] : AssociativeTheory164_long G -> AssociativeTheory164 G :=
 fun ⟨_, h307, _, h4283, h4512⟩ => ⟨h307, h4283, h4512⟩
 
-theorem CC164_equiv (G : Type*) [Magma G] : ConjunctionClass164 G <-> ConjunctionClass164_long G :=
-Iff.intro (CC164_implies_long G) (CC164_implied_by_long G)
+theorem AT164_equiv (G : Type*) [Magma G] : AssociativeTheory164 G <-> AssociativeTheory164_long G :=
+Iff.intro (AT164_implies_long G) (AT164_implied_by_long G)
 
-theorem CC165_implies_long (G : Type*) [Magma G] (h : ConjunctionClass165 G) : ConjunctionClass165_long G := by
+theorem AT165_implies_long (G : Type*) [Magma G] (h : AssociativeTheory165 G) : AssociativeTheory165_long G := by
   obtain ⟨eq326, eq4283, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation326_4512_implies_Equation307 G eq326 eq4512
@@ -4179,48 +4179,48 @@ theorem CC165_implies_long (G : Type*) [Magma G] (h : ConjunctionClass165 G) : C
   have eq3319 := Equation326_4512_implies_Equation3319 G eq326 eq4512
   exact ⟨eq1, eq307, eq326, eq3253, eq3319, eq4283, eq4512⟩
 
-theorem CC165_implied_by_long (G : Type*) [Magma G] : ConjunctionClass165_long G -> ConjunctionClass165 G :=
+theorem AT165_implied_by_long (G : Type*) [Magma G] : AssociativeTheory165_long G -> AssociativeTheory165 G :=
 fun ⟨_, _, h326, _, _, h4283, h4512⟩ => ⟨h326, h4283, h4512⟩
 
-theorem CC165_equiv (G : Type*) [Magma G] : ConjunctionClass165 G <-> ConjunctionClass165_long G :=
-Iff.intro (CC165_implies_long G) (CC165_implied_by_long G)
+theorem AT165_equiv (G : Type*) [Magma G] : AssociativeTheory165 G <-> AssociativeTheory165_long G :=
+Iff.intro (AT165_implies_long G) (AT165_implied_by_long G)
 
-theorem CC166_implies_long (G : Type*) [Magma G] (h : ConjunctionClass166 G) : ConjunctionClass166_long G := by
+theorem AT166_implies_long (G : Type*) [Magma G] (h : AssociativeTheory166 G) : AssociativeTheory166_long G := by
   obtain ⟨eq411, eq4283, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq411, eq4283, eq4512⟩
 
-theorem CC166_implied_by_long (G : Type*) [Magma G] : ConjunctionClass166_long G -> ConjunctionClass166 G :=
+theorem AT166_implied_by_long (G : Type*) [Magma G] : AssociativeTheory166_long G -> AssociativeTheory166 G :=
 fun ⟨_, h411, h4283, h4512⟩ => ⟨h411, h4283, h4512⟩
 
-theorem CC166_equiv (G : Type*) [Magma G] : ConjunctionClass166 G <-> ConjunctionClass166_long G :=
-Iff.intro (CC166_implies_long G) (CC166_implied_by_long G)
+theorem AT166_equiv (G : Type*) [Magma G] : AssociativeTheory166 G <-> AssociativeTheory166_long G :=
+Iff.intro (AT166_implies_long G) (AT166_implied_by_long G)
 
-theorem CC167_implies_long (G : Type*) [Magma G] (h : ConjunctionClass167 G) : ConjunctionClass167_long G := by
+theorem AT167_implies_long (G : Type*) [Magma G] (h : AssociativeTheory167 G) : AssociativeTheory167_long G := by
   obtain ⟨eq440, eq4283, eq4512⟩ := h
   have eq4358 := Equation440_4283_4512_implies_Equation4358 G eq440 eq4283 eq4512
   have eq1 := Equation440_4512_implies_Equation1 G eq440 eq4512
   have eq411 := Equation440_4512_implies_Equation411 G eq440 eq4512
   exact ⟨eq1, eq411, eq440, eq4283, eq4358, eq4512⟩
 
-theorem CC167_implied_by_long (G : Type*) [Magma G] : ConjunctionClass167_long G -> ConjunctionClass167 G :=
+theorem AT167_implied_by_long (G : Type*) [Magma G] : AssociativeTheory167_long G -> AssociativeTheory167 G :=
 fun ⟨_, _, h440, h4283, _, h4512⟩ => ⟨h440, h4283, h4512⟩
 
-theorem CC167_equiv (G : Type*) [Magma G] : ConjunctionClass167 G <-> ConjunctionClass167_long G :=
-Iff.intro (CC167_implies_long G) (CC167_implied_by_long G)
+theorem AT167_equiv (G : Type*) [Magma G] : AssociativeTheory167 G <-> AssociativeTheory167_long G :=
+Iff.intro (AT167_implies_long G) (AT167_implied_by_long G)
 
-theorem CC168_implies_long (G : Type*) [Magma G] (h : ConjunctionClass168 G) : ConjunctionClass168_long G := by
+theorem AT168_implies_long (G : Type*) [Magma G] (h : AssociativeTheory168 G) : AssociativeTheory168_long G := by
   obtain ⟨eq3253, eq4283, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq3253, eq4283, eq4512⟩
 
-theorem CC168_implied_by_long (G : Type*) [Magma G] : ConjunctionClass168_long G -> ConjunctionClass168 G :=
+theorem AT168_implied_by_long (G : Type*) [Magma G] : AssociativeTheory168_long G -> AssociativeTheory168 G :=
 fun ⟨_, h3253, h4283, h4512⟩ => ⟨h3253, h4283, h4512⟩
 
-theorem CC168_equiv (G : Type*) [Magma G] : ConjunctionClass168 G <-> ConjunctionClass168_long G :=
-Iff.intro (CC168_implies_long G) (CC168_implied_by_long G)
+theorem AT168_equiv (G : Type*) [Magma G] : AssociativeTheory168 G <-> AssociativeTheory168_long G :=
+Iff.intro (AT168_implies_long G) (AT168_implied_by_long G)
 
-theorem CC169_implies_long (G : Type*) [Magma G] (h : ConjunctionClass169 G) : ConjunctionClass169_long G := by
+theorem AT169_implies_long (G : Type*) [Magma G] (h : AssociativeTheory169 G) : AssociativeTheory169_long G := by
   obtain ⟨eq3256, eq4283, eq4512⟩ := h
   have eq3259 := Equation3256_4283_4512_implies_Equation3259 G eq3256 eq4283 eq4512
   have eq1 := Equation3256_4512_implies_Equation1 G eq3256 eq4512
@@ -4229,36 +4229,36 @@ theorem CC169_implies_long (G : Type*) [Magma G] (h : ConjunctionClass169 G) : C
   have eq4270 := Equation3259_4512_implies_Equation4270 G eq3259 eq4512
   exact ⟨eq1, eq3253, eq3256, eq3259, eq3261, eq4270, eq4283, eq4512⟩
 
-theorem CC169_implied_by_long (G : Type*) [Magma G] : ConjunctionClass169_long G -> ConjunctionClass169 G :=
+theorem AT169_implied_by_long (G : Type*) [Magma G] : AssociativeTheory169_long G -> AssociativeTheory169 G :=
 fun ⟨_, _, h3256, _, _, _, h4283, h4512⟩ => ⟨h3256, h4283, h4512⟩
 
-theorem CC169_equiv (G : Type*) [Magma G] : ConjunctionClass169 G <-> ConjunctionClass169_long G :=
-Iff.intro (CC169_implies_long G) (CC169_implied_by_long G)
+theorem AT169_equiv (G : Type*) [Magma G] : AssociativeTheory169 G <-> AssociativeTheory169_long G :=
+Iff.intro (AT169_implies_long G) (AT169_implied_by_long G)
 
-theorem CC170_implies_long (G : Type*) [Magma G] (h : ConjunctionClass170 G) : ConjunctionClass170_long G := by
+theorem AT170_implies_long (G : Type*) [Magma G] (h : AssociativeTheory170 G) : AssociativeTheory170_long G := by
   obtain ⟨eq3319, eq4283, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation3319_4512_implies_Equation3253 G eq3319 eq4512
   exact ⟨eq1, eq3253, eq3319, eq4283, eq4512⟩
 
-theorem CC170_implied_by_long (G : Type*) [Magma G] : ConjunctionClass170_long G -> ConjunctionClass170 G :=
+theorem AT170_implied_by_long (G : Type*) [Magma G] : AssociativeTheory170_long G -> AssociativeTheory170 G :=
 fun ⟨_, _, h3319, h4283, h4512⟩ => ⟨h3319, h4283, h4512⟩
 
-theorem CC170_equiv (G : Type*) [Magma G] : ConjunctionClass170 G <-> ConjunctionClass170_long G :=
-Iff.intro (CC170_implies_long G) (CC170_implied_by_long G)
+theorem AT170_equiv (G : Type*) [Magma G] : AssociativeTheory170 G <-> AssociativeTheory170_long G :=
+Iff.intro (AT170_implies_long G) (AT170_implied_by_long G)
 
-theorem CC171_implies_long (G : Type*) [Magma G] (h : ConjunctionClass171 G) : ConjunctionClass171_long G := by
+theorem AT171_implies_long (G : Type*) [Magma G] (h : AssociativeTheory171 G) : AssociativeTheory171_long G := by
   obtain ⟨eq4270, eq4283, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4270, eq4283, eq4512⟩
 
-theorem CC171_implied_by_long (G : Type*) [Magma G] : ConjunctionClass171_long G -> ConjunctionClass171 G :=
+theorem AT171_implied_by_long (G : Type*) [Magma G] : AssociativeTheory171_long G -> AssociativeTheory171 G :=
 fun ⟨_, h4270, h4283, h4512⟩ => ⟨h4270, h4283, h4512⟩
 
-theorem CC171_equiv (G : Type*) [Magma G] : ConjunctionClass171 G <-> ConjunctionClass171_long G :=
-Iff.intro (CC171_implies_long G) (CC171_implied_by_long G)
+theorem AT171_equiv (G : Type*) [Magma G] : AssociativeTheory171 G <-> AssociativeTheory171_long G :=
+Iff.intro (AT171_implies_long G) (AT171_implied_by_long G)
 
-theorem CC172_implies_long (G : Type*) [Magma G] (h : ConjunctionClass172 G) : ConjunctionClass172_long G := by
+theorem AT172_implies_long (G : Type*) [Magma G] (h : AssociativeTheory172 G) : AssociativeTheory172_long G := by
   obtain ⟨eq4272, eq4283, eq4512⟩ := h
   have eq4270 := Equation4272_4283_4512_implies_Equation4270 G eq4272 eq4283 eq4512
   have eq4280 := Equation4270_4272_4512_implies_Equation4280 G eq4270 eq4272 eq4512
@@ -4267,35 +4267,35 @@ theorem CC172_implies_long (G : Type*) [Magma G] (h : ConjunctionClass172 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4270, eq4272, eq4276, eq4280, eq4283, eq4343, eq4512⟩
 
-theorem CC172_implied_by_long (G : Type*) [Magma G] : ConjunctionClass172_long G -> ConjunctionClass172 G :=
+theorem AT172_implied_by_long (G : Type*) [Magma G] : AssociativeTheory172_long G -> AssociativeTheory172 G :=
 fun ⟨_, _, h4272, _, _, h4283, _, h4512⟩ => ⟨h4272, h4283, h4512⟩
 
-theorem CC172_equiv (G : Type*) [Magma G] : ConjunctionClass172 G <-> ConjunctionClass172_long G :=
-Iff.intro (CC172_implies_long G) (CC172_implied_by_long G)
+theorem AT172_equiv (G : Type*) [Magma G] : AssociativeTheory172 G <-> AssociativeTheory172_long G :=
+Iff.intro (AT172_implies_long G) (AT172_implied_by_long G)
 
-theorem CC173_implies_long (G : Type*) [Magma G] (h : ConjunctionClass173 G) : ConjunctionClass173_long G := by
+theorem AT173_implies_long (G : Type*) [Magma G] (h : AssociativeTheory173 G) : AssociativeTheory173_long G := by
   obtain ⟨eq4276, eq4283, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4283, eq4512⟩
 
-theorem CC173_implied_by_long (G : Type*) [Magma G] : ConjunctionClass173_long G -> ConjunctionClass173 G :=
+theorem AT173_implied_by_long (G : Type*) [Magma G] : AssociativeTheory173_long G -> AssociativeTheory173 G :=
 fun ⟨_, h4276, h4283, h4512⟩ => ⟨h4276, h4283, h4512⟩
 
-theorem CC173_equiv (G : Type*) [Magma G] : ConjunctionClass173 G <-> ConjunctionClass173_long G :=
-Iff.intro (CC173_implies_long G) (CC173_implied_by_long G)
+theorem AT173_equiv (G : Type*) [Magma G] : AssociativeTheory173 G <-> AssociativeTheory173_long G :=
+Iff.intro (AT173_implies_long G) (AT173_implied_by_long G)
 
-theorem CC174_implies_long (G : Type*) [Magma G] (h : ConjunctionClass174 G) : ConjunctionClass174_long G := by
+theorem AT174_implies_long (G : Type*) [Magma G] (h : AssociativeTheory174 G) : AssociativeTheory174_long G := by
   obtain ⟨eq4284, eq4512⟩ := h
   have eq1 := Equation4284_4512_implies_Equation1 G eq4284 eq4512
   exact ⟨eq1, eq4284, eq4512⟩
 
-theorem CC174_implied_by_long (G : Type*) [Magma G] : ConjunctionClass174_long G -> ConjunctionClass174 G :=
+theorem AT174_implied_by_long (G : Type*) [Magma G] : AssociativeTheory174_long G -> AssociativeTheory174 G :=
 fun ⟨_, h4284, h4512⟩ => ⟨h4284, h4512⟩
 
-theorem CC174_equiv (G : Type*) [Magma G] : ConjunctionClass174 G <-> ConjunctionClass174_long G :=
-Iff.intro (CC174_implies_long G) (CC174_implied_by_long G)
+theorem AT174_equiv (G : Type*) [Magma G] : AssociativeTheory174 G <-> AssociativeTheory174_long G :=
+Iff.intro (AT174_implies_long G) (AT174_implied_by_long G)
 
-theorem CC175_implies_long (G : Type*) [Magma G] (h : ConjunctionClass175 G) : ConjunctionClass175_long G := by
+theorem AT175_implies_long (G : Type*) [Magma G] (h : AssociativeTheory175 G) : AssociativeTheory175_long G := by
   obtain ⟨eq43, eq4284, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -4312,25 +4312,25 @@ theorem CC175_implies_long (G : Type*) [Magma G] (h : ConjunctionClass175 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq43, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC175_implied_by_long (G : Type*) [Magma G] : ConjunctionClass175_long G -> ConjunctionClass175 G :=
+theorem AT175_implied_by_long (G : Type*) [Magma G] : AssociativeTheory175_long G -> AssociativeTheory175 G :=
 fun ⟨_, h43, _, h4284, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h4284, h4512⟩
 
-theorem CC175_equiv (G : Type*) [Magma G] : ConjunctionClass175 G <-> ConjunctionClass175_long G :=
-Iff.intro (CC175_implies_long G) (CC175_implied_by_long G)
+theorem AT175_equiv (G : Type*) [Magma G] : AssociativeTheory175 G <-> AssociativeTheory175_long G :=
+Iff.intro (AT175_implies_long G) (AT175_implied_by_long G)
 
-theorem CC176_implies_long (G : Type*) [Magma G] (h : ConjunctionClass176 G) : ConjunctionClass176_long G := by
+theorem AT176_implies_long (G : Type*) [Magma G] (h : AssociativeTheory176 G) : AssociativeTheory176_long G := by
   obtain ⟨eq307, eq4284, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4284, eq4512⟩
 
-theorem CC176_implied_by_long (G : Type*) [Magma G] : ConjunctionClass176_long G -> ConjunctionClass176 G :=
+theorem AT176_implied_by_long (G : Type*) [Magma G] : AssociativeTheory176_long G -> AssociativeTheory176 G :=
 fun ⟨_, h307, _, h4284, h4512⟩ => ⟨h307, h4284, h4512⟩
 
-theorem CC176_equiv (G : Type*) [Magma G] : ConjunctionClass176 G <-> ConjunctionClass176_long G :=
-Iff.intro (CC176_implies_long G) (CC176_implied_by_long G)
+theorem AT176_equiv (G : Type*) [Magma G] : AssociativeTheory176 G <-> AssociativeTheory176_long G :=
+Iff.intro (AT176_implies_long G) (AT176_implied_by_long G)
 
-theorem CC177_implies_long (G : Type*) [Magma G] (h : ConjunctionClass177 G) : ConjunctionClass177_long G := by
+theorem AT177_implies_long (G : Type*) [Magma G] (h : AssociativeTheory177 G) : AssociativeTheory177_long G := by
   obtain ⟨eq43, eq307, eq4284, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -4348,24 +4348,24 @@ theorem CC177_implies_long (G : Type*) [Magma G] (h : ConjunctionClass177 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq43, eq307, eq3253, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC177_implied_by_long (G : Type*) [Magma G] : ConjunctionClass177_long G -> ConjunctionClass177 G :=
+theorem AT177_implied_by_long (G : Type*) [Magma G] : AssociativeTheory177_long G -> AssociativeTheory177 G :=
 fun ⟨_, h43, h307, _, _, h4284, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h307, h4284, h4512⟩
 
-theorem CC177_equiv (G : Type*) [Magma G] : ConjunctionClass177 G <-> ConjunctionClass177_long G :=
-Iff.intro (CC177_implies_long G) (CC177_implied_by_long G)
+theorem AT177_equiv (G : Type*) [Magma G] : AssociativeTheory177 G <-> AssociativeTheory177_long G :=
+Iff.intro (AT177_implies_long G) (AT177_implied_by_long G)
 
-theorem CC178_implies_long (G : Type*) [Magma G] (h : ConjunctionClass178 G) : ConjunctionClass178_long G := by
+theorem AT178_implies_long (G : Type*) [Magma G] (h : AssociativeTheory178 G) : AssociativeTheory178_long G := by
   obtain ⟨eq4269, eq4284, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4269, eq4284, eq4512⟩
 
-theorem CC178_implied_by_long (G : Type*) [Magma G] : ConjunctionClass178_long G -> ConjunctionClass178 G :=
+theorem AT178_implied_by_long (G : Type*) [Magma G] : AssociativeTheory178_long G -> AssociativeTheory178 G :=
 fun ⟨_, h4269, h4284, h4512⟩ => ⟨h4269, h4284, h4512⟩
 
-theorem CC178_equiv (G : Type*) [Magma G] : ConjunctionClass178 G <-> ConjunctionClass178_long G :=
-Iff.intro (CC178_implies_long G) (CC178_implied_by_long G)
+theorem AT178_equiv (G : Type*) [Magma G] : AssociativeTheory178 G <-> AssociativeTheory178_long G :=
+Iff.intro (AT178_implies_long G) (AT178_implied_by_long G)
 
-theorem CC179_implies_long (G : Type*) [Magma G] (h : ConjunctionClass179 G) : ConjunctionClass179_long G := by
+theorem AT179_implies_long (G : Type*) [Magma G] (h : AssociativeTheory179 G) : AssociativeTheory179_long G := by
   obtain ⟨eq4273, eq4284, eq4512⟩ := h
   have eq4269 := Equation4273_4284_4512_implies_Equation4269 G eq4273 eq4284 eq4512
   have eq4279 := Equation4269_4273_4512_implies_Equation4279 G eq4269 eq4273 eq4512
@@ -4374,24 +4374,24 @@ theorem CC179_implies_long (G : Type*) [Magma G] (h : ConjunctionClass179 G) : C
   have eq4321 := Equation4279_4512_implies_Equation4321 G eq4279 eq4512
   exact ⟨eq1, eq4269, eq4273, eq4276, eq4279, eq4284, eq4321, eq4512⟩
 
-theorem CC179_implied_by_long (G : Type*) [Magma G] : ConjunctionClass179_long G -> ConjunctionClass179 G :=
+theorem AT179_implied_by_long (G : Type*) [Magma G] : AssociativeTheory179_long G -> AssociativeTheory179 G :=
 fun ⟨_, _, h4273, _, _, h4284, _, h4512⟩ => ⟨h4273, h4284, h4512⟩
 
-theorem CC179_equiv (G : Type*) [Magma G] : ConjunctionClass179 G <-> ConjunctionClass179_long G :=
-Iff.intro (CC179_implies_long G) (CC179_implied_by_long G)
+theorem AT179_equiv (G : Type*) [Magma G] : AssociativeTheory179 G <-> AssociativeTheory179_long G :=
+Iff.intro (AT179_implies_long G) (AT179_implied_by_long G)
 
-theorem CC180_implies_long (G : Type*) [Magma G] (h : ConjunctionClass180 G) : ConjunctionClass180_long G := by
+theorem AT180_implies_long (G : Type*) [Magma G] (h : AssociativeTheory180 G) : AssociativeTheory180_long G := by
   obtain ⟨eq4276, eq4284, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4284, eq4512⟩
 
-theorem CC180_implied_by_long (G : Type*) [Magma G] : ConjunctionClass180_long G -> ConjunctionClass180 G :=
+theorem AT180_implied_by_long (G : Type*) [Magma G] : AssociativeTheory180_long G -> AssociativeTheory180 G :=
 fun ⟨_, h4276, h4284, h4512⟩ => ⟨h4276, h4284, h4512⟩
 
-theorem CC180_equiv (G : Type*) [Magma G] : ConjunctionClass180 G <-> ConjunctionClass180_long G :=
-Iff.intro (CC180_implies_long G) (CC180_implied_by_long G)
+theorem AT180_equiv (G : Type*) [Magma G] : AssociativeTheory180 G <-> AssociativeTheory180_long G :=
+Iff.intro (AT180_implies_long G) (AT180_implied_by_long G)
 
-theorem CC181_implies_long (G : Type*) [Magma G] (h : ConjunctionClass181 G) : ConjunctionClass181_long G := by
+theorem AT181_implies_long (G : Type*) [Magma G] (h : AssociativeTheory181 G) : AssociativeTheory181_long G := by
   obtain ⟨eq43, eq4276, eq4284, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation43_4512_implies_Equation4283 G eq43 eq4512
@@ -4408,63 +4408,63 @@ theorem CC181_implies_long (G : Type*) [Magma G] (h : ConjunctionClass181 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq43, eq4276, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC181_implied_by_long (G : Type*) [Magma G] : ConjunctionClass181_long G -> ConjunctionClass181 G :=
+theorem AT181_implied_by_long (G : Type*) [Magma G] : AssociativeTheory181_long G -> AssociativeTheory181 G :=
 fun ⟨_, h43, h4276, _, h4284, _, _, _, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h43, h4276, h4284, h4512⟩
 
-theorem CC181_equiv (G : Type*) [Magma G] : ConjunctionClass181 G <-> ConjunctionClass181_long G :=
-Iff.intro (CC181_implies_long G) (CC181_implied_by_long G)
+theorem AT181_equiv (G : Type*) [Magma G] : AssociativeTheory181 G <-> AssociativeTheory181_long G :=
+Iff.intro (AT181_implies_long G) (AT181_implied_by_long G)
 
-theorem CC182_implies_long (G : Type*) [Magma G] (h : ConjunctionClass182 G) : ConjunctionClass182_long G := by
+theorem AT182_implies_long (G : Type*) [Magma G] (h : AssociativeTheory182 G) : AssociativeTheory182_long G := by
   obtain ⟨eq4283, eq4284, eq4512⟩ := h
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4283, eq4284, eq4314, eq4512⟩
 
-theorem CC182_implied_by_long (G : Type*) [Magma G] : ConjunctionClass182_long G -> ConjunctionClass182 G :=
+theorem AT182_implied_by_long (G : Type*) [Magma G] : AssociativeTheory182_long G -> AssociativeTheory182 G :=
 fun ⟨_, h4283, h4284, _, h4512⟩ => ⟨h4283, h4284, h4512⟩
 
-theorem CC182_equiv (G : Type*) [Magma G] : ConjunctionClass182 G <-> ConjunctionClass182_long G :=
-Iff.intro (CC182_implies_long G) (CC182_implied_by_long G)
+theorem AT182_equiv (G : Type*) [Magma G] : AssociativeTheory182 G <-> AssociativeTheory182_long G :=
+Iff.intro (AT182_implies_long G) (AT182_implied_by_long G)
 
-theorem CC183_implies_long (G : Type*) [Magma G] (h : ConjunctionClass183 G) : ConjunctionClass183_long G := by
+theorem AT183_implies_long (G : Type*) [Magma G] (h : AssociativeTheory183 G) : AssociativeTheory183_long G := by
   obtain ⟨eq307, eq4283, eq4284, eq4512⟩ := h
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4284, eq4314, eq4512⟩
 
-theorem CC183_implied_by_long (G : Type*) [Magma G] : ConjunctionClass183_long G -> ConjunctionClass183 G :=
+theorem AT183_implied_by_long (G : Type*) [Magma G] : AssociativeTheory183_long G -> AssociativeTheory183 G :=
 fun ⟨_, h307, _, h4283, h4284, _, h4512⟩ => ⟨h307, h4283, h4284, h4512⟩
 
-theorem CC183_equiv (G : Type*) [Magma G] : ConjunctionClass183 G <-> ConjunctionClass183_long G :=
-Iff.intro (CC183_implies_long G) (CC183_implied_by_long G)
+theorem AT183_equiv (G : Type*) [Magma G] : AssociativeTheory183 G <-> AssociativeTheory183_long G :=
+Iff.intro (AT183_implies_long G) (AT183_implied_by_long G)
 
-theorem CC184_implies_long (G : Type*) [Magma G] (h : ConjunctionClass184 G) : ConjunctionClass184_long G := by
+theorem AT184_implies_long (G : Type*) [Magma G] (h : AssociativeTheory184 G) : AssociativeTheory184_long G := by
   obtain ⟨eq4276, eq4283, eq4284, eq4512⟩ := h
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4283, eq4284, eq4314, eq4512⟩
 
-theorem CC184_implied_by_long (G : Type*) [Magma G] : ConjunctionClass184_long G -> ConjunctionClass184 G :=
+theorem AT184_implied_by_long (G : Type*) [Magma G] : AssociativeTheory184_long G -> AssociativeTheory184 G :=
 fun ⟨_, h4276, h4283, h4284, _, h4512⟩ => ⟨h4276, h4283, h4284, h4512⟩
 
-theorem CC184_equiv (G : Type*) [Magma G] : ConjunctionClass184 G <-> ConjunctionClass184_long G :=
-Iff.intro (CC184_implies_long G) (CC184_implied_by_long G)
+theorem AT184_equiv (G : Type*) [Magma G] : AssociativeTheory184 G <-> AssociativeTheory184_long G :=
+Iff.intro (AT184_implies_long G) (AT184_implied_by_long G)
 
-theorem CC185_implies_long (G : Type*) [Magma G] (h : ConjunctionClass185 G) : ConjunctionClass185_long G := by
+theorem AT185_implies_long (G : Type*) [Magma G] (h : AssociativeTheory185 G) : AssociativeTheory185_long G := by
   obtain ⟨eq4287, eq4512⟩ := h
   have eq1 := Equation4287_4512_implies_Equation1 G eq4287 eq4512
   have eq4269 := Equation4287_4512_implies_Equation4269 G eq4287 eq4512
   have eq4284 := Equation4287_4512_implies_Equation4284 G eq4287 eq4512
   exact ⟨eq1, eq4269, eq4284, eq4287, eq4512⟩
 
-theorem CC185_implied_by_long (G : Type*) [Magma G] : ConjunctionClass185_long G -> ConjunctionClass185 G :=
+theorem AT185_implied_by_long (G : Type*) [Magma G] : AssociativeTheory185_long G -> AssociativeTheory185 G :=
 fun ⟨_, _, _, h4287, h4512⟩ => ⟨h4287, h4512⟩
 
-theorem CC185_equiv (G : Type*) [Magma G] : ConjunctionClass185 G <-> ConjunctionClass185_long G :=
-Iff.intro (CC185_implies_long G) (CC185_implied_by_long G)
+theorem AT185_equiv (G : Type*) [Magma G] : AssociativeTheory185 G <-> AssociativeTheory185_long G :=
+Iff.intro (AT185_implies_long G) (AT185_implied_by_long G)
 
-theorem CC186_implies_long (G : Type*) [Magma G] (h : ConjunctionClass186 G) : ConjunctionClass186_long G := by
+theorem AT186_implies_long (G : Type*) [Magma G] (h : AssociativeTheory186 G) : AssociativeTheory186_long G := by
   obtain ⟨eq307, eq4287, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -4477,58 +4477,58 @@ theorem CC186_implies_long (G : Type*) [Magma G] (h : ConjunctionClass186 G) : C
   have eq3264 := Equation309_4512_implies_Equation3264 G eq309 eq4512
   exact ⟨eq1, eq307, eq309, eq3253, eq3255, eq3258, eq3261, eq3264, eq4269, eq4284, eq4287, eq4512⟩
 
-theorem CC186_implied_by_long (G : Type*) [Magma G] : ConjunctionClass186_long G -> ConjunctionClass186 G :=
+theorem AT186_implied_by_long (G : Type*) [Magma G] : AssociativeTheory186_long G -> AssociativeTheory186 G :=
 fun ⟨_, h307, _, _, _, _, _, _, _, _, h4287, h4512⟩ => ⟨h307, h4287, h4512⟩
 
-theorem CC186_equiv (G : Type*) [Magma G] : ConjunctionClass186 G <-> ConjunctionClass186_long G :=
-Iff.intro (CC186_implies_long G) (CC186_implied_by_long G)
+theorem AT186_equiv (G : Type*) [Magma G] : AssociativeTheory186 G <-> AssociativeTheory186_long G :=
+Iff.intro (AT186_implies_long G) (AT186_implied_by_long G)
 
-theorem CC187_implies_long (G : Type*) [Magma G] (h : ConjunctionClass187 G) : ConjunctionClass187_long G := by
+theorem AT187_implies_long (G : Type*) [Magma G] (h : AssociativeTheory187 G) : AssociativeTheory187_long G := by
   obtain ⟨eq4290, eq4512⟩ := h
   have eq1 := Equation4290_4512_implies_Equation1 G eq4290 eq4512
   exact ⟨eq1, eq4290, eq4512⟩
 
-theorem CC187_implied_by_long (G : Type*) [Magma G] : ConjunctionClass187_long G -> ConjunctionClass187 G :=
+theorem AT187_implied_by_long (G : Type*) [Magma G] : AssociativeTheory187_long G -> AssociativeTheory187 G :=
 fun ⟨_, h4290, h4512⟩ => ⟨h4290, h4512⟩
 
-theorem CC187_equiv (G : Type*) [Magma G] : ConjunctionClass187 G <-> ConjunctionClass187_long G :=
-Iff.intro (CC187_implies_long G) (CC187_implied_by_long G)
+theorem AT187_equiv (G : Type*) [Magma G] : AssociativeTheory187 G <-> AssociativeTheory187_long G :=
+Iff.intro (AT187_implies_long G) (AT187_implied_by_long G)
 
-theorem CC188_implies_long (G : Type*) [Magma G] (h : ConjunctionClass188 G) : ConjunctionClass188_long G := by
+theorem AT188_implies_long (G : Type*) [Magma G] (h : AssociativeTheory188 G) : AssociativeTheory188_long G := by
   obtain ⟨eq307, eq4290, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4290, eq4512⟩
 
-theorem CC188_implied_by_long (G : Type*) [Magma G] : ConjunctionClass188_long G -> ConjunctionClass188 G :=
+theorem AT188_implied_by_long (G : Type*) [Magma G] : AssociativeTheory188_long G -> AssociativeTheory188 G :=
 fun ⟨_, h307, _, h4290, h4512⟩ => ⟨h307, h4290, h4512⟩
 
-theorem CC188_equiv (G : Type*) [Magma G] : ConjunctionClass188 G <-> ConjunctionClass188_long G :=
-Iff.intro (CC188_implies_long G) (CC188_implied_by_long G)
+theorem AT188_equiv (G : Type*) [Magma G] : AssociativeTheory188 G <-> AssociativeTheory188_long G :=
+Iff.intro (AT188_implies_long G) (AT188_implied_by_long G)
 
-theorem CC189_implies_long (G : Type*) [Magma G] (h : ConjunctionClass189 G) : ConjunctionClass189_long G := by
+theorem AT189_implies_long (G : Type*) [Magma G] (h : AssociativeTheory189 G) : AssociativeTheory189_long G := by
   obtain ⟨eq411, eq4290, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq411, eq4290, eq4512⟩
 
-theorem CC189_implied_by_long (G : Type*) [Magma G] : ConjunctionClass189_long G -> ConjunctionClass189 G :=
+theorem AT189_implied_by_long (G : Type*) [Magma G] : AssociativeTheory189_long G -> AssociativeTheory189 G :=
 fun ⟨_, h411, h4290, h4512⟩ => ⟨h411, h4290, h4512⟩
 
-theorem CC189_equiv (G : Type*) [Magma G] : ConjunctionClass189 G <-> ConjunctionClass189_long G :=
-Iff.intro (CC189_implies_long G) (CC189_implied_by_long G)
+theorem AT189_equiv (G : Type*) [Magma G] : AssociativeTheory189 G <-> AssociativeTheory189_long G :=
+Iff.intro (AT189_implies_long G) (AT189_implied_by_long G)
 
-theorem CC190_implies_long (G : Type*) [Magma G] (h : ConjunctionClass190 G) : ConjunctionClass190_long G := by
+theorem AT190_implies_long (G : Type*) [Magma G] (h : AssociativeTheory190 G) : AssociativeTheory190_long G := by
   obtain ⟨eq3253, eq4290, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq3253, eq4290, eq4512⟩
 
-theorem CC190_implied_by_long (G : Type*) [Magma G] : ConjunctionClass190_long G -> ConjunctionClass190 G :=
+theorem AT190_implied_by_long (G : Type*) [Magma G] : AssociativeTheory190_long G -> AssociativeTheory190 G :=
 fun ⟨_, h3253, h4290, h4512⟩ => ⟨h3253, h4290, h4512⟩
 
-theorem CC190_equiv (G : Type*) [Magma G] : ConjunctionClass190 G <-> ConjunctionClass190_long G :=
-Iff.intro (CC190_implies_long G) (CC190_implied_by_long G)
+theorem AT190_equiv (G : Type*) [Magma G] : AssociativeTheory190 G <-> AssociativeTheory190_long G :=
+Iff.intro (AT190_implies_long G) (AT190_implied_by_long G)
 
-theorem CC191_implies_long (G : Type*) [Magma G] (h : ConjunctionClass191 G) : ConjunctionClass191_long G := by
+theorem AT191_implies_long (G : Type*) [Magma G] (h : AssociativeTheory191 G) : AssociativeTheory191_long G := by
   obtain ⟨eq4269, eq4290, eq4512⟩ := h
   have eq4273 := Equation4269_4290_4512_implies_Equation4273 G eq4269 eq4290 eq4512
   have eq4279 := Equation4269_4273_4512_implies_Equation4279 G eq4269 eq4273 eq4512
@@ -4537,97 +4537,97 @@ theorem CC191_implies_long (G : Type*) [Magma G] (h : ConjunctionClass191 G) : C
   have eq4321 := Equation4279_4512_implies_Equation4321 G eq4279 eq4512
   exact ⟨eq1, eq4269, eq4273, eq4276, eq4279, eq4290, eq4321, eq4512⟩
 
-theorem CC191_implied_by_long (G : Type*) [Magma G] : ConjunctionClass191_long G -> ConjunctionClass191 G :=
+theorem AT191_implied_by_long (G : Type*) [Magma G] : AssociativeTheory191_long G -> AssociativeTheory191 G :=
 fun ⟨_, h4269, _, _, _, h4290, _, h4512⟩ => ⟨h4269, h4290, h4512⟩
 
-theorem CC191_equiv (G : Type*) [Magma G] : ConjunctionClass191 G <-> ConjunctionClass191_long G :=
-Iff.intro (CC191_implies_long G) (CC191_implied_by_long G)
+theorem AT191_equiv (G : Type*) [Magma G] : AssociativeTheory191 G <-> AssociativeTheory191_long G :=
+Iff.intro (AT191_implies_long G) (AT191_implied_by_long G)
 
-theorem CC192_implies_long (G : Type*) [Magma G] (h : ConjunctionClass192 G) : ConjunctionClass192_long G := by
+theorem AT192_implies_long (G : Type*) [Magma G] (h : AssociativeTheory192 G) : AssociativeTheory192_long G := by
   obtain ⟨eq4273, eq4290, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4273, eq4290, eq4512⟩
 
-theorem CC192_implied_by_long (G : Type*) [Magma G] : ConjunctionClass192_long G -> ConjunctionClass192 G :=
+theorem AT192_implied_by_long (G : Type*) [Magma G] : AssociativeTheory192_long G -> AssociativeTheory192 G :=
 fun ⟨_, h4273, h4290, h4512⟩ => ⟨h4273, h4290, h4512⟩
 
-theorem CC192_equiv (G : Type*) [Magma G] : ConjunctionClass192 G <-> ConjunctionClass192_long G :=
-Iff.intro (CC192_implies_long G) (CC192_implied_by_long G)
+theorem AT192_equiv (G : Type*) [Magma G] : AssociativeTheory192 G <-> AssociativeTheory192_long G :=
+Iff.intro (AT192_implies_long G) (AT192_implied_by_long G)
 
-theorem CC193_implies_long (G : Type*) [Magma G] (h : ConjunctionClass193 G) : ConjunctionClass193_long G := by
+theorem AT193_implies_long (G : Type*) [Magma G] (h : AssociativeTheory193 G) : AssociativeTheory193_long G := by
   obtain ⟨eq4276, eq4290, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4290, eq4512⟩
 
-theorem CC193_implied_by_long (G : Type*) [Magma G] : ConjunctionClass193_long G -> ConjunctionClass193 G :=
+theorem AT193_implied_by_long (G : Type*) [Magma G] : AssociativeTheory193_long G -> AssociativeTheory193 G :=
 fun ⟨_, h4276, h4290, h4512⟩ => ⟨h4276, h4290, h4512⟩
 
-theorem CC193_equiv (G : Type*) [Magma G] : ConjunctionClass193 G <-> ConjunctionClass193_long G :=
-Iff.intro (CC193_implies_long G) (CC193_implied_by_long G)
+theorem AT193_equiv (G : Type*) [Magma G] : AssociativeTheory193 G <-> AssociativeTheory193_long G :=
+Iff.intro (AT193_implies_long G) (AT193_implied_by_long G)
 
-theorem CC194_implies_long (G : Type*) [Magma G] (h : ConjunctionClass194 G) : ConjunctionClass194_long G := by
+theorem AT194_implies_long (G : Type*) [Magma G] (h : AssociativeTheory194 G) : AssociativeTheory194_long G := by
   obtain ⟨eq4283, eq4290, eq4512⟩ := h
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4283, eq4290, eq4320, eq4512⟩
 
-theorem CC194_implied_by_long (G : Type*) [Magma G] : ConjunctionClass194_long G -> ConjunctionClass194 G :=
+theorem AT194_implied_by_long (G : Type*) [Magma G] : AssociativeTheory194_long G -> AssociativeTheory194 G :=
 fun ⟨_, h4283, h4290, _, h4512⟩ => ⟨h4283, h4290, h4512⟩
 
-theorem CC194_equiv (G : Type*) [Magma G] : ConjunctionClass194 G <-> ConjunctionClass194_long G :=
-Iff.intro (CC194_implies_long G) (CC194_implied_by_long G)
+theorem AT194_equiv (G : Type*) [Magma G] : AssociativeTheory194 G <-> AssociativeTheory194_long G :=
+Iff.intro (AT194_implies_long G) (AT194_implied_by_long G)
 
-theorem CC195_implies_long (G : Type*) [Magma G] (h : ConjunctionClass195 G) : ConjunctionClass195_long G := by
+theorem AT195_implies_long (G : Type*) [Magma G] (h : AssociativeTheory195 G) : AssociativeTheory195_long G := by
   obtain ⟨eq307, eq4283, eq4290, eq4512⟩ := h
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4290, eq4320, eq4512⟩
 
-theorem CC195_implied_by_long (G : Type*) [Magma G] : ConjunctionClass195_long G -> ConjunctionClass195 G :=
+theorem AT195_implied_by_long (G : Type*) [Magma G] : AssociativeTheory195_long G -> AssociativeTheory195 G :=
 fun ⟨_, h307, _, h4283, h4290, _, h4512⟩ => ⟨h307, h4283, h4290, h4512⟩
 
-theorem CC195_equiv (G : Type*) [Magma G] : ConjunctionClass195 G <-> ConjunctionClass195_long G :=
-Iff.intro (CC195_implies_long G) (CC195_implied_by_long G)
+theorem AT195_equiv (G : Type*) [Magma G] : AssociativeTheory195 G <-> AssociativeTheory195_long G :=
+Iff.intro (AT195_implies_long G) (AT195_implied_by_long G)
 
-theorem CC196_implies_long (G : Type*) [Magma G] (h : ConjunctionClass196 G) : ConjunctionClass196_long G := by
+theorem AT196_implies_long (G : Type*) [Magma G] (h : AssociativeTheory196 G) : AssociativeTheory196_long G := by
   obtain ⟨eq3253, eq4283, eq4290, eq4512⟩ := h
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq3253, eq4283, eq4290, eq4320, eq4512⟩
 
-theorem CC196_implied_by_long (G : Type*) [Magma G] : ConjunctionClass196_long G -> ConjunctionClass196 G :=
+theorem AT196_implied_by_long (G : Type*) [Magma G] : AssociativeTheory196_long G -> AssociativeTheory196 G :=
 fun ⟨_, h3253, h4283, h4290, _, h4512⟩ => ⟨h3253, h4283, h4290, h4512⟩
 
-theorem CC196_equiv (G : Type*) [Magma G] : ConjunctionClass196 G <-> ConjunctionClass196_long G :=
-Iff.intro (CC196_implies_long G) (CC196_implied_by_long G)
+theorem AT196_equiv (G : Type*) [Magma G] : AssociativeTheory196 G <-> AssociativeTheory196_long G :=
+Iff.intro (AT196_implies_long G) (AT196_implied_by_long G)
 
-theorem CC197_implies_long (G : Type*) [Magma G] (h : ConjunctionClass197 G) : ConjunctionClass197_long G := by
+theorem AT197_implies_long (G : Type*) [Magma G] (h : AssociativeTheory197 G) : AssociativeTheory197_long G := by
   obtain ⟨eq4276, eq4283, eq4290, eq4512⟩ := h
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4283, eq4290, eq4320, eq4512⟩
 
-theorem CC197_implied_by_long (G : Type*) [Magma G] : ConjunctionClass197_long G -> ConjunctionClass197 G :=
+theorem AT197_implied_by_long (G : Type*) [Magma G] : AssociativeTheory197_long G -> AssociativeTheory197 G :=
 fun ⟨_, h4276, h4283, h4290, _, h4512⟩ => ⟨h4276, h4283, h4290, h4512⟩
 
-theorem CC197_equiv (G : Type*) [Magma G] : ConjunctionClass197 G <-> ConjunctionClass197_long G :=
-Iff.intro (CC197_implies_long G) (CC197_implied_by_long G)
+theorem AT197_equiv (G : Type*) [Magma G] : AssociativeTheory197 G <-> AssociativeTheory197_long G :=
+Iff.intro (AT197_implies_long G) (AT197_implied_by_long G)
 
-theorem CC198_implies_long (G : Type*) [Magma G] (h : ConjunctionClass198 G) : ConjunctionClass198_long G := by
+theorem AT198_implies_long (G : Type*) [Magma G] (h : AssociativeTheory198 G) : AssociativeTheory198_long G := by
   obtain ⟨eq4284, eq4290, eq4512⟩ := h
   have eq4293 := Equation4284_4290_4512_implies_Equation4293 G eq4284 eq4290 eq4512
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4284, eq4290, eq4293, eq4343, eq4512⟩
 
-theorem CC198_implied_by_long (G : Type*) [Magma G] : ConjunctionClass198_long G -> ConjunctionClass198 G :=
+theorem AT198_implied_by_long (G : Type*) [Magma G] : AssociativeTheory198_long G -> AssociativeTheory198 G :=
 fun ⟨_, h4284, h4290, _, _, h4512⟩ => ⟨h4284, h4290, h4512⟩
 
-theorem CC198_equiv (G : Type*) [Magma G] : ConjunctionClass198 G <-> ConjunctionClass198_long G :=
-Iff.intro (CC198_implies_long G) (CC198_implied_by_long G)
+theorem AT198_equiv (G : Type*) [Magma G] : AssociativeTheory198 G <-> AssociativeTheory198_long G :=
+Iff.intro (AT198_implies_long G) (AT198_implied_by_long G)
 
-theorem CC199_implies_long (G : Type*) [Magma G] (h : ConjunctionClass199 G) : ConjunctionClass199_long G := by
+theorem AT199_implies_long (G : Type*) [Magma G] (h : AssociativeTheory199 G) : AssociativeTheory199_long G := by
   obtain ⟨eq307, eq4284, eq4290, eq4512⟩ := h
   have eq4293 := Equation4284_4290_4512_implies_Equation4293 G eq4284 eq4290 eq4512
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
@@ -4635,13 +4635,13 @@ theorem CC199_implies_long (G : Type*) [Magma G] (h : ConjunctionClass199 G) : C
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4284, eq4290, eq4293, eq4343, eq4512⟩
 
-theorem CC199_implied_by_long (G : Type*) [Magma G] : ConjunctionClass199_long G -> ConjunctionClass199 G :=
+theorem AT199_implied_by_long (G : Type*) [Magma G] : AssociativeTheory199_long G -> AssociativeTheory199 G :=
 fun ⟨_, h307, _, h4284, h4290, _, _, h4512⟩ => ⟨h307, h4284, h4290, h4512⟩
 
-theorem CC199_equiv (G : Type*) [Magma G] : ConjunctionClass199 G <-> ConjunctionClass199_long G :=
-Iff.intro (CC199_implies_long G) (CC199_implied_by_long G)
+theorem AT199_equiv (G : Type*) [Magma G] : AssociativeTheory199 G <-> AssociativeTheory199_long G :=
+Iff.intro (AT199_implies_long G) (AT199_implied_by_long G)
 
-theorem CC200_implies_long (G : Type*) [Magma G] (h : ConjunctionClass200 G) : ConjunctionClass200_long G := by
+theorem AT200_implies_long (G : Type*) [Magma G] (h : AssociativeTheory200 G) : AssociativeTheory200_long G := by
   obtain ⟨eq4269, eq4284, eq4290, eq4512⟩ := h
   have eq4293 := Equation4284_4290_4512_implies_Equation4293 G eq4284 eq4290 eq4512
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
@@ -4652,26 +4652,26 @@ theorem CC200_implies_long (G : Type*) [Magma G] (h : ConjunctionClass200 G) : C
   have eq4321 := Equation4279_4512_implies_Equation4321 G eq4279 eq4512
   exact ⟨eq1, eq4269, eq4273, eq4276, eq4279, eq4284, eq4290, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC200_implied_by_long (G : Type*) [Magma G] : ConjunctionClass200_long G -> ConjunctionClass200 G :=
+theorem AT200_implied_by_long (G : Type*) [Magma G] : AssociativeTheory200_long G -> AssociativeTheory200 G :=
 fun ⟨_, h4269, _, _, _, h4284, h4290, _, _, _, h4512⟩ => ⟨h4269, h4284, h4290, h4512⟩
 
-theorem CC200_equiv (G : Type*) [Magma G] : ConjunctionClass200 G <-> ConjunctionClass200_long G :=
-Iff.intro (CC200_implies_long G) (CC200_implied_by_long G)
+theorem AT200_equiv (G : Type*) [Magma G] : AssociativeTheory200 G <-> AssociativeTheory200_long G :=
+Iff.intro (AT200_implies_long G) (AT200_implied_by_long G)
 
-theorem CC201_implies_long (G : Type*) [Magma G] (h : ConjunctionClass201 G) : ConjunctionClass201_long G := by
+theorem AT201_implies_long (G : Type*) [Magma G] (h : AssociativeTheory201 G) : AssociativeTheory201_long G := by
   obtain ⟨eq4276, eq4284, eq4290, eq4512⟩ := h
   have eq4293 := Equation4284_4290_4512_implies_Equation4293 G eq4284 eq4290 eq4512
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4284, eq4290, eq4293, eq4343, eq4512⟩
 
-theorem CC201_implied_by_long (G : Type*) [Magma G] : ConjunctionClass201_long G -> ConjunctionClass201 G :=
+theorem AT201_implied_by_long (G : Type*) [Magma G] : AssociativeTheory201_long G -> AssociativeTheory201 G :=
 fun ⟨_, h4276, h4284, h4290, _, _, h4512⟩ => ⟨h4276, h4284, h4290, h4512⟩
 
-theorem CC201_equiv (G : Type*) [Magma G] : ConjunctionClass201 G <-> ConjunctionClass201_long G :=
-Iff.intro (CC201_implies_long G) (CC201_implied_by_long G)
+theorem AT201_equiv (G : Type*) [Magma G] : AssociativeTheory201 G <-> AssociativeTheory201_long G :=
+Iff.intro (AT201_implies_long G) (AT201_implied_by_long G)
 
-theorem CC202_implies_long (G : Type*) [Magma G] (h : ConjunctionClass202 G) : ConjunctionClass202_long G := by
+theorem AT202_implies_long (G : Type*) [Magma G] (h : AssociativeTheory202 G) : AssociativeTheory202_long G := by
   obtain ⟨eq4283, eq4284, eq4290, eq4512⟩ := h
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
@@ -4682,13 +4682,13 @@ theorem CC202_implies_long (G : Type*) [Magma G] (h : ConjunctionClass202 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4512⟩
 
-theorem CC202_implied_by_long (G : Type*) [Magma G] : ConjunctionClass202_long G -> ConjunctionClass202 G :=
+theorem AT202_implied_by_long (G : Type*) [Magma G] : AssociativeTheory202_long G -> AssociativeTheory202 G :=
 fun ⟨_, h4283, h4284, h4290, _, _, _, _, _, _, h4512⟩ => ⟨h4283, h4284, h4290, h4512⟩
 
-theorem CC202_equiv (G : Type*) [Magma G] : ConjunctionClass202 G <-> ConjunctionClass202_long G :=
-Iff.intro (CC202_implies_long G) (CC202_implied_by_long G)
+theorem AT202_equiv (G : Type*) [Magma G] : AssociativeTheory202 G <-> AssociativeTheory202_long G :=
+Iff.intro (AT202_implies_long G) (AT202_implied_by_long G)
 
-theorem CC203_implies_long (G : Type*) [Magma G] (h : ConjunctionClass203 G) : ConjunctionClass203_long G := by
+theorem AT203_implies_long (G : Type*) [Magma G] (h : AssociativeTheory203 G) : AssociativeTheory203_long G := by
   obtain ⟨eq307, eq4283, eq4284, eq4290, eq4512⟩ := h
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
@@ -4700,13 +4700,13 @@ theorem CC203_implies_long (G : Type*) [Magma G] (h : ConjunctionClass203 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4512⟩
 
-theorem CC203_implied_by_long (G : Type*) [Magma G] : ConjunctionClass203_long G -> ConjunctionClass203 G :=
+theorem AT203_implied_by_long (G : Type*) [Magma G] : AssociativeTheory203_long G -> AssociativeTheory203 G :=
 fun ⟨_, h307, _, h4283, h4284, h4290, _, _, _, _, _, _, h4512⟩ => ⟨h307, h4283, h4284, h4290, h4512⟩
 
-theorem CC203_equiv (G : Type*) [Magma G] : ConjunctionClass203 G <-> ConjunctionClass203_long G :=
-Iff.intro (CC203_implies_long G) (CC203_implied_by_long G)
+theorem AT203_equiv (G : Type*) [Magma G] : AssociativeTheory203 G <-> AssociativeTheory203_long G :=
+Iff.intro (AT203_implies_long G) (AT203_implied_by_long G)
 
-theorem CC204_implies_long (G : Type*) [Magma G] (h : ConjunctionClass204 G) : ConjunctionClass204_long G := by
+theorem AT204_implies_long (G : Type*) [Magma G] (h : AssociativeTheory204 G) : AssociativeTheory204_long G := by
   obtain ⟨eq4276, eq4283, eq4284, eq4290, eq4512⟩ := h
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
@@ -4717,36 +4717,36 @@ theorem CC204_implies_long (G : Type*) [Magma G] (h : ConjunctionClass204 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4512⟩
 
-theorem CC204_implied_by_long (G : Type*) [Magma G] : ConjunctionClass204_long G -> ConjunctionClass204 G :=
+theorem AT204_implied_by_long (G : Type*) [Magma G] : AssociativeTheory204_long G -> AssociativeTheory204 G :=
 fun ⟨_, h4276, h4283, h4284, h4290, _, _, _, _, _, _, h4512⟩ => ⟨h4276, h4283, h4284, h4290, h4512⟩
 
-theorem CC204_equiv (G : Type*) [Magma G] : ConjunctionClass204 G <-> ConjunctionClass204_long G :=
-Iff.intro (CC204_implies_long G) (CC204_implied_by_long G)
+theorem AT204_equiv (G : Type*) [Magma G] : AssociativeTheory204 G <-> AssociativeTheory204_long G :=
+Iff.intro (AT204_implies_long G) (AT204_implied_by_long G)
 
-theorem CC205_implies_long (G : Type*) [Magma G] (h : ConjunctionClass205 G) : ConjunctionClass205_long G := by
+theorem AT205_implies_long (G : Type*) [Magma G] (h : AssociativeTheory205 G) : AssociativeTheory205_long G := by
   obtain ⟨eq4291, eq4512⟩ := h
   have eq1 := Equation4291_4512_implies_Equation1 G eq4291 eq4512
   exact ⟨eq1, eq4291, eq4512⟩
 
-theorem CC205_implied_by_long (G : Type*) [Magma G] : ConjunctionClass205_long G -> ConjunctionClass205 G :=
+theorem AT205_implied_by_long (G : Type*) [Magma G] : AssociativeTheory205_long G -> AssociativeTheory205 G :=
 fun ⟨_, h4291, h4512⟩ => ⟨h4291, h4512⟩
 
-theorem CC205_equiv (G : Type*) [Magma G] : ConjunctionClass205 G <-> ConjunctionClass205_long G :=
-Iff.intro (CC205_implies_long G) (CC205_implied_by_long G)
+theorem AT205_equiv (G : Type*) [Magma G] : AssociativeTheory205 G <-> AssociativeTheory205_long G :=
+Iff.intro (AT205_implies_long G) (AT205_implied_by_long G)
 
-theorem CC206_implies_long (G : Type*) [Magma G] (h : ConjunctionClass206 G) : ConjunctionClass206_long G := by
+theorem AT206_implies_long (G : Type*) [Magma G] (h : AssociativeTheory206 G) : AssociativeTheory206_long G := by
   obtain ⟨eq307, eq4291, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4291, eq4512⟩
 
-theorem CC206_implied_by_long (G : Type*) [Magma G] : ConjunctionClass206_long G -> ConjunctionClass206 G :=
+theorem AT206_implied_by_long (G : Type*) [Magma G] : AssociativeTheory206_long G -> AssociativeTheory206 G :=
 fun ⟨_, h307, _, h4291, h4512⟩ => ⟨h307, h4291, h4512⟩
 
-theorem CC206_equiv (G : Type*) [Magma G] : ConjunctionClass206 G <-> ConjunctionClass206_long G :=
-Iff.intro (CC206_implies_long G) (CC206_implied_by_long G)
+theorem AT206_equiv (G : Type*) [Magma G] : AssociativeTheory206 G <-> AssociativeTheory206_long G :=
+Iff.intro (AT206_implies_long G) (AT206_implied_by_long G)
 
-theorem CC207_implies_long (G : Type*) [Magma G] (h : ConjunctionClass207 G) : ConjunctionClass207_long G := by
+theorem AT207_implies_long (G : Type*) [Magma G] (h : AssociativeTheory207 G) : AssociativeTheory207_long G := by
   obtain ⟨eq312, eq4291, eq4512⟩ := h
   have eq1 := Equation312_4512_implies_Equation1 G eq312 eq4512
   have eq307 := Equation312_4512_implies_Equation307 G eq312 eq4512
@@ -4756,13 +4756,13 @@ theorem CC207_implies_long (G : Type*) [Magma G] (h : ConjunctionClass207 G) : C
   have eq4272 := Equation312_4512_implies_Equation4272 G eq312 eq4512
   exact ⟨eq1, eq307, eq312, eq3253, eq3258, eq3278, eq4272, eq4291, eq4512⟩
 
-theorem CC207_implied_by_long (G : Type*) [Magma G] : ConjunctionClass207_long G -> ConjunctionClass207 G :=
+theorem AT207_implied_by_long (G : Type*) [Magma G] : AssociativeTheory207_long G -> AssociativeTheory207 G :=
 fun ⟨_, _, h312, _, _, _, _, h4291, h4512⟩ => ⟨h312, h4291, h4512⟩
 
-theorem CC207_equiv (G : Type*) [Magma G] : ConjunctionClass207 G <-> ConjunctionClass207_long G :=
-Iff.intro (CC207_implies_long G) (CC207_implied_by_long G)
+theorem AT207_equiv (G : Type*) [Magma G] : AssociativeTheory207 G <-> AssociativeTheory207_long G :=
+Iff.intro (AT207_implies_long G) (AT207_implied_by_long G)
 
-theorem CC208_implies_long (G : Type*) [Magma G] (h : ConjunctionClass208 G) : ConjunctionClass208_long G := by
+theorem AT208_implies_long (G : Type*) [Magma G] (h : AssociativeTheory208 G) : AssociativeTheory208_long G := by
   obtain ⟨eq326, eq4291, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation326_4512_implies_Equation307 G eq326 eq4512
@@ -4770,13 +4770,13 @@ theorem CC208_implies_long (G : Type*) [Magma G] (h : ConjunctionClass208 G) : C
   have eq3319 := Equation326_4512_implies_Equation3319 G eq326 eq4512
   exact ⟨eq1, eq307, eq326, eq3253, eq3319, eq4291, eq4512⟩
 
-theorem CC208_implied_by_long (G : Type*) [Magma G] : ConjunctionClass208_long G -> ConjunctionClass208 G :=
+theorem AT208_implied_by_long (G : Type*) [Magma G] : AssociativeTheory208_long G -> AssociativeTheory208 G :=
 fun ⟨_, _, h326, _, _, h4291, h4512⟩ => ⟨h326, h4291, h4512⟩
 
-theorem CC208_equiv (G : Type*) [Magma G] : ConjunctionClass208 G <-> ConjunctionClass208_long G :=
-Iff.intro (CC208_implies_long G) (CC208_implied_by_long G)
+theorem AT208_equiv (G : Type*) [Magma G] : AssociativeTheory208 G <-> AssociativeTheory208_long G :=
+Iff.intro (AT208_implies_long G) (AT208_implied_by_long G)
 
-theorem CC209_implies_long (G : Type*) [Magma G] (h : ConjunctionClass209 G) : ConjunctionClass209_long G := by
+theorem AT209_implies_long (G : Type*) [Magma G] (h : AssociativeTheory209 G) : AssociativeTheory209_long G := by
   obtain ⟨eq4270, eq4291, eq4512⟩ := h
   have eq4272 := Equation4270_4291_4512_implies_Equation4272 G eq4270 eq4291 eq4512
   have eq4280 := Equation4270_4272_4512_implies_Equation4280 G eq4270 eq4272 eq4512
@@ -4785,48 +4785,48 @@ theorem CC209_implies_long (G : Type*) [Magma G] (h : ConjunctionClass209 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4270, eq4272, eq4276, eq4280, eq4291, eq4343, eq4512⟩
 
-theorem CC209_implied_by_long (G : Type*) [Magma G] : ConjunctionClass209_long G -> ConjunctionClass209 G :=
+theorem AT209_implied_by_long (G : Type*) [Magma G] : AssociativeTheory209_long G -> AssociativeTheory209 G :=
 fun ⟨_, h4270, _, _, _, h4291, _, h4512⟩ => ⟨h4270, h4291, h4512⟩
 
-theorem CC209_equiv (G : Type*) [Magma G] : ConjunctionClass209 G <-> ConjunctionClass209_long G :=
-Iff.intro (CC209_implies_long G) (CC209_implied_by_long G)
+theorem AT209_equiv (G : Type*) [Magma G] : AssociativeTheory209 G <-> AssociativeTheory209_long G :=
+Iff.intro (AT209_implies_long G) (AT209_implied_by_long G)
 
-theorem CC210_implies_long (G : Type*) [Magma G] (h : ConjunctionClass210 G) : ConjunctionClass210_long G := by
+theorem AT210_implies_long (G : Type*) [Magma G] (h : AssociativeTheory210 G) : AssociativeTheory210_long G := by
   obtain ⟨eq4272, eq4291, eq4512⟩ := h
   have eq1 := Equation4272_4512_implies_Equation1 G eq4272 eq4512
   exact ⟨eq1, eq4272, eq4291, eq4512⟩
 
-theorem CC210_implied_by_long (G : Type*) [Magma G] : ConjunctionClass210_long G -> ConjunctionClass210 G :=
+theorem AT210_implied_by_long (G : Type*) [Magma G] : AssociativeTheory210_long G -> AssociativeTheory210 G :=
 fun ⟨_, h4272, h4291, h4512⟩ => ⟨h4272, h4291, h4512⟩
 
-theorem CC210_equiv (G : Type*) [Magma G] : ConjunctionClass210 G <-> ConjunctionClass210_long G :=
-Iff.intro (CC210_implies_long G) (CC210_implied_by_long G)
+theorem AT210_equiv (G : Type*) [Magma G] : AssociativeTheory210 G <-> AssociativeTheory210_long G :=
+Iff.intro (AT210_implies_long G) (AT210_implied_by_long G)
 
-theorem CC211_implies_long (G : Type*) [Magma G] (h : ConjunctionClass211 G) : ConjunctionClass211_long G := by
+theorem AT211_implies_long (G : Type*) [Magma G] (h : AssociativeTheory211 G) : AssociativeTheory211_long G := by
   obtain ⟨eq4276, eq4291, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4291, eq4512⟩
 
-theorem CC211_implied_by_long (G : Type*) [Magma G] : ConjunctionClass211_long G -> ConjunctionClass211 G :=
+theorem AT211_implied_by_long (G : Type*) [Magma G] : AssociativeTheory211_long G -> AssociativeTheory211 G :=
 fun ⟨_, h4276, h4291, h4512⟩ => ⟨h4276, h4291, h4512⟩
 
-theorem CC211_equiv (G : Type*) [Magma G] : ConjunctionClass211 G <-> ConjunctionClass211_long G :=
-Iff.intro (CC211_implies_long G) (CC211_implied_by_long G)
+theorem AT211_equiv (G : Type*) [Magma G] : AssociativeTheory211 G <-> AssociativeTheory211_long G :=
+Iff.intro (AT211_implies_long G) (AT211_implied_by_long G)
 
-theorem CC212_implies_long (G : Type*) [Magma G] (h : ConjunctionClass212 G) : ConjunctionClass212_long G := by
+theorem AT212_implies_long (G : Type*) [Magma G] (h : AssociativeTheory212 G) : AssociativeTheory212_long G := by
   obtain ⟨eq4283, eq4291, eq4512⟩ := h
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4283, eq4291, eq4293, eq4321, eq4512⟩
 
-theorem CC212_implied_by_long (G : Type*) [Magma G] : ConjunctionClass212_long G -> ConjunctionClass212 G :=
+theorem AT212_implied_by_long (G : Type*) [Magma G] : AssociativeTheory212_long G -> AssociativeTheory212 G :=
 fun ⟨_, h4283, h4291, _, _, h4512⟩ => ⟨h4283, h4291, h4512⟩
 
-theorem CC212_equiv (G : Type*) [Magma G] : ConjunctionClass212 G <-> ConjunctionClass212_long G :=
-Iff.intro (CC212_implies_long G) (CC212_implied_by_long G)
+theorem AT212_equiv (G : Type*) [Magma G] : AssociativeTheory212 G <-> AssociativeTheory212_long G :=
+Iff.intro (AT212_implies_long G) (AT212_implied_by_long G)
 
-theorem CC213_implies_long (G : Type*) [Magma G] (h : ConjunctionClass213 G) : ConjunctionClass213_long G := by
+theorem AT213_implies_long (G : Type*) [Magma G] (h : AssociativeTheory213 G) : AssociativeTheory213_long G := by
   obtain ⟨eq307, eq4283, eq4291, eq4512⟩ := h
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
@@ -4834,13 +4834,13 @@ theorem CC213_implies_long (G : Type*) [Magma G] (h : ConjunctionClass213 G) : C
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4291, eq4293, eq4321, eq4512⟩
 
-theorem CC213_implied_by_long (G : Type*) [Magma G] : ConjunctionClass213_long G -> ConjunctionClass213 G :=
+theorem AT213_implied_by_long (G : Type*) [Magma G] : AssociativeTheory213_long G -> AssociativeTheory213 G :=
 fun ⟨_, h307, _, h4283, h4291, _, _, h4512⟩ => ⟨h307, h4283, h4291, h4512⟩
 
-theorem CC213_equiv (G : Type*) [Magma G] : ConjunctionClass213 G <-> ConjunctionClass213_long G :=
-Iff.intro (CC213_implies_long G) (CC213_implied_by_long G)
+theorem AT213_equiv (G : Type*) [Magma G] : AssociativeTheory213 G <-> AssociativeTheory213_long G :=
+Iff.intro (AT213_implies_long G) (AT213_implied_by_long G)
 
-theorem CC214_implies_long (G : Type*) [Magma G] (h : ConjunctionClass214 G) : ConjunctionClass214_long G := by
+theorem AT214_implies_long (G : Type*) [Magma G] (h : AssociativeTheory214 G) : AssociativeTheory214_long G := by
   obtain ⟨eq326, eq4283, eq4291, eq4512⟩ := h
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
@@ -4851,13 +4851,13 @@ theorem CC214_implies_long (G : Type*) [Magma G] (h : ConjunctionClass214 G) : C
   have eq4358 := Equation326_4293_4512_implies_Equation4358 G eq326 eq4293 eq4512
   exact ⟨eq1, eq307, eq326, eq3253, eq3319, eq4283, eq4291, eq4293, eq4321, eq4358, eq4512⟩
 
-theorem CC214_implied_by_long (G : Type*) [Magma G] : ConjunctionClass214_long G -> ConjunctionClass214 G :=
+theorem AT214_implied_by_long (G : Type*) [Magma G] : AssociativeTheory214_long G -> AssociativeTheory214 G :=
 fun ⟨_, _, h326, _, _, h4283, h4291, _, _, _, h4512⟩ => ⟨h326, h4283, h4291, h4512⟩
 
-theorem CC214_equiv (G : Type*) [Magma G] : ConjunctionClass214 G <-> ConjunctionClass214_long G :=
-Iff.intro (CC214_implies_long G) (CC214_implied_by_long G)
+theorem AT214_equiv (G : Type*) [Magma G] : AssociativeTheory214 G <-> AssociativeTheory214_long G :=
+Iff.intro (AT214_implies_long G) (AT214_implied_by_long G)
 
-theorem CC215_implies_long (G : Type*) [Magma G] (h : ConjunctionClass215 G) : ConjunctionClass215_long G := by
+theorem AT215_implies_long (G : Type*) [Magma G] (h : AssociativeTheory215 G) : AssociativeTheory215_long G := by
   obtain ⟨eq4270, eq4283, eq4291, eq4512⟩ := h
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
@@ -4868,110 +4868,110 @@ theorem CC215_implies_long (G : Type*) [Magma G] (h : ConjunctionClass215 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4270, eq4272, eq4276, eq4280, eq4283, eq4291, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC215_implied_by_long (G : Type*) [Magma G] : ConjunctionClass215_long G -> ConjunctionClass215 G :=
+theorem AT215_implied_by_long (G : Type*) [Magma G] : AssociativeTheory215_long G -> AssociativeTheory215 G :=
 fun ⟨_, h4270, _, _, _, h4283, h4291, _, _, _, h4512⟩ => ⟨h4270, h4283, h4291, h4512⟩
 
-theorem CC215_equiv (G : Type*) [Magma G] : ConjunctionClass215 G <-> ConjunctionClass215_long G :=
-Iff.intro (CC215_implies_long G) (CC215_implied_by_long G)
+theorem AT215_equiv (G : Type*) [Magma G] : AssociativeTheory215 G <-> AssociativeTheory215_long G :=
+Iff.intro (AT215_implies_long G) (AT215_implied_by_long G)
 
-theorem CC216_implies_long (G : Type*) [Magma G] (h : ConjunctionClass216 G) : ConjunctionClass216_long G := by
+theorem AT216_implies_long (G : Type*) [Magma G] (h : AssociativeTheory216 G) : AssociativeTheory216_long G := by
   obtain ⟨eq4276, eq4283, eq4291, eq4512⟩ := h
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4283, eq4291, eq4293, eq4321, eq4512⟩
 
-theorem CC216_implied_by_long (G : Type*) [Magma G] : ConjunctionClass216_long G -> ConjunctionClass216 G :=
+theorem AT216_implied_by_long (G : Type*) [Magma G] : AssociativeTheory216_long G -> AssociativeTheory216 G :=
 fun ⟨_, h4276, h4283, h4291, _, _, h4512⟩ => ⟨h4276, h4283, h4291, h4512⟩
 
-theorem CC216_equiv (G : Type*) [Magma G] : ConjunctionClass216 G <-> ConjunctionClass216_long G :=
-Iff.intro (CC216_implies_long G) (CC216_implied_by_long G)
+theorem AT216_equiv (G : Type*) [Magma G] : AssociativeTheory216 G <-> AssociativeTheory216_long G :=
+Iff.intro (AT216_implies_long G) (AT216_implied_by_long G)
 
-theorem CC217_implies_long (G : Type*) [Magma G] (h : ConjunctionClass217 G) : ConjunctionClass217_long G := by
+theorem AT217_implies_long (G : Type*) [Magma G] (h : AssociativeTheory217 G) : AssociativeTheory217_long G := by
   obtain ⟨eq4284, eq4291, eq4512⟩ := h
   have eq4320 := Equation4284_4291_4512_implies_Equation4320 G eq4284 eq4291 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4284, eq4291, eq4320, eq4512⟩
 
-theorem CC217_implied_by_long (G : Type*) [Magma G] : ConjunctionClass217_long G -> ConjunctionClass217 G :=
+theorem AT217_implied_by_long (G : Type*) [Magma G] : AssociativeTheory217_long G -> AssociativeTheory217 G :=
 fun ⟨_, h4284, h4291, _, h4512⟩ => ⟨h4284, h4291, h4512⟩
 
-theorem CC217_equiv (G : Type*) [Magma G] : ConjunctionClass217 G <-> ConjunctionClass217_long G :=
-Iff.intro (CC217_implies_long G) (CC217_implied_by_long G)
+theorem AT217_equiv (G : Type*) [Magma G] : AssociativeTheory217 G <-> AssociativeTheory217_long G :=
+Iff.intro (AT217_implies_long G) (AT217_implied_by_long G)
 
-theorem CC218_implies_long (G : Type*) [Magma G] (h : ConjunctionClass218 G) : ConjunctionClass218_long G := by
+theorem AT218_implies_long (G : Type*) [Magma G] (h : AssociativeTheory218 G) : AssociativeTheory218_long G := by
   obtain ⟨eq307, eq4284, eq4291, eq4512⟩ := h
   have eq4320 := Equation4284_4291_4512_implies_Equation4320 G eq4284 eq4291 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4284, eq4291, eq4320, eq4512⟩
 
-theorem CC218_implied_by_long (G : Type*) [Magma G] : ConjunctionClass218_long G -> ConjunctionClass218 G :=
+theorem AT218_implied_by_long (G : Type*) [Magma G] : AssociativeTheory218_long G -> AssociativeTheory218 G :=
 fun ⟨_, h307, _, h4284, h4291, _, h4512⟩ => ⟨h307, h4284, h4291, h4512⟩
 
-theorem CC218_equiv (G : Type*) [Magma G] : ConjunctionClass218 G <-> ConjunctionClass218_long G :=
-Iff.intro (CC218_implies_long G) (CC218_implied_by_long G)
+theorem AT218_equiv (G : Type*) [Magma G] : AssociativeTheory218 G <-> AssociativeTheory218_long G :=
+Iff.intro (AT218_implies_long G) (AT218_implied_by_long G)
 
-theorem CC219_implies_long (G : Type*) [Magma G] (h : ConjunctionClass219 G) : ConjunctionClass219_long G := by
+theorem AT219_implies_long (G : Type*) [Magma G] (h : AssociativeTheory219 G) : AssociativeTheory219_long G := by
   obtain ⟨eq4276, eq4284, eq4291, eq4512⟩ := h
   have eq4320 := Equation4284_4291_4512_implies_Equation4320 G eq4284 eq4291 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4284, eq4291, eq4320, eq4512⟩
 
-theorem CC219_implied_by_long (G : Type*) [Magma G] : ConjunctionClass219_long G -> ConjunctionClass219 G :=
+theorem AT219_implied_by_long (G : Type*) [Magma G] : AssociativeTheory219_long G -> AssociativeTheory219 G :=
 fun ⟨_, h4276, h4284, h4291, _, h4512⟩ => ⟨h4276, h4284, h4291, h4512⟩
 
-theorem CC219_equiv (G : Type*) [Magma G] : ConjunctionClass219 G <-> ConjunctionClass219_long G :=
-Iff.intro (CC219_implies_long G) (CC219_implied_by_long G)
+theorem AT219_equiv (G : Type*) [Magma G] : AssociativeTheory219 G <-> AssociativeTheory219_long G :=
+Iff.intro (AT219_implies_long G) (AT219_implied_by_long G)
 
-theorem CC220_implies_long (G : Type*) [Magma G] (h : ConjunctionClass220 G) : ConjunctionClass220_long G := by
+theorem AT220_implies_long (G : Type*) [Magma G] (h : AssociativeTheory220 G) : AssociativeTheory220_long G := by
   obtain ⟨eq4290, eq4291, eq4512⟩ := h
   have eq4314 := Equation4290_4291_4512_implies_Equation4314 G eq4290 eq4291 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4290, eq4291, eq4314, eq4512⟩
 
-theorem CC220_implied_by_long (G : Type*) [Magma G] : ConjunctionClass220_long G -> ConjunctionClass220 G :=
+theorem AT220_implied_by_long (G : Type*) [Magma G] : AssociativeTheory220_long G -> AssociativeTheory220 G :=
 fun ⟨_, h4290, h4291, _, h4512⟩ => ⟨h4290, h4291, h4512⟩
 
-theorem CC220_equiv (G : Type*) [Magma G] : ConjunctionClass220 G <-> ConjunctionClass220_long G :=
-Iff.intro (CC220_implies_long G) (CC220_implied_by_long G)
+theorem AT220_equiv (G : Type*) [Magma G] : AssociativeTheory220 G <-> AssociativeTheory220_long G :=
+Iff.intro (AT220_implies_long G) (AT220_implied_by_long G)
 
-theorem CC221_implies_long (G : Type*) [Magma G] (h : ConjunctionClass221 G) : ConjunctionClass221_long G := by
+theorem AT221_implies_long (G : Type*) [Magma G] (h : AssociativeTheory221 G) : AssociativeTheory221_long G := by
   obtain ⟨eq4276, eq4290, eq4291, eq4512⟩ := h
   have eq4314 := Equation4290_4291_4512_implies_Equation4314 G eq4290 eq4291 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4290, eq4291, eq4314, eq4512⟩
 
-theorem CC221_implied_by_long (G : Type*) [Magma G] : ConjunctionClass221_long G -> ConjunctionClass221 G :=
+theorem AT221_implied_by_long (G : Type*) [Magma G] : AssociativeTheory221_long G -> AssociativeTheory221 G :=
 fun ⟨_, h4276, h4290, h4291, _, h4512⟩ => ⟨h4276, h4290, h4291, h4512⟩
 
-theorem CC221_equiv (G : Type*) [Magma G] : ConjunctionClass221 G <-> ConjunctionClass221_long G :=
-Iff.intro (CC221_implies_long G) (CC221_implied_by_long G)
+theorem AT221_equiv (G : Type*) [Magma G] : AssociativeTheory221 G <-> AssociativeTheory221_long G :=
+Iff.intro (AT221_implies_long G) (AT221_implied_by_long G)
 
-theorem CC222_implies_long (G : Type*) [Magma G] (h : ConjunctionClass222 G) : ConjunctionClass222_long G := by
+theorem AT222_implies_long (G : Type*) [Magma G] (h : AssociativeTheory222 G) : AssociativeTheory222_long G := by
   obtain ⟨eq4293, eq4512⟩ := h
   have eq1 := Equation4293_4512_implies_Equation1 G eq4293 eq4512
   exact ⟨eq1, eq4293, eq4512⟩
 
-theorem CC222_implied_by_long (G : Type*) [Magma G] : ConjunctionClass222_long G -> ConjunctionClass222 G :=
+theorem AT222_implied_by_long (G : Type*) [Magma G] : AssociativeTheory222_long G -> AssociativeTheory222 G :=
 fun ⟨_, h4293, h4512⟩ => ⟨h4293, h4512⟩
 
-theorem CC222_equiv (G : Type*) [Magma G] : ConjunctionClass222 G <-> ConjunctionClass222_long G :=
-Iff.intro (CC222_implies_long G) (CC222_implied_by_long G)
+theorem AT222_equiv (G : Type*) [Magma G] : AssociativeTheory222 G <-> AssociativeTheory222_long G :=
+Iff.intro (AT222_implies_long G) (AT222_implied_by_long G)
 
-theorem CC223_implies_long (G : Type*) [Magma G] (h : ConjunctionClass223 G) : ConjunctionClass223_long G := by
+theorem AT223_implies_long (G : Type*) [Magma G] (h : AssociativeTheory223 G) : AssociativeTheory223_long G := by
   obtain ⟨eq307, eq4293, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4293, eq4512⟩
 
-theorem CC223_implied_by_long (G : Type*) [Magma G] : ConjunctionClass223_long G -> ConjunctionClass223 G :=
+theorem AT223_implied_by_long (G : Type*) [Magma G] : AssociativeTheory223_long G -> AssociativeTheory223 G :=
 fun ⟨_, h307, _, h4293, h4512⟩ => ⟨h307, h4293, h4512⟩
 
-theorem CC223_equiv (G : Type*) [Magma G] : ConjunctionClass223 G <-> ConjunctionClass223_long G :=
-Iff.intro (CC223_implies_long G) (CC223_implied_by_long G)
+theorem AT223_equiv (G : Type*) [Magma G] : AssociativeTheory223 G <-> AssociativeTheory223_long G :=
+Iff.intro (AT223_implies_long G) (AT223_implied_by_long G)
 
-theorem CC224_implies_long (G : Type*) [Magma G] (h : ConjunctionClass224 G) : ConjunctionClass224_long G := by
+theorem AT224_implies_long (G : Type*) [Magma G] (h : AssociativeTheory224 G) : AssociativeTheory224_long G := by
   obtain ⟨eq4269, eq4293, eq4512⟩ := h
   have eq4273 := Equation4269_4293_4512_implies_Equation4273 G eq4269 eq4293 eq4512
   have eq4279 := Equation4269_4273_4512_implies_Equation4279 G eq4269 eq4273 eq4512
@@ -4980,13 +4980,13 @@ theorem CC224_implies_long (G : Type*) [Magma G] (h : ConjunctionClass224 G) : C
   have eq4321 := Equation4279_4512_implies_Equation4321 G eq4279 eq4512
   exact ⟨eq1, eq4269, eq4273, eq4276, eq4279, eq4293, eq4321, eq4512⟩
 
-theorem CC224_implied_by_long (G : Type*) [Magma G] : ConjunctionClass224_long G -> ConjunctionClass224 G :=
+theorem AT224_implied_by_long (G : Type*) [Magma G] : AssociativeTheory224_long G -> AssociativeTheory224 G :=
 fun ⟨_, h4269, _, _, _, h4293, _, h4512⟩ => ⟨h4269, h4293, h4512⟩
 
-theorem CC224_equiv (G : Type*) [Magma G] : ConjunctionClass224 G <-> ConjunctionClass224_long G :=
-Iff.intro (CC224_implies_long G) (CC224_implied_by_long G)
+theorem AT224_equiv (G : Type*) [Magma G] : AssociativeTheory224 G <-> AssociativeTheory224_long G :=
+Iff.intro (AT224_implies_long G) (AT224_implied_by_long G)
 
-theorem CC225_implies_long (G : Type*) [Magma G] (h : ConjunctionClass225 G) : ConjunctionClass225_long G := by
+theorem AT225_implies_long (G : Type*) [Magma G] (h : AssociativeTheory225 G) : AssociativeTheory225_long G := by
   obtain ⟨eq4270, eq4293, eq4512⟩ := h
   have eq4272 := Equation4270_4293_4512_implies_Equation4272 G eq4270 eq4293 eq4512
   have eq4280 := Equation4270_4272_4512_implies_Equation4280 G eq4270 eq4272 eq4512
@@ -4995,13 +4995,13 @@ theorem CC225_implies_long (G : Type*) [Magma G] (h : ConjunctionClass225 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4270, eq4272, eq4276, eq4280, eq4293, eq4343, eq4512⟩
 
-theorem CC225_implied_by_long (G : Type*) [Magma G] : ConjunctionClass225_long G -> ConjunctionClass225 G :=
+theorem AT225_implied_by_long (G : Type*) [Magma G] : AssociativeTheory225_long G -> AssociativeTheory225 G :=
 fun ⟨_, h4270, _, _, _, h4293, _, h4512⟩ => ⟨h4270, h4293, h4512⟩
 
-theorem CC225_equiv (G : Type*) [Magma G] : ConjunctionClass225 G <-> ConjunctionClass225_long G :=
-Iff.intro (CC225_implies_long G) (CC225_implied_by_long G)
+theorem AT225_equiv (G : Type*) [Magma G] : AssociativeTheory225 G <-> AssociativeTheory225_long G :=
+Iff.intro (AT225_implies_long G) (AT225_implied_by_long G)
 
-theorem CC226_implies_long (G : Type*) [Magma G] (h : ConjunctionClass226 G) : ConjunctionClass226_long G := by
+theorem AT226_implies_long (G : Type*) [Magma G] (h : AssociativeTheory226 G) : AssociativeTheory226_long G := by
   obtain ⟨eq4269, eq4270, eq4293, eq4512⟩ := h
   have eq4273 := Equation4269_4293_4512_implies_Equation4273 G eq4269 eq4293 eq4512
   have eq4318 := Equation4269_4270_4512_implies_Equation4318 G eq4269 eq4270 eq4512
@@ -5019,37 +5019,37 @@ theorem CC226_implies_long (G : Type*) [Magma G] (h : ConjunctionClass226 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4269, eq4270, eq4272, eq4273, eq4276, eq4279, eq4280, eq4293, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4512⟩
 
-theorem CC226_implied_by_long (G : Type*) [Magma G] : ConjunctionClass226_long G -> ConjunctionClass226 G :=
+theorem AT226_implied_by_long (G : Type*) [Magma G] : AssociativeTheory226_long G -> AssociativeTheory226 G :=
 fun ⟨_, h4269, h4270, _, _, _, _, _, h4293, _, _, _, _, _, _, _, _, h4512⟩ => ⟨h4269, h4270, h4293, h4512⟩
 
-theorem CC226_equiv (G : Type*) [Magma G] : ConjunctionClass226 G <-> ConjunctionClass226_long G :=
-Iff.intro (CC226_implies_long G) (CC226_implied_by_long G)
+theorem AT226_equiv (G : Type*) [Magma G] : AssociativeTheory226 G <-> AssociativeTheory226_long G :=
+Iff.intro (AT226_implies_long G) (AT226_implied_by_long G)
 
-theorem CC227_implies_long (G : Type*) [Magma G] (h : ConjunctionClass227 G) : ConjunctionClass227_long G := by
+theorem AT227_implies_long (G : Type*) [Magma G] (h : AssociativeTheory227 G) : AssociativeTheory227_long G := by
   obtain ⟨eq4276, eq4293, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4293, eq4512⟩
 
-theorem CC227_implied_by_long (G : Type*) [Magma G] : ConjunctionClass227_long G -> ConjunctionClass227 G :=
+theorem AT227_implied_by_long (G : Type*) [Magma G] : AssociativeTheory227_long G -> AssociativeTheory227 G :=
 fun ⟨_, h4276, h4293, h4512⟩ => ⟨h4276, h4293, h4512⟩
 
-theorem CC227_equiv (G : Type*) [Magma G] : ConjunctionClass227 G <-> ConjunctionClass227_long G :=
-Iff.intro (CC227_implies_long G) (CC227_implied_by_long G)
+theorem AT227_equiv (G : Type*) [Magma G] : AssociativeTheory227 G <-> AssociativeTheory227_long G :=
+Iff.intro (AT227_implies_long G) (AT227_implied_by_long G)
 
-theorem CC228_implies_long (G : Type*) [Magma G] (h : ConjunctionClass228 G) : ConjunctionClass228_long G := by
+theorem AT228_implies_long (G : Type*) [Magma G] (h : AssociativeTheory228 G) : AssociativeTheory228_long G := by
   obtain ⟨eq4300, eq4512⟩ := h
   have eq1 := Equation4300_4512_implies_Equation1 G eq4300 eq4512
   have eq4272 := Equation4300_4512_implies_Equation4272 G eq4300 eq4512
   have eq4291 := Equation4300_4512_implies_Equation4291 G eq4300 eq4512
   exact ⟨eq1, eq4272, eq4291, eq4300, eq4512⟩
 
-theorem CC228_implied_by_long (G : Type*) [Magma G] : ConjunctionClass228_long G -> ConjunctionClass228 G :=
+theorem AT228_implied_by_long (G : Type*) [Magma G] : AssociativeTheory228_long G -> AssociativeTheory228 G :=
 fun ⟨_, _, _, h4300, h4512⟩ => ⟨h4300, h4512⟩
 
-theorem CC228_equiv (G : Type*) [Magma G] : ConjunctionClass228 G <-> ConjunctionClass228_long G :=
-Iff.intro (CC228_implies_long G) (CC228_implied_by_long G)
+theorem AT228_equiv (G : Type*) [Magma G] : AssociativeTheory228 G <-> AssociativeTheory228_long G :=
+Iff.intro (AT228_implies_long G) (AT228_implied_by_long G)
 
-theorem CC229_implies_long (G : Type*) [Magma G] (h : ConjunctionClass229 G) : ConjunctionClass229_long G := by
+theorem AT229_implies_long (G : Type*) [Magma G] (h : AssociativeTheory229 G) : AssociativeTheory229_long G := by
   obtain ⟨eq307, eq4300, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -5060,36 +5060,36 @@ theorem CC229_implies_long (G : Type*) [Magma G] (h : ConjunctionClass229 G) : C
   have eq3278 := Equation312_4512_implies_Equation3278 G eq312 eq4512
   exact ⟨eq1, eq307, eq312, eq3253, eq3258, eq3278, eq4272, eq4291, eq4300, eq4512⟩
 
-theorem CC229_implied_by_long (G : Type*) [Magma G] : ConjunctionClass229_long G -> ConjunctionClass229 G :=
+theorem AT229_implied_by_long (G : Type*) [Magma G] : AssociativeTheory229_long G -> AssociativeTheory229 G :=
 fun ⟨_, h307, _, _, _, _, _, _, h4300, h4512⟩ => ⟨h307, h4300, h4512⟩
 
-theorem CC229_equiv (G : Type*) [Magma G] : ConjunctionClass229 G <-> ConjunctionClass229_long G :=
-Iff.intro (CC229_implies_long G) (CC229_implied_by_long G)
+theorem AT229_equiv (G : Type*) [Magma G] : AssociativeTheory229 G <-> AssociativeTheory229_long G :=
+Iff.intro (AT229_implies_long G) (AT229_implied_by_long G)
 
-theorem CC230_implies_long (G : Type*) [Magma G] (h : ConjunctionClass230 G) : ConjunctionClass230_long G := by
+theorem AT230_implies_long (G : Type*) [Magma G] (h : AssociativeTheory230 G) : AssociativeTheory230_long G := by
   obtain ⟨eq4314, eq4512⟩ := h
   have eq1 := Equation4314_4512_implies_Equation1 G eq4314 eq4512
   exact ⟨eq1, eq4314, eq4512⟩
 
-theorem CC230_implied_by_long (G : Type*) [Magma G] : ConjunctionClass230_long G -> ConjunctionClass230 G :=
+theorem AT230_implied_by_long (G : Type*) [Magma G] : AssociativeTheory230_long G -> AssociativeTheory230 G :=
 fun ⟨_, h4314, h4512⟩ => ⟨h4314, h4512⟩
 
-theorem CC230_equiv (G : Type*) [Magma G] : ConjunctionClass230 G <-> ConjunctionClass230_long G :=
-Iff.intro (CC230_implies_long G) (CC230_implied_by_long G)
+theorem AT230_equiv (G : Type*) [Magma G] : AssociativeTheory230 G <-> AssociativeTheory230_long G :=
+Iff.intro (AT230_implies_long G) (AT230_implied_by_long G)
 
-theorem CC231_implies_long (G : Type*) [Magma G] (h : ConjunctionClass231 G) : ConjunctionClass231_long G := by
+theorem AT231_implies_long (G : Type*) [Magma G] (h : AssociativeTheory231 G) : AssociativeTheory231_long G := by
   obtain ⟨eq307, eq4314, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4314, eq4512⟩
 
-theorem CC231_implied_by_long (G : Type*) [Magma G] : ConjunctionClass231_long G -> ConjunctionClass231 G :=
+theorem AT231_implied_by_long (G : Type*) [Magma G] : AssociativeTheory231_long G -> AssociativeTheory231 G :=
 fun ⟨_, h307, _, h4314, h4512⟩ => ⟨h307, h4314, h4512⟩
 
-theorem CC231_equiv (G : Type*) [Magma G] : ConjunctionClass231 G <-> ConjunctionClass231_long G :=
-Iff.intro (CC231_implies_long G) (CC231_implied_by_long G)
+theorem AT231_equiv (G : Type*) [Magma G] : AssociativeTheory231 G <-> AssociativeTheory231_long G :=
+Iff.intro (AT231_implies_long G) (AT231_implied_by_long G)
 
-theorem CC232_implies_long (G : Type*) [Magma G] (h : ConjunctionClass232 G) : ConjunctionClass232_long G := by
+theorem AT232_implies_long (G : Type*) [Magma G] (h : AssociativeTheory232 G) : AssociativeTheory232_long G := by
   obtain ⟨eq308, eq4314, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation308_4512_implies_Equation307 G eq308 eq4512
@@ -5099,13 +5099,13 @@ theorem CC232_implies_long (G : Type*) [Magma G] (h : ConjunctionClass232 G) : C
   have eq4268 := Equation308_4512_implies_Equation4268 G eq308 eq4512
   exact ⟨eq1, eq307, eq308, eq3253, eq3255, eq3256, eq4268, eq4314, eq4512⟩
 
-theorem CC232_implied_by_long (G : Type*) [Magma G] : ConjunctionClass232_long G -> ConjunctionClass232 G :=
+theorem AT232_implied_by_long (G : Type*) [Magma G] : AssociativeTheory232_long G -> AssociativeTheory232 G :=
 fun ⟨_, _, h308, _, _, _, _, h4314, h4512⟩ => ⟨h308, h4314, h4512⟩
 
-theorem CC232_equiv (G : Type*) [Magma G] : ConjunctionClass232 G <-> ConjunctionClass232_long G :=
-Iff.intro (CC232_implies_long G) (CC232_implied_by_long G)
+theorem AT232_equiv (G : Type*) [Magma G] : AssociativeTheory232 G <-> AssociativeTheory232_long G :=
+Iff.intro (AT232_implies_long G) (AT232_implied_by_long G)
 
-theorem CC233_implies_long (G : Type*) [Magma G] (h : ConjunctionClass233 G) : ConjunctionClass233_long G := by
+theorem AT233_implies_long (G : Type*) [Magma G] (h : AssociativeTheory233 G) : AssociativeTheory233_long G := by
   obtain ⟨eq323, eq4314, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation323_4512_implies_Equation307 G eq323 eq4512
@@ -5113,24 +5113,24 @@ theorem CC233_implies_long (G : Type*) [Magma G] (h : ConjunctionClass233 G) : C
   have eq3306 := Equation323_4512_implies_Equation3306 G eq323 eq4512
   exact ⟨eq1, eq307, eq323, eq3253, eq3306, eq4314, eq4512⟩
 
-theorem CC233_implied_by_long (G : Type*) [Magma G] : ConjunctionClass233_long G -> ConjunctionClass233 G :=
+theorem AT233_implied_by_long (G : Type*) [Magma G] : AssociativeTheory233_long G -> AssociativeTheory233 G :=
 fun ⟨_, _, h323, _, _, h4314, h4512⟩ => ⟨h323, h4314, h4512⟩
 
-theorem CC233_equiv (G : Type*) [Magma G] : ConjunctionClass233 G <-> ConjunctionClass233_long G :=
-Iff.intro (CC233_implies_long G) (CC233_implied_by_long G)
+theorem AT233_equiv (G : Type*) [Magma G] : AssociativeTheory233 G <-> AssociativeTheory233_long G :=
+Iff.intro (AT233_implies_long G) (AT233_implied_by_long G)
 
-theorem CC234_implies_long (G : Type*) [Magma G] (h : ConjunctionClass234 G) : ConjunctionClass234_long G := by
+theorem AT234_implies_long (G : Type*) [Magma G] (h : AssociativeTheory234 G) : AssociativeTheory234_long G := by
   obtain ⟨eq4268, eq4314, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4268, eq4314, eq4512⟩
 
-theorem CC234_implied_by_long (G : Type*) [Magma G] : ConjunctionClass234_long G -> ConjunctionClass234 G :=
+theorem AT234_implied_by_long (G : Type*) [Magma G] : AssociativeTheory234_long G -> AssociativeTheory234 G :=
 fun ⟨_, h4268, h4314, h4512⟩ => ⟨h4268, h4314, h4512⟩
 
-theorem CC234_equiv (G : Type*) [Magma G] : ConjunctionClass234 G <-> ConjunctionClass234_long G :=
-Iff.intro (CC234_implies_long G) (CC234_implied_by_long G)
+theorem AT234_equiv (G : Type*) [Magma G] : AssociativeTheory234 G <-> AssociativeTheory234_long G :=
+Iff.intro (AT234_implies_long G) (AT234_implied_by_long G)
 
-theorem CC235_implies_long (G : Type*) [Magma G] (h : ConjunctionClass235 G) : ConjunctionClass235_long G := by
+theorem AT235_implies_long (G : Type*) [Magma G] (h : AssociativeTheory235 G) : AssociativeTheory235_long G := by
   obtain ⟨eq4275, eq4314, eq4512⟩ := h
   have eq4268 := Equation4275_4314_4512_implies_Equation4268 G eq4275 eq4314 eq4512
   have eq4277 := Equation4268_4275_4512_implies_Equation4277 G eq4268 eq4275 eq4512
@@ -5139,59 +5139,59 @@ theorem CC235_implies_long (G : Type*) [Magma G] (h : ConjunctionClass235 G) : C
   have eq4293 := Equation4277_4512_implies_Equation4293 G eq4277 eq4512
   exact ⟨eq1, eq4268, eq4275, eq4276, eq4277, eq4293, eq4314, eq4512⟩
 
-theorem CC235_implied_by_long (G : Type*) [Magma G] : ConjunctionClass235_long G -> ConjunctionClass235 G :=
+theorem AT235_implied_by_long (G : Type*) [Magma G] : AssociativeTheory235_long G -> AssociativeTheory235 G :=
 fun ⟨_, _, h4275, _, _, _, h4314, h4512⟩ => ⟨h4275, h4314, h4512⟩
 
-theorem CC235_equiv (G : Type*) [Magma G] : ConjunctionClass235 G <-> ConjunctionClass235_long G :=
-Iff.intro (CC235_implies_long G) (CC235_implied_by_long G)
+theorem AT235_equiv (G : Type*) [Magma G] : AssociativeTheory235 G <-> AssociativeTheory235_long G :=
+Iff.intro (AT235_implies_long G) (AT235_implied_by_long G)
 
-theorem CC236_implies_long (G : Type*) [Magma G] (h : ConjunctionClass236 G) : ConjunctionClass236_long G := by
+theorem AT236_implies_long (G : Type*) [Magma G] (h : AssociativeTheory236 G) : AssociativeTheory236_long G := by
   obtain ⟨eq4276, eq4314, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4314, eq4512⟩
 
-theorem CC236_implied_by_long (G : Type*) [Magma G] : ConjunctionClass236_long G -> ConjunctionClass236 G :=
+theorem AT236_implied_by_long (G : Type*) [Magma G] : AssociativeTheory236_long G -> AssociativeTheory236 G :=
 fun ⟨_, h4276, h4314, h4512⟩ => ⟨h4276, h4314, h4512⟩
 
-theorem CC236_equiv (G : Type*) [Magma G] : ConjunctionClass236 G <-> ConjunctionClass236_long G :=
-Iff.intro (CC236_implies_long G) (CC236_implied_by_long G)
+theorem AT236_equiv (G : Type*) [Magma G] : AssociativeTheory236 G <-> AssociativeTheory236_long G :=
+Iff.intro (AT236_implies_long G) (AT236_implied_by_long G)
 
-theorem CC237_implies_long (G : Type*) [Magma G] (h : ConjunctionClass237 G) : ConjunctionClass237_long G := by
+theorem AT237_implies_long (G : Type*) [Magma G] (h : AssociativeTheory237 G) : AssociativeTheory237_long G := by
   obtain ⟨eq4293, eq4314, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4293, eq4314, eq4512⟩
 
-theorem CC237_implied_by_long (G : Type*) [Magma G] : ConjunctionClass237_long G -> ConjunctionClass237 G :=
+theorem AT237_implied_by_long (G : Type*) [Magma G] : AssociativeTheory237_long G -> AssociativeTheory237 G :=
 fun ⟨_, h4293, h4314, h4512⟩ => ⟨h4293, h4314, h4512⟩
 
-theorem CC237_equiv (G : Type*) [Magma G] : ConjunctionClass237 G <-> ConjunctionClass237_long G :=
-Iff.intro (CC237_implies_long G) (CC237_implied_by_long G)
+theorem AT237_equiv (G : Type*) [Magma G] : AssociativeTheory237 G <-> AssociativeTheory237_long G :=
+Iff.intro (AT237_implies_long G) (AT237_implied_by_long G)
 
-theorem CC238_implies_long (G : Type*) [Magma G] (h : ConjunctionClass238 G) : ConjunctionClass238_long G := by
+theorem AT238_implies_long (G : Type*) [Magma G] (h : AssociativeTheory238 G) : AssociativeTheory238_long G := by
   obtain ⟨eq4276, eq4293, eq4314, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4293, eq4314, eq4512⟩
 
-theorem CC238_implied_by_long (G : Type*) [Magma G] : ConjunctionClass238_long G -> ConjunctionClass238 G :=
+theorem AT238_implied_by_long (G : Type*) [Magma G] : AssociativeTheory238_long G -> AssociativeTheory238 G :=
 fun ⟨_, h4276, h4293, h4314, h4512⟩ => ⟨h4276, h4293, h4314, h4512⟩
 
-theorem CC238_equiv (G : Type*) [Magma G] : ConjunctionClass238 G <-> ConjunctionClass238_long G :=
-Iff.intro (CC238_implies_long G) (CC238_implied_by_long G)
+theorem AT238_equiv (G : Type*) [Magma G] : AssociativeTheory238 G <-> AssociativeTheory238_long G :=
+Iff.intro (AT238_implies_long G) (AT238_implied_by_long G)
 
-theorem CC239_implies_long (G : Type*) [Magma G] (h : ConjunctionClass239 G) : ConjunctionClass239_long G := by
+theorem AT239_implies_long (G : Type*) [Magma G] (h : AssociativeTheory239 G) : AssociativeTheory239_long G := by
   obtain ⟨eq4315, eq4512⟩ := h
   have eq1 := Equation4315_4512_implies_Equation1 G eq4315 eq4512
   have eq4268 := Equation4315_4512_implies_Equation4268 G eq4315 eq4512
   have eq4314 := Equation4315_4512_implies_Equation4314 G eq4315 eq4512
   exact ⟨eq1, eq4268, eq4314, eq4315, eq4512⟩
 
-theorem CC239_implied_by_long (G : Type*) [Magma G] : ConjunctionClass239_long G -> ConjunctionClass239 G :=
+theorem AT239_implied_by_long (G : Type*) [Magma G] : AssociativeTheory239_long G -> AssociativeTheory239 G :=
 fun ⟨_, _, _, h4315, h4512⟩ => ⟨h4315, h4512⟩
 
-theorem CC239_equiv (G : Type*) [Magma G] : ConjunctionClass239 G <-> ConjunctionClass239_long G :=
-Iff.intro (CC239_implies_long G) (CC239_implied_by_long G)
+theorem AT239_equiv (G : Type*) [Magma G] : AssociativeTheory239 G <-> AssociativeTheory239_long G :=
+Iff.intro (AT239_implies_long G) (AT239_implied_by_long G)
 
-theorem CC240_implies_long (G : Type*) [Magma G] (h : ConjunctionClass240 G) : ConjunctionClass240_long G := by
+theorem AT240_implies_long (G : Type*) [Magma G] (h : AssociativeTheory240 G) : AssociativeTheory240_long G := by
   obtain ⟨eq307, eq4315, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -5202,60 +5202,60 @@ theorem CC240_implies_long (G : Type*) [Magma G] (h : ConjunctionClass240 G) : C
   have eq3256 := Equation308_4512_implies_Equation3256 G eq308 eq4512
   exact ⟨eq1, eq307, eq308, eq3253, eq3255, eq3256, eq4268, eq4314, eq4315, eq4512⟩
 
-theorem CC240_implied_by_long (G : Type*) [Magma G] : ConjunctionClass240_long G -> ConjunctionClass240 G :=
+theorem AT240_implied_by_long (G : Type*) [Magma G] : AssociativeTheory240_long G -> AssociativeTheory240 G :=
 fun ⟨_, h307, _, _, _, _, _, _, h4315, h4512⟩ => ⟨h307, h4315, h4512⟩
 
-theorem CC240_equiv (G : Type*) [Magma G] : ConjunctionClass240 G <-> ConjunctionClass240_long G :=
-Iff.intro (CC240_implies_long G) (CC240_implied_by_long G)
+theorem AT240_equiv (G : Type*) [Magma G] : AssociativeTheory240 G <-> AssociativeTheory240_long G :=
+Iff.intro (AT240_implies_long G) (AT240_implied_by_long G)
 
-theorem CC241_implies_long (G : Type*) [Magma G] (h : ConjunctionClass241 G) : ConjunctionClass241_long G := by
+theorem AT241_implies_long (G : Type*) [Magma G] (h : AssociativeTheory241 G) : AssociativeTheory241_long G := by
   obtain ⟨eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq4320, eq4512⟩
 
-theorem CC241_implied_by_long (G : Type*) [Magma G] : ConjunctionClass241_long G -> ConjunctionClass241 G :=
+theorem AT241_implied_by_long (G : Type*) [Magma G] : AssociativeTheory241_long G -> AssociativeTheory241 G :=
 fun ⟨_, h4320, h4512⟩ => ⟨h4320, h4512⟩
 
-theorem CC241_equiv (G : Type*) [Magma G] : ConjunctionClass241 G <-> ConjunctionClass241_long G :=
-Iff.intro (CC241_implies_long G) (CC241_implied_by_long G)
+theorem AT241_equiv (G : Type*) [Magma G] : AssociativeTheory241 G <-> AssociativeTheory241_long G :=
+Iff.intro (AT241_implies_long G) (AT241_implied_by_long G)
 
-theorem CC242_implies_long (G : Type*) [Magma G] (h : ConjunctionClass242 G) : ConjunctionClass242_long G := by
+theorem AT242_implies_long (G : Type*) [Magma G] (h : AssociativeTheory242 G) : AssociativeTheory242_long G := by
   obtain ⟨eq47, eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq47, eq4320, eq4512⟩
 
-theorem CC242_implied_by_long (G : Type*) [Magma G] : ConjunctionClass242_long G -> ConjunctionClass242 G :=
+theorem AT242_implied_by_long (G : Type*) [Magma G] : AssociativeTheory242_long G -> AssociativeTheory242 G :=
 fun ⟨_, h47, h4320, h4512⟩ => ⟨h47, h4320, h4512⟩
 
-theorem CC242_equiv (G : Type*) [Magma G] : ConjunctionClass242 G <-> ConjunctionClass242_long G :=
-Iff.intro (CC242_implies_long G) (CC242_implied_by_long G)
+theorem AT242_equiv (G : Type*) [Magma G] : AssociativeTheory242 G <-> AssociativeTheory242_long G :=
+Iff.intro (AT242_implies_long G) (AT242_implied_by_long G)
 
-theorem CC243_implies_long (G : Type*) [Magma G] (h : ConjunctionClass243 G) : ConjunctionClass243_long G := by
+theorem AT243_implies_long (G : Type*) [Magma G] (h : AssociativeTheory243 G) : AssociativeTheory243_long G := by
   obtain ⟨eq75, eq4320, eq4512⟩ := h
   have eq4362 := Equation75_4320_4512_implies_Equation4362 G eq75 eq4320 eq4512
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   have eq47 := Equation75_4512_implies_Equation47 G eq75 eq4512
   exact ⟨eq1, eq47, eq75, eq4320, eq4362, eq4512⟩
 
-theorem CC243_implied_by_long (G : Type*) [Magma G] : ConjunctionClass243_long G -> ConjunctionClass243 G :=
+theorem AT243_implied_by_long (G : Type*) [Magma G] : AssociativeTheory243_long G -> AssociativeTheory243 G :=
 fun ⟨_, _, h75, h4320, _, h4512⟩ => ⟨h75, h4320, h4512⟩
 
-theorem CC243_equiv (G : Type*) [Magma G] : ConjunctionClass243 G <-> ConjunctionClass243_long G :=
-Iff.intro (CC243_implies_long G) (CC243_implied_by_long G)
+theorem AT243_equiv (G : Type*) [Magma G] : AssociativeTheory243 G <-> AssociativeTheory243_long G :=
+Iff.intro (AT243_implies_long G) (AT243_implied_by_long G)
 
-theorem CC244_implies_long (G : Type*) [Magma G] (h : ConjunctionClass244 G) : ConjunctionClass244_long G := by
+theorem AT244_implies_long (G : Type*) [Magma G] (h : AssociativeTheory244 G) : AssociativeTheory244_long G := by
   obtain ⟨eq307, eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4320, eq4512⟩
 
-theorem CC244_implied_by_long (G : Type*) [Magma G] : ConjunctionClass244_long G -> ConjunctionClass244 G :=
+theorem AT244_implied_by_long (G : Type*) [Magma G] : AssociativeTheory244_long G -> AssociativeTheory244 G :=
 fun ⟨_, h307, _, h4320, h4512⟩ => ⟨h307, h4320, h4512⟩
 
-theorem CC244_equiv (G : Type*) [Magma G] : ConjunctionClass244 G <-> ConjunctionClass244_long G :=
-Iff.intro (CC244_implies_long G) (CC244_implied_by_long G)
+theorem AT244_equiv (G : Type*) [Magma G] : AssociativeTheory244 G <-> AssociativeTheory244_long G :=
+Iff.intro (AT244_implies_long G) (AT244_implied_by_long G)
 
-theorem CC245_implies_long (G : Type*) [Magma G] (h : ConjunctionClass245 G) : ConjunctionClass245_long G := by
+theorem AT245_implies_long (G : Type*) [Magma G] (h : AssociativeTheory245 G) : AssociativeTheory245_long G := by
   obtain ⟨eq323, eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   have eq307 := Equation323_4512_implies_Equation307 G eq323 eq4512
@@ -5263,48 +5263,48 @@ theorem CC245_implies_long (G : Type*) [Magma G] (h : ConjunctionClass245 G) : C
   have eq3306 := Equation323_4512_implies_Equation3306 G eq323 eq4512
   exact ⟨eq1, eq307, eq323, eq3253, eq3306, eq4320, eq4512⟩
 
-theorem CC245_implied_by_long (G : Type*) [Magma G] : ConjunctionClass245_long G -> ConjunctionClass245 G :=
+theorem AT245_implied_by_long (G : Type*) [Magma G] : AssociativeTheory245_long G -> AssociativeTheory245 G :=
 fun ⟨_, _, h323, _, _, h4320, h4512⟩ => ⟨h323, h4320, h4512⟩
 
-theorem CC245_equiv (G : Type*) [Magma G] : ConjunctionClass245 G <-> ConjunctionClass245_long G :=
-Iff.intro (CC245_implies_long G) (CC245_implied_by_long G)
+theorem AT245_equiv (G : Type*) [Magma G] : AssociativeTheory245 G <-> AssociativeTheory245_long G :=
+Iff.intro (AT245_implies_long G) (AT245_implied_by_long G)
 
-theorem CC246_implies_long (G : Type*) [Magma G] (h : ConjunctionClass246 G) : ConjunctionClass246_long G := by
+theorem AT246_implies_long (G : Type*) [Magma G] (h : AssociativeTheory246 G) : AssociativeTheory246_long G := by
   obtain ⟨eq411, eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq411, eq4320, eq4512⟩
 
-theorem CC246_implied_by_long (G : Type*) [Magma G] : ConjunctionClass246_long G -> ConjunctionClass246 G :=
+theorem AT246_implied_by_long (G : Type*) [Magma G] : AssociativeTheory246_long G -> AssociativeTheory246 G :=
 fun ⟨_, h411, h4320, h4512⟩ => ⟨h411, h4320, h4512⟩
 
-theorem CC246_equiv (G : Type*) [Magma G] : ConjunctionClass246 G <-> ConjunctionClass246_long G :=
-Iff.intro (CC246_implies_long G) (CC246_implied_by_long G)
+theorem AT246_equiv (G : Type*) [Magma G] : AssociativeTheory246 G <-> AssociativeTheory246_long G :=
+Iff.intro (AT246_implies_long G) (AT246_implied_by_long G)
 
-theorem CC247_implies_long (G : Type*) [Magma G] (h : ConjunctionClass247 G) : ConjunctionClass247_long G := by
+theorem AT247_implies_long (G : Type*) [Magma G] (h : AssociativeTheory247 G) : AssociativeTheory247_long G := by
   obtain ⟨eq513, eq4320, eq4512⟩ := h
   have eq4362 := Equation513_4320_4512_implies_Equation4362 G eq513 eq4320 eq4512
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   have eq411 := Equation513_4512_implies_Equation411 G eq513 eq4512
   exact ⟨eq1, eq411, eq513, eq4320, eq4362, eq4512⟩
 
-theorem CC247_implied_by_long (G : Type*) [Magma G] : ConjunctionClass247_long G -> ConjunctionClass247 G :=
+theorem AT247_implied_by_long (G : Type*) [Magma G] : AssociativeTheory247_long G -> AssociativeTheory247 G :=
 fun ⟨_, _, h513, h4320, _, h4512⟩ => ⟨h513, h4320, h4512⟩
 
-theorem CC247_equiv (G : Type*) [Magma G] : ConjunctionClass247 G <-> ConjunctionClass247_long G :=
-Iff.intro (CC247_implies_long G) (CC247_implied_by_long G)
+theorem AT247_equiv (G : Type*) [Magma G] : AssociativeTheory247 G <-> AssociativeTheory247_long G :=
+Iff.intro (AT247_implies_long G) (AT247_implied_by_long G)
 
-theorem CC248_implies_long (G : Type*) [Magma G] (h : ConjunctionClass248 G) : ConjunctionClass248_long G := by
+theorem AT248_implies_long (G : Type*) [Magma G] (h : AssociativeTheory248 G) : AssociativeTheory248_long G := by
   obtain ⟨eq3253, eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq3253, eq4320, eq4512⟩
 
-theorem CC248_implied_by_long (G : Type*) [Magma G] : ConjunctionClass248_long G -> ConjunctionClass248 G :=
+theorem AT248_implied_by_long (G : Type*) [Magma G] : AssociativeTheory248_long G -> AssociativeTheory248 G :=
 fun ⟨_, h3253, h4320, h4512⟩ => ⟨h3253, h4320, h4512⟩
 
-theorem CC248_equiv (G : Type*) [Magma G] : ConjunctionClass248 G <-> ConjunctionClass248_long G :=
-Iff.intro (CC248_implies_long G) (CC248_implied_by_long G)
+theorem AT248_equiv (G : Type*) [Magma G] : AssociativeTheory248 G <-> AssociativeTheory248_long G :=
+Iff.intro (AT248_implies_long G) (AT248_implied_by_long G)
 
-theorem CC249_implies_long (G : Type*) [Magma G] (h : ConjunctionClass249 G) : ConjunctionClass249_long G := by
+theorem AT249_implies_long (G : Type*) [Magma G] (h : AssociativeTheory249 G) : AssociativeTheory249_long G := by
   obtain ⟨eq3261, eq4320, eq4512⟩ := h
   have eq3271 := Equation3261_4320_4512_implies_Equation3271 G eq3261 eq4320 eq4512
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
@@ -5313,25 +5313,25 @@ theorem CC249_implies_long (G : Type*) [Magma G] (h : ConjunctionClass249 G) : C
   have eq4275 := Equation3271_4512_implies_Equation4275 G eq3271 eq4512
   exact ⟨eq1, eq3253, eq3261, eq3271, eq3278, eq4275, eq4320, eq4512⟩
 
-theorem CC249_implied_by_long (G : Type*) [Magma G] : ConjunctionClass249_long G -> ConjunctionClass249 G :=
+theorem AT249_implied_by_long (G : Type*) [Magma G] : AssociativeTheory249_long G -> AssociativeTheory249 G :=
 fun ⟨_, _, h3261, _, _, _, h4320, h4512⟩ => ⟨h3261, h4320, h4512⟩
 
-theorem CC249_equiv (G : Type*) [Magma G] : ConjunctionClass249 G <-> ConjunctionClass249_long G :=
-Iff.intro (CC249_implies_long G) (CC249_implied_by_long G)
+theorem AT249_equiv (G : Type*) [Magma G] : AssociativeTheory249 G <-> AssociativeTheory249_long G :=
+Iff.intro (AT249_implies_long G) (AT249_implied_by_long G)
 
-theorem CC250_implies_long (G : Type*) [Magma G] (h : ConjunctionClass250 G) : ConjunctionClass250_long G := by
+theorem AT250_implies_long (G : Type*) [Magma G] (h : AssociativeTheory250 G) : AssociativeTheory250_long G := by
   obtain ⟨eq3306, eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   have eq3253 := Equation3306_4512_implies_Equation3253 G eq3306 eq4512
   exact ⟨eq1, eq3253, eq3306, eq4320, eq4512⟩
 
-theorem CC250_implied_by_long (G : Type*) [Magma G] : ConjunctionClass250_long G -> ConjunctionClass250 G :=
+theorem AT250_implied_by_long (G : Type*) [Magma G] : AssociativeTheory250_long G -> AssociativeTheory250 G :=
 fun ⟨_, _, h3306, h4320, h4512⟩ => ⟨h3306, h4320, h4512⟩
 
-theorem CC250_equiv (G : Type*) [Magma G] : ConjunctionClass250 G <-> ConjunctionClass250_long G :=
-Iff.intro (CC250_implies_long G) (CC250_implied_by_long G)
+theorem AT250_equiv (G : Type*) [Magma G] : AssociativeTheory250 G <-> AssociativeTheory250_long G :=
+Iff.intro (AT250_implies_long G) (AT250_implied_by_long G)
 
-theorem CC251_implies_long (G : Type*) [Magma G] (h : ConjunctionClass251 G) : ConjunctionClass251_long G := by
+theorem AT251_implies_long (G : Type*) [Magma G] (h : AssociativeTheory251 G) : AssociativeTheory251_long G := by
   obtain ⟨eq4268, eq4320, eq4512⟩ := h
   have eq4275 := Equation4268_4320_4512_implies_Equation4275 G eq4268 eq4320 eq4512
   have eq4277 := Equation4268_4275_4512_implies_Equation4277 G eq4268 eq4275 eq4512
@@ -5340,70 +5340,70 @@ theorem CC251_implies_long (G : Type*) [Magma G] (h : ConjunctionClass251 G) : C
   have eq4293 := Equation4277_4512_implies_Equation4293 G eq4277 eq4512
   exact ⟨eq1, eq4268, eq4275, eq4276, eq4277, eq4293, eq4320, eq4512⟩
 
-theorem CC251_implied_by_long (G : Type*) [Magma G] : ConjunctionClass251_long G -> ConjunctionClass251 G :=
+theorem AT251_implied_by_long (G : Type*) [Magma G] : AssociativeTheory251_long G -> AssociativeTheory251 G :=
 fun ⟨_, h4268, _, _, _, _, h4320, h4512⟩ => ⟨h4268, h4320, h4512⟩
 
-theorem CC251_equiv (G : Type*) [Magma G] : ConjunctionClass251 G <-> ConjunctionClass251_long G :=
-Iff.intro (CC251_implies_long G) (CC251_implied_by_long G)
+theorem AT251_equiv (G : Type*) [Magma G] : AssociativeTheory251 G <-> AssociativeTheory251_long G :=
+Iff.intro (AT251_implies_long G) (AT251_implied_by_long G)
 
-theorem CC252_implies_long (G : Type*) [Magma G] (h : ConjunctionClass252 G) : ConjunctionClass252_long G := by
+theorem AT252_implies_long (G : Type*) [Magma G] (h : AssociativeTheory252 G) : AssociativeTheory252_long G := by
   obtain ⟨eq4275, eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq4275, eq4320, eq4512⟩
 
-theorem CC252_implied_by_long (G : Type*) [Magma G] : ConjunctionClass252_long G -> ConjunctionClass252 G :=
+theorem AT252_implied_by_long (G : Type*) [Magma G] : AssociativeTheory252_long G -> AssociativeTheory252 G :=
 fun ⟨_, h4275, h4320, h4512⟩ => ⟨h4275, h4320, h4512⟩
 
-theorem CC252_equiv (G : Type*) [Magma G] : ConjunctionClass252 G <-> ConjunctionClass252_long G :=
-Iff.intro (CC252_implies_long G) (CC252_implied_by_long G)
+theorem AT252_equiv (G : Type*) [Magma G] : AssociativeTheory252 G <-> AssociativeTheory252_long G :=
+Iff.intro (AT252_implies_long G) (AT252_implied_by_long G)
 
-theorem CC253_implies_long (G : Type*) [Magma G] (h : ConjunctionClass253 G) : ConjunctionClass253_long G := by
+theorem AT253_implies_long (G : Type*) [Magma G] (h : AssociativeTheory253 G) : AssociativeTheory253_long G := by
   obtain ⟨eq4276, eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq4276, eq4320, eq4512⟩
 
-theorem CC253_implied_by_long (G : Type*) [Magma G] : ConjunctionClass253_long G -> ConjunctionClass253 G :=
+theorem AT253_implied_by_long (G : Type*) [Magma G] : AssociativeTheory253_long G -> AssociativeTheory253 G :=
 fun ⟨_, h4276, h4320, h4512⟩ => ⟨h4276, h4320, h4512⟩
 
-theorem CC253_equiv (G : Type*) [Magma G] : ConjunctionClass253 G <-> ConjunctionClass253_long G :=
-Iff.intro (CC253_implies_long G) (CC253_implied_by_long G)
+theorem AT253_equiv (G : Type*) [Magma G] : AssociativeTheory253 G <-> AssociativeTheory253_long G :=
+Iff.intro (AT253_implies_long G) (AT253_implied_by_long G)
 
-theorem CC254_implies_long (G : Type*) [Magma G] (h : ConjunctionClass254 G) : ConjunctionClass254_long G := by
+theorem AT254_implies_long (G : Type*) [Magma G] (h : AssociativeTheory254 G) : AssociativeTheory254_long G := by
   obtain ⟨eq4293, eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq4293, eq4320, eq4512⟩
 
-theorem CC254_implied_by_long (G : Type*) [Magma G] : ConjunctionClass254_long G -> ConjunctionClass254 G :=
+theorem AT254_implied_by_long (G : Type*) [Magma G] : AssociativeTheory254_long G -> AssociativeTheory254 G :=
 fun ⟨_, h4293, h4320, h4512⟩ => ⟨h4293, h4320, h4512⟩
 
-theorem CC254_equiv (G : Type*) [Magma G] : ConjunctionClass254 G <-> ConjunctionClass254_long G :=
-Iff.intro (CC254_implies_long G) (CC254_implied_by_long G)
+theorem AT254_equiv (G : Type*) [Magma G] : AssociativeTheory254 G <-> AssociativeTheory254_long G :=
+Iff.intro (AT254_implies_long G) (AT254_implied_by_long G)
 
-theorem CC255_implies_long (G : Type*) [Magma G] (h : ConjunctionClass255 G) : ConjunctionClass255_long G := by
+theorem AT255_implies_long (G : Type*) [Magma G] (h : AssociativeTheory255 G) : AssociativeTheory255_long G := by
   obtain ⟨eq4276, eq4293, eq4320, eq4512⟩ := h
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq4276, eq4293, eq4320, eq4512⟩
 
-theorem CC255_implied_by_long (G : Type*) [Magma G] : ConjunctionClass255_long G -> ConjunctionClass255 G :=
+theorem AT255_implied_by_long (G : Type*) [Magma G] : AssociativeTheory255_long G -> AssociativeTheory255 G :=
 fun ⟨_, h4276, h4293, h4320, h4512⟩ => ⟨h4276, h4293, h4320, h4512⟩
 
-theorem CC255_equiv (G : Type*) [Magma G] : ConjunctionClass255 G <-> ConjunctionClass255_long G :=
-Iff.intro (CC255_implies_long G) (CC255_implied_by_long G)
+theorem AT255_equiv (G : Type*) [Magma G] : AssociativeTheory255 G <-> AssociativeTheory255_long G :=
+Iff.intro (AT255_implies_long G) (AT255_implied_by_long G)
 
-theorem CC256_implies_long (G : Type*) [Magma G] (h : ConjunctionClass256 G) : ConjunctionClass256_long G := by
+theorem AT256_implies_long (G : Type*) [Magma G] (h : AssociativeTheory256 G) : AssociativeTheory256_long G := by
   obtain ⟨eq4314, eq4320, eq4512⟩ := h
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq4314, eq4320, eq4321, eq4343, eq4512⟩
 
-theorem CC256_implied_by_long (G : Type*) [Magma G] : ConjunctionClass256_long G -> ConjunctionClass256 G :=
+theorem AT256_implied_by_long (G : Type*) [Magma G] : AssociativeTheory256_long G -> AssociativeTheory256 G :=
 fun ⟨_, h4314, h4320, _, _, h4512⟩ => ⟨h4314, h4320, h4512⟩
 
-theorem CC256_equiv (G : Type*) [Magma G] : ConjunctionClass256 G <-> ConjunctionClass256_long G :=
-Iff.intro (CC256_implies_long G) (CC256_implied_by_long G)
+theorem AT256_equiv (G : Type*) [Magma G] : AssociativeTheory256 G <-> AssociativeTheory256_long G :=
+Iff.intro (AT256_implies_long G) (AT256_implied_by_long G)
 
-theorem CC257_implies_long (G : Type*) [Magma G] (h : ConjunctionClass257 G) : ConjunctionClass257_long G := by
+theorem AT257_implies_long (G : Type*) [Magma G] (h : AssociativeTheory257 G) : AssociativeTheory257_long G := by
   obtain ⟨eq307, eq4314, eq4320, eq4512⟩ := h
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
@@ -5411,13 +5411,13 @@ theorem CC257_implies_long (G : Type*) [Magma G] (h : ConjunctionClass257 G) : C
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4314, eq4320, eq4321, eq4343, eq4512⟩
 
-theorem CC257_implied_by_long (G : Type*) [Magma G] : ConjunctionClass257_long G -> ConjunctionClass257 G :=
+theorem AT257_implied_by_long (G : Type*) [Magma G] : AssociativeTheory257_long G -> AssociativeTheory257 G :=
 fun ⟨_, h307, _, h4314, h4320, _, _, h4512⟩ => ⟨h307, h4314, h4320, h4512⟩
 
-theorem CC257_equiv (G : Type*) [Magma G] : ConjunctionClass257 G <-> ConjunctionClass257_long G :=
-Iff.intro (CC257_implies_long G) (CC257_implied_by_long G)
+theorem AT257_equiv (G : Type*) [Magma G] : AssociativeTheory257 G <-> AssociativeTheory257_long G :=
+Iff.intro (AT257_implies_long G) (AT257_implied_by_long G)
 
-theorem CC258_implies_long (G : Type*) [Magma G] (h : ConjunctionClass258 G) : ConjunctionClass258_long G := by
+theorem AT258_implies_long (G : Type*) [Magma G] (h : AssociativeTheory258 G) : AssociativeTheory258_long G := by
   obtain ⟨eq323, eq4314, eq4320, eq4512⟩ := h
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
@@ -5428,13 +5428,13 @@ theorem CC258_implies_long (G : Type*) [Magma G] (h : ConjunctionClass258 G) : C
   have eq4362 := Equation323_4321_4512_implies_Equation4362 G eq323 eq4321 eq4512
   exact ⟨eq1, eq307, eq323, eq3253, eq3306, eq4314, eq4320, eq4321, eq4343, eq4362, eq4512⟩
 
-theorem CC258_implied_by_long (G : Type*) [Magma G] : ConjunctionClass258_long G -> ConjunctionClass258 G :=
+theorem AT258_implied_by_long (G : Type*) [Magma G] : AssociativeTheory258_long G -> AssociativeTheory258 G :=
 fun ⟨_, _, h323, _, _, h4314, h4320, _, _, _, h4512⟩ => ⟨h323, h4314, h4320, h4512⟩
 
-theorem CC258_equiv (G : Type*) [Magma G] : ConjunctionClass258 G <-> ConjunctionClass258_long G :=
-Iff.intro (CC258_implies_long G) (CC258_implied_by_long G)
+theorem AT258_equiv (G : Type*) [Magma G] : AssociativeTheory258 G <-> AssociativeTheory258_long G :=
+Iff.intro (AT258_implies_long G) (AT258_implied_by_long G)
 
-theorem CC259_implies_long (G : Type*) [Magma G] (h : ConjunctionClass259 G) : ConjunctionClass259_long G := by
+theorem AT259_implies_long (G : Type*) [Magma G] (h : AssociativeTheory259 G) : AssociativeTheory259_long G := by
   obtain ⟨eq4268, eq4314, eq4320, eq4512⟩ := h
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
@@ -5445,63 +5445,63 @@ theorem CC259_implies_long (G : Type*) [Magma G] (h : ConjunctionClass259 G) : C
   have eq4293 := Equation4277_4512_implies_Equation4293 G eq4277 eq4512
   exact ⟨eq1, eq4268, eq4275, eq4276, eq4277, eq4293, eq4314, eq4320, eq4321, eq4343, eq4512⟩
 
-theorem CC259_implied_by_long (G : Type*) [Magma G] : ConjunctionClass259_long G -> ConjunctionClass259 G :=
+theorem AT259_implied_by_long (G : Type*) [Magma G] : AssociativeTheory259_long G -> AssociativeTheory259 G :=
 fun ⟨_, h4268, _, _, _, _, h4314, h4320, _, _, h4512⟩ => ⟨h4268, h4314, h4320, h4512⟩
 
-theorem CC259_equiv (G : Type*) [Magma G] : ConjunctionClass259 G <-> ConjunctionClass259_long G :=
-Iff.intro (CC259_implies_long G) (CC259_implied_by_long G)
+theorem AT259_equiv (G : Type*) [Magma G] : AssociativeTheory259 G <-> AssociativeTheory259_long G :=
+Iff.intro (AT259_implies_long G) (AT259_implied_by_long G)
 
-theorem CC260_implies_long (G : Type*) [Magma G] (h : ConjunctionClass260 G) : ConjunctionClass260_long G := by
+theorem AT260_implies_long (G : Type*) [Magma G] (h : AssociativeTheory260 G) : AssociativeTheory260_long G := by
   obtain ⟨eq4276, eq4314, eq4320, eq4512⟩ := h
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq4276, eq4314, eq4320, eq4321, eq4343, eq4512⟩
 
-theorem CC260_implied_by_long (G : Type*) [Magma G] : ConjunctionClass260_long G -> ConjunctionClass260 G :=
+theorem AT260_implied_by_long (G : Type*) [Magma G] : AssociativeTheory260_long G -> AssociativeTheory260 G :=
 fun ⟨_, h4276, h4314, h4320, _, _, h4512⟩ => ⟨h4276, h4314, h4320, h4512⟩
 
-theorem CC260_equiv (G : Type*) [Magma G] : ConjunctionClass260 G <-> ConjunctionClass260_long G :=
-Iff.intro (CC260_implies_long G) (CC260_implied_by_long G)
+theorem AT260_equiv (G : Type*) [Magma G] : AssociativeTheory260 G <-> AssociativeTheory260_long G :=
+Iff.intro (AT260_implies_long G) (AT260_implied_by_long G)
 
-theorem CC261_implies_long (G : Type*) [Magma G] (h : ConjunctionClass261 G) : ConjunctionClass261_long G := by
+theorem AT261_implies_long (G : Type*) [Magma G] (h : AssociativeTheory261 G) : AssociativeTheory261_long G := by
   obtain ⟨eq4293, eq4314, eq4320, eq4512⟩ := h
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq4293, eq4314, eq4320, eq4321, eq4343, eq4512⟩
 
-theorem CC261_implied_by_long (G : Type*) [Magma G] : ConjunctionClass261_long G -> ConjunctionClass261 G :=
+theorem AT261_implied_by_long (G : Type*) [Magma G] : AssociativeTheory261_long G -> AssociativeTheory261 G :=
 fun ⟨_, h4293, h4314, h4320, _, _, h4512⟩ => ⟨h4293, h4314, h4320, h4512⟩
 
-theorem CC261_equiv (G : Type*) [Magma G] : ConjunctionClass261 G <-> ConjunctionClass261_long G :=
-Iff.intro (CC261_implies_long G) (CC261_implied_by_long G)
+theorem AT261_equiv (G : Type*) [Magma G] : AssociativeTheory261 G <-> AssociativeTheory261_long G :=
+Iff.intro (AT261_implies_long G) (AT261_implied_by_long G)
 
-theorem CC262_implies_long (G : Type*) [Magma G] (h : ConjunctionClass262 G) : ConjunctionClass262_long G := by
+theorem AT262_implies_long (G : Type*) [Magma G] (h : AssociativeTheory262 G) : AssociativeTheory262_long G := by
   obtain ⟨eq4276, eq4293, eq4314, eq4320, eq4512⟩ := h
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
   have eq1 := Equation4320_4512_implies_Equation1 G eq4320 eq4512
   exact ⟨eq1, eq4276, eq4293, eq4314, eq4320, eq4321, eq4343, eq4512⟩
 
-theorem CC262_implied_by_long (G : Type*) [Magma G] : ConjunctionClass262_long G -> ConjunctionClass262 G :=
+theorem AT262_implied_by_long (G : Type*) [Magma G] : AssociativeTheory262_long G -> AssociativeTheory262 G :=
 fun ⟨_, h4276, h4293, h4314, h4320, _, _, h4512⟩ => ⟨h4276, h4293, h4314, h4320, h4512⟩
 
-theorem CC262_equiv (G : Type*) [Magma G] : ConjunctionClass262 G <-> ConjunctionClass262_long G :=
-Iff.intro (CC262_implies_long G) (CC262_implied_by_long G)
+theorem AT262_equiv (G : Type*) [Magma G] : AssociativeTheory262 G <-> AssociativeTheory262_long G :=
+Iff.intro (AT262_implies_long G) (AT262_implied_by_long G)
 
-theorem CC263_implies_long (G : Type*) [Magma G] (h : ConjunctionClass263 G) : ConjunctionClass263_long G := by
+theorem AT263_implies_long (G : Type*) [Magma G] (h : AssociativeTheory263 G) : AssociativeTheory263_long G := by
   obtain ⟨eq4321, eq4512⟩ := h
   have eq1 := Equation4321_4512_implies_Equation1 G eq4321 eq4512
   exact ⟨eq1, eq4321, eq4512⟩
 
-theorem CC263_implied_by_long (G : Type*) [Magma G] : ConjunctionClass263_long G -> ConjunctionClass263 G :=
+theorem AT263_implied_by_long (G : Type*) [Magma G] : AssociativeTheory263_long G -> AssociativeTheory263 G :=
 fun ⟨_, h4321, h4512⟩ => ⟨h4321, h4512⟩
 
-theorem CC263_equiv (G : Type*) [Magma G] : ConjunctionClass263 G <-> ConjunctionClass263_long G :=
-Iff.intro (CC263_implies_long G) (CC263_implied_by_long G)
+theorem AT263_equiv (G : Type*) [Magma G] : AssociativeTheory263 G <-> AssociativeTheory263_long G :=
+Iff.intro (AT263_implies_long G) (AT263_implied_by_long G)
 
-theorem CC264_implies_long (G : Type*) [Magma G] (h : ConjunctionClass264 G) : ConjunctionClass264_long G := by
+theorem AT264_implies_long (G : Type*) [Magma G] (h : AssociativeTheory264 G) : AssociativeTheory264_long G := by
   obtain ⟨eq40, eq4321, eq4512⟩ := h
   have eq3264 := Equation40_4321_4512_implies_Equation3264 G eq40 eq4321 eq4512
   have eq3275 := Equation40_3264_4512_implies_Equation3275 G eq40 eq3264 eq4512
@@ -5537,25 +5537,25 @@ theorem CC264_implies_long (G : Type*) [Magma G] (h : ConjunctionClass264 G) : C
   have eq4304 := Equation3275_4512_implies_Equation4304 G eq3275 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3261, eq3264, eq3271, eq3275, eq3278, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4321, eq4343, eq4512⟩
 
-theorem CC264_implied_by_long (G : Type*) [Magma G] : ConjunctionClass264_long G -> ConjunctionClass264 G :=
+theorem AT264_implied_by_long (G : Type*) [Magma G] : AssociativeTheory264_long G -> AssociativeTheory264 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4321, _, h4512⟩ => ⟨h40, h4321, h4512⟩
 
-theorem CC264_equiv (G : Type*) [Magma G] : ConjunctionClass264 G <-> ConjunctionClass264_long G :=
-Iff.intro (CC264_implies_long G) (CC264_implied_by_long G)
+theorem AT264_equiv (G : Type*) [Magma G] : AssociativeTheory264 G <-> AssociativeTheory264_long G :=
+Iff.intro (AT264_implies_long G) (AT264_implied_by_long G)
 
-theorem CC265_implies_long (G : Type*) [Magma G] (h : ConjunctionClass265 G) : ConjunctionClass265_long G := by
+theorem AT265_implies_long (G : Type*) [Magma G] (h : AssociativeTheory265 G) : AssociativeTheory265_long G := by
   obtain ⟨eq307, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4321, eq4512⟩
 
-theorem CC265_implied_by_long (G : Type*) [Magma G] : ConjunctionClass265_long G -> ConjunctionClass265 G :=
+theorem AT265_implied_by_long (G : Type*) [Magma G] : AssociativeTheory265_long G -> AssociativeTheory265 G :=
 fun ⟨_, h307, _, h4321, h4512⟩ => ⟨h307, h4321, h4512⟩
 
-theorem CC265_equiv (G : Type*) [Magma G] : ConjunctionClass265 G <-> ConjunctionClass265_long G :=
-Iff.intro (CC265_implies_long G) (CC265_implied_by_long G)
+theorem AT265_equiv (G : Type*) [Magma G] : AssociativeTheory265 G <-> AssociativeTheory265_long G :=
+Iff.intro (AT265_implies_long G) (AT265_implied_by_long G)
 
-theorem CC266_implies_long (G : Type*) [Magma G] (h : ConjunctionClass266 G) : ConjunctionClass266_long G := by
+theorem AT266_implies_long (G : Type*) [Magma G] (h : AssociativeTheory266 G) : AssociativeTheory266_long G := by
   obtain ⟨eq3260, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3260_4512_implies_Equation307 G eq3260 eq4512
@@ -5594,13 +5594,13 @@ theorem CC266_implies_long (G : Type*) [Magma G] (h : ConjunctionClass266 G) : C
   have eq3292 := Equation3273_4512_implies_Equation3292 G eq3273 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3271, eq3273, eq3275, eq3278, eq3292, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4321, eq4343, eq4512⟩
 
-theorem CC266_implied_by_long (G : Type*) [Magma G] : ConjunctionClass266_long G -> ConjunctionClass266 G :=
+theorem AT266_implied_by_long (G : Type*) [Magma G] : AssociativeTheory266_long G -> AssociativeTheory266 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, h3260, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4321, _, h4512⟩ => ⟨h3260, h4321, h4512⟩
 
-theorem CC266_equiv (G : Type*) [Magma G] : ConjunctionClass266 G <-> ConjunctionClass266_long G :=
-Iff.intro (CC266_implies_long G) (CC266_implied_by_long G)
+theorem AT266_equiv (G : Type*) [Magma G] : AssociativeTheory266 G <-> AssociativeTheory266_long G :=
+Iff.intro (AT266_implies_long G) (AT266_implied_by_long G)
 
-theorem CC267_implies_long (G : Type*) [Magma G] (h : ConjunctionClass267 G) : ConjunctionClass267_long G := by
+theorem AT267_implies_long (G : Type*) [Magma G] (h : AssociativeTheory267 G) : AssociativeTheory267_long G := by
   obtain ⟨eq3265, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3265_4512_implies_Equation307 G eq3265 eq4512
@@ -5639,13 +5639,13 @@ theorem CC267_implies_long (G : Type*) [Magma G] (h : ConjunctionClass267 G) : C
   have eq3274 := Equation3290_4512_implies_Equation3274 G eq3290 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3261, eq3264, eq3265, eq3271, eq3274, eq3275, eq3278, eq3290, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4321, eq4343, eq4512⟩
 
-theorem CC267_implied_by_long (G : Type*) [Magma G] : ConjunctionClass267_long G -> ConjunctionClass267 G :=
+theorem AT267_implied_by_long (G : Type*) [Magma G] : AssociativeTheory267_long G -> AssociativeTheory267 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3265, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4321, _, h4512⟩ => ⟨h3265, h4321, h4512⟩
 
-theorem CC267_equiv (G : Type*) [Magma G] : ConjunctionClass267 G <-> ConjunctionClass267_long G :=
-Iff.intro (CC267_implies_long G) (CC267_implied_by_long G)
+theorem AT267_equiv (G : Type*) [Magma G] : AssociativeTheory267 G <-> AssociativeTheory267_long G :=
+Iff.intro (AT267_implies_long G) (AT267_implied_by_long G)
 
-theorem CC268_implies_long (G : Type*) [Magma G] (h : ConjunctionClass268 G) : ConjunctionClass268_long G := by
+theorem AT268_implies_long (G : Type*) [Magma G] (h : AssociativeTheory268 G) : AssociativeTheory268_long G := by
   obtain ⟨eq3260, eq3265, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3265_4512_implies_Equation307 G eq3265 eq4512
@@ -5686,13 +5686,13 @@ theorem CC268_implies_long (G : Type*) [Magma G] (h : ConjunctionClass268 G) : C
   have eq3274 := Equation3290_4512_implies_Equation3274 G eq3290 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4321, eq4343, eq4512⟩
 
-theorem CC268_implied_by_long (G : Type*) [Magma G] : ConjunctionClass268_long G -> ConjunctionClass268 G :=
+theorem AT268_implied_by_long (G : Type*) [Magma G] : AssociativeTheory268_long G -> AssociativeTheory268 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, h3260, _, _, h3265, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4321, _, h4512⟩ => ⟨h3260, h3265, h4321, h4512⟩
 
-theorem CC268_equiv (G : Type*) [Magma G] : ConjunctionClass268 G <-> ConjunctionClass268_long G :=
-Iff.intro (CC268_implies_long G) (CC268_implied_by_long G)
+theorem AT268_equiv (G : Type*) [Magma G] : AssociativeTheory268 G <-> AssociativeTheory268_long G :=
+Iff.intro (AT268_implies_long G) (AT268_implied_by_long G)
 
-theorem CC269_implies_long (G : Type*) [Magma G] (h : ConjunctionClass269 G) : ConjunctionClass269_long G := by
+theorem AT269_implies_long (G : Type*) [Magma G] (h : AssociativeTheory269 G) : AssociativeTheory269_long G := by
   obtain ⟨eq3267, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3267_4512_implies_Equation307 G eq3267 eq4512
@@ -5737,13 +5737,13 @@ theorem CC269_implies_long (G : Type*) [Magma G] (h : ConjunctionClass269 G) : C
   have eq3300 := Equation3277_4512_implies_Equation3300 G eq3277 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4321, eq4343, eq4512⟩
 
-theorem CC269_implied_by_long (G : Type*) [Magma G] : ConjunctionClass269_long G -> ConjunctionClass269 G :=
+theorem AT269_implied_by_long (G : Type*) [Magma G] : AssociativeTheory269_long G -> AssociativeTheory269 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4321, _, h4512⟩ => ⟨h3267, h4321, h4512⟩
 
-theorem CC269_equiv (G : Type*) [Magma G] : ConjunctionClass269 G <-> ConjunctionClass269_long G :=
-Iff.intro (CC269_implies_long G) (CC269_implied_by_long G)
+theorem AT269_equiv (G : Type*) [Magma G] : AssociativeTheory269 G <-> AssociativeTheory269_long G :=
+Iff.intro (AT269_implies_long G) (AT269_implied_by_long G)
 
-theorem CC270_implies_long (G : Type*) [Magma G] (h : ConjunctionClass270 G) : ConjunctionClass270_long G := by
+theorem AT270_implies_long (G : Type*) [Magma G] (h : AssociativeTheory270 G) : AssociativeTheory270_long G := by
   obtain ⟨eq4268, eq4321, eq4512⟩ := h
   have eq4275 := Equation4268_4321_4512_implies_Equation4275 G eq4268 eq4321 eq4512
   have eq4277 := Equation4268_4275_4512_implies_Equation4277 G eq4268 eq4275 eq4512
@@ -5752,13 +5752,13 @@ theorem CC270_implies_long (G : Type*) [Magma G] (h : ConjunctionClass270 G) : C
   have eq4293 := Equation4277_4512_implies_Equation4293 G eq4277 eq4512
   exact ⟨eq1, eq4268, eq4275, eq4276, eq4277, eq4293, eq4321, eq4512⟩
 
-theorem CC270_implied_by_long (G : Type*) [Magma G] : ConjunctionClass270_long G -> ConjunctionClass270 G :=
+theorem AT270_implied_by_long (G : Type*) [Magma G] : AssociativeTheory270_long G -> AssociativeTheory270 G :=
 fun ⟨_, h4268, _, _, _, _, h4321, h4512⟩ => ⟨h4268, h4321, h4512⟩
 
-theorem CC270_equiv (G : Type*) [Magma G] : ConjunctionClass270 G <-> ConjunctionClass270_long G :=
-Iff.intro (CC270_implies_long G) (CC270_implied_by_long G)
+theorem AT270_equiv (G : Type*) [Magma G] : AssociativeTheory270 G <-> AssociativeTheory270_long G :=
+Iff.intro (AT270_implies_long G) (AT270_implied_by_long G)
 
-theorem CC271_implies_long (G : Type*) [Magma G] (h : ConjunctionClass271 G) : ConjunctionClass271_long G := by
+theorem AT271_implies_long (G : Type*) [Magma G] (h : AssociativeTheory271 G) : AssociativeTheory271_long G := by
   obtain ⟨eq4270, eq4321, eq4512⟩ := h
   have eq4272 := Equation4270_4321_4512_implies_Equation4272 G eq4270 eq4321 eq4512
   have eq4280 := Equation4270_4272_4512_implies_Equation4280 G eq4270 eq4272 eq4512
@@ -5767,13 +5767,13 @@ theorem CC271_implies_long (G : Type*) [Magma G] (h : ConjunctionClass271 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4270, eq4272, eq4276, eq4280, eq4321, eq4343, eq4512⟩
 
-theorem CC271_implied_by_long (G : Type*) [Magma G] : ConjunctionClass271_long G -> ConjunctionClass271 G :=
+theorem AT271_implied_by_long (G : Type*) [Magma G] : AssociativeTheory271_long G -> AssociativeTheory271 G :=
 fun ⟨_, h4270, _, _, _, h4321, _, h4512⟩ => ⟨h4270, h4321, h4512⟩
 
-theorem CC271_equiv (G : Type*) [Magma G] : ConjunctionClass271 G <-> ConjunctionClass271_long G :=
-Iff.intro (CC271_implies_long G) (CC271_implied_by_long G)
+theorem AT271_equiv (G : Type*) [Magma G] : AssociativeTheory271 G <-> AssociativeTheory271_long G :=
+Iff.intro (AT271_implies_long G) (AT271_implied_by_long G)
 
-theorem CC272_implies_long (G : Type*) [Magma G] (h : ConjunctionClass272 G) : ConjunctionClass272_long G := by
+theorem AT272_implies_long (G : Type*) [Magma G] (h : AssociativeTheory272 G) : AssociativeTheory272_long G := by
   obtain ⟨eq4268, eq4270, eq4321, eq4512⟩ := h
   have eq4275 := Equation4268_4321_4512_implies_Equation4275 G eq4268 eq4321 eq4512
   have eq4288 := Equation4268_4270_4512_implies_Equation4288 G eq4268 eq4270 eq4512
@@ -5791,35 +5791,35 @@ theorem CC272_implies_long (G : Type*) [Magma G] (h : ConjunctionClass272 G) : C
   have eq4343 := Equation4299_4512_implies_Equation4343 G eq4299 eq4512
   exact ⟨eq1, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4321, eq4343, eq4512⟩
 
-theorem CC272_implied_by_long (G : Type*) [Magma G] : ConjunctionClass272_long G -> ConjunctionClass272 G :=
+theorem AT272_implied_by_long (G : Type*) [Magma G] : AssociativeTheory272_long G -> AssociativeTheory272 G :=
 fun ⟨_, h4268, h4270, _, _, _, _, _, _, _, _, _, _, _, _, h4321, _, h4512⟩ => ⟨h4268, h4270, h4321, h4512⟩
 
-theorem CC272_equiv (G : Type*) [Magma G] : ConjunctionClass272 G <-> ConjunctionClass272_long G :=
-Iff.intro (CC272_implies_long G) (CC272_implied_by_long G)
+theorem AT272_equiv (G : Type*) [Magma G] : AssociativeTheory272 G <-> AssociativeTheory272_long G :=
+Iff.intro (AT272_implies_long G) (AT272_implied_by_long G)
 
-theorem CC273_implies_long (G : Type*) [Magma G] (h : ConjunctionClass273 G) : ConjunctionClass273_long G := by
+theorem AT273_implies_long (G : Type*) [Magma G] (h : AssociativeTheory273 G) : AssociativeTheory273_long G := by
   obtain ⟨eq4276, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4321, eq4512⟩
 
-theorem CC273_implied_by_long (G : Type*) [Magma G] : ConjunctionClass273_long G -> ConjunctionClass273 G :=
+theorem AT273_implied_by_long (G : Type*) [Magma G] : AssociativeTheory273_long G -> AssociativeTheory273 G :=
 fun ⟨_, h4276, h4321, h4512⟩ => ⟨h4276, h4321, h4512⟩
 
-theorem CC273_equiv (G : Type*) [Magma G] : ConjunctionClass273 G <-> ConjunctionClass273_long G :=
-Iff.intro (CC273_implies_long G) (CC273_implied_by_long G)
+theorem AT273_equiv (G : Type*) [Magma G] : AssociativeTheory273 G <-> AssociativeTheory273_long G :=
+Iff.intro (AT273_implies_long G) (AT273_implied_by_long G)
 
-theorem CC274_implies_long (G : Type*) [Magma G] (h : ConjunctionClass274 G) : ConjunctionClass274_long G := by
+theorem AT274_implies_long (G : Type*) [Magma G] (h : AssociativeTheory274 G) : AssociativeTheory274_long G := by
   obtain ⟨eq4284, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4284, eq4321, eq4512⟩
 
-theorem CC274_implied_by_long (G : Type*) [Magma G] : ConjunctionClass274_long G -> ConjunctionClass274 G :=
+theorem AT274_implied_by_long (G : Type*) [Magma G] : AssociativeTheory274_long G -> AssociativeTheory274 G :=
 fun ⟨_, h4284, h4321, h4512⟩ => ⟨h4284, h4321, h4512⟩
 
-theorem CC274_equiv (G : Type*) [Magma G] : ConjunctionClass274 G <-> ConjunctionClass274_long G :=
-Iff.intro (CC274_implies_long G) (CC274_implied_by_long G)
+theorem AT274_equiv (G : Type*) [Magma G] : AssociativeTheory274 G <-> AssociativeTheory274_long G :=
+Iff.intro (AT274_implies_long G) (AT274_implied_by_long G)
 
-theorem CC275_implies_long (G : Type*) [Magma G] (h : ConjunctionClass275 G) : ConjunctionClass275_long G := by
+theorem AT275_implies_long (G : Type*) [Magma G] (h : AssociativeTheory275 G) : AssociativeTheory275_long G := by
   obtain ⟨eq307, eq4284, eq4321, eq4512⟩ := h
   have eq4293 := Equation307_4284_4321_4512_implies_Equation4293 G eq307 eq4284 eq4321 eq4512
   have eq4290 := Equation4284_4293_4512_implies_Equation4290 G eq4284 eq4293 eq4512
@@ -5828,95 +5828,95 @@ theorem CC275_implies_long (G : Type*) [Magma G] (h : ConjunctionClass275 G) : C
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   exact ⟨eq1, eq307, eq3253, eq4284, eq4290, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC275_implied_by_long (G : Type*) [Magma G] : ConjunctionClass275_long G -> ConjunctionClass275 G :=
+theorem AT275_implied_by_long (G : Type*) [Magma G] : AssociativeTheory275_long G -> AssociativeTheory275 G :=
 fun ⟨_, h307, _, h4284, _, _, h4321, _, h4512⟩ => ⟨h307, h4284, h4321, h4512⟩
 
-theorem CC275_equiv (G : Type*) [Magma G] : ConjunctionClass275 G <-> ConjunctionClass275_long G :=
-Iff.intro (CC275_implies_long G) (CC275_implied_by_long G)
+theorem AT275_equiv (G : Type*) [Magma G] : AssociativeTheory275 G <-> AssociativeTheory275_long G :=
+Iff.intro (AT275_implies_long G) (AT275_implied_by_long G)
 
-theorem CC276_implies_long (G : Type*) [Magma G] (h : ConjunctionClass276 G) : ConjunctionClass276_long G := by
+theorem AT276_implies_long (G : Type*) [Magma G] (h : AssociativeTheory276 G) : AssociativeTheory276_long G := by
   obtain ⟨eq4276, eq4284, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4284, eq4321, eq4512⟩
 
-theorem CC276_implied_by_long (G : Type*) [Magma G] : ConjunctionClass276_long G -> ConjunctionClass276 G :=
+theorem AT276_implied_by_long (G : Type*) [Magma G] : AssociativeTheory276_long G -> AssociativeTheory276 G :=
 fun ⟨_, h4276, h4284, h4321, h4512⟩ => ⟨h4276, h4284, h4321, h4512⟩
 
-theorem CC276_equiv (G : Type*) [Magma G] : ConjunctionClass276 G <-> ConjunctionClass276_long G :=
-Iff.intro (CC276_implies_long G) (CC276_implied_by_long G)
+theorem AT276_equiv (G : Type*) [Magma G] : AssociativeTheory276 G <-> AssociativeTheory276_long G :=
+Iff.intro (AT276_implies_long G) (AT276_implied_by_long G)
 
-theorem CC277_implies_long (G : Type*) [Magma G] (h : ConjunctionClass277 G) : ConjunctionClass277_long G := by
+theorem AT277_implies_long (G : Type*) [Magma G] (h : AssociativeTheory277 G) : AssociativeTheory277_long G := by
   obtain ⟨eq4290, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4290, eq4321, eq4512⟩
 
-theorem CC277_implied_by_long (G : Type*) [Magma G] : ConjunctionClass277_long G -> ConjunctionClass277 G :=
+theorem AT277_implied_by_long (G : Type*) [Magma G] : AssociativeTheory277_long G -> AssociativeTheory277 G :=
 fun ⟨_, h4290, h4321, h4512⟩ => ⟨h4290, h4321, h4512⟩
 
-theorem CC277_equiv (G : Type*) [Magma G] : ConjunctionClass277 G <-> ConjunctionClass277_long G :=
-Iff.intro (CC277_implies_long G) (CC277_implied_by_long G)
+theorem AT277_equiv (G : Type*) [Magma G] : AssociativeTheory277 G <-> AssociativeTheory277_long G :=
+Iff.intro (AT277_implies_long G) (AT277_implied_by_long G)
 
-theorem CC278_implies_long (G : Type*) [Magma G] (h : ConjunctionClass278 G) : ConjunctionClass278_long G := by
+theorem AT278_implies_long (G : Type*) [Magma G] (h : AssociativeTheory278 G) : AssociativeTheory278_long G := by
   obtain ⟨eq4276, eq4290, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4290, eq4321, eq4512⟩
 
-theorem CC278_implied_by_long (G : Type*) [Magma G] : ConjunctionClass278_long G -> ConjunctionClass278 G :=
+theorem AT278_implied_by_long (G : Type*) [Magma G] : AssociativeTheory278_long G -> AssociativeTheory278 G :=
 fun ⟨_, h4276, h4290, h4321, h4512⟩ => ⟨h4276, h4290, h4321, h4512⟩
 
-theorem CC278_equiv (G : Type*) [Magma G] : ConjunctionClass278 G <-> ConjunctionClass278_long G :=
-Iff.intro (CC278_implies_long G) (CC278_implied_by_long G)
+theorem AT278_equiv (G : Type*) [Magma G] : AssociativeTheory278 G <-> AssociativeTheory278_long G :=
+Iff.intro (AT278_implies_long G) (AT278_implied_by_long G)
 
-theorem CC279_implies_long (G : Type*) [Magma G] (h : ConjunctionClass279 G) : ConjunctionClass279_long G := by
+theorem AT279_implies_long (G : Type*) [Magma G] (h : AssociativeTheory279 G) : AssociativeTheory279_long G := by
   obtain ⟨eq4284, eq4290, eq4321, eq4512⟩ := h
   have eq4293 := Equation4284_4290_4512_implies_Equation4293 G eq4284 eq4290 eq4512
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4284, eq4290, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC279_implied_by_long (G : Type*) [Magma G] : ConjunctionClass279_long G -> ConjunctionClass279 G :=
+theorem AT279_implied_by_long (G : Type*) [Magma G] : AssociativeTheory279_long G -> AssociativeTheory279 G :=
 fun ⟨_, h4284, h4290, _, h4321, _, h4512⟩ => ⟨h4284, h4290, h4321, h4512⟩
 
-theorem CC279_equiv (G : Type*) [Magma G] : ConjunctionClass279 G <-> ConjunctionClass279_long G :=
-Iff.intro (CC279_implies_long G) (CC279_implied_by_long G)
+theorem AT279_equiv (G : Type*) [Magma G] : AssociativeTheory279 G <-> AssociativeTheory279_long G :=
+Iff.intro (AT279_implies_long G) (AT279_implied_by_long G)
 
-theorem CC280_implies_long (G : Type*) [Magma G] (h : ConjunctionClass280 G) : ConjunctionClass280_long G := by
+theorem AT280_implies_long (G : Type*) [Magma G] (h : AssociativeTheory280 G) : AssociativeTheory280_long G := by
   obtain ⟨eq4276, eq4284, eq4290, eq4321, eq4512⟩ := h
   have eq4293 := Equation4284_4290_4512_implies_Equation4293 G eq4284 eq4290 eq4512
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4284, eq4290, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC280_implied_by_long (G : Type*) [Magma G] : ConjunctionClass280_long G -> ConjunctionClass280 G :=
+theorem AT280_implied_by_long (G : Type*) [Magma G] : AssociativeTheory280_long G -> AssociativeTheory280 G :=
 fun ⟨_, h4276, h4284, h4290, _, h4321, _, h4512⟩ => ⟨h4276, h4284, h4290, h4321, h4512⟩
 
-theorem CC280_equiv (G : Type*) [Magma G] : ConjunctionClass280 G <-> ConjunctionClass280_long G :=
-Iff.intro (CC280_implies_long G) (CC280_implied_by_long G)
+theorem AT280_equiv (G : Type*) [Magma G] : AssociativeTheory280 G <-> AssociativeTheory280_long G :=
+Iff.intro (AT280_implies_long G) (AT280_implied_by_long G)
 
-theorem CC281_implies_long (G : Type*) [Magma G] (h : ConjunctionClass281 G) : ConjunctionClass281_long G := by
+theorem AT281_implies_long (G : Type*) [Magma G] (h : AssociativeTheory281 G) : AssociativeTheory281_long G := by
   obtain ⟨eq4293, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4293, eq4321, eq4512⟩
 
-theorem CC281_implied_by_long (G : Type*) [Magma G] : ConjunctionClass281_long G -> ConjunctionClass281 G :=
+theorem AT281_implied_by_long (G : Type*) [Magma G] : AssociativeTheory281_long G -> AssociativeTheory281 G :=
 fun ⟨_, h4293, h4321, h4512⟩ => ⟨h4293, h4321, h4512⟩
 
-theorem CC281_equiv (G : Type*) [Magma G] : ConjunctionClass281 G <-> ConjunctionClass281_long G :=
-Iff.intro (CC281_implies_long G) (CC281_implied_by_long G)
+theorem AT281_equiv (G : Type*) [Magma G] : AssociativeTheory281 G <-> AssociativeTheory281_long G :=
+Iff.intro (AT281_implies_long G) (AT281_implied_by_long G)
 
-theorem CC282_implies_long (G : Type*) [Magma G] (h : ConjunctionClass282 G) : ConjunctionClass282_long G := by
+theorem AT282_implies_long (G : Type*) [Magma G] (h : AssociativeTheory282 G) : AssociativeTheory282_long G := by
   obtain ⟨eq307, eq4293, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4293, eq4321, eq4512⟩
 
-theorem CC282_implied_by_long (G : Type*) [Magma G] : ConjunctionClass282_long G -> ConjunctionClass282 G :=
+theorem AT282_implied_by_long (G : Type*) [Magma G] : AssociativeTheory282_long G -> AssociativeTheory282 G :=
 fun ⟨_, h307, _, h4293, h4321, h4512⟩ => ⟨h307, h4293, h4321, h4512⟩
 
-theorem CC282_equiv (G : Type*) [Magma G] : ConjunctionClass282 G <-> ConjunctionClass282_long G :=
-Iff.intro (CC282_implies_long G) (CC282_implied_by_long G)
+theorem AT282_equiv (G : Type*) [Magma G] : AssociativeTheory282 G <-> AssociativeTheory282_long G :=
+Iff.intro (AT282_implies_long G) (AT282_implied_by_long G)
 
-theorem CC283_implies_long (G : Type*) [Magma G] (h : ConjunctionClass283 G) : ConjunctionClass283_long G := by
+theorem AT283_implies_long (G : Type*) [Magma G] (h : AssociativeTheory283 G) : AssociativeTheory283_long G := by
   obtain ⟨eq4270, eq4293, eq4321, eq4512⟩ := h
   have eq4272 := Equation4270_4321_4512_implies_Equation4272 G eq4270 eq4321 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -5925,47 +5925,47 @@ theorem CC283_implies_long (G : Type*) [Magma G] (h : ConjunctionClass283 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4270, eq4272, eq4276, eq4280, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC283_implied_by_long (G : Type*) [Magma G] : ConjunctionClass283_long G -> ConjunctionClass283 G :=
+theorem AT283_implied_by_long (G : Type*) [Magma G] : AssociativeTheory283_long G -> AssociativeTheory283 G :=
 fun ⟨_, h4270, _, _, _, h4293, h4321, _, h4512⟩ => ⟨h4270, h4293, h4321, h4512⟩
 
-theorem CC283_equiv (G : Type*) [Magma G] : ConjunctionClass283 G <-> ConjunctionClass283_long G :=
-Iff.intro (CC283_implies_long G) (CC283_implied_by_long G)
+theorem AT283_equiv (G : Type*) [Magma G] : AssociativeTheory283 G <-> AssociativeTheory283_long G :=
+Iff.intro (AT283_implies_long G) (AT283_implied_by_long G)
 
-theorem CC284_implies_long (G : Type*) [Magma G] (h : ConjunctionClass284 G) : ConjunctionClass284_long G := by
+theorem AT284_implies_long (G : Type*) [Magma G] (h : AssociativeTheory284 G) : AssociativeTheory284_long G := by
   obtain ⟨eq4276, eq4293, eq4321, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4293, eq4321, eq4512⟩
 
-theorem CC284_implied_by_long (G : Type*) [Magma G] : ConjunctionClass284_long G -> ConjunctionClass284 G :=
+theorem AT284_implied_by_long (G : Type*) [Magma G] : AssociativeTheory284_long G -> AssociativeTheory284 G :=
 fun ⟨_, h4276, h4293, h4321, h4512⟩ => ⟨h4276, h4293, h4321, h4512⟩
 
-theorem CC284_equiv (G : Type*) [Magma G] : ConjunctionClass284 G <-> ConjunctionClass284_long G :=
-Iff.intro (CC284_implies_long G) (CC284_implied_by_long G)
+theorem AT284_equiv (G : Type*) [Magma G] : AssociativeTheory284 G <-> AssociativeTheory284_long G :=
+Iff.intro (AT284_implies_long G) (AT284_implied_by_long G)
 
-theorem CC285_implies_long (G : Type*) [Magma G] (h : ConjunctionClass285 G) : ConjunctionClass285_long G := by
+theorem AT285_implies_long (G : Type*) [Magma G] (h : AssociativeTheory285 G) : AssociativeTheory285_long G := by
   obtain ⟨eq4343, eq4512⟩ := h
   have eq1 := Equation4343_4512_implies_Equation1 G eq4343 eq4512
   exact ⟨eq1, eq4343, eq4512⟩
 
-theorem CC285_implied_by_long (G : Type*) [Magma G] : ConjunctionClass285_long G -> ConjunctionClass285 G :=
+theorem AT285_implied_by_long (G : Type*) [Magma G] : AssociativeTheory285_long G -> AssociativeTheory285 G :=
 fun ⟨_, h4343, h4512⟩ => ⟨h4343, h4512⟩
 
-theorem CC285_equiv (G : Type*) [Magma G] : ConjunctionClass285 G <-> ConjunctionClass285_long G :=
-Iff.intro (CC285_implies_long G) (CC285_implied_by_long G)
+theorem AT285_equiv (G : Type*) [Magma G] : AssociativeTheory285 G <-> AssociativeTheory285_long G :=
+Iff.intro (AT285_implies_long G) (AT285_implied_by_long G)
 
-theorem CC286_implies_long (G : Type*) [Magma G] (h : ConjunctionClass286 G) : ConjunctionClass286_long G := by
+theorem AT286_implies_long (G : Type*) [Magma G] (h : AssociativeTheory286 G) : AssociativeTheory286_long G := by
   obtain ⟨eq307, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4343, eq4512⟩
 
-theorem CC286_implied_by_long (G : Type*) [Magma G] : ConjunctionClass286_long G -> ConjunctionClass286 G :=
+theorem AT286_implied_by_long (G : Type*) [Magma G] : AssociativeTheory286_long G -> AssociativeTheory286 G :=
 fun ⟨_, h307, _, h4343, h4512⟩ => ⟨h307, h4343, h4512⟩
 
-theorem CC286_equiv (G : Type*) [Magma G] : ConjunctionClass286 G <-> ConjunctionClass286_long G :=
-Iff.intro (CC286_implies_long G) (CC286_implied_by_long G)
+theorem AT286_equiv (G : Type*) [Magma G] : AssociativeTheory286 G <-> AssociativeTheory286_long G :=
+Iff.intro (AT286_implies_long G) (AT286_implied_by_long G)
 
-theorem CC287_implies_long (G : Type*) [Magma G] (h : ConjunctionClass287 G) : ConjunctionClass287_long G := by
+theorem AT287_implies_long (G : Type*) [Magma G] (h : AssociativeTheory287 G) : AssociativeTheory287_long G := by
   obtain ⟨eq4268, eq4343, eq4512⟩ := h
   have eq4275 := Equation4268_4343_4512_implies_Equation4275 G eq4268 eq4343 eq4512
   have eq4277 := Equation4268_4275_4512_implies_Equation4277 G eq4268 eq4275 eq4512
@@ -5974,13 +5974,13 @@ theorem CC287_implies_long (G : Type*) [Magma G] (h : ConjunctionClass287 G) : C
   have eq4293 := Equation4277_4512_implies_Equation4293 G eq4277 eq4512
   exact ⟨eq1, eq4268, eq4275, eq4276, eq4277, eq4293, eq4343, eq4512⟩
 
-theorem CC287_implied_by_long (G : Type*) [Magma G] : ConjunctionClass287_long G -> ConjunctionClass287 G :=
+theorem AT287_implied_by_long (G : Type*) [Magma G] : AssociativeTheory287_long G -> AssociativeTheory287 G :=
 fun ⟨_, h4268, _, _, _, _, h4343, h4512⟩ => ⟨h4268, h4343, h4512⟩
 
-theorem CC287_equiv (G : Type*) [Magma G] : ConjunctionClass287 G <-> ConjunctionClass287_long G :=
-Iff.intro (CC287_implies_long G) (CC287_implied_by_long G)
+theorem AT287_equiv (G : Type*) [Magma G] : AssociativeTheory287 G <-> AssociativeTheory287_long G :=
+Iff.intro (AT287_implies_long G) (AT287_implied_by_long G)
 
-theorem CC288_implies_long (G : Type*) [Magma G] (h : ConjunctionClass288 G) : ConjunctionClass288_long G := by
+theorem AT288_implies_long (G : Type*) [Magma G] (h : AssociativeTheory288 G) : AssociativeTheory288_long G := by
   obtain ⟨eq4269, eq4343, eq4512⟩ := h
   have eq4273 := Equation4269_4343_4512_implies_Equation4273 G eq4269 eq4343 eq4512
   have eq4279 := Equation4269_4273_4512_implies_Equation4279 G eq4269 eq4273 eq4512
@@ -5989,13 +5989,13 @@ theorem CC288_implies_long (G : Type*) [Magma G] (h : ConjunctionClass288 G) : C
   have eq4321 := Equation4279_4512_implies_Equation4321 G eq4279 eq4512
   exact ⟨eq1, eq4269, eq4273, eq4276, eq4279, eq4321, eq4343, eq4512⟩
 
-theorem CC288_implied_by_long (G : Type*) [Magma G] : ConjunctionClass288_long G -> ConjunctionClass288 G :=
+theorem AT288_implied_by_long (G : Type*) [Magma G] : AssociativeTheory288_long G -> AssociativeTheory288 G :=
 fun ⟨_, h4269, _, _, _, _, h4343, h4512⟩ => ⟨h4269, h4343, h4512⟩
 
-theorem CC288_equiv (G : Type*) [Magma G] : ConjunctionClass288 G <-> ConjunctionClass288_long G :=
-Iff.intro (CC288_implies_long G) (CC288_implied_by_long G)
+theorem AT288_equiv (G : Type*) [Magma G] : AssociativeTheory288 G <-> AssociativeTheory288_long G :=
+Iff.intro (AT288_implies_long G) (AT288_implied_by_long G)
 
-theorem CC289_implies_long (G : Type*) [Magma G] (h : ConjunctionClass289 G) : ConjunctionClass289_long G := by
+theorem AT289_implies_long (G : Type*) [Magma G] (h : AssociativeTheory289 G) : AssociativeTheory289_long G := by
   obtain ⟨eq4268, eq4269, eq4343, eq4512⟩ := h
   have eq4286 := Equation4268_4269_4512_implies_Equation4286 G eq4268 eq4269 eq4512
   have eq4275 := Equation4268_4343_4512_implies_Equation4275 G eq4268 eq4343 eq4512
@@ -6013,105 +6013,105 @@ theorem CC289_implies_long (G : Type*) [Magma G] (h : ConjunctionClass289 G) : C
   have eq4321 := Equation4301_4512_implies_Equation4321 G eq4301 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4273, eq4275, eq4276, eq4277, eq4279, eq4283, eq4286, eq4291, eq4293, eq4296, eq4301, eq4305, eq4321, eq4343, eq4512⟩
 
-theorem CC289_implied_by_long (G : Type*) [Magma G] : ConjunctionClass289_long G -> ConjunctionClass289 G :=
+theorem AT289_implied_by_long (G : Type*) [Magma G] : AssociativeTheory289_long G -> AssociativeTheory289 G :=
 fun ⟨_, h4268, h4269, _, _, _, _, _, _, _, _, _, _, _, _, _, h4343, h4512⟩ => ⟨h4268, h4269, h4343, h4512⟩
 
-theorem CC289_equiv (G : Type*) [Magma G] : ConjunctionClass289 G <-> ConjunctionClass289_long G :=
-Iff.intro (CC289_implies_long G) (CC289_implied_by_long G)
+theorem AT289_equiv (G : Type*) [Magma G] : AssociativeTheory289 G <-> AssociativeTheory289_long G :=
+Iff.intro (AT289_implies_long G) (AT289_implied_by_long G)
 
-theorem CC290_implies_long (G : Type*) [Magma G] (h : ConjunctionClass290 G) : ConjunctionClass290_long G := by
+theorem AT290_implies_long (G : Type*) [Magma G] (h : AssociativeTheory290 G) : AssociativeTheory290_long G := by
   obtain ⟨eq4276, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4343, eq4512⟩
 
-theorem CC290_implied_by_long (G : Type*) [Magma G] : ConjunctionClass290_long G -> ConjunctionClass290 G :=
+theorem AT290_implied_by_long (G : Type*) [Magma G] : AssociativeTheory290_long G -> AssociativeTheory290 G :=
 fun ⟨_, h4276, h4343, h4512⟩ => ⟨h4276, h4343, h4512⟩
 
-theorem CC290_equiv (G : Type*) [Magma G] : ConjunctionClass290 G <-> ConjunctionClass290_long G :=
-Iff.intro (CC290_implies_long G) (CC290_implied_by_long G)
+theorem AT290_equiv (G : Type*) [Magma G] : AssociativeTheory290 G <-> AssociativeTheory290_long G :=
+Iff.intro (AT290_implies_long G) (AT290_implied_by_long G)
 
-theorem CC291_implies_long (G : Type*) [Magma G] (h : ConjunctionClass291 G) : ConjunctionClass291_long G := by
+theorem AT291_implies_long (G : Type*) [Magma G] (h : AssociativeTheory291 G) : AssociativeTheory291_long G := by
   obtain ⟨eq4283, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4283, eq4343, eq4512⟩
 
-theorem CC291_implied_by_long (G : Type*) [Magma G] : ConjunctionClass291_long G -> ConjunctionClass291 G :=
+theorem AT291_implied_by_long (G : Type*) [Magma G] : AssociativeTheory291_long G -> AssociativeTheory291 G :=
 fun ⟨_, h4283, h4343, h4512⟩ => ⟨h4283, h4343, h4512⟩
 
-theorem CC291_equiv (G : Type*) [Magma G] : ConjunctionClass291 G <-> ConjunctionClass291_long G :=
-Iff.intro (CC291_implies_long G) (CC291_implied_by_long G)
+theorem AT291_equiv (G : Type*) [Magma G] : AssociativeTheory291 G <-> AssociativeTheory291_long G :=
+Iff.intro (AT291_implies_long G) (AT291_implied_by_long G)
 
-theorem CC292_implies_long (G : Type*) [Magma G] (h : ConjunctionClass292 G) : ConjunctionClass292_long G := by
+theorem AT292_implies_long (G : Type*) [Magma G] (h : AssociativeTheory292 G) : AssociativeTheory292_long G := by
   obtain ⟨eq4276, eq4283, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4283, eq4343, eq4512⟩
 
-theorem CC292_implied_by_long (G : Type*) [Magma G] : ConjunctionClass292_long G -> ConjunctionClass292 G :=
+theorem AT292_implied_by_long (G : Type*) [Magma G] : AssociativeTheory292_long G -> AssociativeTheory292 G :=
 fun ⟨_, h4276, h4283, h4343, h4512⟩ => ⟨h4276, h4283, h4343, h4512⟩
 
-theorem CC292_equiv (G : Type*) [Magma G] : ConjunctionClass292 G <-> ConjunctionClass292_long G :=
-Iff.intro (CC292_implies_long G) (CC292_implied_by_long G)
+theorem AT292_equiv (G : Type*) [Magma G] : AssociativeTheory292 G <-> AssociativeTheory292_long G :=
+Iff.intro (AT292_implies_long G) (AT292_implied_by_long G)
 
-theorem CC293_implies_long (G : Type*) [Magma G] (h : ConjunctionClass293 G) : ConjunctionClass293_long G := by
+theorem AT293_implies_long (G : Type*) [Magma G] (h : AssociativeTheory293 G) : AssociativeTheory293_long G := by
   obtain ⟨eq4291, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4291, eq4343, eq4512⟩
 
-theorem CC293_implied_by_long (G : Type*) [Magma G] : ConjunctionClass293_long G -> ConjunctionClass293 G :=
+theorem AT293_implied_by_long (G : Type*) [Magma G] : AssociativeTheory293_long G -> AssociativeTheory293 G :=
 fun ⟨_, h4291, h4343, h4512⟩ => ⟨h4291, h4343, h4512⟩
 
-theorem CC293_equiv (G : Type*) [Magma G] : ConjunctionClass293 G <-> ConjunctionClass293_long G :=
-Iff.intro (CC293_implies_long G) (CC293_implied_by_long G)
+theorem AT293_equiv (G : Type*) [Magma G] : AssociativeTheory293 G <-> AssociativeTheory293_long G :=
+Iff.intro (AT293_implies_long G) (AT293_implied_by_long G)
 
-theorem CC294_implies_long (G : Type*) [Magma G] (h : ConjunctionClass294 G) : ConjunctionClass294_long G := by
+theorem AT294_implies_long (G : Type*) [Magma G] (h : AssociativeTheory294 G) : AssociativeTheory294_long G := by
   obtain ⟨eq4276, eq4291, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4291, eq4343, eq4512⟩
 
-theorem CC294_implied_by_long (G : Type*) [Magma G] : ConjunctionClass294_long G -> ConjunctionClass294 G :=
+theorem AT294_implied_by_long (G : Type*) [Magma G] : AssociativeTheory294_long G -> AssociativeTheory294 G :=
 fun ⟨_, h4276, h4291, h4343, h4512⟩ => ⟨h4276, h4291, h4343, h4512⟩
 
-theorem CC294_equiv (G : Type*) [Magma G] : ConjunctionClass294 G <-> ConjunctionClass294_long G :=
-Iff.intro (CC294_implies_long G) (CC294_implied_by_long G)
+theorem AT294_equiv (G : Type*) [Magma G] : AssociativeTheory294 G <-> AssociativeTheory294_long G :=
+Iff.intro (AT294_implies_long G) (AT294_implied_by_long G)
 
-theorem CC295_implies_long (G : Type*) [Magma G] (h : ConjunctionClass295 G) : ConjunctionClass295_long G := by
+theorem AT295_implies_long (G : Type*) [Magma G] (h : AssociativeTheory295 G) : AssociativeTheory295_long G := by
   obtain ⟨eq4283, eq4291, eq4343, eq4512⟩ := h
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4283, eq4291, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC295_implied_by_long (G : Type*) [Magma G] : ConjunctionClass295_long G -> ConjunctionClass295 G :=
+theorem AT295_implied_by_long (G : Type*) [Magma G] : AssociativeTheory295_long G -> AssociativeTheory295 G :=
 fun ⟨_, h4283, h4291, _, _, h4343, h4512⟩ => ⟨h4283, h4291, h4343, h4512⟩
 
-theorem CC295_equiv (G : Type*) [Magma G] : ConjunctionClass295 G <-> ConjunctionClass295_long G :=
-Iff.intro (CC295_implies_long G) (CC295_implied_by_long G)
+theorem AT295_equiv (G : Type*) [Magma G] : AssociativeTheory295 G <-> AssociativeTheory295_long G :=
+Iff.intro (AT295_implies_long G) (AT295_implied_by_long G)
 
-theorem CC296_implies_long (G : Type*) [Magma G] (h : ConjunctionClass296 G) : ConjunctionClass296_long G := by
+theorem AT296_implies_long (G : Type*) [Magma G] (h : AssociativeTheory296 G) : AssociativeTheory296_long G := by
   obtain ⟨eq4276, eq4283, eq4291, eq4343, eq4512⟩ := h
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4283, eq4291, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC296_implied_by_long (G : Type*) [Magma G] : ConjunctionClass296_long G -> ConjunctionClass296 G :=
+theorem AT296_implied_by_long (G : Type*) [Magma G] : AssociativeTheory296_long G -> AssociativeTheory296 G :=
 fun ⟨_, h4276, h4283, h4291, _, _, h4343, h4512⟩ => ⟨h4276, h4283, h4291, h4343, h4512⟩
 
-theorem CC296_equiv (G : Type*) [Magma G] : ConjunctionClass296 G <-> ConjunctionClass296_long G :=
-Iff.intro (CC296_implies_long G) (CC296_implied_by_long G)
+theorem AT296_equiv (G : Type*) [Magma G] : AssociativeTheory296 G <-> AssociativeTheory296_long G :=
+Iff.intro (AT296_implies_long G) (AT296_implied_by_long G)
 
-theorem CC297_implies_long (G : Type*) [Magma G] (h : ConjunctionClass297 G) : ConjunctionClass297_long G := by
+theorem AT297_implies_long (G : Type*) [Magma G] (h : AssociativeTheory297 G) : AssociativeTheory297_long G := by
   obtain ⟨eq4293, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4293, eq4343, eq4512⟩
 
-theorem CC297_implied_by_long (G : Type*) [Magma G] : ConjunctionClass297_long G -> ConjunctionClass297 G :=
+theorem AT297_implied_by_long (G : Type*) [Magma G] : AssociativeTheory297_long G -> AssociativeTheory297 G :=
 fun ⟨_, h4293, h4343, h4512⟩ => ⟨h4293, h4343, h4512⟩
 
-theorem CC297_equiv (G : Type*) [Magma G] : ConjunctionClass297 G <-> ConjunctionClass297_long G :=
-Iff.intro (CC297_implies_long G) (CC297_implied_by_long G)
+theorem AT297_equiv (G : Type*) [Magma G] : AssociativeTheory297 G <-> AssociativeTheory297_long G :=
+Iff.intro (AT297_implies_long G) (AT297_implied_by_long G)
 
-theorem CC298_implies_long (G : Type*) [Magma G] (h : ConjunctionClass298 G) : ConjunctionClass298_long G := by
+theorem AT298_implies_long (G : Type*) [Magma G] (h : AssociativeTheory298 G) : AssociativeTheory298_long G := by
   obtain ⟨eq4269, eq4293, eq4343, eq4512⟩ := h
   have eq4273 := Equation4269_4293_4512_implies_Equation4273 G eq4269 eq4293 eq4512
   have eq1 := Equation4293_4512_implies_Equation1 G eq4293 eq4512
@@ -6120,47 +6120,47 @@ theorem CC298_implies_long (G : Type*) [Magma G] (h : ConjunctionClass298 G) : C
   have eq4321 := Equation4279_4512_implies_Equation4321 G eq4279 eq4512
   exact ⟨eq1, eq4269, eq4273, eq4276, eq4279, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC298_implied_by_long (G : Type*) [Magma G] : ConjunctionClass298_long G -> ConjunctionClass298 G :=
+theorem AT298_implied_by_long (G : Type*) [Magma G] : AssociativeTheory298_long G -> AssociativeTheory298 G :=
 fun ⟨_, h4269, _, _, _, h4293, _, h4343, h4512⟩ => ⟨h4269, h4293, h4343, h4512⟩
 
-theorem CC298_equiv (G : Type*) [Magma G] : ConjunctionClass298 G <-> ConjunctionClass298_long G :=
-Iff.intro (CC298_implies_long G) (CC298_implied_by_long G)
+theorem AT298_equiv (G : Type*) [Magma G] : AssociativeTheory298 G <-> AssociativeTheory298_long G :=
+Iff.intro (AT298_implies_long G) (AT298_implied_by_long G)
 
-theorem CC299_implies_long (G : Type*) [Magma G] (h : ConjunctionClass299 G) : ConjunctionClass299_long G := by
+theorem AT299_implies_long (G : Type*) [Magma G] (h : AssociativeTheory299 G) : AssociativeTheory299_long G := by
   obtain ⟨eq4276, eq4293, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4293, eq4343, eq4512⟩
 
-theorem CC299_implied_by_long (G : Type*) [Magma G] : ConjunctionClass299_long G -> ConjunctionClass299 G :=
+theorem AT299_implied_by_long (G : Type*) [Magma G] : AssociativeTheory299_long G -> AssociativeTheory299 G :=
 fun ⟨_, h4276, h4293, h4343, h4512⟩ => ⟨h4276, h4293, h4343, h4512⟩
 
-theorem CC299_equiv (G : Type*) [Magma G] : ConjunctionClass299 G <-> ConjunctionClass299_long G :=
-Iff.intro (CC299_implies_long G) (CC299_implied_by_long G)
+theorem AT299_equiv (G : Type*) [Magma G] : AssociativeTheory299 G <-> AssociativeTheory299_long G :=
+Iff.intro (AT299_implies_long G) (AT299_implied_by_long G)
 
-theorem CC300_implies_long (G : Type*) [Magma G] (h : ConjunctionClass300 G) : ConjunctionClass300_long G := by
+theorem AT300_implies_long (G : Type*) [Magma G] (h : AssociativeTheory300 G) : AssociativeTheory300_long G := by
   obtain ⟨eq4321, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4321, eq4343, eq4512⟩
 
-theorem CC300_implied_by_long (G : Type*) [Magma G] : ConjunctionClass300_long G -> ConjunctionClass300 G :=
+theorem AT300_implied_by_long (G : Type*) [Magma G] : AssociativeTheory300_long G -> AssociativeTheory300 G :=
 fun ⟨_, h4321, h4343, h4512⟩ => ⟨h4321, h4343, h4512⟩
 
-theorem CC300_equiv (G : Type*) [Magma G] : ConjunctionClass300 G <-> ConjunctionClass300_long G :=
-Iff.intro (CC300_implies_long G) (CC300_implied_by_long G)
+theorem AT300_equiv (G : Type*) [Magma G] : AssociativeTheory300 G <-> AssociativeTheory300_long G :=
+Iff.intro (AT300_implies_long G) (AT300_implied_by_long G)
 
-theorem CC301_implies_long (G : Type*) [Magma G] (h : ConjunctionClass301 G) : ConjunctionClass301_long G := by
+theorem AT301_implies_long (G : Type*) [Magma G] (h : AssociativeTheory301 G) : AssociativeTheory301_long G := by
   obtain ⟨eq307, eq4321, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4321, eq4343, eq4512⟩
 
-theorem CC301_implied_by_long (G : Type*) [Magma G] : ConjunctionClass301_long G -> ConjunctionClass301 G :=
+theorem AT301_implied_by_long (G : Type*) [Magma G] : AssociativeTheory301_long G -> AssociativeTheory301 G :=
 fun ⟨_, h307, _, h4321, h4343, h4512⟩ => ⟨h307, h4321, h4343, h4512⟩
 
-theorem CC301_equiv (G : Type*) [Magma G] : ConjunctionClass301 G <-> ConjunctionClass301_long G :=
-Iff.intro (CC301_implies_long G) (CC301_implied_by_long G)
+theorem AT301_equiv (G : Type*) [Magma G] : AssociativeTheory301 G <-> AssociativeTheory301_long G :=
+Iff.intro (AT301_implies_long G) (AT301_implied_by_long G)
 
-theorem CC302_implies_long (G : Type*) [Magma G] (h : ConjunctionClass302 G) : ConjunctionClass302_long G := by
+theorem AT302_implies_long (G : Type*) [Magma G] (h : AssociativeTheory302 G) : AssociativeTheory302_long G := by
   obtain ⟨eq4268, eq4321, eq4343, eq4512⟩ := h
   have eq4275 := Equation4268_4321_4512_implies_Equation4275 G eq4268 eq4321 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -6169,58 +6169,58 @@ theorem CC302_implies_long (G : Type*) [Magma G] (h : ConjunctionClass302 G) : C
   have eq4293 := Equation4277_4512_implies_Equation4293 G eq4277 eq4512
   exact ⟨eq1, eq4268, eq4275, eq4276, eq4277, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC302_implied_by_long (G : Type*) [Magma G] : ConjunctionClass302_long G -> ConjunctionClass302 G :=
+theorem AT302_implied_by_long (G : Type*) [Magma G] : AssociativeTheory302_long G -> AssociativeTheory302 G :=
 fun ⟨_, h4268, _, _, _, _, h4321, h4343, h4512⟩ => ⟨h4268, h4321, h4343, h4512⟩
 
-theorem CC302_equiv (G : Type*) [Magma G] : ConjunctionClass302 G <-> ConjunctionClass302_long G :=
-Iff.intro (CC302_implies_long G) (CC302_implied_by_long G)
+theorem AT302_equiv (G : Type*) [Magma G] : AssociativeTheory302 G <-> AssociativeTheory302_long G :=
+Iff.intro (AT302_implies_long G) (AT302_implied_by_long G)
 
-theorem CC303_implies_long (G : Type*) [Magma G] (h : ConjunctionClass303 G) : ConjunctionClass303_long G := by
+theorem AT303_implies_long (G : Type*) [Magma G] (h : AssociativeTheory303 G) : AssociativeTheory303_long G := by
   obtain ⟨eq4276, eq4321, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4321, eq4343, eq4512⟩
 
-theorem CC303_implied_by_long (G : Type*) [Magma G] : ConjunctionClass303_long G -> ConjunctionClass303 G :=
+theorem AT303_implied_by_long (G : Type*) [Magma G] : AssociativeTheory303_long G -> AssociativeTheory303 G :=
 fun ⟨_, h4276, h4321, h4343, h4512⟩ => ⟨h4276, h4321, h4343, h4512⟩
 
-theorem CC303_equiv (G : Type*) [Magma G] : ConjunctionClass303 G <-> ConjunctionClass303_long G :=
-Iff.intro (CC303_implies_long G) (CC303_implied_by_long G)
+theorem AT303_equiv (G : Type*) [Magma G] : AssociativeTheory303 G <-> AssociativeTheory303_long G :=
+Iff.intro (AT303_implies_long G) (AT303_implied_by_long G)
 
-theorem CC304_implies_long (G : Type*) [Magma G] (h : ConjunctionClass304 G) : ConjunctionClass304_long G := by
+theorem AT304_implies_long (G : Type*) [Magma G] (h : AssociativeTheory304 G) : AssociativeTheory304_long G := by
   obtain ⟨eq4293, eq4321, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC304_implied_by_long (G : Type*) [Magma G] : ConjunctionClass304_long G -> ConjunctionClass304 G :=
+theorem AT304_implied_by_long (G : Type*) [Magma G] : AssociativeTheory304_long G -> AssociativeTheory304 G :=
 fun ⟨_, h4293, h4321, h4343, h4512⟩ => ⟨h4293, h4321, h4343, h4512⟩
 
-theorem CC304_equiv (G : Type*) [Magma G] : ConjunctionClass304 G <-> ConjunctionClass304_long G :=
-Iff.intro (CC304_implies_long G) (CC304_implied_by_long G)
+theorem AT304_equiv (G : Type*) [Magma G] : AssociativeTheory304 G <-> AssociativeTheory304_long G :=
+Iff.intro (AT304_implies_long G) (AT304_implied_by_long G)
 
-theorem CC305_implies_long (G : Type*) [Magma G] (h : ConjunctionClass305 G) : ConjunctionClass305_long G := by
+theorem AT305_implies_long (G : Type*) [Magma G] (h : AssociativeTheory305 G) : AssociativeTheory305_long G := by
   obtain ⟨eq4276, eq4293, eq4321, eq4343, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   exact ⟨eq1, eq4276, eq4293, eq4321, eq4343, eq4512⟩
 
-theorem CC305_implied_by_long (G : Type*) [Magma G] : ConjunctionClass305_long G -> ConjunctionClass305 G :=
+theorem AT305_implied_by_long (G : Type*) [Magma G] : AssociativeTheory305_long G -> AssociativeTheory305 G :=
 fun ⟨_, h4276, h4293, h4321, h4343, h4512⟩ => ⟨h4276, h4293, h4321, h4343, h4512⟩
 
-theorem CC305_equiv (G : Type*) [Magma G] : ConjunctionClass305 G <-> ConjunctionClass305_long G :=
-Iff.intro (CC305_implies_long G) (CC305_implied_by_long G)
+theorem AT305_equiv (G : Type*) [Magma G] : AssociativeTheory305 G <-> AssociativeTheory305_long G :=
+Iff.intro (AT305_implies_long G) (AT305_implied_by_long G)
 
-theorem CC306_implies_long (G : Type*) [Magma G] (h : ConjunctionClass306 G) : ConjunctionClass306_long G := by
+theorem AT306_implies_long (G : Type*) [Magma G] (h : AssociativeTheory306 G) : AssociativeTheory306_long G := by
   obtain ⟨eq4358, eq4512⟩ := h
   have eq1 := Equation4358_4512_implies_Equation1 G eq4358 eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   exact ⟨eq1, eq4283, eq4358, eq4512⟩
 
-theorem CC306_implied_by_long (G : Type*) [Magma G] : ConjunctionClass306_long G -> ConjunctionClass306 G :=
+theorem AT306_implied_by_long (G : Type*) [Magma G] : AssociativeTheory306_long G -> AssociativeTheory306 G :=
 fun ⟨_, _, h4358, h4512⟩ => ⟨h4358, h4512⟩
 
-theorem CC306_equiv (G : Type*) [Magma G] : ConjunctionClass306 G <-> ConjunctionClass306_long G :=
-Iff.intro (CC306_implies_long G) (CC306_implied_by_long G)
+theorem AT306_equiv (G : Type*) [Magma G] : AssociativeTheory306 G <-> AssociativeTheory306_long G :=
+Iff.intro (AT306_implies_long G) (AT306_implied_by_long G)
 
-theorem CC307_implies_long (G : Type*) [Magma G] (h : ConjunctionClass307 G) : ConjunctionClass307_long G := by
+theorem AT307_implies_long (G : Type*) [Magma G] (h : AssociativeTheory307 G) : AssociativeTheory307_long G := by
   obtain ⟨eq3, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq8 := Equation3_4512_implies_Equation8 G eq3 eq4512
@@ -6242,13 +6242,13 @@ theorem CC307_implies_long (G : Type*) [Magma G] (h : ConjunctionClass307 G) : C
   have eq3315 := Equation3308_4512_implies_Equation3315 G eq3308 eq4512
   exact ⟨eq1, eq3, eq8, eq47, eq307, eq323, eq325, eq326, eq411, eq3253, eq3306, eq3308, eq3309, eq3315, eq3316, eq3319, eq4283, eq4284, eq4314, eq4358, eq4512⟩
 
-theorem CC307_implied_by_long (G : Type*) [Magma G] : ConjunctionClass307_long G -> ConjunctionClass307 G :=
+theorem AT307_implied_by_long (G : Type*) [Magma G] : AssociativeTheory307_long G -> AssociativeTheory307 G :=
 fun ⟨_, h3, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h3, h4358, h4512⟩
 
-theorem CC307_equiv (G : Type*) [Magma G] : ConjunctionClass307 G <-> ConjunctionClass307_long G :=
-Iff.intro (CC307_implies_long G) (CC307_implied_by_long G)
+theorem AT307_equiv (G : Type*) [Magma G] : AssociativeTheory307 G <-> AssociativeTheory307_long G :=
+Iff.intro (AT307_implies_long G) (AT307_implied_by_long G)
 
-theorem CC308_implies_long (G : Type*) [Magma G] (h : ConjunctionClass308 G) : ConjunctionClass308_long G := by
+theorem AT308_implies_long (G : Type*) [Magma G] (h : AssociativeTheory308 G) : AssociativeTheory308_long G := by
   obtain ⟨eq8, eq4358, eq4512⟩ := h
   have eq1 := Equation8_4512_implies_Equation1 G eq8 eq4512
   have eq411 := Equation8_4512_implies_Equation411 G eq8 eq4512
@@ -6260,13 +6260,13 @@ theorem CC308_implies_long (G : Type*) [Magma G] (h : ConjunctionClass308 G) : C
   have eq3315 := Equation3308_4512_implies_Equation3315 G eq3308 eq4512
   exact ⟨eq1, eq8, eq411, eq3253, eq3306, eq3308, eq3315, eq3319, eq4283, eq4358, eq4512⟩
 
-theorem CC308_implied_by_long (G : Type*) [Magma G] : ConjunctionClass308_long G -> ConjunctionClass308 G :=
+theorem AT308_implied_by_long (G : Type*) [Magma G] : AssociativeTheory308_long G -> AssociativeTheory308 G :=
 fun ⟨_, h8, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h8, h4358, h4512⟩
 
-theorem CC308_equiv (G : Type*) [Magma G] : ConjunctionClass308 G <-> ConjunctionClass308_long G :=
-Iff.intro (CC308_implies_long G) (CC308_implied_by_long G)
+theorem AT308_equiv (G : Type*) [Magma G] : AssociativeTheory308 G <-> AssociativeTheory308_long G :=
+Iff.intro (AT308_implies_long G) (AT308_implied_by_long G)
 
-theorem CC309_implies_long (G : Type*) [Magma G] (h : ConjunctionClass309 G) : ConjunctionClass309_long G := by
+theorem AT309_implies_long (G : Type*) [Magma G] (h : AssociativeTheory309 G) : AssociativeTheory309_long G := by
   obtain ⟨eq40, eq4358, eq4512⟩ := h
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
   have eq3253 := Equation40_4512_implies_Equation3253 G eq40 eq4512
@@ -6286,38 +6286,38 @@ theorem CC309_implies_long (G : Type*) [Magma G] (h : ConjunctionClass309 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq40, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4358, eq4512⟩
 
-theorem CC309_implied_by_long (G : Type*) [Magma G] : ConjunctionClass309_long G -> ConjunctionClass309 G :=
+theorem AT309_implied_by_long (G : Type*) [Magma G] : AssociativeTheory309_long G -> AssociativeTheory309 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h40, h4358, h4512⟩
 
-theorem CC309_equiv (G : Type*) [Magma G] : ConjunctionClass309 G <-> ConjunctionClass309_long G :=
-Iff.intro (CC309_implies_long G) (CC309_implied_by_long G)
+theorem AT309_equiv (G : Type*) [Magma G] : AssociativeTheory309 G <-> AssociativeTheory309_long G :=
+Iff.intro (AT309_implies_long G) (AT309_implied_by_long G)
 
-theorem CC310_implies_long (G : Type*) [Magma G] (h : ConjunctionClass310 G) : ConjunctionClass310_long G := by
+theorem AT310_implies_long (G : Type*) [Magma G] (h : AssociativeTheory310 G) : AssociativeTheory310_long G := by
   obtain ⟨eq47, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   exact ⟨eq1, eq47, eq4283, eq4358, eq4512⟩
 
-theorem CC310_implied_by_long (G : Type*) [Magma G] : ConjunctionClass310_long G -> ConjunctionClass310 G :=
+theorem AT310_implied_by_long (G : Type*) [Magma G] : AssociativeTheory310_long G -> AssociativeTheory310 G :=
 fun ⟨_, h47, _, h4358, h4512⟩ => ⟨h47, h4358, h4512⟩
 
-theorem CC310_equiv (G : Type*) [Magma G] : ConjunctionClass310 G <-> ConjunctionClass310_long G :=
-Iff.intro (CC310_implies_long G) (CC310_implied_by_long G)
+theorem AT310_equiv (G : Type*) [Magma G] : AssociativeTheory310 G <-> AssociativeTheory310_long G :=
+Iff.intro (AT310_implies_long G) (AT310_implied_by_long G)
 
-theorem CC311_implies_long (G : Type*) [Magma G] (h : ConjunctionClass311 G) : ConjunctionClass311_long G := by
+theorem AT311_implies_long (G : Type*) [Magma G] (h : AssociativeTheory311 G) : AssociativeTheory311_long G := by
   obtain ⟨eq307, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4358, eq4512⟩
 
-theorem CC311_implied_by_long (G : Type*) [Magma G] : ConjunctionClass311_long G -> ConjunctionClass311 G :=
+theorem AT311_implied_by_long (G : Type*) [Magma G] : AssociativeTheory311_long G -> AssociativeTheory311 G :=
 fun ⟨_, h307, _, _, h4358, h4512⟩ => ⟨h307, h4358, h4512⟩
 
-theorem CC311_equiv (G : Type*) [Magma G] : ConjunctionClass311 G <-> ConjunctionClass311_long G :=
-Iff.intro (CC311_implies_long G) (CC311_implied_by_long G)
+theorem AT311_equiv (G : Type*) [Magma G] : AssociativeTheory311 G <-> AssociativeTheory311_long G :=
+Iff.intro (AT311_implies_long G) (AT311_implied_by_long G)
 
-theorem CC312_implies_long (G : Type*) [Magma G] (h : ConjunctionClass312 G) : ConjunctionClass312_long G := by
+theorem AT312_implies_long (G : Type*) [Magma G] (h : AssociativeTheory312 G) : AssociativeTheory312_long G := by
   obtain ⟨eq40, eq307, eq4358, eq4512⟩ := h
   have eq316 := Equation40_307_4512_implies_Equation316 G eq40 eq307 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -6376,13 +6376,13 @@ theorem CC312_implies_long (G : Type*) [Magma G] (h : ConjunctionClass312 G) : C
   have eq3290 := Equation40_3265_4512_implies_Equation3290 G eq40 eq3265 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4512⟩
 
-theorem CC312_implied_by_long (G : Type*) [Magma G] : ConjunctionClass312_long G -> ConjunctionClass312 G :=
+theorem AT312_implied_by_long (G : Type*) [Magma G] : AssociativeTheory312_long G -> AssociativeTheory312 G :=
 fun ⟨_, h40, h307, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h40, h307, h4358, h4512⟩
 
-theorem CC312_equiv (G : Type*) [Magma G] : ConjunctionClass312 G <-> ConjunctionClass312_long G :=
-Iff.intro (CC312_implies_long G) (CC312_implied_by_long G)
+theorem AT312_equiv (G : Type*) [Magma G] : AssociativeTheory312 G <-> AssociativeTheory312_long G :=
+Iff.intro (AT312_implies_long G) (AT312_implied_by_long G)
 
-theorem CC313_implies_long (G : Type*) [Magma G] (h : ConjunctionClass313 G) : ConjunctionClass313_long G := by
+theorem AT313_implies_long (G : Type*) [Magma G] (h : AssociativeTheory313 G) : AssociativeTheory313_long G := by
   obtain ⟨eq308, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation308_4512_implies_Equation307 G eq308 eq4512
@@ -6408,13 +6408,13 @@ theorem CC313_implies_long (G : Type*) [Magma G] (h : ConjunctionClass313 G) : C
   have eq310 := Equation308_4284_4512_implies_Equation310 G eq308 eq4284 eq4512
   exact ⟨eq1, eq307, eq308, eq309, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq4268, eq4269, eq4270, eq4283, eq4284, eq4286, eq4288, eq4314, eq4318, eq4358, eq4512⟩
 
-theorem CC313_implied_by_long (G : Type*) [Magma G] : ConjunctionClass313_long G -> ConjunctionClass313 G :=
+theorem AT313_implied_by_long (G : Type*) [Magma G] : AssociativeTheory313_long G -> AssociativeTheory313 G :=
 fun ⟨_, _, h308, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h308, h4358, h4512⟩
 
-theorem CC313_equiv (G : Type*) [Magma G] : ConjunctionClass313 G <-> ConjunctionClass313_long G :=
-Iff.intro (CC313_implies_long G) (CC313_implied_by_long G)
+theorem AT313_equiv (G : Type*) [Magma G] : AssociativeTheory313 G <-> AssociativeTheory313_long G :=
+Iff.intro (AT313_implies_long G) (AT313_implied_by_long G)
 
-theorem CC314_implies_long (G : Type*) [Magma G] (h : ConjunctionClass314 G) : ConjunctionClass314_long G := by
+theorem AT314_implies_long (G : Type*) [Magma G] (h : AssociativeTheory314 G) : AssociativeTheory314_long G := by
   obtain ⟨eq323, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation323_4512_implies_Equation307 G eq323 eq4512
@@ -6432,13 +6432,13 @@ theorem CC314_implies_long (G : Type*) [Magma G] (h : ConjunctionClass314 G) : C
   have eq4284 := Equation4283_4314_4512_implies_Equation4284 G eq4283 eq4314 eq4512
   exact ⟨eq1, eq307, eq323, eq325, eq326, eq3253, eq3306, eq3308, eq3309, eq3315, eq3316, eq3319, eq4283, eq4284, eq4314, eq4358, eq4512⟩
 
-theorem CC314_implied_by_long (G : Type*) [Magma G] : ConjunctionClass314_long G -> ConjunctionClass314 G :=
+theorem AT314_implied_by_long (G : Type*) [Magma G] : AssociativeTheory314_long G -> AssociativeTheory314 G :=
 fun ⟨_, _, h323, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h323, h4358, h4512⟩
 
-theorem CC314_equiv (G : Type*) [Magma G] : ConjunctionClass314 G <-> ConjunctionClass314_long G :=
-Iff.intro (CC314_implies_long G) (CC314_implied_by_long G)
+theorem AT314_equiv (G : Type*) [Magma G] : AssociativeTheory314 G <-> AssociativeTheory314_long G :=
+Iff.intro (AT314_implies_long G) (AT314_implied_by_long G)
 
-theorem CC315_implies_long (G : Type*) [Magma G] (h : ConjunctionClass315 G) : ConjunctionClass315_long G := by
+theorem AT315_implies_long (G : Type*) [Magma G] (h : AssociativeTheory315 G) : AssociativeTheory315_long G := by
   obtain ⟨eq326, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation326_4512_implies_Equation307 G eq326 eq4512
@@ -6447,37 +6447,37 @@ theorem CC315_implies_long (G : Type*) [Magma G] (h : ConjunctionClass315 G) : C
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   exact ⟨eq1, eq307, eq326, eq3253, eq3319, eq4283, eq4358, eq4512⟩
 
-theorem CC315_implied_by_long (G : Type*) [Magma G] : ConjunctionClass315_long G -> ConjunctionClass315 G :=
+theorem AT315_implied_by_long (G : Type*) [Magma G] : AssociativeTheory315_long G -> AssociativeTheory315 G :=
 fun ⟨_, _, h326, _, _, _, h4358, h4512⟩ => ⟨h326, h4358, h4512⟩
 
-theorem CC315_equiv (G : Type*) [Magma G] : ConjunctionClass315 G <-> ConjunctionClass315_long G :=
-Iff.intro (CC315_implies_long G) (CC315_implied_by_long G)
+theorem AT315_equiv (G : Type*) [Magma G] : AssociativeTheory315 G <-> AssociativeTheory315_long G :=
+Iff.intro (AT315_implies_long G) (AT315_implied_by_long G)
 
-theorem CC316_implies_long (G : Type*) [Magma G] (h : ConjunctionClass316 G) : ConjunctionClass316_long G := by
+theorem AT316_implies_long (G : Type*) [Magma G] (h : AssociativeTheory316 G) : AssociativeTheory316_long G := by
   obtain ⟨eq411, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   exact ⟨eq1, eq411, eq4283, eq4358, eq4512⟩
 
-theorem CC316_implied_by_long (G : Type*) [Magma G] : ConjunctionClass316_long G -> ConjunctionClass316 G :=
+theorem AT316_implied_by_long (G : Type*) [Magma G] : AssociativeTheory316_long G -> AssociativeTheory316 G :=
 fun ⟨_, h411, _, h4358, h4512⟩ => ⟨h411, h4358, h4512⟩
 
-theorem CC316_equiv (G : Type*) [Magma G] : ConjunctionClass316 G <-> ConjunctionClass316_long G :=
-Iff.intro (CC316_implies_long G) (CC316_implied_by_long G)
+theorem AT316_equiv (G : Type*) [Magma G] : AssociativeTheory316 G <-> AssociativeTheory316_long G :=
+Iff.intro (AT316_implies_long G) (AT316_implied_by_long G)
 
-theorem CC317_implies_long (G : Type*) [Magma G] (h : ConjunctionClass317 G) : ConjunctionClass317_long G := by
+theorem AT317_implies_long (G : Type*) [Magma G] (h : AssociativeTheory317 G) : AssociativeTheory317_long G := by
   obtain ⟨eq3253, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   exact ⟨eq1, eq3253, eq4283, eq4358, eq4512⟩
 
-theorem CC317_implied_by_long (G : Type*) [Magma G] : ConjunctionClass317_long G -> ConjunctionClass317 G :=
+theorem AT317_implied_by_long (G : Type*) [Magma G] : AssociativeTheory317_long G -> AssociativeTheory317 G :=
 fun ⟨_, h3253, _, h4358, h4512⟩ => ⟨h3253, h4358, h4512⟩
 
-theorem CC317_equiv (G : Type*) [Magma G] : ConjunctionClass317 G <-> ConjunctionClass317_long G :=
-Iff.intro (CC317_implies_long G) (CC317_implied_by_long G)
+theorem AT317_equiv (G : Type*) [Magma G] : AssociativeTheory317 G <-> AssociativeTheory317_long G :=
+Iff.intro (AT317_implies_long G) (AT317_implied_by_long G)
 
-theorem CC318_implies_long (G : Type*) [Magma G] (h : ConjunctionClass318 G) : ConjunctionClass318_long G := by
+theorem AT318_implies_long (G : Type*) [Magma G] (h : AssociativeTheory318 G) : AssociativeTheory318_long G := by
   obtain ⟨eq3256, eq4358, eq4512⟩ := h
   have eq1 := Equation3256_4512_implies_Equation1 G eq3256 eq4512
   have eq3253 := Equation3256_4512_implies_Equation3253 G eq3256 eq4512
@@ -6487,13 +6487,13 @@ theorem CC318_implies_long (G : Type*) [Magma G] (h : ConjunctionClass318 G) : C
   have eq4270 := Equation3259_4512_implies_Equation4270 G eq3259 eq4512
   exact ⟨eq1, eq3253, eq3256, eq3259, eq3261, eq4270, eq4283, eq4358, eq4512⟩
 
-theorem CC318_implied_by_long (G : Type*) [Magma G] : ConjunctionClass318_long G -> ConjunctionClass318 G :=
+theorem AT318_implied_by_long (G : Type*) [Magma G] : AssociativeTheory318_long G -> AssociativeTheory318 G :=
 fun ⟨_, _, h3256, _, _, _, _, h4358, h4512⟩ => ⟨h3256, h4358, h4512⟩
 
-theorem CC318_equiv (G : Type*) [Magma G] : ConjunctionClass318 G <-> ConjunctionClass318_long G :=
-Iff.intro (CC318_implies_long G) (CC318_implied_by_long G)
+theorem AT318_equiv (G : Type*) [Magma G] : AssociativeTheory318 G <-> AssociativeTheory318_long G :=
+Iff.intro (AT318_implies_long G) (AT318_implied_by_long G)
 
-theorem CC319_implies_long (G : Type*) [Magma G] (h : ConjunctionClass319 G) : ConjunctionClass319_long G := by
+theorem AT319_implies_long (G : Type*) [Magma G] (h : AssociativeTheory319 G) : AssociativeTheory319_long G := by
   obtain ⟨eq3267, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3267_4512_implies_Equation307 G eq3267 eq4512
@@ -6520,13 +6520,13 @@ theorem CC319_implies_long (G : Type*) [Magma G] (h : ConjunctionClass319 G) : C
   have eq309 := Equation307_4269_4512_implies_Equation309 G eq307 eq4269 eq4512
   exact ⟨eq1, eq307, eq308, eq309, eq310, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq4268, eq4269, eq4270, eq4283, eq4284, eq4286, eq4288, eq4314, eq4318, eq4358, eq4512⟩
 
-theorem CC319_implied_by_long (G : Type*) [Magma G] : ConjunctionClass319_long G -> ConjunctionClass319 G :=
+theorem AT319_implied_by_long (G : Type*) [Magma G] : AssociativeTheory319_long G -> AssociativeTheory319 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h3267, h4358, h4512⟩
 
-theorem CC319_equiv (G : Type*) [Magma G] : ConjunctionClass319 G <-> ConjunctionClass319_long G :=
-Iff.intro (CC319_implies_long G) (CC319_implied_by_long G)
+theorem AT319_equiv (G : Type*) [Magma G] : AssociativeTheory319 G <-> AssociativeTheory319_long G :=
+Iff.intro (AT319_implies_long G) (AT319_implied_by_long G)
 
-theorem CC320_implies_long (G : Type*) [Magma G] (h : ConjunctionClass320 G) : ConjunctionClass320_long G := by
+theorem AT320_implies_long (G : Type*) [Magma G] (h : AssociativeTheory320 G) : AssociativeTheory320_long G := by
   obtain ⟨eq40, eq3267, eq4358, eq4512⟩ := h
   have eq3277 := Equation40_3267_4512_implies_Equation3277 G eq40 eq3267 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -6588,13 +6588,13 @@ theorem CC320_implies_long (G : Type*) [Magma G] (h : ConjunctionClass320 G) : C
   have eq313 := Equation40_309_4512_implies_Equation313 G eq40 eq309 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4512⟩
 
-theorem CC320_implied_by_long (G : Type*) [Magma G] : ConjunctionClass320_long G -> ConjunctionClass320 G :=
+theorem AT320_implied_by_long (G : Type*) [Magma G] : AssociativeTheory320_long G -> AssociativeTheory320 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h40, h3267, h4358, h4512⟩
 
-theorem CC320_equiv (G : Type*) [Magma G] : ConjunctionClass320 G <-> ConjunctionClass320_long G :=
-Iff.intro (CC320_implies_long G) (CC320_implied_by_long G)
+theorem AT320_equiv (G : Type*) [Magma G] : AssociativeTheory320 G <-> AssociativeTheory320_long G :=
+Iff.intro (AT320_implies_long G) (AT320_implied_by_long G)
 
-theorem CC321_implies_long (G : Type*) [Magma G] (h : ConjunctionClass321 G) : ConjunctionClass321_long G := by
+theorem AT321_implies_long (G : Type*) [Magma G] (h : AssociativeTheory321 G) : AssociativeTheory321_long G := by
   obtain ⟨eq3306, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation3306_4512_implies_Equation3253 G eq3306 eq4512
@@ -6604,26 +6604,26 @@ theorem CC321_implies_long (G : Type*) [Magma G] (h : ConjunctionClass321 G) : C
   have eq3319 := Equation3308_4512_implies_Equation3319 G eq3308 eq4512
   exact ⟨eq1, eq3253, eq3306, eq3308, eq3315, eq3319, eq4283, eq4358, eq4512⟩
 
-theorem CC321_implied_by_long (G : Type*) [Magma G] : ConjunctionClass321_long G -> ConjunctionClass321 G :=
+theorem AT321_implied_by_long (G : Type*) [Magma G] : AssociativeTheory321_long G -> AssociativeTheory321 G :=
 fun ⟨_, _, h3306, _, _, _, _, h4358, h4512⟩ => ⟨h3306, h4358, h4512⟩
 
-theorem CC321_equiv (G : Type*) [Magma G] : ConjunctionClass321 G <-> ConjunctionClass321_long G :=
-Iff.intro (CC321_implies_long G) (CC321_implied_by_long G)
+theorem AT321_equiv (G : Type*) [Magma G] : AssociativeTheory321 G <-> AssociativeTheory321_long G :=
+Iff.intro (AT321_implies_long G) (AT321_implied_by_long G)
 
-theorem CC322_implies_long (G : Type*) [Magma G] (h : ConjunctionClass322 G) : ConjunctionClass322_long G := by
+theorem AT322_implies_long (G : Type*) [Magma G] (h : AssociativeTheory322 G) : AssociativeTheory322_long G := by
   obtain ⟨eq3319, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   have eq3253 := Equation3319_4512_implies_Equation3253 G eq3319 eq4512
   exact ⟨eq1, eq3253, eq3319, eq4283, eq4358, eq4512⟩
 
-theorem CC322_implied_by_long (G : Type*) [Magma G] : ConjunctionClass322_long G -> ConjunctionClass322 G :=
+theorem AT322_implied_by_long (G : Type*) [Magma G] : AssociativeTheory322_long G -> AssociativeTheory322 G :=
 fun ⟨_, _, h3319, _, h4358, h4512⟩ => ⟨h3319, h4358, h4512⟩
 
-theorem CC322_equiv (G : Type*) [Magma G] : ConjunctionClass322 G <-> ConjunctionClass322_long G :=
-Iff.intro (CC322_implies_long G) (CC322_implied_by_long G)
+theorem AT322_equiv (G : Type*) [Magma G] : AssociativeTheory322 G <-> AssociativeTheory322_long G :=
+Iff.intro (AT322_implies_long G) (AT322_implied_by_long G)
 
-theorem CC323_implies_long (G : Type*) [Magma G] (h : ConjunctionClass323 G) : ConjunctionClass323_long G := by
+theorem AT323_implies_long (G : Type*) [Magma G] (h : AssociativeTheory323 G) : AssociativeTheory323_long G := by
   obtain ⟨eq4268, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
@@ -6631,25 +6631,25 @@ theorem CC323_implies_long (G : Type*) [Magma G] (h : ConjunctionClass323 G) : C
   have eq4286 := Equation4268_4269_4512_implies_Equation4286 G eq4268 eq4269 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4283, eq4286, eq4358, eq4512⟩
 
-theorem CC323_implied_by_long (G : Type*) [Magma G] : ConjunctionClass323_long G -> ConjunctionClass323 G :=
+theorem AT323_implied_by_long (G : Type*) [Magma G] : AssociativeTheory323_long G -> AssociativeTheory323 G :=
 fun ⟨_, h4268, _, _, _, h4358, h4512⟩ => ⟨h4268, h4358, h4512⟩
 
-theorem CC323_equiv (G : Type*) [Magma G] : ConjunctionClass323 G <-> ConjunctionClass323_long G :=
-Iff.intro (CC323_implies_long G) (CC323_implied_by_long G)
+theorem AT323_equiv (G : Type*) [Magma G] : AssociativeTheory323 G <-> AssociativeTheory323_long G :=
+Iff.intro (AT323_implies_long G) (AT323_implied_by_long G)
 
-theorem CC324_implies_long (G : Type*) [Magma G] (h : ConjunctionClass324 G) : ConjunctionClass324_long G := by
+theorem AT324_implies_long (G : Type*) [Magma G] (h : AssociativeTheory324 G) : AssociativeTheory324_long G := by
   obtain ⟨eq4270, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   exact ⟨eq1, eq4270, eq4283, eq4358, eq4512⟩
 
-theorem CC324_implied_by_long (G : Type*) [Magma G] : ConjunctionClass324_long G -> ConjunctionClass324 G :=
+theorem AT324_implied_by_long (G : Type*) [Magma G] : AssociativeTheory324_long G -> AssociativeTheory324 G :=
 fun ⟨_, h4270, _, h4358, h4512⟩ => ⟨h4270, h4358, h4512⟩
 
-theorem CC324_equiv (G : Type*) [Magma G] : ConjunctionClass324 G <-> ConjunctionClass324_long G :=
-Iff.intro (CC324_implies_long G) (CC324_implied_by_long G)
+theorem AT324_equiv (G : Type*) [Magma G] : AssociativeTheory324 G <-> AssociativeTheory324_long G :=
+Iff.intro (AT324_implies_long G) (AT324_implied_by_long G)
 
-theorem CC325_implies_long (G : Type*) [Magma G] (h : ConjunctionClass325 G) : ConjunctionClass325_long G := by
+theorem AT325_implies_long (G : Type*) [Magma G] (h : AssociativeTheory325 G) : AssociativeTheory325_long G := by
   obtain ⟨eq4268, eq4270, eq4358, eq4512⟩ := h
   have eq4288 := Equation4268_4270_4512_implies_Equation4288 G eq4268 eq4270 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -6661,13 +6661,13 @@ theorem CC325_implies_long (G : Type*) [Magma G] (h : ConjunctionClass325 G) : C
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4270, eq4283, eq4284, eq4286, eq4288, eq4314, eq4318, eq4358, eq4512⟩
 
-theorem CC325_implied_by_long (G : Type*) [Magma G] : ConjunctionClass325_long G -> ConjunctionClass325 G :=
+theorem AT325_implied_by_long (G : Type*) [Magma G] : AssociativeTheory325_long G -> AssociativeTheory325 G :=
 fun ⟨_, h4268, _, h4270, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h4268, h4270, h4358, h4512⟩
 
-theorem CC325_equiv (G : Type*) [Magma G] : ConjunctionClass325 G <-> ConjunctionClass325_long G :=
-Iff.intro (CC325_implies_long G) (CC325_implied_by_long G)
+theorem AT325_equiv (G : Type*) [Magma G] : AssociativeTheory325 G <-> AssociativeTheory325_long G :=
+Iff.intro (AT325_implies_long G) (AT325_implied_by_long G)
 
-theorem CC326_implies_long (G : Type*) [Magma G] (h : ConjunctionClass326 G) : ConjunctionClass326_long G := by
+theorem AT326_implies_long (G : Type*) [Magma G] (h : AssociativeTheory326 G) : AssociativeTheory326_long G := by
   obtain ⟨eq4272, eq4358, eq4512⟩ := h
   have eq1 := Equation4272_4512_implies_Equation1 G eq4272 eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
@@ -6677,13 +6677,13 @@ theorem CC326_implies_long (G : Type*) [Magma G] (h : ConjunctionClass326 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4270, eq4272, eq4276, eq4280, eq4283, eq4343, eq4358, eq4512⟩
 
-theorem CC326_implied_by_long (G : Type*) [Magma G] : ConjunctionClass326_long G -> ConjunctionClass326 G :=
+theorem AT326_implied_by_long (G : Type*) [Magma G] : AssociativeTheory326_long G -> AssociativeTheory326 G :=
 fun ⟨_, _, h4272, _, _, _, _, h4358, h4512⟩ => ⟨h4272, h4358, h4512⟩
 
-theorem CC326_equiv (G : Type*) [Magma G] : ConjunctionClass326 G <-> ConjunctionClass326_long G :=
-Iff.intro (CC326_implies_long G) (CC326_implied_by_long G)
+theorem AT326_equiv (G : Type*) [Magma G] : AssociativeTheory326 G <-> AssociativeTheory326_long G :=
+Iff.intro (AT326_implies_long G) (AT326_implied_by_long G)
 
-theorem CC327_implies_long (G : Type*) [Magma G] (h : ConjunctionClass327 G) : ConjunctionClass327_long G := by
+theorem AT327_implies_long (G : Type*) [Magma G] (h : AssociativeTheory327 G) : AssociativeTheory327_long G := by
   obtain ⟨eq4268, eq4272, eq4358, eq4512⟩ := h
   have eq4299 := Equation4268_4272_4512_implies_Equation4299 G eq4268 eq4272 eq4512
   have eq1 := Equation4272_4512_implies_Equation1 G eq4272 eq4512
@@ -6717,13 +6717,13 @@ theorem CC327_implies_long (G : Type*) [Magma G] (h : ConjunctionClass327 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4512⟩
 
-theorem CC327_implied_by_long (G : Type*) [Magma G] : ConjunctionClass327_long G -> ConjunctionClass327 G :=
+theorem AT327_implied_by_long (G : Type*) [Magma G] : AssociativeTheory327_long G -> AssociativeTheory327 G :=
 fun ⟨_, h4268, _, _, h4272, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h4268, h4272, h4358, h4512⟩
 
-theorem CC327_equiv (G : Type*) [Magma G] : ConjunctionClass327 G <-> ConjunctionClass327_long G :=
-Iff.intro (CC327_implies_long G) (CC327_implied_by_long G)
+theorem AT327_equiv (G : Type*) [Magma G] : AssociativeTheory327 G <-> AssociativeTheory327_long G :=
+Iff.intro (AT327_implies_long G) (AT327_implied_by_long G)
 
-theorem CC328_implies_long (G : Type*) [Magma G] (h : ConjunctionClass328 G) : ConjunctionClass328_long G := by
+theorem AT328_implies_long (G : Type*) [Magma G] (h : AssociativeTheory328 G) : AssociativeTheory328_long G := by
   obtain ⟨eq4273, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
@@ -6731,13 +6731,13 @@ theorem CC328_implies_long (G : Type*) [Magma G] (h : ConjunctionClass328 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq4273, eq4275, eq4283, eq4305, eq4358, eq4512⟩
 
-theorem CC328_implied_by_long (G : Type*) [Magma G] : ConjunctionClass328_long G -> ConjunctionClass328 G :=
+theorem AT328_implied_by_long (G : Type*) [Magma G] : AssociativeTheory328_long G -> AssociativeTheory328 G :=
 fun ⟨_, h4273, _, _, _, h4358, h4512⟩ => ⟨h4273, h4358, h4512⟩
 
-theorem CC328_equiv (G : Type*) [Magma G] : ConjunctionClass328 G <-> ConjunctionClass328_long G :=
-Iff.intro (CC328_implies_long G) (CC328_implied_by_long G)
+theorem AT328_equiv (G : Type*) [Magma G] : AssociativeTheory328 G <-> AssociativeTheory328_long G :=
+Iff.intro (AT328_implies_long G) (AT328_implied_by_long G)
 
-theorem CC329_implies_long (G : Type*) [Magma G] (h : ConjunctionClass329 G) : ConjunctionClass329_long G := by
+theorem AT329_implies_long (G : Type*) [Magma G] (h : AssociativeTheory329 G) : AssociativeTheory329_long G := by
   obtain ⟨eq4268, eq4273, eq4358, eq4512⟩ := h
   have eq4301 := Equation4268_4273_4512_implies_Equation4301 G eq4268 eq4273 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -6755,13 +6755,13 @@ theorem CC329_implies_long (G : Type*) [Magma G] (h : ConjunctionClass329 G) : C
   have eq4321 := Equation4301_4512_implies_Equation4321 G eq4301 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4273, eq4275, eq4276, eq4277, eq4279, eq4283, eq4286, eq4291, eq4293, eq4296, eq4301, eq4305, eq4321, eq4358, eq4512⟩
 
-theorem CC329_implied_by_long (G : Type*) [Magma G] : ConjunctionClass329_long G -> ConjunctionClass329 G :=
+theorem AT329_implied_by_long (G : Type*) [Magma G] : AssociativeTheory329_long G -> AssociativeTheory329 G :=
 fun ⟨_, h4268, _, h4273, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h4268, h4273, h4358, h4512⟩
 
-theorem CC329_equiv (G : Type*) [Magma G] : ConjunctionClass329 G <-> ConjunctionClass329_long G :=
-Iff.intro (CC329_implies_long G) (CC329_implied_by_long G)
+theorem AT329_equiv (G : Type*) [Magma G] : AssociativeTheory329 G <-> AssociativeTheory329_long G :=
+Iff.intro (AT329_implies_long G) (AT329_implied_by_long G)
 
-theorem CC330_implies_long (G : Type*) [Magma G] (h : ConjunctionClass330 G) : ConjunctionClass330_long G := by
+theorem AT330_implies_long (G : Type*) [Magma G] (h : AssociativeTheory330 G) : AssociativeTheory330_long G := by
   obtain ⟨eq4270, eq4273, eq4358, eq4512⟩ := h
   have eq4325 := Equation4270_4273_4512_implies_Equation4325 G eq4270 eq4273 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -6773,38 +6773,38 @@ theorem CC330_implies_long (G : Type*) [Magma G] (h : ConjunctionClass330 G) : C
   have eq4290 := Equation4283_4320_4512_implies_Equation4290 G eq4283 eq4320 eq4512
   exact ⟨eq1, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4358, eq4512⟩
 
-theorem CC330_implied_by_long (G : Type*) [Magma G] : ConjunctionClass330_long G -> ConjunctionClass330 G :=
+theorem AT330_implied_by_long (G : Type*) [Magma G] : AssociativeTheory330_long G -> AssociativeTheory330 G :=
 fun ⟨_, h4270, h4273, _, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h4270, h4273, h4358, h4512⟩
 
-theorem CC330_equiv (G : Type*) [Magma G] : ConjunctionClass330 G <-> ConjunctionClass330_long G :=
-Iff.intro (CC330_implies_long G) (CC330_implied_by_long G)
+theorem AT330_equiv (G : Type*) [Magma G] : AssociativeTheory330 G <-> AssociativeTheory330_long G :=
+Iff.intro (AT330_implies_long G) (AT330_implied_by_long G)
 
-theorem CC331_implies_long (G : Type*) [Magma G] (h : ConjunctionClass331 G) : ConjunctionClass331_long G := by
+theorem AT331_implies_long (G : Type*) [Magma G] (h : AssociativeTheory331 G) : AssociativeTheory331_long G := by
   obtain ⟨eq4276, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4358, eq4512⟩
 
-theorem CC331_implied_by_long (G : Type*) [Magma G] : ConjunctionClass331_long G -> ConjunctionClass331 G :=
+theorem AT331_implied_by_long (G : Type*) [Magma G] : AssociativeTheory331_long G -> AssociativeTheory331 G :=
 fun ⟨_, h4276, _, h4358, h4512⟩ => ⟨h4276, h4358, h4512⟩
 
-theorem CC331_equiv (G : Type*) [Magma G] : ConjunctionClass331 G <-> ConjunctionClass331_long G :=
-Iff.intro (CC331_implies_long G) (CC331_implied_by_long G)
+theorem AT331_equiv (G : Type*) [Magma G] : AssociativeTheory331 G <-> AssociativeTheory331_long G :=
+Iff.intro (AT331_implies_long G) (AT331_implied_by_long G)
 
-theorem CC332_implies_long (G : Type*) [Magma G] (h : ConjunctionClass332 G) : ConjunctionClass332_long G := by
+theorem AT332_implies_long (G : Type*) [Magma G] (h : AssociativeTheory332 G) : AssociativeTheory332_long G := by
   obtain ⟨eq4284, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   exact ⟨eq1, eq4283, eq4284, eq4314, eq4358, eq4512⟩
 
-theorem CC332_implied_by_long (G : Type*) [Magma G] : ConjunctionClass332_long G -> ConjunctionClass332 G :=
+theorem AT332_implied_by_long (G : Type*) [Magma G] : AssociativeTheory332_long G -> AssociativeTheory332 G :=
 fun ⟨_, _, h4284, _, h4358, h4512⟩ => ⟨h4284, h4358, h4512⟩
 
-theorem CC332_equiv (G : Type*) [Magma G] : ConjunctionClass332 G <-> ConjunctionClass332_long G :=
-Iff.intro (CC332_implies_long G) (CC332_implied_by_long G)
+theorem AT332_equiv (G : Type*) [Magma G] : AssociativeTheory332 G <-> AssociativeTheory332_long G :=
+Iff.intro (AT332_implies_long G) (AT332_implied_by_long G)
 
-theorem CC333_implies_long (G : Type*) [Magma G] (h : ConjunctionClass333 G) : ConjunctionClass333_long G := by
+theorem AT333_implies_long (G : Type*) [Magma G] (h : AssociativeTheory333 G) : AssociativeTheory333_long G := by
   obtain ⟨eq307, eq4284, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -6812,39 +6812,39 @@ theorem CC333_implies_long (G : Type*) [Magma G] (h : ConjunctionClass333 G) : C
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4284, eq4314, eq4358, eq4512⟩
 
-theorem CC333_implied_by_long (G : Type*) [Magma G] : ConjunctionClass333_long G -> ConjunctionClass333 G :=
+theorem AT333_implied_by_long (G : Type*) [Magma G] : AssociativeTheory333_long G -> AssociativeTheory333 G :=
 fun ⟨_, h307, _, _, h4284, _, h4358, h4512⟩ => ⟨h307, h4284, h4358, h4512⟩
 
-theorem CC333_equiv (G : Type*) [Magma G] : ConjunctionClass333 G <-> ConjunctionClass333_long G :=
-Iff.intro (CC333_implies_long G) (CC333_implied_by_long G)
+theorem AT333_equiv (G : Type*) [Magma G] : AssociativeTheory333 G <-> AssociativeTheory333_long G :=
+Iff.intro (AT333_implies_long G) (AT333_implied_by_long G)
 
-theorem CC334_implies_long (G : Type*) [Magma G] (h : ConjunctionClass334 G) : ConjunctionClass334_long G := by
+theorem AT334_implies_long (G : Type*) [Magma G] (h : AssociativeTheory334 G) : AssociativeTheory334_long G := by
   obtain ⟨eq4276, eq4284, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4284, eq4314, eq4358, eq4512⟩
 
-theorem CC334_implied_by_long (G : Type*) [Magma G] : ConjunctionClass334_long G -> ConjunctionClass334 G :=
+theorem AT334_implied_by_long (G : Type*) [Magma G] : AssociativeTheory334_long G -> AssociativeTheory334 G :=
 fun ⟨_, h4276, _, h4284, _, h4358, h4512⟩ => ⟨h4276, h4284, h4358, h4512⟩
 
-theorem CC334_equiv (G : Type*) [Magma G] : ConjunctionClass334 G <-> ConjunctionClass334_long G :=
-Iff.intro (CC334_implies_long G) (CC334_implied_by_long G)
+theorem AT334_equiv (G : Type*) [Magma G] : AssociativeTheory334 G <-> AssociativeTheory334_long G :=
+Iff.intro (AT334_implies_long G) (AT334_implied_by_long G)
 
-theorem CC335_implies_long (G : Type*) [Magma G] (h : ConjunctionClass335 G) : ConjunctionClass335_long G := by
+theorem AT335_implies_long (G : Type*) [Magma G] (h : AssociativeTheory335 G) : AssociativeTheory335_long G := by
   obtain ⟨eq4290, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   exact ⟨eq1, eq4283, eq4290, eq4320, eq4358, eq4512⟩
 
-theorem CC335_implied_by_long (G : Type*) [Magma G] : ConjunctionClass335_long G -> ConjunctionClass335 G :=
+theorem AT335_implied_by_long (G : Type*) [Magma G] : AssociativeTheory335_long G -> AssociativeTheory335 G :=
 fun ⟨_, _, h4290, _, h4358, h4512⟩ => ⟨h4290, h4358, h4512⟩
 
-theorem CC335_equiv (G : Type*) [Magma G] : ConjunctionClass335 G <-> ConjunctionClass335_long G :=
-Iff.intro (CC335_implies_long G) (CC335_implied_by_long G)
+theorem AT335_equiv (G : Type*) [Magma G] : AssociativeTheory335 G <-> AssociativeTheory335_long G :=
+Iff.intro (AT335_implies_long G) (AT335_implied_by_long G)
 
-theorem CC336_implies_long (G : Type*) [Magma G] (h : ConjunctionClass336 G) : ConjunctionClass336_long G := by
+theorem AT336_implies_long (G : Type*) [Magma G] (h : AssociativeTheory336 G) : AssociativeTheory336_long G := by
   obtain ⟨eq307, eq4290, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -6852,39 +6852,39 @@ theorem CC336_implies_long (G : Type*) [Magma G] (h : ConjunctionClass336 G) : C
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4290, eq4320, eq4358, eq4512⟩
 
-theorem CC336_implied_by_long (G : Type*) [Magma G] : ConjunctionClass336_long G -> ConjunctionClass336 G :=
+theorem AT336_implied_by_long (G : Type*) [Magma G] : AssociativeTheory336_long G -> AssociativeTheory336 G :=
 fun ⟨_, h307, _, _, h4290, _, h4358, h4512⟩ => ⟨h307, h4290, h4358, h4512⟩
 
-theorem CC336_equiv (G : Type*) [Magma G] : ConjunctionClass336 G <-> ConjunctionClass336_long G :=
-Iff.intro (CC336_implies_long G) (CC336_implied_by_long G)
+theorem AT336_equiv (G : Type*) [Magma G] : AssociativeTheory336 G <-> AssociativeTheory336_long G :=
+Iff.intro (AT336_implies_long G) (AT336_implied_by_long G)
 
-theorem CC337_implies_long (G : Type*) [Magma G] (h : ConjunctionClass337 G) : ConjunctionClass337_long G := by
+theorem AT337_implies_long (G : Type*) [Magma G] (h : AssociativeTheory337 G) : AssociativeTheory337_long G := by
   obtain ⟨eq3253, eq4290, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   exact ⟨eq1, eq3253, eq4283, eq4290, eq4320, eq4358, eq4512⟩
 
-theorem CC337_implied_by_long (G : Type*) [Magma G] : ConjunctionClass337_long G -> ConjunctionClass337 G :=
+theorem AT337_implied_by_long (G : Type*) [Magma G] : AssociativeTheory337_long G -> AssociativeTheory337 G :=
 fun ⟨_, h3253, _, h4290, _, h4358, h4512⟩ => ⟨h3253, h4290, h4358, h4512⟩
 
-theorem CC337_equiv (G : Type*) [Magma G] : ConjunctionClass337 G <-> ConjunctionClass337_long G :=
-Iff.intro (CC337_implies_long G) (CC337_implied_by_long G)
+theorem AT337_equiv (G : Type*) [Magma G] : AssociativeTheory337 G <-> AssociativeTheory337_long G :=
+Iff.intro (AT337_implies_long G) (AT337_implied_by_long G)
 
-theorem CC338_implies_long (G : Type*) [Magma G] (h : ConjunctionClass338 G) : ConjunctionClass338_long G := by
+theorem AT338_implies_long (G : Type*) [Magma G] (h : AssociativeTheory338 G) : AssociativeTheory338_long G := by
   obtain ⟨eq4276, eq4290, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4290, eq4320, eq4358, eq4512⟩
 
-theorem CC338_implied_by_long (G : Type*) [Magma G] : ConjunctionClass338_long G -> ConjunctionClass338 G :=
+theorem AT338_implied_by_long (G : Type*) [Magma G] : AssociativeTheory338_long G -> AssociativeTheory338 G :=
 fun ⟨_, h4276, _, h4290, _, h4358, h4512⟩ => ⟨h4276, h4290, h4358, h4512⟩
 
-theorem CC338_equiv (G : Type*) [Magma G] : ConjunctionClass338 G <-> ConjunctionClass338_long G :=
-Iff.intro (CC338_implies_long G) (CC338_implied_by_long G)
+theorem AT338_equiv (G : Type*) [Magma G] : AssociativeTheory338 G <-> AssociativeTheory338_long G :=
+Iff.intro (AT338_implies_long G) (AT338_implied_by_long G)
 
-theorem CC339_implies_long (G : Type*) [Magma G] (h : ConjunctionClass339 G) : ConjunctionClass339_long G := by
+theorem AT339_implies_long (G : Type*) [Magma G] (h : AssociativeTheory339 G) : AssociativeTheory339_long G := by
   obtain ⟨eq4284, eq4290, eq4358, eq4512⟩ := h
   have eq4293 := Equation4284_4290_4512_implies_Equation4293 G eq4284 eq4290 eq4512
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
@@ -6896,13 +6896,13 @@ theorem CC339_implies_long (G : Type*) [Magma G] (h : ConjunctionClass339 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4512⟩
 
-theorem CC339_implied_by_long (G : Type*) [Magma G] : ConjunctionClass339_long G -> ConjunctionClass339 G :=
+theorem AT339_implied_by_long (G : Type*) [Magma G] : AssociativeTheory339_long G -> AssociativeTheory339 G :=
 fun ⟨_, _, h4284, h4290, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h4284, h4290, h4358, h4512⟩
 
-theorem CC339_equiv (G : Type*) [Magma G] : ConjunctionClass339 G <-> ConjunctionClass339_long G :=
-Iff.intro (CC339_implies_long G) (CC339_implied_by_long G)
+theorem AT339_equiv (G : Type*) [Magma G] : AssociativeTheory339 G <-> AssociativeTheory339_long G :=
+Iff.intro (AT339_implies_long G) (AT339_implied_by_long G)
 
-theorem CC340_implies_long (G : Type*) [Magma G] (h : ConjunctionClass340 G) : ConjunctionClass340_long G := by
+theorem AT340_implies_long (G : Type*) [Magma G] (h : AssociativeTheory340 G) : AssociativeTheory340_long G := by
   obtain ⟨eq307, eq4284, eq4290, eq4358, eq4512⟩ := h
   have eq4293 := Equation4284_4290_4512_implies_Equation4293 G eq4284 eq4290 eq4512
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
@@ -6915,13 +6915,13 @@ theorem CC340_implies_long (G : Type*) [Magma G] (h : ConjunctionClass340 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4512⟩
 
-theorem CC340_implied_by_long (G : Type*) [Magma G] : ConjunctionClass340_long G -> ConjunctionClass340 G :=
+theorem AT340_implied_by_long (G : Type*) [Magma G] : AssociativeTheory340_long G -> AssociativeTheory340 G :=
 fun ⟨_, h307, _, _, h4284, h4290, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h307, h4284, h4290, h4358, h4512⟩
 
-theorem CC340_equiv (G : Type*) [Magma G] : ConjunctionClass340 G <-> ConjunctionClass340_long G :=
-Iff.intro (CC340_implies_long G) (CC340_implied_by_long G)
+theorem AT340_equiv (G : Type*) [Magma G] : AssociativeTheory340 G <-> AssociativeTheory340_long G :=
+Iff.intro (AT340_implies_long G) (AT340_implied_by_long G)
 
-theorem CC341_implies_long (G : Type*) [Magma G] (h : ConjunctionClass341 G) : ConjunctionClass341_long G := by
+theorem AT341_implies_long (G : Type*) [Magma G] (h : AssociativeTheory341 G) : AssociativeTheory341_long G := by
   obtain ⟨eq4276, eq4284, eq4290, eq4358, eq4512⟩ := h
   have eq4293 := Equation4284_4290_4512_implies_Equation4293 G eq4284 eq4290 eq4512
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
@@ -6933,13 +6933,13 @@ theorem CC341_implies_long (G : Type*) [Magma G] (h : ConjunctionClass341 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4512⟩
 
-theorem CC341_implied_by_long (G : Type*) [Magma G] : ConjunctionClass341_long G -> ConjunctionClass341 G :=
+theorem AT341_implied_by_long (G : Type*) [Magma G] : AssociativeTheory341_long G -> AssociativeTheory341 G :=
 fun ⟨_, h4276, _, h4284, h4290, _, _, _, _, _, _, h4358, h4512⟩ => ⟨h4276, h4284, h4290, h4358, h4512⟩
 
-theorem CC341_equiv (G : Type*) [Magma G] : ConjunctionClass341 G <-> ConjunctionClass341_long G :=
-Iff.intro (CC341_implies_long G) (CC341_implied_by_long G)
+theorem AT341_equiv (G : Type*) [Magma G] : AssociativeTheory341 G <-> AssociativeTheory341_long G :=
+Iff.intro (AT341_implies_long G) (AT341_implied_by_long G)
 
-theorem CC342_implies_long (G : Type*) [Magma G] (h : ConjunctionClass342 G) : ConjunctionClass342_long G := by
+theorem AT342_implies_long (G : Type*) [Magma G] (h : AssociativeTheory342 G) : AssociativeTheory342_long G := by
   obtain ⟨eq4291, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
@@ -6947,13 +6947,13 @@ theorem CC342_implies_long (G : Type*) [Magma G] (h : ConjunctionClass342 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq4283, eq4291, eq4293, eq4321, eq4358, eq4512⟩
 
-theorem CC342_implied_by_long (G : Type*) [Magma G] : ConjunctionClass342_long G -> ConjunctionClass342 G :=
+theorem AT342_implied_by_long (G : Type*) [Magma G] : AssociativeTheory342_long G -> AssociativeTheory342 G :=
 fun ⟨_, _, h4291, _, _, h4358, h4512⟩ => ⟨h4291, h4358, h4512⟩
 
-theorem CC342_equiv (G : Type*) [Magma G] : ConjunctionClass342 G <-> ConjunctionClass342_long G :=
-Iff.intro (CC342_implies_long G) (CC342_implied_by_long G)
+theorem AT342_equiv (G : Type*) [Magma G] : AssociativeTheory342 G <-> AssociativeTheory342_long G :=
+Iff.intro (AT342_implies_long G) (AT342_implied_by_long G)
 
-theorem CC343_implies_long (G : Type*) [Magma G] (h : ConjunctionClass343 G) : ConjunctionClass343_long G := by
+theorem AT343_implies_long (G : Type*) [Magma G] (h : AssociativeTheory343 G) : AssociativeTheory343_long G := by
   obtain ⟨eq307, eq4291, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -6962,13 +6962,13 @@ theorem CC343_implies_long (G : Type*) [Magma G] (h : ConjunctionClass343 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4291, eq4293, eq4321, eq4358, eq4512⟩
 
-theorem CC343_implied_by_long (G : Type*) [Magma G] : ConjunctionClass343_long G -> ConjunctionClass343 G :=
+theorem AT343_implied_by_long (G : Type*) [Magma G] : AssociativeTheory343_long G -> AssociativeTheory343 G :=
 fun ⟨_, h307, _, _, h4291, _, _, h4358, h4512⟩ => ⟨h307, h4291, h4358, h4512⟩
 
-theorem CC343_equiv (G : Type*) [Magma G] : ConjunctionClass343 G <-> ConjunctionClass343_long G :=
-Iff.intro (CC343_implies_long G) (CC343_implied_by_long G)
+theorem AT343_equiv (G : Type*) [Magma G] : AssociativeTheory343 G <-> AssociativeTheory343_long G :=
+Iff.intro (AT343_implies_long G) (AT343_implied_by_long G)
 
-theorem CC344_implies_long (G : Type*) [Magma G] (h : ConjunctionClass344 G) : ConjunctionClass344_long G := by
+theorem AT344_implies_long (G : Type*) [Magma G] (h : AssociativeTheory344 G) : AssociativeTheory344_long G := by
   obtain ⟨eq4270, eq4291, eq4358, eq4512⟩ := h
   have eq4272 := Equation4270_4291_4512_implies_Equation4272 G eq4270 eq4291 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -6980,13 +6980,13 @@ theorem CC344_implies_long (G : Type*) [Magma G] (h : ConjunctionClass344 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4270, eq4272, eq4276, eq4280, eq4283, eq4291, eq4293, eq4321, eq4343, eq4358, eq4512⟩
 
-theorem CC344_implied_by_long (G : Type*) [Magma G] : ConjunctionClass344_long G -> ConjunctionClass344 G :=
+theorem AT344_implied_by_long (G : Type*) [Magma G] : AssociativeTheory344_long G -> AssociativeTheory344 G :=
 fun ⟨_, h4270, _, _, _, _, h4291, _, _, _, h4358, h4512⟩ => ⟨h4270, h4291, h4358, h4512⟩
 
-theorem CC344_equiv (G : Type*) [Magma G] : ConjunctionClass344 G <-> ConjunctionClass344_long G :=
-Iff.intro (CC344_implies_long G) (CC344_implied_by_long G)
+theorem AT344_equiv (G : Type*) [Magma G] : AssociativeTheory344 G <-> AssociativeTheory344_long G :=
+Iff.intro (AT344_implies_long G) (AT344_implied_by_long G)
 
-theorem CC345_implies_long (G : Type*) [Magma G] (h : ConjunctionClass345 G) : ConjunctionClass345_long G := by
+theorem AT345_implies_long (G : Type*) [Magma G] (h : AssociativeTheory345 G) : AssociativeTheory345_long G := by
   obtain ⟨eq4276, eq4291, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
@@ -6994,25 +6994,25 @@ theorem CC345_implies_long (G : Type*) [Magma G] (h : ConjunctionClass345 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4291, eq4293, eq4321, eq4358, eq4512⟩
 
-theorem CC345_implied_by_long (G : Type*) [Magma G] : ConjunctionClass345_long G -> ConjunctionClass345 G :=
+theorem AT345_implied_by_long (G : Type*) [Magma G] : AssociativeTheory345_long G -> AssociativeTheory345 G :=
 fun ⟨_, h4276, _, h4291, _, _, h4358, h4512⟩ => ⟨h4276, h4291, h4358, h4512⟩
 
-theorem CC345_equiv (G : Type*) [Magma G] : ConjunctionClass345 G <-> ConjunctionClass345_long G :=
-Iff.intro (CC345_implies_long G) (CC345_implied_by_long G)
+theorem AT345_equiv (G : Type*) [Magma G] : AssociativeTheory345 G <-> AssociativeTheory345_long G :=
+Iff.intro (AT345_implies_long G) (AT345_implied_by_long G)
 
-theorem CC346_implies_long (G : Type*) [Magma G] (h : ConjunctionClass346 G) : ConjunctionClass346_long G := by
+theorem AT346_implies_long (G : Type*) [Magma G] (h : AssociativeTheory346 G) : AssociativeTheory346_long G := by
   obtain ⟨eq4343, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   exact ⟨eq1, eq4283, eq4343, eq4358, eq4512⟩
 
-theorem CC346_implied_by_long (G : Type*) [Magma G] : ConjunctionClass346_long G -> ConjunctionClass346 G :=
+theorem AT346_implied_by_long (G : Type*) [Magma G] : AssociativeTheory346_long G -> AssociativeTheory346 G :=
 fun ⟨_, _, h4343, h4358, h4512⟩ => ⟨h4343, h4358, h4512⟩
 
-theorem CC346_equiv (G : Type*) [Magma G] : ConjunctionClass346 G <-> ConjunctionClass346_long G :=
-Iff.intro (CC346_implies_long G) (CC346_implied_by_long G)
+theorem AT346_equiv (G : Type*) [Magma G] : AssociativeTheory346 G <-> AssociativeTheory346_long G :=
+Iff.intro (AT346_implies_long G) (AT346_implied_by_long G)
 
-theorem CC347_implies_long (G : Type*) [Magma G] (h : ConjunctionClass347 G) : ConjunctionClass347_long G := by
+theorem AT347_implies_long (G : Type*) [Magma G] (h : AssociativeTheory347 G) : AssociativeTheory347_long G := by
   obtain ⟨eq4268, eq4343, eq4358, eq4512⟩ := h
   have eq4275 := Equation4268_4343_4512_implies_Equation4275 G eq4268 eq4343 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -7031,25 +7031,25 @@ theorem CC347_implies_long (G : Type*) [Magma G] (h : ConjunctionClass347 G) : C
   have eq4321 := Equation4301_4512_implies_Equation4321 G eq4301 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4273, eq4275, eq4276, eq4277, eq4279, eq4283, eq4286, eq4291, eq4293, eq4296, eq4301, eq4305, eq4321, eq4343, eq4358, eq4512⟩
 
-theorem CC347_implied_by_long (G : Type*) [Magma G] : ConjunctionClass347_long G -> ConjunctionClass347 G :=
+theorem AT347_implied_by_long (G : Type*) [Magma G] : AssociativeTheory347_long G -> AssociativeTheory347 G :=
 fun ⟨_, h4268, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4343, h4358, h4512⟩ => ⟨h4268, h4343, h4358, h4512⟩
 
-theorem CC347_equiv (G : Type*) [Magma G] : ConjunctionClass347 G <-> ConjunctionClass347_long G :=
-Iff.intro (CC347_implies_long G) (CC347_implied_by_long G)
+theorem AT347_equiv (G : Type*) [Magma G] : AssociativeTheory347 G <-> AssociativeTheory347_long G :=
+Iff.intro (AT347_implies_long G) (AT347_implied_by_long G)
 
-theorem CC348_implies_long (G : Type*) [Magma G] (h : ConjunctionClass348 G) : ConjunctionClass348_long G := by
+theorem AT348_implies_long (G : Type*) [Magma G] (h : AssociativeTheory348 G) : AssociativeTheory348_long G := by
   obtain ⟨eq4276, eq4343, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4343, eq4358, eq4512⟩
 
-theorem CC348_implied_by_long (G : Type*) [Magma G] : ConjunctionClass348_long G -> ConjunctionClass348 G :=
+theorem AT348_implied_by_long (G : Type*) [Magma G] : AssociativeTheory348_long G -> AssociativeTheory348 G :=
 fun ⟨_, h4276, _, h4343, h4358, h4512⟩ => ⟨h4276, h4343, h4358, h4512⟩
 
-theorem CC348_equiv (G : Type*) [Magma G] : ConjunctionClass348 G <-> ConjunctionClass348_long G :=
-Iff.intro (CC348_implies_long G) (CC348_implied_by_long G)
+theorem AT348_equiv (G : Type*) [Magma G] : AssociativeTheory348 G <-> AssociativeTheory348_long G :=
+Iff.intro (AT348_implies_long G) (AT348_implied_by_long G)
 
-theorem CC349_implies_long (G : Type*) [Magma G] (h : ConjunctionClass349 G) : ConjunctionClass349_long G := by
+theorem AT349_implies_long (G : Type*) [Magma G] (h : AssociativeTheory349 G) : AssociativeTheory349_long G := by
   obtain ⟨eq4291, eq4343, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
@@ -7057,13 +7057,13 @@ theorem CC349_implies_long (G : Type*) [Magma G] (h : ConjunctionClass349 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq4283, eq4291, eq4293, eq4321, eq4343, eq4358, eq4512⟩
 
-theorem CC349_implied_by_long (G : Type*) [Magma G] : ConjunctionClass349_long G -> ConjunctionClass349 G :=
+theorem AT349_implied_by_long (G : Type*) [Magma G] : AssociativeTheory349_long G -> AssociativeTheory349 G :=
 fun ⟨_, _, h4291, _, _, h4343, h4358, h4512⟩ => ⟨h4291, h4343, h4358, h4512⟩
 
-theorem CC349_equiv (G : Type*) [Magma G] : ConjunctionClass349 G <-> ConjunctionClass349_long G :=
-Iff.intro (CC349_implies_long G) (CC349_implied_by_long G)
+theorem AT349_equiv (G : Type*) [Magma G] : AssociativeTheory349 G <-> AssociativeTheory349_long G :=
+Iff.intro (AT349_implies_long G) (AT349_implied_by_long G)
 
-theorem CC350_implies_long (G : Type*) [Magma G] (h : ConjunctionClass350 G) : ConjunctionClass350_long G := by
+theorem AT350_implies_long (G : Type*) [Magma G] (h : AssociativeTheory350 G) : AssociativeTheory350_long G := by
   obtain ⟨eq4276, eq4291, eq4343, eq4358, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4358_4512_implies_Equation4283 G eq4358 eq4512
@@ -7071,25 +7071,25 @@ theorem CC350_implies_long (G : Type*) [Magma G] (h : ConjunctionClass350 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4291, eq4293, eq4321, eq4343, eq4358, eq4512⟩
 
-theorem CC350_implied_by_long (G : Type*) [Magma G] : ConjunctionClass350_long G -> ConjunctionClass350 G :=
+theorem AT350_implied_by_long (G : Type*) [Magma G] : AssociativeTheory350_long G -> AssociativeTheory350 G :=
 fun ⟨_, h4276, _, h4291, _, _, h4343, h4358, h4512⟩ => ⟨h4276, h4291, h4343, h4358, h4512⟩
 
-theorem CC350_equiv (G : Type*) [Magma G] : ConjunctionClass350 G <-> ConjunctionClass350_long G :=
-Iff.intro (CC350_implies_long G) (CC350_implied_by_long G)
+theorem AT350_equiv (G : Type*) [Magma G] : AssociativeTheory350 G <-> AssociativeTheory350_long G :=
+Iff.intro (AT350_implies_long G) (AT350_implied_by_long G)
 
-theorem CC351_implies_long (G : Type*) [Magma G] (h : ConjunctionClass351 G) : ConjunctionClass351_long G := by
+theorem AT351_implies_long (G : Type*) [Magma G] (h : AssociativeTheory351 G) : AssociativeTheory351_long G := by
   obtain ⟨eq4362, eq4512⟩ := h
   have eq1 := Equation4362_4512_implies_Equation1 G eq4362 eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   exact ⟨eq1, eq4320, eq4362, eq4512⟩
 
-theorem CC351_implied_by_long (G : Type*) [Magma G] : ConjunctionClass351_long G -> ConjunctionClass351 G :=
+theorem AT351_implied_by_long (G : Type*) [Magma G] : AssociativeTheory351_long G -> AssociativeTheory351 G :=
 fun ⟨_, _, h4362, h4512⟩ => ⟨h4362, h4512⟩
 
-theorem CC351_equiv (G : Type*) [Magma G] : ConjunctionClass351 G <-> ConjunctionClass351_long G :=
-Iff.intro (CC351_implies_long G) (CC351_implied_by_long G)
+theorem AT351_equiv (G : Type*) [Magma G] : AssociativeTheory351 G <-> AssociativeTheory351_long G :=
+Iff.intro (AT351_implies_long G) (AT351_implied_by_long G)
 
-theorem CC352_implies_long (G : Type*) [Magma G] (h : ConjunctionClass352 G) : ConjunctionClass352_long G := by
+theorem AT352_implies_long (G : Type*) [Magma G] (h : AssociativeTheory352 G) : AssociativeTheory352_long G := by
   obtain ⟨eq3, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7111,13 +7111,13 @@ theorem CC352_implies_long (G : Type*) [Magma G] (h : ConjunctionClass352 G) : C
   have eq3353 := Equation3346_4512_implies_Equation3353 G eq3346 eq4512
   exact ⟨eq1, eq3, eq8, eq47, eq307, eq323, eq326, eq333, eq411, eq3253, eq3306, eq3309, eq3316, eq3319, eq3346, eq3353, eq4284, eq4291, eq4320, eq4362, eq4512⟩
 
-theorem CC352_implied_by_long (G : Type*) [Magma G] : ConjunctionClass352_long G -> ConjunctionClass352 G :=
+theorem AT352_implied_by_long (G : Type*) [Magma G] : AssociativeTheory352_long G -> AssociativeTheory352 G :=
 fun ⟨_, h3, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h3, h4362, h4512⟩
 
-theorem CC352_equiv (G : Type*) [Magma G] : ConjunctionClass352 G <-> ConjunctionClass352_long G :=
-Iff.intro (CC352_implies_long G) (CC352_implied_by_long G)
+theorem AT352_equiv (G : Type*) [Magma G] : AssociativeTheory352 G <-> AssociativeTheory352_long G :=
+Iff.intro (AT352_implies_long G) (AT352_implied_by_long G)
 
-theorem CC353_implies_long (G : Type*) [Magma G] (h : ConjunctionClass353 G) : ConjunctionClass353_long G := by
+theorem AT353_implies_long (G : Type*) [Magma G] (h : AssociativeTheory353 G) : AssociativeTheory353_long G := by
   obtain ⟨eq8, eq4362, eq4512⟩ := h
   have eq1 := Equation8_4512_implies_Equation1 G eq8 eq4512
   have eq411 := Equation8_4512_implies_Equation411 G eq8 eq4512
@@ -7129,13 +7129,13 @@ theorem CC353_implies_long (G : Type*) [Magma G] (h : ConjunctionClass353 G) : C
   have eq3353 := Equation3346_4512_implies_Equation3353 G eq3346 eq4512
   exact ⟨eq1, eq8, eq411, eq3253, eq3306, eq3319, eq3346, eq3353, eq4320, eq4362, eq4512⟩
 
-theorem CC353_implied_by_long (G : Type*) [Magma G] : ConjunctionClass353_long G -> ConjunctionClass353 G :=
+theorem AT353_implied_by_long (G : Type*) [Magma G] : AssociativeTheory353_long G -> AssociativeTheory353 G :=
 fun ⟨_, h8, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h8, h4362, h4512⟩
 
-theorem CC353_equiv (G : Type*) [Magma G] : ConjunctionClass353 G <-> ConjunctionClass353_long G :=
-Iff.intro (CC353_implies_long G) (CC353_implied_by_long G)
+theorem AT353_equiv (G : Type*) [Magma G] : AssociativeTheory353 G <-> AssociativeTheory353_long G :=
+Iff.intro (AT353_implies_long G) (AT353_implied_by_long G)
 
-theorem CC354_implies_long (G : Type*) [Magma G] (h : ConjunctionClass354 G) : ConjunctionClass354_long G := by
+theorem AT354_implies_long (G : Type*) [Magma G] (h : AssociativeTheory354 G) : AssociativeTheory354_long G := by
   obtain ⟨eq40, eq4362, eq4512⟩ := h
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
   have eq3253 := Equation40_4512_implies_Equation3253 G eq40 eq4512
@@ -7155,38 +7155,38 @@ theorem CC354_implies_long (G : Type*) [Magma G] (h : ConjunctionClass354 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq40, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4362, eq4512⟩
 
-theorem CC354_implied_by_long (G : Type*) [Magma G] : ConjunctionClass354_long G -> ConjunctionClass354 G :=
+theorem AT354_implied_by_long (G : Type*) [Magma G] : AssociativeTheory354_long G -> AssociativeTheory354 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h40, h4362, h4512⟩
 
-theorem CC354_equiv (G : Type*) [Magma G] : ConjunctionClass354 G <-> ConjunctionClass354_long G :=
-Iff.intro (CC354_implies_long G) (CC354_implied_by_long G)
+theorem AT354_equiv (G : Type*) [Magma G] : AssociativeTheory354 G <-> AssociativeTheory354_long G :=
+Iff.intro (AT354_implies_long G) (AT354_implied_by_long G)
 
-theorem CC355_implies_long (G : Type*) [Magma G] (h : ConjunctionClass355 G) : ConjunctionClass355_long G := by
+theorem AT355_implies_long (G : Type*) [Magma G] (h : AssociativeTheory355 G) : AssociativeTheory355_long G := by
   obtain ⟨eq47, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   exact ⟨eq1, eq47, eq4320, eq4362, eq4512⟩
 
-theorem CC355_implied_by_long (G : Type*) [Magma G] : ConjunctionClass355_long G -> ConjunctionClass355 G :=
+theorem AT355_implied_by_long (G : Type*) [Magma G] : AssociativeTheory355_long G -> AssociativeTheory355 G :=
 fun ⟨_, h47, _, h4362, h4512⟩ => ⟨h47, h4362, h4512⟩
 
-theorem CC355_equiv (G : Type*) [Magma G] : ConjunctionClass355 G <-> ConjunctionClass355_long G :=
-Iff.intro (CC355_implies_long G) (CC355_implied_by_long G)
+theorem AT355_equiv (G : Type*) [Magma G] : AssociativeTheory355 G <-> AssociativeTheory355_long G :=
+Iff.intro (AT355_implies_long G) (AT355_implied_by_long G)
 
-theorem CC356_implies_long (G : Type*) [Magma G] (h : ConjunctionClass356 G) : ConjunctionClass356_long G := by
+theorem AT356_implies_long (G : Type*) [Magma G] (h : AssociativeTheory356 G) : AssociativeTheory356_long G := by
   obtain ⟨eq307, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4320, eq4362, eq4512⟩
 
-theorem CC356_implied_by_long (G : Type*) [Magma G] : ConjunctionClass356_long G -> ConjunctionClass356 G :=
+theorem AT356_implied_by_long (G : Type*) [Magma G] : AssociativeTheory356_long G -> AssociativeTheory356 G :=
 fun ⟨_, h307, _, _, h4362, h4512⟩ => ⟨h307, h4362, h4512⟩
 
-theorem CC356_equiv (G : Type*) [Magma G] : ConjunctionClass356 G <-> ConjunctionClass356_long G :=
-Iff.intro (CC356_implies_long G) (CC356_implied_by_long G)
+theorem AT356_equiv (G : Type*) [Magma G] : AssociativeTheory356 G <-> AssociativeTheory356_long G :=
+Iff.intro (AT356_implies_long G) (AT356_implied_by_long G)
 
-theorem CC357_implies_long (G : Type*) [Magma G] (h : ConjunctionClass357 G) : ConjunctionClass357_long G := by
+theorem AT357_implies_long (G : Type*) [Magma G] (h : AssociativeTheory357 G) : AssociativeTheory357_long G := by
   obtain ⟨eq40, eq307, eq4362, eq4512⟩ := h
   have eq316 := Equation40_307_4512_implies_Equation316 G eq40 eq307 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -7245,13 +7245,13 @@ theorem CC357_implies_long (G : Type*) [Magma G] (h : ConjunctionClass357 G) : C
   have eq3290 := Equation40_3265_4512_implies_Equation3290 G eq40 eq3265 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4362, eq4512⟩
 
-theorem CC357_implied_by_long (G : Type*) [Magma G] : ConjunctionClass357_long G -> ConjunctionClass357 G :=
+theorem AT357_implied_by_long (G : Type*) [Magma G] : AssociativeTheory357_long G -> AssociativeTheory357 G :=
 fun ⟨_, h40, h307, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h40, h307, h4362, h4512⟩
 
-theorem CC357_equiv (G : Type*) [Magma G] : ConjunctionClass357 G <-> ConjunctionClass357_long G :=
-Iff.intro (CC357_implies_long G) (CC357_implied_by_long G)
+theorem AT357_equiv (G : Type*) [Magma G] : AssociativeTheory357 G <-> AssociativeTheory357_long G :=
+Iff.intro (AT357_implies_long G) (AT357_implied_by_long G)
 
-theorem CC358_implies_long (G : Type*) [Magma G] (h : ConjunctionClass358 G) : ConjunctionClass358_long G := by
+theorem AT358_implies_long (G : Type*) [Magma G] (h : AssociativeTheory358 G) : AssociativeTheory358_long G := by
   obtain ⟨eq309, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7277,13 +7277,13 @@ theorem CC358_implies_long (G : Type*) [Magma G] (h : ConjunctionClass358 G) : C
   have eq315 := Equation312_4284_4512_implies_Equation315 G eq312 eq4284 eq4512
   exact ⟨eq1, eq307, eq309, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3274, eq3278, eq3292, eq4269, eq4272, eq4275, eq4284, eq4291, eq4296, eq4304, eq4320, eq4327, eq4362, eq4512⟩
 
-theorem CC358_implied_by_long (G : Type*) [Magma G] : ConjunctionClass358_long G -> ConjunctionClass358 G :=
+theorem AT358_implied_by_long (G : Type*) [Magma G] : AssociativeTheory358_long G -> AssociativeTheory358 G :=
 fun ⟨_, _, h309, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h309, h4362, h4512⟩
 
-theorem CC358_equiv (G : Type*) [Magma G] : ConjunctionClass358 G <-> ConjunctionClass358_long G :=
-Iff.intro (CC358_implies_long G) (CC358_implied_by_long G)
+theorem AT358_equiv (G : Type*) [Magma G] : AssociativeTheory358 G <-> AssociativeTheory358_long G :=
+Iff.intro (AT358_implies_long G) (AT358_implied_by_long G)
 
-theorem CC359_implies_long (G : Type*) [Magma G] (h : ConjunctionClass359 G) : ConjunctionClass359_long G := by
+theorem AT359_implies_long (G : Type*) [Magma G] (h : AssociativeTheory359 G) : AssociativeTheory359_long G := by
   obtain ⟨eq323, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7292,13 +7292,13 @@ theorem CC359_implies_long (G : Type*) [Magma G] (h : ConjunctionClass359 G) : C
   have eq3306 := Equation323_4512_implies_Equation3306 G eq323 eq4512
   exact ⟨eq1, eq307, eq323, eq3253, eq3306, eq4320, eq4362, eq4512⟩
 
-theorem CC359_implied_by_long (G : Type*) [Magma G] : ConjunctionClass359_long G -> ConjunctionClass359 G :=
+theorem AT359_implied_by_long (G : Type*) [Magma G] : AssociativeTheory359_long G -> AssociativeTheory359 G :=
 fun ⟨_, _, h323, _, _, _, h4362, h4512⟩ => ⟨h323, h4362, h4512⟩
 
-theorem CC359_equiv (G : Type*) [Magma G] : ConjunctionClass359 G <-> ConjunctionClass359_long G :=
-Iff.intro (CC359_implies_long G) (CC359_implied_by_long G)
+theorem AT359_equiv (G : Type*) [Magma G] : AssociativeTheory359 G <-> AssociativeTheory359_long G :=
+Iff.intro (AT359_implies_long G) (AT359_implied_by_long G)
 
-theorem CC360_implies_long (G : Type*) [Magma G] (h : ConjunctionClass360 G) : ConjunctionClass360_long G := by
+theorem AT360_implies_long (G : Type*) [Magma G] (h : AssociativeTheory360 G) : AssociativeTheory360_long G := by
   obtain ⟨eq326, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7316,37 +7316,37 @@ theorem CC360_implies_long (G : Type*) [Magma G] (h : ConjunctionClass360 G) : C
   have eq4284 := Equation4291_4320_4512_implies_Equation4284 G eq4291 eq4320 eq4512
   exact ⟨eq1, eq307, eq323, eq326, eq333, eq3253, eq3306, eq3309, eq3316, eq3319, eq3346, eq3353, eq4284, eq4291, eq4320, eq4362, eq4512⟩
 
-theorem CC360_implied_by_long (G : Type*) [Magma G] : ConjunctionClass360_long G -> ConjunctionClass360 G :=
+theorem AT360_implied_by_long (G : Type*) [Magma G] : AssociativeTheory360_long G -> AssociativeTheory360 G :=
 fun ⟨_, _, _, h326, _, _, _, _, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h326, h4362, h4512⟩
 
-theorem CC360_equiv (G : Type*) [Magma G] : ConjunctionClass360 G <-> ConjunctionClass360_long G :=
-Iff.intro (CC360_implies_long G) (CC360_implied_by_long G)
+theorem AT360_equiv (G : Type*) [Magma G] : AssociativeTheory360 G <-> AssociativeTheory360_long G :=
+Iff.intro (AT360_implies_long G) (AT360_implied_by_long G)
 
-theorem CC361_implies_long (G : Type*) [Magma G] (h : ConjunctionClass361 G) : ConjunctionClass361_long G := by
+theorem AT361_implies_long (G : Type*) [Magma G] (h : AssociativeTheory361 G) : AssociativeTheory361_long G := by
   obtain ⟨eq411, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   exact ⟨eq1, eq411, eq4320, eq4362, eq4512⟩
 
-theorem CC361_implied_by_long (G : Type*) [Magma G] : ConjunctionClass361_long G -> ConjunctionClass361 G :=
+theorem AT361_implied_by_long (G : Type*) [Magma G] : AssociativeTheory361_long G -> AssociativeTheory361 G :=
 fun ⟨_, h411, _, h4362, h4512⟩ => ⟨h411, h4362, h4512⟩
 
-theorem CC361_equiv (G : Type*) [Magma G] : ConjunctionClass361 G <-> ConjunctionClass361_long G :=
-Iff.intro (CC361_implies_long G) (CC361_implied_by_long G)
+theorem AT361_equiv (G : Type*) [Magma G] : AssociativeTheory361 G <-> AssociativeTheory361_long G :=
+Iff.intro (AT361_implies_long G) (AT361_implied_by_long G)
 
-theorem CC362_implies_long (G : Type*) [Magma G] (h : ConjunctionClass362 G) : ConjunctionClass362_long G := by
+theorem AT362_implies_long (G : Type*) [Magma G] (h : AssociativeTheory362 G) : AssociativeTheory362_long G := by
   obtain ⟨eq3253, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   exact ⟨eq1, eq3253, eq4320, eq4362, eq4512⟩
 
-theorem CC362_implied_by_long (G : Type*) [Magma G] : ConjunctionClass362_long G -> ConjunctionClass362 G :=
+theorem AT362_implied_by_long (G : Type*) [Magma G] : AssociativeTheory362_long G -> AssociativeTheory362 G :=
 fun ⟨_, h3253, _, h4362, h4512⟩ => ⟨h3253, h4362, h4512⟩
 
-theorem CC362_equiv (G : Type*) [Magma G] : ConjunctionClass362 G <-> ConjunctionClass362_long G :=
-Iff.intro (CC362_implies_long G) (CC362_implied_by_long G)
+theorem AT362_equiv (G : Type*) [Magma G] : AssociativeTheory362 G <-> AssociativeTheory362_long G :=
+Iff.intro (AT362_implies_long G) (AT362_implied_by_long G)
 
-theorem CC363_implies_long (G : Type*) [Magma G] (h : ConjunctionClass363 G) : ConjunctionClass363_long G := by
+theorem AT363_implies_long (G : Type*) [Magma G] (h : AssociativeTheory363 G) : AssociativeTheory363_long G := by
   obtain ⟨eq3261, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7356,13 +7356,13 @@ theorem CC363_implies_long (G : Type*) [Magma G] (h : ConjunctionClass363 G) : C
   have eq4275 := Equation3271_4512_implies_Equation4275 G eq3271 eq4512
   exact ⟨eq1, eq3253, eq3261, eq3271, eq3278, eq4275, eq4320, eq4362, eq4512⟩
 
-theorem CC363_implied_by_long (G : Type*) [Magma G] : ConjunctionClass363_long G -> ConjunctionClass363 G :=
+theorem AT363_implied_by_long (G : Type*) [Magma G] : AssociativeTheory363_long G -> AssociativeTheory363 G :=
 fun ⟨_, _, h3261, _, _, _, _, h4362, h4512⟩ => ⟨h3261, h4362, h4512⟩
 
-theorem CC363_equiv (G : Type*) [Magma G] : ConjunctionClass363 G <-> ConjunctionClass363_long G :=
-Iff.intro (CC363_implies_long G) (CC363_implied_by_long G)
+theorem AT363_equiv (G : Type*) [Magma G] : AssociativeTheory363 G <-> AssociativeTheory363_long G :=
+Iff.intro (AT363_implies_long G) (AT363_implied_by_long G)
 
-theorem CC364_implies_long (G : Type*) [Magma G] (h : ConjunctionClass364 G) : ConjunctionClass364_long G := by
+theorem AT364_implies_long (G : Type*) [Magma G] (h : AssociativeTheory364 G) : AssociativeTheory364_long G := by
   obtain ⟨eq3267, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7425,13 +7425,13 @@ theorem CC364_implies_long (G : Type*) [Magma G] (h : ConjunctionClass364 G) : C
   have eq3300 := Equation3277_4512_implies_Equation3300 G eq3277 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4362, eq4512⟩
 
-theorem CC364_implied_by_long (G : Type*) [Magma G] : ConjunctionClass364_long G -> ConjunctionClass364 G :=
+theorem AT364_implied_by_long (G : Type*) [Magma G] : AssociativeTheory364_long G -> AssociativeTheory364 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h3267, h4362, h4512⟩
 
-theorem CC364_equiv (G : Type*) [Magma G] : ConjunctionClass364 G <-> ConjunctionClass364_long G :=
-Iff.intro (CC364_implies_long G) (CC364_implied_by_long G)
+theorem AT364_equiv (G : Type*) [Magma G] : AssociativeTheory364 G <-> AssociativeTheory364_long G :=
+Iff.intro (AT364_implies_long G) (AT364_implied_by_long G)
 
-theorem CC365_implies_long (G : Type*) [Magma G] (h : ConjunctionClass365 G) : ConjunctionClass365_long G := by
+theorem AT365_implies_long (G : Type*) [Magma G] (h : AssociativeTheory365 G) : AssociativeTheory365_long G := by
   obtain ⟨eq3300, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7458,26 +7458,26 @@ theorem CC365_implies_long (G : Type*) [Magma G] (h : ConjunctionClass365 G) : C
   have eq4296 := Equation4269_4275_4512_implies_Equation4296 G eq4269 eq4275 eq4512
   exact ⟨eq1, eq307, eq309, eq312, eq315, eq3253, eq3255, eq3258, eq3261, eq3264, eq3271, eq3274, eq3278, eq3292, eq3300, eq4269, eq4272, eq4275, eq4284, eq4291, eq4296, eq4304, eq4320, eq4327, eq4362, eq4512⟩
 
-theorem CC365_implied_by_long (G : Type*) [Magma G] : ConjunctionClass365_long G -> ConjunctionClass365 G :=
+theorem AT365_implied_by_long (G : Type*) [Magma G] : AssociativeTheory365_long G -> AssociativeTheory365 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, h3300, _, _, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h3300, h4362, h4512⟩
 
-theorem CC365_equiv (G : Type*) [Magma G] : ConjunctionClass365 G <-> ConjunctionClass365_long G :=
-Iff.intro (CC365_implies_long G) (CC365_implied_by_long G)
+theorem AT365_equiv (G : Type*) [Magma G] : AssociativeTheory365 G <-> AssociativeTheory365_long G :=
+Iff.intro (AT365_implies_long G) (AT365_implied_by_long G)
 
-theorem CC366_implies_long (G : Type*) [Magma G] (h : ConjunctionClass366 G) : ConjunctionClass366_long G := by
+theorem AT366_implies_long (G : Type*) [Magma G] (h : AssociativeTheory366 G) : AssociativeTheory366_long G := by
   obtain ⟨eq3306, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation3306_4512_implies_Equation3253 G eq3306 eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   exact ⟨eq1, eq3253, eq3306, eq4320, eq4362, eq4512⟩
 
-theorem CC366_implied_by_long (G : Type*) [Magma G] : ConjunctionClass366_long G -> ConjunctionClass366 G :=
+theorem AT366_implied_by_long (G : Type*) [Magma G] : AssociativeTheory366_long G -> AssociativeTheory366 G :=
 fun ⟨_, _, h3306, _, h4362, h4512⟩ => ⟨h3306, h4362, h4512⟩
 
-theorem CC366_equiv (G : Type*) [Magma G] : ConjunctionClass366 G <-> ConjunctionClass366_long G :=
-Iff.intro (CC366_implies_long G) (CC366_implied_by_long G)
+theorem AT366_equiv (G : Type*) [Magma G] : AssociativeTheory366 G <-> AssociativeTheory366_long G :=
+Iff.intro (AT366_implies_long G) (AT366_implied_by_long G)
 
-theorem CC367_implies_long (G : Type*) [Magma G] (h : ConjunctionClass367 G) : ConjunctionClass367_long G := by
+theorem AT367_implies_long (G : Type*) [Magma G] (h : AssociativeTheory367 G) : AssociativeTheory367_long G := by
   obtain ⟨eq3319, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7487,13 +7487,13 @@ theorem CC367_implies_long (G : Type*) [Magma G] (h : ConjunctionClass367 G) : C
   have eq3353 := Equation3346_4512_implies_Equation3353 G eq3346 eq4512
   exact ⟨eq1, eq3253, eq3306, eq3319, eq3346, eq3353, eq4320, eq4362, eq4512⟩
 
-theorem CC367_implied_by_long (G : Type*) [Magma G] : ConjunctionClass367_long G -> ConjunctionClass367 G :=
+theorem AT367_implied_by_long (G : Type*) [Magma G] : AssociativeTheory367_long G -> AssociativeTheory367 G :=
 fun ⟨_, _, _, h3319, _, _, _, h4362, h4512⟩ => ⟨h3319, h4362, h4512⟩
 
-theorem CC367_equiv (G : Type*) [Magma G] : ConjunctionClass367 G <-> ConjunctionClass367_long G :=
-Iff.intro (CC367_implies_long G) (CC367_implied_by_long G)
+theorem AT367_equiv (G : Type*) [Magma G] : AssociativeTheory367 G <-> AssociativeTheory367_long G :=
+Iff.intro (AT367_implies_long G) (AT367_implied_by_long G)
 
-theorem CC368_implies_long (G : Type*) [Magma G] (h : ConjunctionClass368 G) : ConjunctionClass368_long G := by
+theorem AT368_implies_long (G : Type*) [Magma G] (h : AssociativeTheory368 G) : AssociativeTheory368_long G := by
   obtain ⟨eq4268, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7503,13 +7503,13 @@ theorem CC368_implies_long (G : Type*) [Magma G] (h : ConjunctionClass368 G) : C
   have eq4293 := Equation4277_4512_implies_Equation4293 G eq4277 eq4512
   exact ⟨eq1, eq4268, eq4275, eq4276, eq4277, eq4293, eq4320, eq4362, eq4512⟩
 
-theorem CC368_implied_by_long (G : Type*) [Magma G] : ConjunctionClass368_long G -> ConjunctionClass368 G :=
+theorem AT368_implied_by_long (G : Type*) [Magma G] : AssociativeTheory368_long G -> AssociativeTheory368 G :=
 fun ⟨_, h4268, _, _, _, _, _, h4362, h4512⟩ => ⟨h4268, h4362, h4512⟩
 
-theorem CC368_equiv (G : Type*) [Magma G] : ConjunctionClass368 G <-> ConjunctionClass368_long G :=
-Iff.intro (CC368_implies_long G) (CC368_implied_by_long G)
+theorem AT368_equiv (G : Type*) [Magma G] : AssociativeTheory368 G <-> AssociativeTheory368_long G :=
+Iff.intro (AT368_implies_long G) (AT368_implied_by_long G)
 
-theorem CC369_implies_long (G : Type*) [Magma G] (h : ConjunctionClass369 G) : ConjunctionClass369_long G := by
+theorem AT369_implies_long (G : Type*) [Magma G] (h : AssociativeTheory369 G) : AssociativeTheory369_long G := by
   obtain ⟨eq4269, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7517,13 +7517,13 @@ theorem CC369_implies_long (G : Type*) [Magma G] (h : ConjunctionClass369 G) : C
   have eq4327 := Equation4269_4272_4512_implies_Equation4327 G eq4269 eq4272 eq4512
   exact ⟨eq1, eq4269, eq4272, eq4320, eq4327, eq4362, eq4512⟩
 
-theorem CC369_implied_by_long (G : Type*) [Magma G] : ConjunctionClass369_long G -> ConjunctionClass369 G :=
+theorem AT369_implied_by_long (G : Type*) [Magma G] : AssociativeTheory369_long G -> AssociativeTheory369 G :=
 fun ⟨_, h4269, _, _, _, h4362, h4512⟩ => ⟨h4269, h4362, h4512⟩
 
-theorem CC369_equiv (G : Type*) [Magma G] : ConjunctionClass369 G <-> ConjunctionClass369_long G :=
-Iff.intro (CC369_implies_long G) (CC369_implied_by_long G)
+theorem AT369_equiv (G : Type*) [Magma G] : AssociativeTheory369 G <-> AssociativeTheory369_long G :=
+Iff.intro (AT369_implies_long G) (AT369_implied_by_long G)
 
-theorem CC370_implies_long (G : Type*) [Magma G] (h : ConjunctionClass370 G) : ConjunctionClass370_long G := by
+theorem AT370_implies_long (G : Type*) [Magma G] (h : AssociativeTheory370 G) : AssociativeTheory370_long G := by
   obtain ⟨eq4268, eq4269, eq4362, eq4512⟩ := h
   have eq4286 := Equation4268_4269_4512_implies_Equation4286 G eq4268 eq4269 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -7557,13 +7557,13 @@ theorem CC370_implies_long (G : Type*) [Magma G] (h : ConjunctionClass370 G) : C
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4362, eq4512⟩
 
-theorem CC370_implied_by_long (G : Type*) [Magma G] : ConjunctionClass370_long G -> ConjunctionClass370 G :=
+theorem AT370_implied_by_long (G : Type*) [Magma G] : AssociativeTheory370_long G -> AssociativeTheory370 G :=
 fun ⟨_, h4268, h4269, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h4268, h4269, h4362, h4512⟩
 
-theorem CC370_equiv (G : Type*) [Magma G] : ConjunctionClass370 G <-> ConjunctionClass370_long G :=
-Iff.intro (CC370_implies_long G) (CC370_implied_by_long G)
+theorem AT370_equiv (G : Type*) [Magma G] : AssociativeTheory370 G <-> AssociativeTheory370_long G :=
+Iff.intro (AT370_implies_long G) (AT370_implied_by_long G)
 
-theorem CC371_implies_long (G : Type*) [Magma G] (h : ConjunctionClass371 G) : ConjunctionClass371_long G := by
+theorem AT371_implies_long (G : Type*) [Magma G] (h : AssociativeTheory371 G) : AssociativeTheory371_long G := by
   obtain ⟨eq4270, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7571,13 +7571,13 @@ theorem CC371_implies_long (G : Type*) [Magma G] (h : ConjunctionClass371 G) : C
   have eq4325 := Equation4270_4273_4512_implies_Equation4325 G eq4270 eq4273 eq4512
   exact ⟨eq1, eq4270, eq4273, eq4320, eq4325, eq4362, eq4512⟩
 
-theorem CC371_implied_by_long (G : Type*) [Magma G] : ConjunctionClass371_long G -> ConjunctionClass371 G :=
+theorem AT371_implied_by_long (G : Type*) [Magma G] : AssociativeTheory371_long G -> AssociativeTheory371 G :=
 fun ⟨_, h4270, _, _, _, h4362, h4512⟩ => ⟨h4270, h4362, h4512⟩
 
-theorem CC371_equiv (G : Type*) [Magma G] : ConjunctionClass371 G <-> ConjunctionClass371_long G :=
-Iff.intro (CC371_implies_long G) (CC371_implied_by_long G)
+theorem AT371_equiv (G : Type*) [Magma G] : AssociativeTheory371 G <-> AssociativeTheory371_long G :=
+Iff.intro (AT371_implies_long G) (AT371_implied_by_long G)
 
-theorem CC372_implies_long (G : Type*) [Magma G] (h : ConjunctionClass372 G) : ConjunctionClass372_long G := by
+theorem AT372_implies_long (G : Type*) [Magma G] (h : AssociativeTheory372 G) : AssociativeTheory372_long G := by
   obtain ⟨eq4269, eq4270, eq4362, eq4512⟩ := h
   have eq4318 := Equation4269_4270_4512_implies_Equation4318 G eq4269 eq4270 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -7595,25 +7595,25 @@ theorem CC372_implies_long (G : Type*) [Magma G] (h : ConjunctionClass372 G) : C
   have eq4276 := Equation4279_4512_implies_Equation4276 G eq4279 eq4512
   exact ⟨eq1, eq4269, eq4270, eq4272, eq4273, eq4276, eq4279, eq4280, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4362, eq4512⟩
 
-theorem CC372_implied_by_long (G : Type*) [Magma G] : ConjunctionClass372_long G -> ConjunctionClass372 G :=
+theorem AT372_implied_by_long (G : Type*) [Magma G] : AssociativeTheory372_long G -> AssociativeTheory372 G :=
 fun ⟨_, h4269, h4270, _, _, _, _, _, _, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h4269, h4270, h4362, h4512⟩
 
-theorem CC372_equiv (G : Type*) [Magma G] : ConjunctionClass372 G <-> ConjunctionClass372_long G :=
-Iff.intro (CC372_implies_long G) (CC372_implied_by_long G)
+theorem AT372_equiv (G : Type*) [Magma G] : AssociativeTheory372 G <-> AssociativeTheory372_long G :=
+Iff.intro (AT372_implies_long G) (AT372_implied_by_long G)
 
-theorem CC373_implies_long (G : Type*) [Magma G] (h : ConjunctionClass373 G) : ConjunctionClass373_long G := by
+theorem AT373_implies_long (G : Type*) [Magma G] (h : AssociativeTheory373 G) : AssociativeTheory373_long G := by
   obtain ⟨eq4275, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   exact ⟨eq1, eq4275, eq4320, eq4362, eq4512⟩
 
-theorem CC373_implied_by_long (G : Type*) [Magma G] : ConjunctionClass373_long G -> ConjunctionClass373 G :=
+theorem AT373_implied_by_long (G : Type*) [Magma G] : AssociativeTheory373_long G -> AssociativeTheory373 G :=
 fun ⟨_, h4275, _, h4362, h4512⟩ => ⟨h4275, h4362, h4512⟩
 
-theorem CC373_equiv (G : Type*) [Magma G] : ConjunctionClass373 G <-> ConjunctionClass373_long G :=
-Iff.intro (CC373_implies_long G) (CC373_implied_by_long G)
+theorem AT373_equiv (G : Type*) [Magma G] : AssociativeTheory373 G <-> AssociativeTheory373_long G :=
+Iff.intro (AT373_implies_long G) (AT373_implied_by_long G)
 
-theorem CC374_implies_long (G : Type*) [Magma G] (h : ConjunctionClass374 G) : ConjunctionClass374_long G := by
+theorem AT374_implies_long (G : Type*) [Magma G] (h : AssociativeTheory374 G) : AssociativeTheory374_long G := by
   obtain ⟨eq4269, eq4275, eq4362, eq4512⟩ := h
   have eq4296 := Equation4269_4275_4512_implies_Equation4296 G eq4269 eq4275 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -7625,13 +7625,13 @@ theorem CC374_implies_long (G : Type*) [Magma G] (h : ConjunctionClass374 G) : C
   have eq4304 := Equation4272_4275_4512_implies_Equation4304 G eq4272 eq4275 eq4512
   exact ⟨eq1, eq4269, eq4272, eq4275, eq4284, eq4291, eq4296, eq4304, eq4320, eq4327, eq4362, eq4512⟩
 
-theorem CC374_implied_by_long (G : Type*) [Magma G] : ConjunctionClass374_long G -> ConjunctionClass374 G :=
+theorem AT374_implied_by_long (G : Type*) [Magma G] : AssociativeTheory374_long G -> AssociativeTheory374 G :=
 fun ⟨_, h4269, _, h4275, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h4269, h4275, h4362, h4512⟩
 
-theorem CC374_equiv (G : Type*) [Magma G] : ConjunctionClass374 G <-> ConjunctionClass374_long G :=
-Iff.intro (CC374_implies_long G) (CC374_implied_by_long G)
+theorem AT374_equiv (G : Type*) [Magma G] : AssociativeTheory374 G <-> AssociativeTheory374_long G :=
+Iff.intro (AT374_implies_long G) (AT374_implied_by_long G)
 
-theorem CC375_implies_long (G : Type*) [Magma G] (h : ConjunctionClass375 G) : ConjunctionClass375_long G := by
+theorem AT375_implies_long (G : Type*) [Magma G] (h : AssociativeTheory375 G) : AssociativeTheory375_long G := by
   obtain ⟨eq4270, eq4275, eq4362, eq4512⟩ := h
   have eq4297 := Equation4270_4275_4512_implies_Equation4297 G eq4270 eq4275 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -7643,38 +7643,38 @@ theorem CC375_implies_long (G : Type*) [Magma G] (h : ConjunctionClass375 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4362, eq4512⟩
 
-theorem CC375_implied_by_long (G : Type*) [Magma G] : ConjunctionClass375_long G -> ConjunctionClass375 G :=
+theorem AT375_implied_by_long (G : Type*) [Magma G] : AssociativeTheory375_long G -> AssociativeTheory375 G :=
 fun ⟨_, h4270, _, h4275, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h4270, h4275, h4362, h4512⟩
 
-theorem CC375_equiv (G : Type*) [Magma G] : ConjunctionClass375 G <-> ConjunctionClass375_long G :=
-Iff.intro (CC375_implies_long G) (CC375_implied_by_long G)
+theorem AT375_equiv (G : Type*) [Magma G] : AssociativeTheory375 G <-> AssociativeTheory375_long G :=
+Iff.intro (AT375_implies_long G) (AT375_implied_by_long G)
 
-theorem CC376_implies_long (G : Type*) [Magma G] (h : ConjunctionClass376 G) : ConjunctionClass376_long G := by
+theorem AT376_implies_long (G : Type*) [Magma G] (h : AssociativeTheory376 G) : AssociativeTheory376_long G := by
   obtain ⟨eq4276, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   exact ⟨eq1, eq4276, eq4320, eq4362, eq4512⟩
 
-theorem CC376_implied_by_long (G : Type*) [Magma G] : ConjunctionClass376_long G -> ConjunctionClass376 G :=
+theorem AT376_implied_by_long (G : Type*) [Magma G] : AssociativeTheory376_long G -> AssociativeTheory376 G :=
 fun ⟨_, h4276, _, h4362, h4512⟩ => ⟨h4276, h4362, h4512⟩
 
-theorem CC376_equiv (G : Type*) [Magma G] : ConjunctionClass376 G <-> ConjunctionClass376_long G :=
-Iff.intro (CC376_implies_long G) (CC376_implied_by_long G)
+theorem AT376_equiv (G : Type*) [Magma G] : AssociativeTheory376 G <-> AssociativeTheory376_long G :=
+Iff.intro (AT376_implies_long G) (AT376_implied_by_long G)
 
-theorem CC377_implies_long (G : Type*) [Magma G] (h : ConjunctionClass377 G) : ConjunctionClass377_long G := by
+theorem AT377_implies_long (G : Type*) [Magma G] (h : AssociativeTheory377 G) : AssociativeTheory377_long G := by
   obtain ⟨eq4283, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   have eq4290 := Equation4283_4320_4512_implies_Equation4290 G eq4283 eq4320 eq4512
   exact ⟨eq1, eq4283, eq4290, eq4320, eq4362, eq4512⟩
 
-theorem CC377_implied_by_long (G : Type*) [Magma G] : ConjunctionClass377_long G -> ConjunctionClass377 G :=
+theorem AT377_implied_by_long (G : Type*) [Magma G] : AssociativeTheory377_long G -> AssociativeTheory377 G :=
 fun ⟨_, h4283, _, _, h4362, h4512⟩ => ⟨h4283, h4362, h4512⟩
 
-theorem CC377_equiv (G : Type*) [Magma G] : ConjunctionClass377 G <-> ConjunctionClass377_long G :=
-Iff.intro (CC377_implies_long G) (CC377_implied_by_long G)
+theorem AT377_equiv (G : Type*) [Magma G] : AssociativeTheory377 G <-> AssociativeTheory377_long G :=
+Iff.intro (AT377_implies_long G) (AT377_implied_by_long G)
 
-theorem CC378_implies_long (G : Type*) [Magma G] (h : ConjunctionClass378 G) : ConjunctionClass378_long G := by
+theorem AT378_implies_long (G : Type*) [Magma G] (h : AssociativeTheory378 G) : AssociativeTheory378_long G := by
   obtain ⟨eq307, eq4283, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7682,52 +7682,52 @@ theorem CC378_implies_long (G : Type*) [Magma G] (h : ConjunctionClass378 G) : C
   have eq4290 := Equation4283_4320_4512_implies_Equation4290 G eq4283 eq4320 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4290, eq4320, eq4362, eq4512⟩
 
-theorem CC378_implied_by_long (G : Type*) [Magma G] : ConjunctionClass378_long G -> ConjunctionClass378 G :=
+theorem AT378_implied_by_long (G : Type*) [Magma G] : AssociativeTheory378_long G -> AssociativeTheory378 G :=
 fun ⟨_, h307, _, h4283, _, _, h4362, h4512⟩ => ⟨h307, h4283, h4362, h4512⟩
 
-theorem CC378_equiv (G : Type*) [Magma G] : ConjunctionClass378 G <-> ConjunctionClass378_long G :=
-Iff.intro (CC378_implies_long G) (CC378_implied_by_long G)
+theorem AT378_equiv (G : Type*) [Magma G] : AssociativeTheory378 G <-> AssociativeTheory378_long G :=
+Iff.intro (AT378_implies_long G) (AT378_implied_by_long G)
 
-theorem CC379_implies_long (G : Type*) [Magma G] (h : ConjunctionClass379 G) : ConjunctionClass379_long G := by
+theorem AT379_implies_long (G : Type*) [Magma G] (h : AssociativeTheory379 G) : AssociativeTheory379_long G := by
   obtain ⟨eq3253, eq4283, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   have eq4290 := Equation4283_4320_4512_implies_Equation4290 G eq4283 eq4320 eq4512
   exact ⟨eq1, eq3253, eq4283, eq4290, eq4320, eq4362, eq4512⟩
 
-theorem CC379_implied_by_long (G : Type*) [Magma G] : ConjunctionClass379_long G -> ConjunctionClass379 G :=
+theorem AT379_implied_by_long (G : Type*) [Magma G] : AssociativeTheory379_long G -> AssociativeTheory379 G :=
 fun ⟨_, h3253, h4283, _, _, h4362, h4512⟩ => ⟨h3253, h4283, h4362, h4512⟩
 
-theorem CC379_equiv (G : Type*) [Magma G] : ConjunctionClass379 G <-> ConjunctionClass379_long G :=
-Iff.intro (CC379_implies_long G) (CC379_implied_by_long G)
+theorem AT379_equiv (G : Type*) [Magma G] : AssociativeTheory379 G <-> AssociativeTheory379_long G :=
+Iff.intro (AT379_implies_long G) (AT379_implied_by_long G)
 
-theorem CC380_implies_long (G : Type*) [Magma G] (h : ConjunctionClass380 G) : ConjunctionClass380_long G := by
+theorem AT380_implies_long (G : Type*) [Magma G] (h : AssociativeTheory380 G) : AssociativeTheory380_long G := by
   obtain ⟨eq4276, eq4283, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   have eq4290 := Equation4283_4320_4512_implies_Equation4290 G eq4283 eq4320 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4290, eq4320, eq4362, eq4512⟩
 
-theorem CC380_implied_by_long (G : Type*) [Magma G] : ConjunctionClass380_long G -> ConjunctionClass380 G :=
+theorem AT380_implied_by_long (G : Type*) [Magma G] : AssociativeTheory380_long G -> AssociativeTheory380 G :=
 fun ⟨_, h4276, h4283, _, _, h4362, h4512⟩ => ⟨h4276, h4283, h4362, h4512⟩
 
-theorem CC380_equiv (G : Type*) [Magma G] : ConjunctionClass380 G <-> ConjunctionClass380_long G :=
-Iff.intro (CC380_implies_long G) (CC380_implied_by_long G)
+theorem AT380_equiv (G : Type*) [Magma G] : AssociativeTheory380 G <-> AssociativeTheory380_long G :=
+Iff.intro (AT380_implies_long G) (AT380_implied_by_long G)
 
-theorem CC381_implies_long (G : Type*) [Magma G] (h : ConjunctionClass381 G) : ConjunctionClass381_long G := by
+theorem AT381_implies_long (G : Type*) [Magma G] (h : AssociativeTheory381 G) : AssociativeTheory381_long G := by
   obtain ⟨eq4284, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   have eq4291 := Equation4284_4320_4512_implies_Equation4291 G eq4284 eq4320 eq4512
   exact ⟨eq1, eq4284, eq4291, eq4320, eq4362, eq4512⟩
 
-theorem CC381_implied_by_long (G : Type*) [Magma G] : ConjunctionClass381_long G -> ConjunctionClass381 G :=
+theorem AT381_implied_by_long (G : Type*) [Magma G] : AssociativeTheory381_long G -> AssociativeTheory381 G :=
 fun ⟨_, h4284, _, _, h4362, h4512⟩ => ⟨h4284, h4362, h4512⟩
 
-theorem CC381_equiv (G : Type*) [Magma G] : ConjunctionClass381 G <-> ConjunctionClass381_long G :=
-Iff.intro (CC381_implies_long G) (CC381_implied_by_long G)
+theorem AT381_equiv (G : Type*) [Magma G] : AssociativeTheory381 G <-> AssociativeTheory381_long G :=
+Iff.intro (AT381_implies_long G) (AT381_implied_by_long G)
 
-theorem CC382_implies_long (G : Type*) [Magma G] (h : ConjunctionClass382 G) : ConjunctionClass382_long G := by
+theorem AT382_implies_long (G : Type*) [Magma G] (h : AssociativeTheory382 G) : AssociativeTheory382_long G := by
   obtain ⟨eq307, eq4284, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7735,26 +7735,26 @@ theorem CC382_implies_long (G : Type*) [Magma G] (h : ConjunctionClass382 G) : C
   have eq4291 := Equation4284_4320_4512_implies_Equation4291 G eq4284 eq4320 eq4512
   exact ⟨eq1, eq307, eq3253, eq4284, eq4291, eq4320, eq4362, eq4512⟩
 
-theorem CC382_implied_by_long (G : Type*) [Magma G] : ConjunctionClass382_long G -> ConjunctionClass382 G :=
+theorem AT382_implied_by_long (G : Type*) [Magma G] : AssociativeTheory382_long G -> AssociativeTheory382 G :=
 fun ⟨_, h307, _, h4284, _, _, h4362, h4512⟩ => ⟨h307, h4284, h4362, h4512⟩
 
-theorem CC382_equiv (G : Type*) [Magma G] : ConjunctionClass382 G <-> ConjunctionClass382_long G :=
-Iff.intro (CC382_implies_long G) (CC382_implied_by_long G)
+theorem AT382_equiv (G : Type*) [Magma G] : AssociativeTheory382 G <-> AssociativeTheory382_long G :=
+Iff.intro (AT382_implies_long G) (AT382_implied_by_long G)
 
-theorem CC383_implies_long (G : Type*) [Magma G] (h : ConjunctionClass383 G) : ConjunctionClass383_long G := by
+theorem AT383_implies_long (G : Type*) [Magma G] (h : AssociativeTheory383 G) : AssociativeTheory383_long G := by
   obtain ⟨eq4276, eq4284, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   have eq4291 := Equation4284_4320_4512_implies_Equation4291 G eq4284 eq4320 eq4512
   exact ⟨eq1, eq4276, eq4284, eq4291, eq4320, eq4362, eq4512⟩
 
-theorem CC383_implied_by_long (G : Type*) [Magma G] : ConjunctionClass383_long G -> ConjunctionClass383 G :=
+theorem AT383_implied_by_long (G : Type*) [Magma G] : AssociativeTheory383_long G -> AssociativeTheory383 G :=
 fun ⟨_, h4276, h4284, _, _, h4362, h4512⟩ => ⟨h4276, h4284, h4362, h4512⟩
 
-theorem CC383_equiv (G : Type*) [Magma G] : ConjunctionClass383 G <-> ConjunctionClass383_long G :=
-Iff.intro (CC383_implies_long G) (CC383_implied_by_long G)
+theorem AT383_equiv (G : Type*) [Magma G] : AssociativeTheory383 G <-> AssociativeTheory383_long G :=
+Iff.intro (AT383_implies_long G) (AT383_implied_by_long G)
 
-theorem CC384_implies_long (G : Type*) [Magma G] (h : ConjunctionClass384 G) : ConjunctionClass384_long G := by
+theorem AT384_implies_long (G : Type*) [Magma G] (h : AssociativeTheory384 G) : AssociativeTheory384_long G := by
   obtain ⟨eq4283, eq4284, eq4362, eq4512⟩ := h
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -7766,13 +7766,13 @@ theorem CC384_implies_long (G : Type*) [Magma G] (h : ConjunctionClass384 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4362, eq4512⟩
 
-theorem CC384_implied_by_long (G : Type*) [Magma G] : ConjunctionClass384_long G -> ConjunctionClass384 G :=
+theorem AT384_implied_by_long (G : Type*) [Magma G] : AssociativeTheory384_long G -> AssociativeTheory384 G :=
 fun ⟨_, h4283, h4284, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h4283, h4284, h4362, h4512⟩
 
-theorem CC384_equiv (G : Type*) [Magma G] : ConjunctionClass384 G <-> ConjunctionClass384_long G :=
-Iff.intro (CC384_implies_long G) (CC384_implied_by_long G)
+theorem AT384_equiv (G : Type*) [Magma G] : AssociativeTheory384 G <-> AssociativeTheory384_long G :=
+Iff.intro (AT384_implies_long G) (AT384_implied_by_long G)
 
-theorem CC385_implies_long (G : Type*) [Magma G] (h : ConjunctionClass385 G) : ConjunctionClass385_long G := by
+theorem AT385_implies_long (G : Type*) [Magma G] (h : AssociativeTheory385 G) : AssociativeTheory385_long G := by
   obtain ⟨eq307, eq4283, eq4284, eq4362, eq4512⟩ := h
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -7785,13 +7785,13 @@ theorem CC385_implies_long (G : Type*) [Magma G] (h : ConjunctionClass385 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4362, eq4512⟩
 
-theorem CC385_implied_by_long (G : Type*) [Magma G] : ConjunctionClass385_long G -> ConjunctionClass385 G :=
+theorem AT385_implied_by_long (G : Type*) [Magma G] : AssociativeTheory385_long G -> AssociativeTheory385 G :=
 fun ⟨_, h307, _, h4283, h4284, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h307, h4283, h4284, h4362, h4512⟩
 
-theorem CC385_equiv (G : Type*) [Magma G] : ConjunctionClass385 G <-> ConjunctionClass385_long G :=
-Iff.intro (CC385_implies_long G) (CC385_implied_by_long G)
+theorem AT385_equiv (G : Type*) [Magma G] : AssociativeTheory385 G <-> AssociativeTheory385_long G :=
+Iff.intro (AT385_implies_long G) (AT385_implied_by_long G)
 
-theorem CC386_implies_long (G : Type*) [Magma G] (h : ConjunctionClass386 G) : ConjunctionClass386_long G := by
+theorem AT386_implies_long (G : Type*) [Magma G] (h : AssociativeTheory386 G) : AssociativeTheory386_long G := by
   obtain ⟨eq4276, eq4283, eq4284, eq4362, eq4512⟩ := h
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -7803,25 +7803,25 @@ theorem CC386_implies_long (G : Type*) [Magma G] (h : ConjunctionClass386 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4362, eq4512⟩
 
-theorem CC386_implied_by_long (G : Type*) [Magma G] : ConjunctionClass386_long G -> ConjunctionClass386 G :=
+theorem AT386_implied_by_long (G : Type*) [Magma G] : AssociativeTheory386_long G -> AssociativeTheory386 G :=
 fun ⟨_, h4276, h4283, h4284, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h4276, h4283, h4284, h4362, h4512⟩
 
-theorem CC386_equiv (G : Type*) [Magma G] : ConjunctionClass386 G <-> ConjunctionClass386_long G :=
-Iff.intro (CC386_implies_long G) (CC386_implied_by_long G)
+theorem AT386_equiv (G : Type*) [Magma G] : AssociativeTheory386 G <-> AssociativeTheory386_long G :=
+Iff.intro (AT386_implies_long G) (AT386_implied_by_long G)
 
-theorem CC387_implies_long (G : Type*) [Magma G] (h : ConjunctionClass387 G) : ConjunctionClass387_long G := by
+theorem AT387_implies_long (G : Type*) [Magma G] (h : AssociativeTheory387 G) : AssociativeTheory387_long G := by
   obtain ⟨eq4293, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   exact ⟨eq1, eq4293, eq4320, eq4362, eq4512⟩
 
-theorem CC387_implied_by_long (G : Type*) [Magma G] : ConjunctionClass387_long G -> ConjunctionClass387 G :=
+theorem AT387_implied_by_long (G : Type*) [Magma G] : AssociativeTheory387_long G -> AssociativeTheory387 G :=
 fun ⟨_, h4293, _, h4362, h4512⟩ => ⟨h4293, h4362, h4512⟩
 
-theorem CC387_equiv (G : Type*) [Magma G] : ConjunctionClass387 G <-> ConjunctionClass387_long G :=
-Iff.intro (CC387_implies_long G) (CC387_implied_by_long G)
+theorem AT387_equiv (G : Type*) [Magma G] : AssociativeTheory387 G <-> AssociativeTheory387_long G :=
+Iff.intro (AT387_implies_long G) (AT387_implied_by_long G)
 
-theorem CC388_implies_long (G : Type*) [Magma G] (h : ConjunctionClass388 G) : ConjunctionClass388_long G := by
+theorem AT388_implies_long (G : Type*) [Magma G] (h : AssociativeTheory388 G) : AssociativeTheory388_long G := by
   obtain ⟨eq4269, eq4293, eq4362, eq4512⟩ := h
   have eq4273 := Equation4269_4293_4512_implies_Equation4273 G eq4269 eq4293 eq4512
   have eq1 := Equation4293_4512_implies_Equation1 G eq4293 eq4512
@@ -7840,25 +7840,25 @@ theorem CC388_implies_long (G : Type*) [Magma G] (h : ConjunctionClass388 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4269, eq4270, eq4272, eq4273, eq4276, eq4279, eq4280, eq4293, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4362, eq4512⟩
 
-theorem CC388_implied_by_long (G : Type*) [Magma G] : ConjunctionClass388_long G -> ConjunctionClass388 G :=
+theorem AT388_implied_by_long (G : Type*) [Magma G] : AssociativeTheory388_long G -> AssociativeTheory388 G :=
 fun ⟨_, h4269, _, _, _, _, _, _, h4293, _, _, _, _, _, _, _, _, h4362, h4512⟩ => ⟨h4269, h4293, h4362, h4512⟩
 
-theorem CC388_equiv (G : Type*) [Magma G] : ConjunctionClass388 G <-> ConjunctionClass388_long G :=
-Iff.intro (CC388_implies_long G) (CC388_implied_by_long G)
+theorem AT388_equiv (G : Type*) [Magma G] : AssociativeTheory388 G <-> AssociativeTheory388_long G :=
+Iff.intro (AT388_implies_long G) (AT388_implied_by_long G)
 
-theorem CC389_implies_long (G : Type*) [Magma G] (h : ConjunctionClass389 G) : ConjunctionClass389_long G := by
+theorem AT389_implies_long (G : Type*) [Magma G] (h : AssociativeTheory389 G) : AssociativeTheory389_long G := by
   obtain ⟨eq4276, eq4293, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   exact ⟨eq1, eq4276, eq4293, eq4320, eq4362, eq4512⟩
 
-theorem CC389_implied_by_long (G : Type*) [Magma G] : ConjunctionClass389_long G -> ConjunctionClass389 G :=
+theorem AT389_implied_by_long (G : Type*) [Magma G] : AssociativeTheory389_long G -> AssociativeTheory389 G :=
 fun ⟨_, h4276, h4293, _, h4362, h4512⟩ => ⟨h4276, h4293, h4362, h4512⟩
 
-theorem CC389_equiv (G : Type*) [Magma G] : ConjunctionClass389 G <-> ConjunctionClass389_long G :=
-Iff.intro (CC389_implies_long G) (CC389_implied_by_long G)
+theorem AT389_equiv (G : Type*) [Magma G] : AssociativeTheory389 G <-> AssociativeTheory389_long G :=
+Iff.intro (AT389_implies_long G) (AT389_implied_by_long G)
 
-theorem CC390_implies_long (G : Type*) [Magma G] (h : ConjunctionClass390 G) : ConjunctionClass390_long G := by
+theorem AT390_implies_long (G : Type*) [Magma G] (h : AssociativeTheory390 G) : AssociativeTheory390_long G := by
   obtain ⟨eq4314, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7866,13 +7866,13 @@ theorem CC390_implies_long (G : Type*) [Magma G] (h : ConjunctionClass390 G) : C
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4314, eq4320, eq4321, eq4343, eq4362, eq4512⟩
 
-theorem CC390_implied_by_long (G : Type*) [Magma G] : ConjunctionClass390_long G -> ConjunctionClass390 G :=
+theorem AT390_implied_by_long (G : Type*) [Magma G] : AssociativeTheory390_long G -> AssociativeTheory390 G :=
 fun ⟨_, h4314, _, _, _, h4362, h4512⟩ => ⟨h4314, h4362, h4512⟩
 
-theorem CC390_equiv (G : Type*) [Magma G] : ConjunctionClass390 G <-> ConjunctionClass390_long G :=
-Iff.intro (CC390_implies_long G) (CC390_implied_by_long G)
+theorem AT390_equiv (G : Type*) [Magma G] : AssociativeTheory390 G <-> AssociativeTheory390_long G :=
+Iff.intro (AT390_implies_long G) (AT390_implied_by_long G)
 
-theorem CC391_implies_long (G : Type*) [Magma G] (h : ConjunctionClass391 G) : ConjunctionClass391_long G := by
+theorem AT391_implies_long (G : Type*) [Magma G] (h : AssociativeTheory391 G) : AssociativeTheory391_long G := by
   obtain ⟨eq307, eq4314, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -7881,13 +7881,13 @@ theorem CC391_implies_long (G : Type*) [Magma G] (h : ConjunctionClass391 G) : C
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq307, eq3253, eq4314, eq4320, eq4321, eq4343, eq4362, eq4512⟩
 
-theorem CC391_implied_by_long (G : Type*) [Magma G] : ConjunctionClass391_long G -> ConjunctionClass391 G :=
+theorem AT391_implied_by_long (G : Type*) [Magma G] : AssociativeTheory391_long G -> AssociativeTheory391 G :=
 fun ⟨_, h307, _, h4314, _, _, _, h4362, h4512⟩ => ⟨h307, h4314, h4362, h4512⟩
 
-theorem CC391_equiv (G : Type*) [Magma G] : ConjunctionClass391 G <-> ConjunctionClass391_long G :=
-Iff.intro (CC391_implies_long G) (CC391_implied_by_long G)
+theorem AT391_equiv (G : Type*) [Magma G] : AssociativeTheory391 G <-> AssociativeTheory391_long G :=
+Iff.intro (AT391_implies_long G) (AT391_implied_by_long G)
 
-theorem CC392_implies_long (G : Type*) [Magma G] (h : ConjunctionClass392 G) : ConjunctionClass392_long G := by
+theorem AT392_implies_long (G : Type*) [Magma G] (h : AssociativeTheory392 G) : AssociativeTheory392_long G := by
   obtain ⟨eq4268, eq4314, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7899,13 +7899,13 @@ theorem CC392_implies_long (G : Type*) [Magma G] (h : ConjunctionClass392 G) : C
   have eq4293 := Equation4277_4512_implies_Equation4293 G eq4277 eq4512
   exact ⟨eq1, eq4268, eq4275, eq4276, eq4277, eq4293, eq4314, eq4320, eq4321, eq4343, eq4362, eq4512⟩
 
-theorem CC392_implied_by_long (G : Type*) [Magma G] : ConjunctionClass392_long G -> ConjunctionClass392 G :=
+theorem AT392_implied_by_long (G : Type*) [Magma G] : AssociativeTheory392_long G -> AssociativeTheory392 G :=
 fun ⟨_, h4268, _, _, _, _, h4314, _, _, _, h4362, h4512⟩ => ⟨h4268, h4314, h4362, h4512⟩
 
-theorem CC392_equiv (G : Type*) [Magma G] : ConjunctionClass392 G <-> ConjunctionClass392_long G :=
-Iff.intro (CC392_implies_long G) (CC392_implied_by_long G)
+theorem AT392_equiv (G : Type*) [Magma G] : AssociativeTheory392 G <-> AssociativeTheory392_long G :=
+Iff.intro (AT392_implies_long G) (AT392_implied_by_long G)
 
-theorem CC393_implies_long (G : Type*) [Magma G] (h : ConjunctionClass393 G) : ConjunctionClass393_long G := by
+theorem AT393_implies_long (G : Type*) [Magma G] (h : AssociativeTheory393 G) : AssociativeTheory393_long G := by
   obtain ⟨eq4276, eq4314, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7913,13 +7913,13 @@ theorem CC393_implies_long (G : Type*) [Magma G] (h : ConjunctionClass393 G) : C
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4276, eq4314, eq4320, eq4321, eq4343, eq4362, eq4512⟩
 
-theorem CC393_implied_by_long (G : Type*) [Magma G] : ConjunctionClass393_long G -> ConjunctionClass393 G :=
+theorem AT393_implied_by_long (G : Type*) [Magma G] : AssociativeTheory393_long G -> AssociativeTheory393 G :=
 fun ⟨_, h4276, h4314, _, _, _, h4362, h4512⟩ => ⟨h4276, h4314, h4362, h4512⟩
 
-theorem CC393_equiv (G : Type*) [Magma G] : ConjunctionClass393 G <-> ConjunctionClass393_long G :=
-Iff.intro (CC393_implies_long G) (CC393_implied_by_long G)
+theorem AT393_equiv (G : Type*) [Magma G] : AssociativeTheory393 G <-> AssociativeTheory393_long G :=
+Iff.intro (AT393_implies_long G) (AT393_implied_by_long G)
 
-theorem CC394_implies_long (G : Type*) [Magma G] (h : ConjunctionClass394 G) : ConjunctionClass394_long G := by
+theorem AT394_implies_long (G : Type*) [Magma G] (h : AssociativeTheory394 G) : AssociativeTheory394_long G := by
   obtain ⟨eq4293, eq4314, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7927,13 +7927,13 @@ theorem CC394_implies_long (G : Type*) [Magma G] (h : ConjunctionClass394 G) : C
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4293, eq4314, eq4320, eq4321, eq4343, eq4362, eq4512⟩
 
-theorem CC394_implied_by_long (G : Type*) [Magma G] : ConjunctionClass394_long G -> ConjunctionClass394 G :=
+theorem AT394_implied_by_long (G : Type*) [Magma G] : AssociativeTheory394_long G -> AssociativeTheory394 G :=
 fun ⟨_, h4293, h4314, _, _, _, h4362, h4512⟩ => ⟨h4293, h4314, h4362, h4512⟩
 
-theorem CC394_equiv (G : Type*) [Magma G] : ConjunctionClass394 G <-> ConjunctionClass394_long G :=
-Iff.intro (CC394_implies_long G) (CC394_implied_by_long G)
+theorem AT394_equiv (G : Type*) [Magma G] : AssociativeTheory394 G <-> AssociativeTheory394_long G :=
+Iff.intro (AT394_implies_long G) (AT394_implied_by_long G)
 
-theorem CC395_implies_long (G : Type*) [Magma G] (h : ConjunctionClass395 G) : ConjunctionClass395_long G := by
+theorem AT395_implies_long (G : Type*) [Magma G] (h : AssociativeTheory395 G) : AssociativeTheory395_long G := by
   obtain ⟨eq4276, eq4293, eq4314, eq4362, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
@@ -7941,13 +7941,13 @@ theorem CC395_implies_long (G : Type*) [Magma G] (h : ConjunctionClass395 G) : C
   have eq4343 := Equation4314_4320_4512_implies_Equation4343 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4276, eq4293, eq4314, eq4320, eq4321, eq4343, eq4362, eq4512⟩
 
-theorem CC395_implied_by_long (G : Type*) [Magma G] : ConjunctionClass395_long G -> ConjunctionClass395 G :=
+theorem AT395_implied_by_long (G : Type*) [Magma G] : AssociativeTheory395_long G -> AssociativeTheory395 G :=
 fun ⟨_, h4276, h4293, h4314, _, _, _, h4362, h4512⟩ => ⟨h4276, h4293, h4314, h4362, h4512⟩
 
-theorem CC395_equiv (G : Type*) [Magma G] : ConjunctionClass395 G <-> ConjunctionClass395_long G :=
-Iff.intro (CC395_implies_long G) (CC395_implied_by_long G)
+theorem AT395_equiv (G : Type*) [Magma G] : AssociativeTheory395 G <-> AssociativeTheory395_long G :=
+Iff.intro (AT395_implies_long G) (AT395_implied_by_long G)
 
-theorem CC396_implies_long (G : Type*) [Magma G] (h : ConjunctionClass396 G) : ConjunctionClass396_long G := by
+theorem AT396_implies_long (G : Type*) [Magma G] (h : AssociativeTheory396 G) : AssociativeTheory396_long G := by
   obtain ⟨eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -7957,13 +7957,13 @@ theorem CC396_implies_long (G : Type*) [Magma G] (h : ConjunctionClass396 G) : C
   have eq4320 := Equation4362_4512_implies_Equation4320 G eq4362 eq4512
   exact ⟨eq1, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC396_implied_by_long (G : Type*) [Magma G] : ConjunctionClass396_long G -> ConjunctionClass396 G :=
+theorem AT396_implied_by_long (G : Type*) [Magma G] : AssociativeTheory396_long G -> AssociativeTheory396 G :=
 fun ⟨_, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h4358, h4362, h4512⟩
 
-theorem CC396_equiv (G : Type*) [Magma G] : ConjunctionClass396 G <-> ConjunctionClass396_long G :=
-Iff.intro (CC396_implies_long G) (CC396_implied_by_long G)
+theorem AT396_equiv (G : Type*) [Magma G] : AssociativeTheory396 G <-> AssociativeTheory396_long G :=
+Iff.intro (AT396_implies_long G) (AT396_implied_by_long G)
 
-theorem CC397_implies_long (G : Type*) [Magma G] (h : ConjunctionClass397 G) : ConjunctionClass397_long G := by
+theorem AT397_implies_long (G : Type*) [Magma G] (h : AssociativeTheory397 G) : AssociativeTheory397_long G := by
   obtain ⟨eq40, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -7985,13 +7985,13 @@ theorem CC397_implies_long (G : Type*) [Magma G] (h : ConjunctionClass397 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq40, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC397_implied_by_long (G : Type*) [Magma G] : ConjunctionClass397_long G -> ConjunctionClass397 G :=
+theorem AT397_implied_by_long (G : Type*) [Magma G] : AssociativeTheory397_long G -> AssociativeTheory397 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h40, h4358, h4362, h4512⟩
 
-theorem CC397_equiv (G : Type*) [Magma G] : ConjunctionClass397 G <-> ConjunctionClass397_long G :=
-Iff.intro (CC397_implies_long G) (CC397_implied_by_long G)
+theorem AT397_equiv (G : Type*) [Magma G] : AssociativeTheory397 G <-> AssociativeTheory397_long G :=
+Iff.intro (AT397_implies_long G) (AT397_implied_by_long G)
 
-theorem CC398_implies_long (G : Type*) [Magma G] (h : ConjunctionClass398 G) : ConjunctionClass398_long G := by
+theorem AT398_implies_long (G : Type*) [Magma G] (h : AssociativeTheory398 G) : AssociativeTheory398_long G := by
   obtain ⟨eq307, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -8002,13 +8002,13 @@ theorem CC398_implies_long (G : Type*) [Magma G] (h : ConjunctionClass398 G) : C
   have eq4290 := Equation4283_4320_4512_implies_Equation4290 G eq4283 eq4320 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC398_implied_by_long (G : Type*) [Magma G] : ConjunctionClass398_long G -> ConjunctionClass398 G :=
+theorem AT398_implied_by_long (G : Type*) [Magma G] : AssociativeTheory398_long G -> AssociativeTheory398 G :=
 fun ⟨_, h307, _, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h307, h4358, h4362, h4512⟩
 
-theorem CC398_equiv (G : Type*) [Magma G] : ConjunctionClass398 G <-> ConjunctionClass398_long G :=
-Iff.intro (CC398_implies_long G) (CC398_implied_by_long G)
+theorem AT398_equiv (G : Type*) [Magma G] : AssociativeTheory398 G <-> AssociativeTheory398_long G :=
+Iff.intro (AT398_implies_long G) (AT398_implied_by_long G)
 
-theorem CC399_implies_long (G : Type*) [Magma G] (h : ConjunctionClass399 G) : ConjunctionClass399_long G := by
+theorem AT399_implies_long (G : Type*) [Magma G] (h : AssociativeTheory399 G) : AssociativeTheory399_long G := by
   obtain ⟨eq40, eq307, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -8069,13 +8069,13 @@ theorem CC399_implies_long (G : Type*) [Magma G] (h : ConjunctionClass399 G) : C
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC399_implied_by_long (G : Type*) [Magma G] : ConjunctionClass399_long G -> ConjunctionClass399 G :=
+theorem AT399_implied_by_long (G : Type*) [Magma G] : AssociativeTheory399_long G -> AssociativeTheory399 G :=
 fun ⟨_, h40, h307, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h40, h307, h4358, h4362, h4512⟩
 
-theorem CC399_equiv (G : Type*) [Magma G] : ConjunctionClass399 G <-> ConjunctionClass399_long G :=
-Iff.intro (CC399_implies_long G) (CC399_implied_by_long G)
+theorem AT399_equiv (G : Type*) [Magma G] : AssociativeTheory399 G <-> AssociativeTheory399_long G :=
+Iff.intro (AT399_implies_long G) (AT399_implied_by_long G)
 
-theorem CC400_implies_long (G : Type*) [Magma G] (h : ConjunctionClass400 G) : ConjunctionClass400_long G := by
+theorem AT400_implies_long (G : Type*) [Magma G] (h : AssociativeTheory400 G) : AssociativeTheory400_long G := by
   obtain ⟨eq3253, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -8085,13 +8085,13 @@ theorem CC400_implies_long (G : Type*) [Magma G] (h : ConjunctionClass400 G) : C
   have eq4290 := Equation4283_4320_4512_implies_Equation4290 G eq4283 eq4320 eq4512
   exact ⟨eq1, eq3253, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC400_implied_by_long (G : Type*) [Magma G] : ConjunctionClass400_long G -> ConjunctionClass400 G :=
+theorem AT400_implied_by_long (G : Type*) [Magma G] : AssociativeTheory400_long G -> AssociativeTheory400 G :=
 fun ⟨_, h3253, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h3253, h4358, h4362, h4512⟩
 
-theorem CC400_equiv (G : Type*) [Magma G] : ConjunctionClass400 G <-> ConjunctionClass400_long G :=
-Iff.intro (CC400_implies_long G) (CC400_implied_by_long G)
+theorem AT400_equiv (G : Type*) [Magma G] : AssociativeTheory400 G <-> AssociativeTheory400_long G :=
+Iff.intro (AT400_implies_long G) (AT400_implied_by_long G)
 
-theorem CC401_implies_long (G : Type*) [Magma G] (h : ConjunctionClass401 G) : ConjunctionClass401_long G := by
+theorem AT401_implies_long (G : Type*) [Magma G] (h : AssociativeTheory401 G) : AssociativeTheory401_long G := by
   obtain ⟨eq3267, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -8156,13 +8156,13 @@ theorem CC401_implies_long (G : Type*) [Magma G] (h : ConjunctionClass401 G) : C
   have eq3300 := Equation3277_4512_implies_Equation3300 G eq3277 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC401_implied_by_long (G : Type*) [Magma G] : ConjunctionClass401_long G -> ConjunctionClass401 G :=
+theorem AT401_implied_by_long (G : Type*) [Magma G] : AssociativeTheory401_long G -> AssociativeTheory401 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h3267, h4358, h4362, h4512⟩
 
-theorem CC401_equiv (G : Type*) [Magma G] : ConjunctionClass401 G <-> ConjunctionClass401_long G :=
-Iff.intro (CC401_implies_long G) (CC401_implied_by_long G)
+theorem AT401_equiv (G : Type*) [Magma G] : AssociativeTheory401 G <-> AssociativeTheory401_long G :=
+Iff.intro (AT401_implies_long G) (AT401_implied_by_long G)
 
-theorem CC402_implies_long (G : Type*) [Magma G] (h : ConjunctionClass402 G) : ConjunctionClass402_long G := by
+theorem AT402_implies_long (G : Type*) [Magma G] (h : AssociativeTheory402 G) : AssociativeTheory402_long G := by
   obtain ⟨eq4268, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -8199,13 +8199,13 @@ theorem CC402_implies_long (G : Type*) [Magma G] (h : ConjunctionClass402 G) : C
   have eq4343 := Equation4280_4512_implies_Equation4343 G eq4280 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC402_implied_by_long (G : Type*) [Magma G] : ConjunctionClass402_long G -> ConjunctionClass402 G :=
+theorem AT402_implied_by_long (G : Type*) [Magma G] : AssociativeTheory402_long G -> AssociativeTheory402 G :=
 fun ⟨_, h4268, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h4268, h4358, h4362, h4512⟩
 
-theorem CC402_equiv (G : Type*) [Magma G] : ConjunctionClass402 G <-> ConjunctionClass402_long G :=
-Iff.intro (CC402_implies_long G) (CC402_implied_by_long G)
+theorem AT402_equiv (G : Type*) [Magma G] : AssociativeTheory402 G <-> AssociativeTheory402_long G :=
+Iff.intro (AT402_implies_long G) (AT402_implied_by_long G)
 
-theorem CC403_implies_long (G : Type*) [Magma G] (h : ConjunctionClass403 G) : ConjunctionClass403_long G := by
+theorem AT403_implies_long (G : Type*) [Magma G] (h : AssociativeTheory403 G) : AssociativeTheory403_long G := by
   obtain ⟨eq4270, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -8220,13 +8220,13 @@ theorem CC403_implies_long (G : Type*) [Magma G] (h : ConjunctionClass403 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC403_implied_by_long (G : Type*) [Magma G] : ConjunctionClass403_long G -> ConjunctionClass403 G :=
+theorem AT403_implied_by_long (G : Type*) [Magma G] : AssociativeTheory403_long G -> AssociativeTheory403 G :=
 fun ⟨_, h4270, _, _, _, _, _, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h4270, h4358, h4362, h4512⟩
 
-theorem CC403_equiv (G : Type*) [Magma G] : ConjunctionClass403 G <-> ConjunctionClass403_long G :=
-Iff.intro (CC403_implies_long G) (CC403_implied_by_long G)
+theorem AT403_equiv (G : Type*) [Magma G] : AssociativeTheory403 G <-> AssociativeTheory403_long G :=
+Iff.intro (AT403_implies_long G) (AT403_implied_by_long G)
 
-theorem CC404_implies_long (G : Type*) [Magma G] (h : ConjunctionClass404 G) : ConjunctionClass404_long G := by
+theorem AT404_implies_long (G : Type*) [Magma G] (h : AssociativeTheory404 G) : AssociativeTheory404_long G := by
   obtain ⟨eq4276, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -8236,13 +8236,13 @@ theorem CC404_implies_long (G : Type*) [Magma G] (h : ConjunctionClass404 G) : C
   have eq4290 := Equation4283_4320_4512_implies_Equation4290 G eq4283 eq4320 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4290, eq4320, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC404_implied_by_long (G : Type*) [Magma G] : ConjunctionClass404_long G -> ConjunctionClass404 G :=
+theorem AT404_implied_by_long (G : Type*) [Magma G] : AssociativeTheory404_long G -> AssociativeTheory404 G :=
 fun ⟨_, h4276, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h4276, h4358, h4362, h4512⟩
 
-theorem CC404_equiv (G : Type*) [Magma G] : ConjunctionClass404 G <-> ConjunctionClass404_long G :=
-Iff.intro (CC404_implies_long G) (CC404_implied_by_long G)
+theorem AT404_equiv (G : Type*) [Magma G] : AssociativeTheory404 G <-> AssociativeTheory404_long G :=
+Iff.intro (AT404_implies_long G) (AT404_implied_by_long G)
 
-theorem CC405_implies_long (G : Type*) [Magma G] (h : ConjunctionClass405 G) : ConjunctionClass405_long G := by
+theorem AT405_implies_long (G : Type*) [Magma G] (h : AssociativeTheory405 G) : AssociativeTheory405_long G := by
   obtain ⟨eq4284, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -8257,13 +8257,13 @@ theorem CC405_implies_long (G : Type*) [Magma G] (h : ConjunctionClass405 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC405_implied_by_long (G : Type*) [Magma G] : ConjunctionClass405_long G -> ConjunctionClass405 G :=
+theorem AT405_implied_by_long (G : Type*) [Magma G] : AssociativeTheory405_long G -> AssociativeTheory405 G :=
 fun ⟨_, _, h4284, _, _, _, _, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h4284, h4358, h4362, h4512⟩
 
-theorem CC405_equiv (G : Type*) [Magma G] : ConjunctionClass405 G <-> ConjunctionClass405_long G :=
-Iff.intro (CC405_implies_long G) (CC405_implied_by_long G)
+theorem AT405_equiv (G : Type*) [Magma G] : AssociativeTheory405 G <-> AssociativeTheory405_long G :=
+Iff.intro (AT405_implies_long G) (AT405_implied_by_long G)
 
-theorem CC406_implies_long (G : Type*) [Magma G] (h : ConjunctionClass406 G) : ConjunctionClass406_long G := by
+theorem AT406_implies_long (G : Type*) [Magma G] (h : AssociativeTheory406 G) : AssociativeTheory406_long G := by
   obtain ⟨eq307, eq4284, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -8279,13 +8279,13 @@ theorem CC406_implies_long (G : Type*) [Magma G] (h : ConjunctionClass406 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC406_implied_by_long (G : Type*) [Magma G] : ConjunctionClass406_long G -> ConjunctionClass406 G :=
+theorem AT406_implied_by_long (G : Type*) [Magma G] : AssociativeTheory406_long G -> AssociativeTheory406 G :=
 fun ⟨_, h307, _, _, h4284, _, _, _, _, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h307, h4284, h4358, h4362, h4512⟩
 
-theorem CC406_equiv (G : Type*) [Magma G] : ConjunctionClass406 G <-> ConjunctionClass406_long G :=
-Iff.intro (CC406_implies_long G) (CC406_implied_by_long G)
+theorem AT406_equiv (G : Type*) [Magma G] : AssociativeTheory406 G <-> AssociativeTheory406_long G :=
+Iff.intro (AT406_implies_long G) (AT406_implied_by_long G)
 
-theorem CC407_implies_long (G : Type*) [Magma G] (h : ConjunctionClass407 G) : ConjunctionClass407_long G := by
+theorem AT407_implies_long (G : Type*) [Magma G] (h : AssociativeTheory407 G) : AssociativeTheory407_long G := by
   obtain ⟨eq4276, eq4284, eq4358, eq4362, eq4512⟩ := h
   have eq4369 := Equation4358_4362_4512_implies_Equation4369 G eq4358 eq4362 eq4512
   have eq4364 := Equation4358_4362_4512_implies_Equation4364 G eq4358 eq4362 eq4512
@@ -8300,13 +8300,13 @@ theorem CC407_implies_long (G : Type*) [Magma G] (h : ConjunctionClass407 G) : C
   have eq4293 := Equation4283_4291_4512_implies_Equation4293 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4358, eq4362, eq4364, eq4369, eq4512⟩
 
-theorem CC407_implied_by_long (G : Type*) [Magma G] : ConjunctionClass407_long G -> ConjunctionClass407 G :=
+theorem AT407_implied_by_long (G : Type*) [Magma G] : AssociativeTheory407_long G -> AssociativeTheory407 G :=
 fun ⟨_, h4276, _, h4284, _, _, _, _, _, _, _, h4358, h4362, _, _, h4512⟩ => ⟨h4276, h4284, h4358, h4362, h4512⟩
 
-theorem CC407_equiv (G : Type*) [Magma G] : ConjunctionClass407 G <-> ConjunctionClass407_long G :=
-Iff.intro (CC407_implies_long G) (CC407_implied_by_long G)
+theorem AT407_equiv (G : Type*) [Magma G] : AssociativeTheory407 G <-> AssociativeTheory407_long G :=
+Iff.intro (AT407_implies_long G) (AT407_implied_by_long G)
 
-theorem CC408_implies_long (G : Type*) [Magma G] (h : ConjunctionClass408 G) : ConjunctionClass408_long G := by
+theorem AT408_implies_long (G : Type*) [Magma G] (h : AssociativeTheory408 G) : AssociativeTheory408_long G := by
   obtain ⟨eq4364, eq4512⟩ := h
   have eq1 := Equation4364_4512_implies_Equation1 G eq4364 eq4512
   have eq4283 := Equation4364_4512_implies_Equation4283 G eq4364 eq4512
@@ -8314,13 +8314,13 @@ theorem CC408_implies_long (G : Type*) [Magma G] (h : ConjunctionClass408 G) : C
   have eq4320 := Equation4364_4512_implies_Equation4320 G eq4364 eq4512
   exact ⟨eq1, eq4283, eq4290, eq4320, eq4364, eq4512⟩
 
-theorem CC408_implied_by_long (G : Type*) [Magma G] : ConjunctionClass408_long G -> ConjunctionClass408 G :=
+theorem AT408_implied_by_long (G : Type*) [Magma G] : AssociativeTheory408_long G -> AssociativeTheory408 G :=
 fun ⟨_, _, _, _, h4364, h4512⟩ => ⟨h4364, h4512⟩
 
-theorem CC408_equiv (G : Type*) [Magma G] : ConjunctionClass408 G <-> ConjunctionClass408_long G :=
-Iff.intro (CC408_implies_long G) (CC408_implied_by_long G)
+theorem AT408_equiv (G : Type*) [Magma G] : AssociativeTheory408 G <-> AssociativeTheory408_long G :=
+Iff.intro (AT408_implies_long G) (AT408_implied_by_long G)
 
-theorem CC409_implies_long (G : Type*) [Magma G] (h : ConjunctionClass409 G) : ConjunctionClass409_long G := by
+theorem AT409_implies_long (G : Type*) [Magma G] (h : AssociativeTheory409 G) : AssociativeTheory409_long G := by
   obtain ⟨eq40, eq4364, eq4512⟩ := h
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
   have eq3253 := Equation40_4512_implies_Equation3253 G eq40 eq4512
@@ -8340,13 +8340,13 @@ theorem CC409_implies_long (G : Type*) [Magma G] (h : ConjunctionClass409 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq40, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4364, eq4512⟩
 
-theorem CC409_implied_by_long (G : Type*) [Magma G] : ConjunctionClass409_long G -> ConjunctionClass409 G :=
+theorem AT409_implied_by_long (G : Type*) [Magma G] : AssociativeTheory409_long G -> AssociativeTheory409 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4364, h4512⟩ => ⟨h40, h4364, h4512⟩
 
-theorem CC409_equiv (G : Type*) [Magma G] : ConjunctionClass409 G <-> ConjunctionClass409_long G :=
-Iff.intro (CC409_implies_long G) (CC409_implied_by_long G)
+theorem AT409_equiv (G : Type*) [Magma G] : AssociativeTheory409 G <-> AssociativeTheory409_long G :=
+Iff.intro (AT409_implies_long G) (AT409_implied_by_long G)
 
-theorem CC410_implies_long (G : Type*) [Magma G] (h : ConjunctionClass410 G) : ConjunctionClass410_long G := by
+theorem AT410_implies_long (G : Type*) [Magma G] (h : AssociativeTheory410 G) : AssociativeTheory410_long G := by
   obtain ⟨eq307, eq4364, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -8355,13 +8355,13 @@ theorem CC410_implies_long (G : Type*) [Magma G] (h : ConjunctionClass410 G) : C
   have eq4320 := Equation4364_4512_implies_Equation4320 G eq4364 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4290, eq4320, eq4364, eq4512⟩
 
-theorem CC410_implied_by_long (G : Type*) [Magma G] : ConjunctionClass410_long G -> ConjunctionClass410 G :=
+theorem AT410_implied_by_long (G : Type*) [Magma G] : AssociativeTheory410_long G -> AssociativeTheory410 G :=
 fun ⟨_, h307, _, _, _, _, h4364, h4512⟩ => ⟨h307, h4364, h4512⟩
 
-theorem CC410_equiv (G : Type*) [Magma G] : ConjunctionClass410 G <-> ConjunctionClass410_long G :=
-Iff.intro (CC410_implies_long G) (CC410_implied_by_long G)
+theorem AT410_equiv (G : Type*) [Magma G] : AssociativeTheory410 G <-> AssociativeTheory410_long G :=
+Iff.intro (AT410_implies_long G) (AT410_implied_by_long G)
 
-theorem CC411_implies_long (G : Type*) [Magma G] (h : ConjunctionClass411 G) : ConjunctionClass411_long G := by
+theorem AT411_implies_long (G : Type*) [Magma G] (h : AssociativeTheory411 G) : AssociativeTheory411_long G := by
   obtain ⟨eq40, eq307, eq4364, eq4512⟩ := h
   have eq316 := Equation40_307_4512_implies_Equation316 G eq40 eq307 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -8420,13 +8420,13 @@ theorem CC411_implies_long (G : Type*) [Magma G] (h : ConjunctionClass411 G) : C
   have eq3290 := Equation40_3265_4512_implies_Equation3290 G eq40 eq3265 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4364, eq4512⟩
 
-theorem CC411_implied_by_long (G : Type*) [Magma G] : ConjunctionClass411_long G -> ConjunctionClass411 G :=
+theorem AT411_implied_by_long (G : Type*) [Magma G] : AssociativeTheory411_long G -> AssociativeTheory411 G :=
 fun ⟨_, h40, h307, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4364, h4512⟩ => ⟨h40, h307, h4364, h4512⟩
 
-theorem CC411_equiv (G : Type*) [Magma G] : ConjunctionClass411 G <-> ConjunctionClass411_long G :=
-Iff.intro (CC411_implies_long G) (CC411_implied_by_long G)
+theorem AT411_equiv (G : Type*) [Magma G] : AssociativeTheory411 G <-> AssociativeTheory411_long G :=
+Iff.intro (AT411_implies_long G) (AT411_implied_by_long G)
 
-theorem CC412_implies_long (G : Type*) [Magma G] (h : ConjunctionClass412 G) : ConjunctionClass412_long G := by
+theorem AT412_implies_long (G : Type*) [Magma G] (h : AssociativeTheory412 G) : AssociativeTheory412_long G := by
   obtain ⟨eq3253, eq4364, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4364_4512_implies_Equation4283 G eq4364 eq4512
@@ -8434,13 +8434,13 @@ theorem CC412_implies_long (G : Type*) [Magma G] (h : ConjunctionClass412 G) : C
   have eq4320 := Equation4364_4512_implies_Equation4320 G eq4364 eq4512
   exact ⟨eq1, eq3253, eq4283, eq4290, eq4320, eq4364, eq4512⟩
 
-theorem CC412_implied_by_long (G : Type*) [Magma G] : ConjunctionClass412_long G -> ConjunctionClass412 G :=
+theorem AT412_implied_by_long (G : Type*) [Magma G] : AssociativeTheory412_long G -> AssociativeTheory412 G :=
 fun ⟨_, h3253, _, _, _, h4364, h4512⟩ => ⟨h3253, h4364, h4512⟩
 
-theorem CC412_equiv (G : Type*) [Magma G] : ConjunctionClass412 G <-> ConjunctionClass412_long G :=
-Iff.intro (CC412_implies_long G) (CC412_implied_by_long G)
+theorem AT412_equiv (G : Type*) [Magma G] : AssociativeTheory412 G <-> AssociativeTheory412_long G :=
+Iff.intro (AT412_implies_long G) (AT412_implied_by_long G)
 
-theorem CC413_implies_long (G : Type*) [Magma G] (h : ConjunctionClass413 G) : ConjunctionClass413_long G := by
+theorem AT413_implies_long (G : Type*) [Magma G] (h : AssociativeTheory413 G) : AssociativeTheory413_long G := by
   obtain ⟨eq3267, eq4364, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3267_4512_implies_Equation307 G eq3267 eq4512
@@ -8503,13 +8503,13 @@ theorem CC413_implies_long (G : Type*) [Magma G] (h : ConjunctionClass413 G) : C
   have eq3300 := Equation3277_4512_implies_Equation3300 G eq3277 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4364, eq4512⟩
 
-theorem CC413_implied_by_long (G : Type*) [Magma G] : ConjunctionClass413_long G -> ConjunctionClass413 G :=
+theorem AT413_implied_by_long (G : Type*) [Magma G] : AssociativeTheory413_long G -> AssociativeTheory413 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4364, h4512⟩ => ⟨h3267, h4364, h4512⟩
 
-theorem CC413_equiv (G : Type*) [Magma G] : ConjunctionClass413 G <-> ConjunctionClass413_long G :=
-Iff.intro (CC413_implies_long G) (CC413_implied_by_long G)
+theorem AT413_equiv (G : Type*) [Magma G] : AssociativeTheory413 G <-> AssociativeTheory413_long G :=
+Iff.intro (AT413_implies_long G) (AT413_implied_by_long G)
 
-theorem CC414_implies_long (G : Type*) [Magma G] (h : ConjunctionClass414 G) : ConjunctionClass414_long G := by
+theorem AT414_implies_long (G : Type*) [Magma G] (h : AssociativeTheory414 G) : AssociativeTheory414_long G := by
   obtain ⟨eq4268, eq4364, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4364_4512_implies_Equation4283 G eq4364 eq4512
@@ -8544,13 +8544,13 @@ theorem CC414_implies_long (G : Type*) [Magma G] (h : ConjunctionClass414 G) : C
   have eq4321 := Equation4283_4291_4512_implies_Equation4321 G eq4283 eq4291 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4364, eq4512⟩
 
-theorem CC414_implied_by_long (G : Type*) [Magma G] : ConjunctionClass414_long G -> ConjunctionClass414 G :=
+theorem AT414_implied_by_long (G : Type*) [Magma G] : AssociativeTheory414_long G -> AssociativeTheory414 G :=
 fun ⟨_, h4268, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4364, h4512⟩ => ⟨h4268, h4364, h4512⟩
 
-theorem CC414_equiv (G : Type*) [Magma G] : ConjunctionClass414 G <-> ConjunctionClass414_long G :=
-Iff.intro (CC414_implies_long G) (CC414_implied_by_long G)
+theorem AT414_equiv (G : Type*) [Magma G] : AssociativeTheory414 G <-> AssociativeTheory414_long G :=
+Iff.intro (AT414_implies_long G) (AT414_implied_by_long G)
 
-theorem CC415_implies_long (G : Type*) [Magma G] (h : ConjunctionClass415 G) : ConjunctionClass415_long G := by
+theorem AT415_implies_long (G : Type*) [Magma G] (h : AssociativeTheory415 G) : AssociativeTheory415_long G := by
   obtain ⟨eq4270, eq4364, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4364_4512_implies_Equation4283 G eq4364 eq4512
@@ -8563,13 +8563,13 @@ theorem CC415_implies_long (G : Type*) [Magma G] (h : ConjunctionClass415 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4364, eq4512⟩
 
-theorem CC415_implied_by_long (G : Type*) [Magma G] : ConjunctionClass415_long G -> ConjunctionClass415 G :=
+theorem AT415_implied_by_long (G : Type*) [Magma G] : AssociativeTheory415_long G -> AssociativeTheory415 G :=
 fun ⟨_, h4270, _, _, _, _, _, _, _, _, h4364, h4512⟩ => ⟨h4270, h4364, h4512⟩
 
-theorem CC415_equiv (G : Type*) [Magma G] : ConjunctionClass415 G <-> ConjunctionClass415_long G :=
-Iff.intro (CC415_implies_long G) (CC415_implied_by_long G)
+theorem AT415_equiv (G : Type*) [Magma G] : AssociativeTheory415 G <-> AssociativeTheory415_long G :=
+Iff.intro (AT415_implies_long G) (AT415_implied_by_long G)
 
-theorem CC416_implies_long (G : Type*) [Magma G] (h : ConjunctionClass416 G) : ConjunctionClass416_long G := by
+theorem AT416_implies_long (G : Type*) [Magma G] (h : AssociativeTheory416 G) : AssociativeTheory416_long G := by
   obtain ⟨eq4276, eq4364, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4364_4512_implies_Equation4283 G eq4364 eq4512
@@ -8577,13 +8577,13 @@ theorem CC416_implies_long (G : Type*) [Magma G] (h : ConjunctionClass416 G) : C
   have eq4320 := Equation4364_4512_implies_Equation4320 G eq4364 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4290, eq4320, eq4364, eq4512⟩
 
-theorem CC416_implied_by_long (G : Type*) [Magma G] : ConjunctionClass416_long G -> ConjunctionClass416 G :=
+theorem AT416_implied_by_long (G : Type*) [Magma G] : AssociativeTheory416_long G -> AssociativeTheory416 G :=
 fun ⟨_, h4276, _, _, _, h4364, h4512⟩ => ⟨h4276, h4364, h4512⟩
 
-theorem CC416_equiv (G : Type*) [Magma G] : ConjunctionClass416 G <-> ConjunctionClass416_long G :=
-Iff.intro (CC416_implies_long G) (CC416_implied_by_long G)
+theorem AT416_equiv (G : Type*) [Magma G] : AssociativeTheory416 G <-> AssociativeTheory416_long G :=
+Iff.intro (AT416_implies_long G) (AT416_implied_by_long G)
 
-theorem CC417_implies_long (G : Type*) [Magma G] (h : ConjunctionClass417 G) : ConjunctionClass417_long G := by
+theorem AT417_implies_long (G : Type*) [Magma G] (h : AssociativeTheory417 G) : AssociativeTheory417_long G := by
   obtain ⟨eq4284, eq4364, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4364_4512_implies_Equation4283 G eq4364 eq4512
@@ -8596,13 +8596,13 @@ theorem CC417_implies_long (G : Type*) [Magma G] (h : ConjunctionClass417 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4364, eq4512⟩
 
-theorem CC417_implied_by_long (G : Type*) [Magma G] : ConjunctionClass417_long G -> ConjunctionClass417 G :=
+theorem AT417_implied_by_long (G : Type*) [Magma G] : AssociativeTheory417_long G -> AssociativeTheory417 G :=
 fun ⟨_, _, h4284, _, _, _, _, _, _, _, h4364, h4512⟩ => ⟨h4284, h4364, h4512⟩
 
-theorem CC417_equiv (G : Type*) [Magma G] : ConjunctionClass417 G <-> ConjunctionClass417_long G :=
-Iff.intro (CC417_implies_long G) (CC417_implied_by_long G)
+theorem AT417_equiv (G : Type*) [Magma G] : AssociativeTheory417 G <-> AssociativeTheory417_long G :=
+Iff.intro (AT417_implies_long G) (AT417_implied_by_long G)
 
-theorem CC418_implies_long (G : Type*) [Magma G] (h : ConjunctionClass418 G) : ConjunctionClass418_long G := by
+theorem AT418_implies_long (G : Type*) [Magma G] (h : AssociativeTheory418 G) : AssociativeTheory418_long G := by
   obtain ⟨eq307, eq4284, eq4364, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
@@ -8616,13 +8616,13 @@ theorem CC418_implies_long (G : Type*) [Magma G] (h : ConjunctionClass418 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4364, eq4512⟩
 
-theorem CC418_implied_by_long (G : Type*) [Magma G] : ConjunctionClass418_long G -> ConjunctionClass418 G :=
+theorem AT418_implied_by_long (G : Type*) [Magma G] : AssociativeTheory418_long G -> AssociativeTheory418 G :=
 fun ⟨_, h307, _, _, h4284, _, _, _, _, _, _, _, h4364, h4512⟩ => ⟨h307, h4284, h4364, h4512⟩
 
-theorem CC418_equiv (G : Type*) [Magma G] : ConjunctionClass418 G <-> ConjunctionClass418_long G :=
-Iff.intro (CC418_implies_long G) (CC418_implied_by_long G)
+theorem AT418_equiv (G : Type*) [Magma G] : AssociativeTheory418 G <-> AssociativeTheory418_long G :=
+Iff.intro (AT418_implies_long G) (AT418_implied_by_long G)
 
-theorem CC419_implies_long (G : Type*) [Magma G] (h : ConjunctionClass419 G) : ConjunctionClass419_long G := by
+theorem AT419_implies_long (G : Type*) [Magma G] (h : AssociativeTheory419 G) : AssociativeTheory419_long G := by
   obtain ⟨eq4276, eq4284, eq4364, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4283 := Equation4364_4512_implies_Equation4283 G eq4364 eq4512
@@ -8635,25 +8635,25 @@ theorem CC419_implies_long (G : Type*) [Magma G] (h : ConjunctionClass419 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4364, eq4512⟩
 
-theorem CC419_implied_by_long (G : Type*) [Magma G] : ConjunctionClass419_long G -> ConjunctionClass419 G :=
+theorem AT419_implied_by_long (G : Type*) [Magma G] : AssociativeTheory419_long G -> AssociativeTheory419 G :=
 fun ⟨_, h4276, _, h4284, _, _, _, _, _, _, _, h4364, h4512⟩ => ⟨h4276, h4284, h4364, h4512⟩
 
-theorem CC419_equiv (G : Type*) [Magma G] : ConjunctionClass419 G <-> ConjunctionClass419_long G :=
-Iff.intro (CC419_implies_long G) (CC419_implied_by_long G)
+theorem AT419_equiv (G : Type*) [Magma G] : AssociativeTheory419 G <-> AssociativeTheory419_long G :=
+Iff.intro (AT419_implies_long G) (AT419_implied_by_long G)
 
-theorem CC420_implies_long (G : Type*) [Magma G] (h : ConjunctionClass420 G) : ConjunctionClass420_long G := by
+theorem AT420_implies_long (G : Type*) [Magma G] (h : AssociativeTheory420 G) : AssociativeTheory420_long G := by
   obtain ⟨eq4369, eq4512⟩ := h
   have eq1 := Equation4369_4512_implies_Equation1 G eq4369 eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   exact ⟨eq1, eq4290, eq4369, eq4512⟩
 
-theorem CC420_implied_by_long (G : Type*) [Magma G] : ConjunctionClass420_long G -> ConjunctionClass420 G :=
+theorem AT420_implied_by_long (G : Type*) [Magma G] : AssociativeTheory420_long G -> AssociativeTheory420 G :=
 fun ⟨_, _, h4369, h4512⟩ => ⟨h4369, h4512⟩
 
-theorem CC420_equiv (G : Type*) [Magma G] : ConjunctionClass420 G <-> ConjunctionClass420_long G :=
-Iff.intro (CC420_implies_long G) (CC420_implied_by_long G)
+theorem AT420_equiv (G : Type*) [Magma G] : AssociativeTheory420 G <-> AssociativeTheory420_long G :=
+Iff.intro (AT420_implies_long G) (AT420_implied_by_long G)
 
-theorem CC421_implies_long (G : Type*) [Magma G] (h : ConjunctionClass421 G) : ConjunctionClass421_long G := by
+theorem AT421_implies_long (G : Type*) [Magma G] (h : AssociativeTheory421 G) : AssociativeTheory421_long G := by
   obtain ⟨eq40, eq4369, eq4512⟩ := h
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
   have eq3253 := Equation40_4512_implies_Equation3253 G eq40 eq4512
@@ -8668,26 +8668,26 @@ theorem CC421_implies_long (G : Type*) [Magma G] (h : ConjunctionClass421 G) : C
   have eq4297 := Equation40_4512_implies_Equation4297 G eq40 eq4512
   exact ⟨eq1, eq40, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq4270, eq4275, eq4290, eq4297, eq4369, eq4512⟩
 
-theorem CC421_implied_by_long (G : Type*) [Magma G] : ConjunctionClass421_long G -> ConjunctionClass421 G :=
+theorem AT421_implied_by_long (G : Type*) [Magma G] : AssociativeTheory421_long G -> AssociativeTheory421 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h40, h4369, h4512⟩
 
-theorem CC421_equiv (G : Type*) [Magma G] : ConjunctionClass421 G <-> ConjunctionClass421_long G :=
-Iff.intro (CC421_implies_long G) (CC421_implied_by_long G)
+theorem AT421_equiv (G : Type*) [Magma G] : AssociativeTheory421 G <-> AssociativeTheory421_long G :=
+Iff.intro (AT421_implies_long G) (AT421_implied_by_long G)
 
-theorem CC422_implies_long (G : Type*) [Magma G] (h : ConjunctionClass422 G) : ConjunctionClass422_long G := by
+theorem AT422_implies_long (G : Type*) [Magma G] (h : AssociativeTheory422 G) : AssociativeTheory422_long G := by
   obtain ⟨eq307, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   have eq3253 := Equation307_4512_implies_Equation3253 G eq307 eq4512
   exact ⟨eq1, eq307, eq3253, eq4290, eq4369, eq4512⟩
 
-theorem CC422_implied_by_long (G : Type*) [Magma G] : ConjunctionClass422_long G -> ConjunctionClass422 G :=
+theorem AT422_implied_by_long (G : Type*) [Magma G] : AssociativeTheory422_long G -> AssociativeTheory422 G :=
 fun ⟨_, h307, _, _, h4369, h4512⟩ => ⟨h307, h4369, h4512⟩
 
-theorem CC422_equiv (G : Type*) [Magma G] : ConjunctionClass422 G <-> ConjunctionClass422_long G :=
-Iff.intro (CC422_implies_long G) (CC422_implied_by_long G)
+theorem AT422_equiv (G : Type*) [Magma G] : AssociativeTheory422 G <-> AssociativeTheory422_long G :=
+Iff.intro (AT422_implies_long G) (AT422_implied_by_long G)
 
-theorem CC423_implies_long (G : Type*) [Magma G] (h : ConjunctionClass423 G) : ConjunctionClass423_long G := by
+theorem AT423_implies_long (G : Type*) [Magma G] (h : AssociativeTheory423 G) : AssociativeTheory423_long G := by
   obtain ⟨eq40, eq307, eq4369, eq4512⟩ := h
   have eq316 := Equation40_307_4512_implies_Equation316 G eq40 eq307 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -8728,13 +8728,13 @@ theorem CC423_implies_long (G : Type*) [Magma G] (h : ConjunctionClass423 G) : C
   have eq3274 := Equation3290_4512_implies_Equation3274 G eq3290 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4369, eq4512⟩
 
-theorem CC423_implied_by_long (G : Type*) [Magma G] : ConjunctionClass423_long G -> ConjunctionClass423 G :=
+theorem AT423_implied_by_long (G : Type*) [Magma G] : AssociativeTheory423_long G -> AssociativeTheory423 G :=
 fun ⟨_, h40, h307, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h40, h307, h4369, h4512⟩
 
-theorem CC423_equiv (G : Type*) [Magma G] : ConjunctionClass423 G <-> ConjunctionClass423_long G :=
-Iff.intro (CC423_implies_long G) (CC423_implied_by_long G)
+theorem AT423_equiv (G : Type*) [Magma G] : AssociativeTheory423 G <-> AssociativeTheory423_long G :=
+Iff.intro (AT423_implies_long G) (AT423_implied_by_long G)
 
-theorem CC424_implies_long (G : Type*) [Magma G] (h : ConjunctionClass424 G) : ConjunctionClass424_long G := by
+theorem AT424_implies_long (G : Type*) [Magma G] (h : AssociativeTheory424 G) : AssociativeTheory424_long G := by
   obtain ⟨eq309, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -8794,25 +8794,25 @@ theorem CC424_implies_long (G : Type*) [Magma G] (h : ConjunctionClass424 G) : C
   have eq4331 := Equation313_4512_implies_Equation4331 G eq313 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4369, eq4512⟩
 
-theorem CC424_implied_by_long (G : Type*) [Magma G] : ConjunctionClass424_long G -> ConjunctionClass424 G :=
+theorem AT424_implied_by_long (G : Type*) [Magma G] : AssociativeTheory424_long G -> AssociativeTheory424 G :=
 fun ⟨_, _, _, _, h309, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h309, h4369, h4512⟩
 
-theorem CC424_equiv (G : Type*) [Magma G] : ConjunctionClass424 G <-> ConjunctionClass424_long G :=
-Iff.intro (CC424_implies_long G) (CC424_implied_by_long G)
+theorem AT424_equiv (G : Type*) [Magma G] : AssociativeTheory424 G <-> AssociativeTheory424_long G :=
+Iff.intro (AT424_implies_long G) (AT424_implied_by_long G)
 
-theorem CC425_implies_long (G : Type*) [Magma G] (h : ConjunctionClass425 G) : ConjunctionClass425_long G := by
+theorem AT425_implies_long (G : Type*) [Magma G] (h : AssociativeTheory425 G) : AssociativeTheory425_long G := by
   obtain ⟨eq3253, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   exact ⟨eq1, eq3253, eq4290, eq4369, eq4512⟩
 
-theorem CC425_implied_by_long (G : Type*) [Magma G] : ConjunctionClass425_long G -> ConjunctionClass425 G :=
+theorem AT425_implied_by_long (G : Type*) [Magma G] : AssociativeTheory425_long G -> AssociativeTheory425 G :=
 fun ⟨_, h3253, _, h4369, h4512⟩ => ⟨h3253, h4369, h4512⟩
 
-theorem CC425_equiv (G : Type*) [Magma G] : ConjunctionClass425 G <-> ConjunctionClass425_long G :=
-Iff.intro (CC425_implies_long G) (CC425_implied_by_long G)
+theorem AT425_equiv (G : Type*) [Magma G] : AssociativeTheory425 G <-> AssociativeTheory425_long G :=
+Iff.intro (AT425_implies_long G) (AT425_implied_by_long G)
 
-theorem CC426_implies_long (G : Type*) [Magma G] (h : ConjunctionClass426 G) : ConjunctionClass426_long G := by
+theorem AT426_implies_long (G : Type*) [Magma G] (h : AssociativeTheory426 G) : AssociativeTheory426_long G := by
   obtain ⟨eq3267, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -8857,13 +8857,13 @@ theorem CC426_implies_long (G : Type*) [Magma G] (h : ConjunctionClass426 G) : C
   have eq3300 := Equation3277_4512_implies_Equation3300 G eq3277 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4369, eq4512⟩
 
-theorem CC426_implied_by_long (G : Type*) [Magma G] : ConjunctionClass426_long G -> ConjunctionClass426 G :=
+theorem AT426_implied_by_long (G : Type*) [Magma G] : AssociativeTheory426_long G -> AssociativeTheory426 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h3267, h4369, h4512⟩
 
-theorem CC426_equiv (G : Type*) [Magma G] : ConjunctionClass426 G <-> ConjunctionClass426_long G :=
-Iff.intro (CC426_implies_long G) (CC426_implied_by_long G)
+theorem AT426_equiv (G : Type*) [Magma G] : AssociativeTheory426 G <-> AssociativeTheory426_long G :=
+Iff.intro (AT426_implies_long G) (AT426_implied_by_long G)
 
-theorem CC427_implies_long (G : Type*) [Magma G] (h : ConjunctionClass427 G) : ConjunctionClass427_long G := by
+theorem AT427_implies_long (G : Type*) [Magma G] (h : AssociativeTheory427 G) : AssociativeTheory427_long G := by
   obtain ⟨eq309, eq3267, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -8925,13 +8925,13 @@ theorem CC427_implies_long (G : Type*) [Magma G] (h : ConjunctionClass427 G) : C
   have eq3300 := Equation3277_4512_implies_Equation3300 G eq3277 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq309, eq310, eq312, eq313, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4369, eq4512⟩
 
-theorem CC427_implied_by_long (G : Type*) [Magma G] : ConjunctionClass427_long G -> ConjunctionClass427 G :=
+theorem AT427_implied_by_long (G : Type*) [Magma G] : AssociativeTheory427_long G -> AssociativeTheory427 G :=
 fun ⟨_, _, _, _, h309, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h309, h3267, h4369, h4512⟩
 
-theorem CC427_equiv (G : Type*) [Magma G] : ConjunctionClass427 G <-> ConjunctionClass427_long G :=
-Iff.intro (CC427_implies_long G) (CC427_implied_by_long G)
+theorem AT427_equiv (G : Type*) [Magma G] : AssociativeTheory427 G <-> AssociativeTheory427_long G :=
+Iff.intro (AT427_implies_long G) (AT427_implied_by_long G)
 
-theorem CC428_implies_long (G : Type*) [Magma G] (h : ConjunctionClass428 G) : ConjunctionClass428_long G := by
+theorem AT428_implies_long (G : Type*) [Magma G] (h : AssociativeTheory428 G) : AssociativeTheory428_long G := by
   obtain ⟨eq4268, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -8950,13 +8950,13 @@ theorem CC428_implies_long (G : Type*) [Magma G] (h : ConjunctionClass428 G) : C
   have eq4343 := Equation4299_4512_implies_Equation4343 G eq4299 eq4512
   exact ⟨eq1, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4343, eq4369, eq4512⟩
 
-theorem CC428_implied_by_long (G : Type*) [Magma G] : ConjunctionClass428_long G -> ConjunctionClass428 G :=
+theorem AT428_implied_by_long (G : Type*) [Magma G] : AssociativeTheory428_long G -> AssociativeTheory428 G :=
 fun ⟨_, h4268, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h4268, h4369, h4512⟩
 
-theorem CC428_equiv (G : Type*) [Magma G] : ConjunctionClass428 G <-> ConjunctionClass428_long G :=
-Iff.intro (CC428_implies_long G) (CC428_implied_by_long G)
+theorem AT428_equiv (G : Type*) [Magma G] : AssociativeTheory428 G <-> AssociativeTheory428_long G :=
+Iff.intro (AT428_implies_long G) (AT428_implied_by_long G)
 
-theorem CC429_implies_long (G : Type*) [Magma G] (h : ConjunctionClass429 G) : ConjunctionClass429_long G := by
+theorem AT429_implies_long (G : Type*) [Magma G] (h : AssociativeTheory429 G) : AssociativeTheory429_long G := by
   obtain ⟨eq4269, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -8966,13 +8966,13 @@ theorem CC429_implies_long (G : Type*) [Magma G] (h : ConjunctionClass429 G) : C
   have eq4321 := Equation4279_4512_implies_Equation4321 G eq4279 eq4512
   exact ⟨eq1, eq4269, eq4273, eq4276, eq4279, eq4290, eq4321, eq4369, eq4512⟩
 
-theorem CC429_implied_by_long (G : Type*) [Magma G] : ConjunctionClass429_long G -> ConjunctionClass429 G :=
+theorem AT429_implied_by_long (G : Type*) [Magma G] : AssociativeTheory429_long G -> AssociativeTheory429 G :=
 fun ⟨_, h4269, _, _, _, _, _, h4369, h4512⟩ => ⟨h4269, h4369, h4512⟩
 
-theorem CC429_equiv (G : Type*) [Magma G] : ConjunctionClass429 G <-> ConjunctionClass429_long G :=
-Iff.intro (CC429_implies_long G) (CC429_implied_by_long G)
+theorem AT429_equiv (G : Type*) [Magma G] : AssociativeTheory429 G <-> AssociativeTheory429_long G :=
+Iff.intro (AT429_implies_long G) (AT429_implied_by_long G)
 
-theorem CC430_implies_long (G : Type*) [Magma G] (h : ConjunctionClass430 G) : ConjunctionClass430_long G := by
+theorem AT430_implies_long (G : Type*) [Magma G] (h : AssociativeTheory430 G) : AssociativeTheory430_long G := by
   obtain ⟨eq4268, eq4269, eq4369, eq4512⟩ := h
   have eq4286 := Equation4268_4269_4512_implies_Equation4286 G eq4268 eq4269 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -9006,13 +9006,13 @@ theorem CC430_implies_long (G : Type*) [Magma G] (h : ConjunctionClass430 G) : C
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   exact ⟨eq1, eq4268, eq4269, eq4270, eq4272, eq4273, eq4275, eq4276, eq4277, eq4279, eq4280, eq4283, eq4284, eq4286, eq4288, eq4290, eq4291, eq4293, eq4296, eq4297, eq4299, eq4301, eq4304, eq4305, eq4314, eq4318, eq4320, eq4321, eq4325, eq4327, eq4331, eq4343, eq4369, eq4512⟩
 
-theorem CC430_implied_by_long (G : Type*) [Magma G] : ConjunctionClass430_long G -> ConjunctionClass430 G :=
+theorem AT430_implied_by_long (G : Type*) [Magma G] : AssociativeTheory430_long G -> AssociativeTheory430 G :=
 fun ⟨_, h4268, h4269, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h4268, h4269, h4369, h4512⟩
 
-theorem CC430_equiv (G : Type*) [Magma G] : ConjunctionClass430 G <-> ConjunctionClass430_long G :=
-Iff.intro (CC430_implies_long G) (CC430_implied_by_long G)
+theorem AT430_equiv (G : Type*) [Magma G] : AssociativeTheory430 G <-> AssociativeTheory430_long G :=
+Iff.intro (AT430_implies_long G) (AT430_implied_by_long G)
 
-theorem CC431_implies_long (G : Type*) [Magma G] (h : ConjunctionClass431 G) : ConjunctionClass431_long G := by
+theorem AT431_implies_long (G : Type*) [Magma G] (h : AssociativeTheory431 G) : AssociativeTheory431_long G := by
   obtain ⟨eq4270, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -9020,25 +9020,25 @@ theorem CC431_implies_long (G : Type*) [Magma G] (h : ConjunctionClass431 G) : C
   have eq4297 := Equation4270_4275_4512_implies_Equation4297 G eq4270 eq4275 eq4512
   exact ⟨eq1, eq4270, eq4275, eq4290, eq4297, eq4369, eq4512⟩
 
-theorem CC431_implied_by_long (G : Type*) [Magma G] : ConjunctionClass431_long G -> ConjunctionClass431 G :=
+theorem AT431_implied_by_long (G : Type*) [Magma G] : AssociativeTheory431_long G -> AssociativeTheory431 G :=
 fun ⟨_, h4270, _, _, _, h4369, h4512⟩ => ⟨h4270, h4369, h4512⟩
 
-theorem CC431_equiv (G : Type*) [Magma G] : ConjunctionClass431 G <-> ConjunctionClass431_long G :=
-Iff.intro (CC431_implies_long G) (CC431_implied_by_long G)
+theorem AT431_equiv (G : Type*) [Magma G] : AssociativeTheory431 G <-> AssociativeTheory431_long G :=
+Iff.intro (AT431_implies_long G) (AT431_implied_by_long G)
 
-theorem CC432_implies_long (G : Type*) [Magma G] (h : ConjunctionClass432 G) : ConjunctionClass432_long G := by
+theorem AT432_implies_long (G : Type*) [Magma G] (h : AssociativeTheory432 G) : AssociativeTheory432_long G := by
   obtain ⟨eq4273, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   exact ⟨eq1, eq4273, eq4290, eq4369, eq4512⟩
 
-theorem CC432_implied_by_long (G : Type*) [Magma G] : ConjunctionClass432_long G -> ConjunctionClass432 G :=
+theorem AT432_implied_by_long (G : Type*) [Magma G] : AssociativeTheory432_long G -> AssociativeTheory432 G :=
 fun ⟨_, h4273, _, h4369, h4512⟩ => ⟨h4273, h4369, h4512⟩
 
-theorem CC432_equiv (G : Type*) [Magma G] : ConjunctionClass432 G <-> ConjunctionClass432_long G :=
-Iff.intro (CC432_implies_long G) (CC432_implied_by_long G)
+theorem AT432_equiv (G : Type*) [Magma G] : AssociativeTheory432 G <-> AssociativeTheory432_long G :=
+Iff.intro (AT432_implies_long G) (AT432_implied_by_long G)
 
-theorem CC433_implies_long (G : Type*) [Magma G] (h : ConjunctionClass433 G) : ConjunctionClass433_long G := by
+theorem AT433_implies_long (G : Type*) [Magma G] (h : AssociativeTheory433 G) : AssociativeTheory433_long G := by
   obtain ⟨eq40, eq4273, eq4369, eq4512⟩ := h
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
   have eq3253 := Equation40_4512_implies_Equation3253 G eq40 eq4512
@@ -9057,13 +9057,13 @@ theorem CC433_implies_long (G : Type*) [Magma G] (h : ConjunctionClass433 G) : C
   have eq4320 := Equation4325_4512_implies_Equation4320 G eq4325 eq4512
   exact ⟨eq1, eq40, eq3253, eq3256, eq3259, eq3261, eq3271, eq3278, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4369, eq4512⟩
 
-theorem CC433_implied_by_long (G : Type*) [Magma G] : ConjunctionClass433_long G -> ConjunctionClass433 G :=
+theorem AT433_implied_by_long (G : Type*) [Magma G] : AssociativeTheory433_long G -> AssociativeTheory433 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, h4273, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h40, h4273, h4369, h4512⟩
 
-theorem CC433_equiv (G : Type*) [Magma G] : ConjunctionClass433 G <-> ConjunctionClass433_long G :=
-Iff.intro (CC433_implies_long G) (CC433_implied_by_long G)
+theorem AT433_equiv (G : Type*) [Magma G] : AssociativeTheory433 G <-> AssociativeTheory433_long G :=
+Iff.intro (AT433_implies_long G) (AT433_implied_by_long G)
 
-theorem CC434_implies_long (G : Type*) [Magma G] (h : ConjunctionClass434 G) : ConjunctionClass434_long G := by
+theorem AT434_implies_long (G : Type*) [Magma G] (h : AssociativeTheory434 G) : AssociativeTheory434_long G := by
   obtain ⟨eq4270, eq4273, eq4369, eq4512⟩ := h
   have eq4325 := Equation4270_4273_4512_implies_Equation4325 G eq4270 eq4273 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -9075,38 +9075,38 @@ theorem CC434_implies_long (G : Type*) [Magma G] (h : ConjunctionClass434 G) : C
   have eq4305 := Equation4273_4275_4512_implies_Equation4305 G eq4273 eq4275 eq4512
   exact ⟨eq1, eq4270, eq4273, eq4275, eq4283, eq4290, eq4297, eq4305, eq4320, eq4325, eq4369, eq4512⟩
 
-theorem CC434_implied_by_long (G : Type*) [Magma G] : ConjunctionClass434_long G -> ConjunctionClass434 G :=
+theorem AT434_implied_by_long (G : Type*) [Magma G] : AssociativeTheory434_long G -> AssociativeTheory434 G :=
 fun ⟨_, h4270, h4273, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h4270, h4273, h4369, h4512⟩
 
-theorem CC434_equiv (G : Type*) [Magma G] : ConjunctionClass434 G <-> ConjunctionClass434_long G :=
-Iff.intro (CC434_implies_long G) (CC434_implied_by_long G)
+theorem AT434_equiv (G : Type*) [Magma G] : AssociativeTheory434 G <-> AssociativeTheory434_long G :=
+Iff.intro (AT434_implies_long G) (AT434_implied_by_long G)
 
-theorem CC435_implies_long (G : Type*) [Magma G] (h : ConjunctionClass435 G) : ConjunctionClass435_long G := by
+theorem AT435_implies_long (G : Type*) [Magma G] (h : AssociativeTheory435 G) : AssociativeTheory435_long G := by
   obtain ⟨eq4276, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   exact ⟨eq1, eq4276, eq4290, eq4369, eq4512⟩
 
-theorem CC435_implied_by_long (G : Type*) [Magma G] : ConjunctionClass435_long G -> ConjunctionClass435 G :=
+theorem AT435_implied_by_long (G : Type*) [Magma G] : AssociativeTheory435_long G -> AssociativeTheory435 G :=
 fun ⟨_, h4276, _, h4369, h4512⟩ => ⟨h4276, h4369, h4512⟩
 
-theorem CC435_equiv (G : Type*) [Magma G] : ConjunctionClass435 G <-> ConjunctionClass435_long G :=
-Iff.intro (CC435_implies_long G) (CC435_implied_by_long G)
+theorem AT435_equiv (G : Type*) [Magma G] : AssociativeTheory435 G <-> AssociativeTheory435_long G :=
+Iff.intro (AT435_implies_long G) (AT435_implied_by_long G)
 
-theorem CC436_implies_long (G : Type*) [Magma G] (h : ConjunctionClass436 G) : ConjunctionClass436_long G := by
+theorem AT436_implies_long (G : Type*) [Magma G] (h : AssociativeTheory436 G) : AssociativeTheory436_long G := by
   obtain ⟨eq4283, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   exact ⟨eq1, eq4283, eq4290, eq4320, eq4369, eq4512⟩
 
-theorem CC436_implied_by_long (G : Type*) [Magma G] : ConjunctionClass436_long G -> ConjunctionClass436 G :=
+theorem AT436_implied_by_long (G : Type*) [Magma G] : AssociativeTheory436_long G -> AssociativeTheory436 G :=
 fun ⟨_, h4283, _, _, h4369, h4512⟩ => ⟨h4283, h4369, h4512⟩
 
-theorem CC436_equiv (G : Type*) [Magma G] : ConjunctionClass436 G <-> ConjunctionClass436_long G :=
-Iff.intro (CC436_implies_long G) (CC436_implied_by_long G)
+theorem AT436_equiv (G : Type*) [Magma G] : AssociativeTheory436 G <-> AssociativeTheory436_long G :=
+Iff.intro (AT436_implies_long G) (AT436_implied_by_long G)
 
-theorem CC437_implies_long (G : Type*) [Magma G] (h : ConjunctionClass437 G) : ConjunctionClass437_long G := by
+theorem AT437_implies_long (G : Type*) [Magma G] (h : AssociativeTheory437 G) : AssociativeTheory437_long G := by
   obtain ⟨eq307, eq4283, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -9114,39 +9114,39 @@ theorem CC437_implies_long (G : Type*) [Magma G] (h : ConjunctionClass437 G) : C
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4290, eq4320, eq4369, eq4512⟩
 
-theorem CC437_implied_by_long (G : Type*) [Magma G] : ConjunctionClass437_long G -> ConjunctionClass437 G :=
+theorem AT437_implied_by_long (G : Type*) [Magma G] : AssociativeTheory437_long G -> AssociativeTheory437 G :=
 fun ⟨_, h307, _, h4283, _, _, h4369, h4512⟩ => ⟨h307, h4283, h4369, h4512⟩
 
-theorem CC437_equiv (G : Type*) [Magma G] : ConjunctionClass437 G <-> ConjunctionClass437_long G :=
-Iff.intro (CC437_implies_long G) (CC437_implied_by_long G)
+theorem AT437_equiv (G : Type*) [Magma G] : AssociativeTheory437 G <-> AssociativeTheory437_long G :=
+Iff.intro (AT437_implies_long G) (AT437_implied_by_long G)
 
-theorem CC438_implies_long (G : Type*) [Magma G] (h : ConjunctionClass438 G) : ConjunctionClass438_long G := by
+theorem AT438_implies_long (G : Type*) [Magma G] (h : AssociativeTheory438 G) : AssociativeTheory438_long G := by
   obtain ⟨eq3253, eq4283, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   exact ⟨eq1, eq3253, eq4283, eq4290, eq4320, eq4369, eq4512⟩
 
-theorem CC438_implied_by_long (G : Type*) [Magma G] : ConjunctionClass438_long G -> ConjunctionClass438 G :=
+theorem AT438_implied_by_long (G : Type*) [Magma G] : AssociativeTheory438_long G -> AssociativeTheory438 G :=
 fun ⟨_, h3253, h4283, _, _, h4369, h4512⟩ => ⟨h3253, h4283, h4369, h4512⟩
 
-theorem CC438_equiv (G : Type*) [Magma G] : ConjunctionClass438 G <-> ConjunctionClass438_long G :=
-Iff.intro (CC438_implies_long G) (CC438_implied_by_long G)
+theorem AT438_equiv (G : Type*) [Magma G] : AssociativeTheory438 G <-> AssociativeTheory438_long G :=
+Iff.intro (AT438_implies_long G) (AT438_implied_by_long G)
 
-theorem CC439_implies_long (G : Type*) [Magma G] (h : ConjunctionClass439 G) : ConjunctionClass439_long G := by
+theorem AT439_implies_long (G : Type*) [Magma G] (h : AssociativeTheory439 G) : AssociativeTheory439_long G := by
   obtain ⟨eq4276, eq4283, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   have eq4320 := Equation4283_4290_4512_implies_Equation4320 G eq4283 eq4290 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4290, eq4320, eq4369, eq4512⟩
 
-theorem CC439_implied_by_long (G : Type*) [Magma G] : ConjunctionClass439_long G -> ConjunctionClass439 G :=
+theorem AT439_implied_by_long (G : Type*) [Magma G] : AssociativeTheory439_long G -> AssociativeTheory439 G :=
 fun ⟨_, h4276, h4283, _, _, h4369, h4512⟩ => ⟨h4276, h4283, h4369, h4512⟩
 
-theorem CC439_equiv (G : Type*) [Magma G] : ConjunctionClass439 G <-> ConjunctionClass439_long G :=
-Iff.intro (CC439_implies_long G) (CC439_implied_by_long G)
+theorem AT439_equiv (G : Type*) [Magma G] : AssociativeTheory439 G <-> AssociativeTheory439_long G :=
+Iff.intro (AT439_implies_long G) (AT439_implied_by_long G)
 
-theorem CC440_implies_long (G : Type*) [Magma G] (h : ConjunctionClass440 G) : ConjunctionClass440_long G := by
+theorem AT440_implies_long (G : Type*) [Magma G] (h : AssociativeTheory440 G) : AssociativeTheory440_long G := by
   obtain ⟨eq4284, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -9154,13 +9154,13 @@ theorem CC440_implies_long (G : Type*) [Magma G] (h : ConjunctionClass440 G) : C
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   exact ⟨eq1, eq4284, eq4290, eq4293, eq4343, eq4369, eq4512⟩
 
-theorem CC440_implied_by_long (G : Type*) [Magma G] : ConjunctionClass440_long G -> ConjunctionClass440 G :=
+theorem AT440_implied_by_long (G : Type*) [Magma G] : AssociativeTheory440_long G -> AssociativeTheory440 G :=
 fun ⟨_, h4284, _, _, _, h4369, h4512⟩ => ⟨h4284, h4369, h4512⟩
 
-theorem CC440_equiv (G : Type*) [Magma G] : ConjunctionClass440 G <-> ConjunctionClass440_long G :=
-Iff.intro (CC440_implies_long G) (CC440_implied_by_long G)
+theorem AT440_equiv (G : Type*) [Magma G] : AssociativeTheory440 G <-> AssociativeTheory440_long G :=
+Iff.intro (AT440_implies_long G) (AT440_implied_by_long G)
 
-theorem CC441_implies_long (G : Type*) [Magma G] (h : ConjunctionClass441 G) : ConjunctionClass441_long G := by
+theorem AT441_implies_long (G : Type*) [Magma G] (h : AssociativeTheory441 G) : AssociativeTheory441_long G := by
   obtain ⟨eq307, eq4284, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -9169,13 +9169,13 @@ theorem CC441_implies_long (G : Type*) [Magma G] (h : ConjunctionClass441 G) : C
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   exact ⟨eq1, eq307, eq3253, eq4284, eq4290, eq4293, eq4343, eq4369, eq4512⟩
 
-theorem CC441_implied_by_long (G : Type*) [Magma G] : ConjunctionClass441_long G -> ConjunctionClass441 G :=
+theorem AT441_implied_by_long (G : Type*) [Magma G] : AssociativeTheory441_long G -> AssociativeTheory441 G :=
 fun ⟨_, h307, _, h4284, _, _, _, h4369, h4512⟩ => ⟨h307, h4284, h4369, h4512⟩
 
-theorem CC441_equiv (G : Type*) [Magma G] : ConjunctionClass441 G <-> ConjunctionClass441_long G :=
-Iff.intro (CC441_implies_long G) (CC441_implied_by_long G)
+theorem AT441_equiv (G : Type*) [Magma G] : AssociativeTheory441 G <-> AssociativeTheory441_long G :=
+Iff.intro (AT441_implies_long G) (AT441_implied_by_long G)
 
-theorem CC442_implies_long (G : Type*) [Magma G] (h : ConjunctionClass442 G) : ConjunctionClass442_long G := by
+theorem AT442_implies_long (G : Type*) [Magma G] (h : AssociativeTheory442 G) : AssociativeTheory442_long G := by
   obtain ⟨eq4269, eq4284, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -9187,13 +9187,13 @@ theorem CC442_implies_long (G : Type*) [Magma G] (h : ConjunctionClass442 G) : C
   have eq4321 := Equation4279_4512_implies_Equation4321 G eq4279 eq4512
   exact ⟨eq1, eq4269, eq4273, eq4276, eq4279, eq4284, eq4290, eq4293, eq4321, eq4343, eq4369, eq4512⟩
 
-theorem CC442_implied_by_long (G : Type*) [Magma G] : ConjunctionClass442_long G -> ConjunctionClass442 G :=
+theorem AT442_implied_by_long (G : Type*) [Magma G] : AssociativeTheory442_long G -> AssociativeTheory442 G :=
 fun ⟨_, h4269, _, _, _, h4284, _, _, _, _, h4369, h4512⟩ => ⟨h4269, h4284, h4369, h4512⟩
 
-theorem CC442_equiv (G : Type*) [Magma G] : ConjunctionClass442 G <-> ConjunctionClass442_long G :=
-Iff.intro (CC442_implies_long G) (CC442_implied_by_long G)
+theorem AT442_equiv (G : Type*) [Magma G] : AssociativeTheory442 G <-> AssociativeTheory442_long G :=
+Iff.intro (AT442_implies_long G) (AT442_implied_by_long G)
 
-theorem CC443_implies_long (G : Type*) [Magma G] (h : ConjunctionClass443 G) : ConjunctionClass443_long G := by
+theorem AT443_implies_long (G : Type*) [Magma G] (h : AssociativeTheory443 G) : AssociativeTheory443_long G := by
   obtain ⟨eq4276, eq4284, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -9201,13 +9201,13 @@ theorem CC443_implies_long (G : Type*) [Magma G] (h : ConjunctionClass443 G) : C
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   exact ⟨eq1, eq4276, eq4284, eq4290, eq4293, eq4343, eq4369, eq4512⟩
 
-theorem CC443_implied_by_long (G : Type*) [Magma G] : ConjunctionClass443_long G -> ConjunctionClass443 G :=
+theorem AT443_implied_by_long (G : Type*) [Magma G] : AssociativeTheory443_long G -> AssociativeTheory443 G :=
 fun ⟨_, h4276, h4284, _, _, _, h4369, h4512⟩ => ⟨h4276, h4284, h4369, h4512⟩
 
-theorem CC443_equiv (G : Type*) [Magma G] : ConjunctionClass443 G <-> ConjunctionClass443_long G :=
-Iff.intro (CC443_implies_long G) (CC443_implied_by_long G)
+theorem AT443_equiv (G : Type*) [Magma G] : AssociativeTheory443 G <-> AssociativeTheory443_long G :=
+Iff.intro (AT443_implies_long G) (AT443_implied_by_long G)
 
-theorem CC444_implies_long (G : Type*) [Magma G] (h : ConjunctionClass444 G) : ConjunctionClass444_long G := by
+theorem AT444_implies_long (G : Type*) [Magma G] (h : AssociativeTheory444 G) : AssociativeTheory444_long G := by
   obtain ⟨eq4283, eq4284, eq4369, eq4512⟩ := h
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -9219,13 +9219,13 @@ theorem CC444_implies_long (G : Type*) [Magma G] (h : ConjunctionClass444 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4369, eq4512⟩
 
-theorem CC444_implied_by_long (G : Type*) [Magma G] : ConjunctionClass444_long G -> ConjunctionClass444 G :=
+theorem AT444_implied_by_long (G : Type*) [Magma G] : AssociativeTheory444_long G -> AssociativeTheory444 G :=
 fun ⟨_, h4283, h4284, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h4283, h4284, h4369, h4512⟩
 
-theorem CC444_equiv (G : Type*) [Magma G] : ConjunctionClass444 G <-> ConjunctionClass444_long G :=
-Iff.intro (CC444_implies_long G) (CC444_implied_by_long G)
+theorem AT444_equiv (G : Type*) [Magma G] : AssociativeTheory444 G <-> AssociativeTheory444_long G :=
+Iff.intro (AT444_implies_long G) (AT444_implied_by_long G)
 
-theorem CC445_implies_long (G : Type*) [Magma G] (h : ConjunctionClass445 G) : ConjunctionClass445_long G := by
+theorem AT445_implies_long (G : Type*) [Magma G] (h : AssociativeTheory445 G) : AssociativeTheory445_long G := by
   obtain ⟨eq307, eq4283, eq4284, eq4369, eq4512⟩ := h
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -9238,13 +9238,13 @@ theorem CC445_implies_long (G : Type*) [Magma G] (h : ConjunctionClass445 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq307, eq3253, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4369, eq4512⟩
 
-theorem CC445_implied_by_long (G : Type*) [Magma G] : ConjunctionClass445_long G -> ConjunctionClass445 G :=
+theorem AT445_implied_by_long (G : Type*) [Magma G] : AssociativeTheory445_long G -> AssociativeTheory445 G :=
 fun ⟨_, h307, _, h4283, h4284, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h307, h4283, h4284, h4369, h4512⟩
 
-theorem CC445_equiv (G : Type*) [Magma G] : ConjunctionClass445 G <-> ConjunctionClass445_long G :=
-Iff.intro (CC445_implies_long G) (CC445_implied_by_long G)
+theorem AT445_equiv (G : Type*) [Magma G] : AssociativeTheory445 G <-> AssociativeTheory445_long G :=
+Iff.intro (AT445_implies_long G) (AT445_implied_by_long G)
 
-theorem CC446_implies_long (G : Type*) [Magma G] (h : ConjunctionClass446 G) : ConjunctionClass446_long G := by
+theorem AT446_implies_long (G : Type*) [Magma G] (h : AssociativeTheory446 G) : AssociativeTheory446_long G := by
   obtain ⟨eq4276, eq4283, eq4284, eq4369, eq4512⟩ := h
   have eq4314 := Equation4283_4284_4512_implies_Equation4314 G eq4283 eq4284 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -9256,51 +9256,51 @@ theorem CC446_implies_long (G : Type*) [Magma G] (h : ConjunctionClass446 G) : C
   have eq4321 := Equation4314_4320_4512_implies_Equation4321 G eq4314 eq4320 eq4512
   exact ⟨eq1, eq4276, eq4283, eq4284, eq4290, eq4291, eq4293, eq4314, eq4320, eq4321, eq4343, eq4369, eq4512⟩
 
-theorem CC446_implied_by_long (G : Type*) [Magma G] : ConjunctionClass446_long G -> ConjunctionClass446 G :=
+theorem AT446_implied_by_long (G : Type*) [Magma G] : AssociativeTheory446_long G -> AssociativeTheory446 G :=
 fun ⟨_, h4276, h4283, h4284, _, _, _, _, _, _, _, h4369, h4512⟩ => ⟨h4276, h4283, h4284, h4369, h4512⟩
 
-theorem CC446_equiv (G : Type*) [Magma G] : ConjunctionClass446 G <-> ConjunctionClass446_long G :=
-Iff.intro (CC446_implies_long G) (CC446_implied_by_long G)
+theorem AT446_equiv (G : Type*) [Magma G] : AssociativeTheory446 G <-> AssociativeTheory446_long G :=
+Iff.intro (AT446_implies_long G) (AT446_implied_by_long G)
 
-theorem CC447_implies_long (G : Type*) [Magma G] (h : ConjunctionClass447 G) : ConjunctionClass447_long G := by
+theorem AT447_implies_long (G : Type*) [Magma G] (h : AssociativeTheory447 G) : AssociativeTheory447_long G := by
   obtain ⟨eq4291, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   have eq4314 := Equation4290_4291_4512_implies_Equation4314 G eq4290 eq4291 eq4512
   exact ⟨eq1, eq4290, eq4291, eq4314, eq4369, eq4512⟩
 
-theorem CC447_implied_by_long (G : Type*) [Magma G] : ConjunctionClass447_long G -> ConjunctionClass447 G :=
+theorem AT447_implied_by_long (G : Type*) [Magma G] : AssociativeTheory447_long G -> AssociativeTheory447 G :=
 fun ⟨_, _, h4291, _, h4369, h4512⟩ => ⟨h4291, h4369, h4512⟩
 
-theorem CC447_equiv (G : Type*) [Magma G] : ConjunctionClass447 G <-> ConjunctionClass447_long G :=
-Iff.intro (CC447_implies_long G) (CC447_implied_by_long G)
+theorem AT447_equiv (G : Type*) [Magma G] : AssociativeTheory447 G <-> AssociativeTheory447_long G :=
+Iff.intro (AT447_implies_long G) (AT447_implied_by_long G)
 
-theorem CC448_implies_long (G : Type*) [Magma G] (h : ConjunctionClass448 G) : ConjunctionClass448_long G := by
+theorem AT448_implies_long (G : Type*) [Magma G] (h : AssociativeTheory448 G) : AssociativeTheory448_long G := by
   obtain ⟨eq4276, eq4291, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   have eq4314 := Equation4290_4291_4512_implies_Equation4314 G eq4290 eq4291 eq4512
   exact ⟨eq1, eq4276, eq4290, eq4291, eq4314, eq4369, eq4512⟩
 
-theorem CC448_implied_by_long (G : Type*) [Magma G] : ConjunctionClass448_long G -> ConjunctionClass448 G :=
+theorem AT448_implied_by_long (G : Type*) [Magma G] : AssociativeTheory448_long G -> AssociativeTheory448 G :=
 fun ⟨_, h4276, _, h4291, _, h4369, h4512⟩ => ⟨h4276, h4291, h4369, h4512⟩
 
-theorem CC448_equiv (G : Type*) [Magma G] : ConjunctionClass448 G <-> ConjunctionClass448_long G :=
-Iff.intro (CC448_implies_long G) (CC448_implied_by_long G)
+theorem AT448_equiv (G : Type*) [Magma G] : AssociativeTheory448 G <-> AssociativeTheory448_long G :=
+Iff.intro (AT448_implies_long G) (AT448_implied_by_long G)
 
-theorem CC449_implies_long (G : Type*) [Magma G] (h : ConjunctionClass449 G) : ConjunctionClass449_long G := by
+theorem AT449_implies_long (G : Type*) [Magma G] (h : AssociativeTheory449 G) : AssociativeTheory449_long G := by
   obtain ⟨eq4321, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   exact ⟨eq1, eq4290, eq4321, eq4369, eq4512⟩
 
-theorem CC449_implied_by_long (G : Type*) [Magma G] : ConjunctionClass449_long G -> ConjunctionClass449 G :=
+theorem AT449_implied_by_long (G : Type*) [Magma G] : AssociativeTheory449_long G -> AssociativeTheory449 G :=
 fun ⟨_, _, h4321, h4369, h4512⟩ => ⟨h4321, h4369, h4512⟩
 
-theorem CC449_equiv (G : Type*) [Magma G] : ConjunctionClass449 G <-> ConjunctionClass449_long G :=
-Iff.intro (CC449_implies_long G) (CC449_implied_by_long G)
+theorem AT449_equiv (G : Type*) [Magma G] : AssociativeTheory449 G <-> AssociativeTheory449_long G :=
+Iff.intro (AT449_implies_long G) (AT449_implied_by_long G)
 
-theorem CC450_implies_long (G : Type*) [Magma G] (h : ConjunctionClass450 G) : ConjunctionClass450_long G := by
+theorem AT450_implies_long (G : Type*) [Magma G] (h : AssociativeTheory450 G) : AssociativeTheory450_long G := by
   obtain ⟨eq40, eq4321, eq4369, eq4512⟩ := h
   have eq3264 := Equation40_4321_4512_implies_Equation3264 G eq40 eq4321 eq4512
   have eq1 := Equation40_4512_implies_Equation1 G eq40 eq4512
@@ -9342,13 +9342,13 @@ theorem CC450_implies_long (G : Type*) [Magma G] (h : ConjunctionClass450 G) : C
   have eq3274 := Equation3290_4512_implies_Equation3274 G eq3290 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3271, eq3273, eq3274, eq3275, eq3278, eq3290, eq3292, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4321, eq4343, eq4369, eq4512⟩
 
-theorem CC450_implied_by_long (G : Type*) [Magma G] : ConjunctionClass450_long G -> ConjunctionClass450 G :=
+theorem AT450_implied_by_long (G : Type*) [Magma G] : AssociativeTheory450_long G -> AssociativeTheory450 G :=
 fun ⟨_, h40, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4321, _, h4369, h4512⟩ => ⟨h40, h4321, h4369, h4512⟩
 
-theorem CC450_equiv (G : Type*) [Magma G] : ConjunctionClass450 G <-> ConjunctionClass450_long G :=
-Iff.intro (CC450_implies_long G) (CC450_implied_by_long G)
+theorem AT450_equiv (G : Type*) [Magma G] : AssociativeTheory450 G <-> AssociativeTheory450_long G :=
+Iff.intro (AT450_implies_long G) (AT450_implied_by_long G)
 
-theorem CC451_implies_long (G : Type*) [Magma G] (h : ConjunctionClass451 G) : ConjunctionClass451_long G := by
+theorem AT451_implies_long (G : Type*) [Magma G] (h : AssociativeTheory451 G) : AssociativeTheory451_long G := by
   obtain ⟨eq307, eq4321, eq4369, eq4512⟩ := h
   have eq4293 := Equation307_4321_4369_4512_implies_Equation4293 G eq307 eq4321 eq4369 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -9358,13 +9358,13 @@ theorem CC451_implies_long (G : Type*) [Magma G] (h : ConjunctionClass451 G) : C
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   exact ⟨eq1, eq307, eq3253, eq4284, eq4290, eq4293, eq4321, eq4343, eq4369, eq4512⟩
 
-theorem CC451_implied_by_long (G : Type*) [Magma G] : ConjunctionClass451_long G -> ConjunctionClass451 G :=
+theorem AT451_implied_by_long (G : Type*) [Magma G] : AssociativeTheory451_long G -> AssociativeTheory451 G :=
 fun ⟨_, h307, _, _, _, _, h4321, _, h4369, h4512⟩ => ⟨h307, h4321, h4369, h4512⟩
 
-theorem CC451_equiv (G : Type*) [Magma G] : ConjunctionClass451 G <-> ConjunctionClass451_long G :=
-Iff.intro (CC451_implies_long G) (CC451_implied_by_long G)
+theorem AT451_equiv (G : Type*) [Magma G] : AssociativeTheory451 G <-> AssociativeTheory451_long G :=
+Iff.intro (AT451_implies_long G) (AT451_implied_by_long G)
 
-theorem CC452_implies_long (G : Type*) [Magma G] (h : ConjunctionClass452 G) : ConjunctionClass452_long G := by
+theorem AT452_implies_long (G : Type*) [Magma G] (h : AssociativeTheory452 G) : AssociativeTheory452_long G := by
   obtain ⟨eq3267, eq4321, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq307 := Equation3267_4512_implies_Equation307 G eq3267 eq4512
@@ -9409,13 +9409,13 @@ theorem CC452_implies_long (G : Type*) [Magma G] (h : ConjunctionClass452 G) : C
   have eq3300 := Equation3277_4512_implies_Equation3300 G eq3277 eq4512
   exact ⟨eq1, eq40, eq307, eq308, eq310, eq312, eq315, eq316, eq3253, eq3255, eq3256, eq3258, eq3259, eq3260, eq3261, eq3264, eq3265, eq3267, eq3271, eq3273, eq3274, eq3275, eq3277, eq3278, eq3290, eq3292, eq3300, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4321, eq4343, eq4369, eq4512⟩
 
-theorem CC452_implied_by_long (G : Type*) [Magma G] : ConjunctionClass452_long G -> ConjunctionClass452 G :=
+theorem AT452_implied_by_long (G : Type*) [Magma G] : AssociativeTheory452_long G -> AssociativeTheory452 G :=
 fun ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h3267, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, h4321, _, h4369, h4512⟩ => ⟨h3267, h4321, h4369, h4512⟩
 
-theorem CC452_equiv (G : Type*) [Magma G] : ConjunctionClass452 G <-> ConjunctionClass452_long G :=
-Iff.intro (CC452_implies_long G) (CC452_implied_by_long G)
+theorem AT452_equiv (G : Type*) [Magma G] : AssociativeTheory452 G <-> AssociativeTheory452_long G :=
+Iff.intro (AT452_implies_long G) (AT452_implied_by_long G)
 
-theorem CC453_implies_long (G : Type*) [Magma G] (h : ConjunctionClass453 G) : ConjunctionClass453_long G := by
+theorem AT453_implies_long (G : Type*) [Magma G] (h : AssociativeTheory453 G) : AssociativeTheory453_long G := by
   obtain ⟨eq4268, eq4321, eq4369, eq4512⟩ := h
   have eq4275 := Equation4268_4321_4512_implies_Equation4275 G eq4268 eq4321 eq4512
   have eq1 := Equation4512_implies_Equation1 G eq4512
@@ -9434,25 +9434,25 @@ theorem CC453_implies_long (G : Type*) [Magma G] (h : ConjunctionClass453 G) : C
   have eq4343 := Equation4299_4512_implies_Equation4343 G eq4299 eq4512
   exact ⟨eq1, eq4268, eq4270, eq4272, eq4275, eq4276, eq4277, eq4280, eq4284, eq4288, eq4290, eq4293, eq4297, eq4299, eq4304, eq4321, eq4343, eq4369, eq4512⟩
 
-theorem CC453_implied_by_long (G : Type*) [Magma G] : ConjunctionClass453_long G -> ConjunctionClass453 G :=
+theorem AT453_implied_by_long (G : Type*) [Magma G] : AssociativeTheory453_long G -> AssociativeTheory453 G :=
 fun ⟨_, h4268, _, _, _, _, _, _, _, _, _, _, _, _, _, h4321, _, h4369, h4512⟩ => ⟨h4268, h4321, h4369, h4512⟩
 
-theorem CC453_equiv (G : Type*) [Magma G] : ConjunctionClass453 G <-> ConjunctionClass453_long G :=
-Iff.intro (CC453_implies_long G) (CC453_implied_by_long G)
+theorem AT453_equiv (G : Type*) [Magma G] : AssociativeTheory453 G <-> AssociativeTheory453_long G :=
+Iff.intro (AT453_implies_long G) (AT453_implied_by_long G)
 
-theorem CC454_implies_long (G : Type*) [Magma G] (h : ConjunctionClass454 G) : ConjunctionClass454_long G := by
+theorem AT454_implies_long (G : Type*) [Magma G] (h : AssociativeTheory454 G) : AssociativeTheory454_long G := by
   obtain ⟨eq4276, eq4321, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
   exact ⟨eq1, eq4276, eq4290, eq4321, eq4369, eq4512⟩
 
-theorem CC454_implied_by_long (G : Type*) [Magma G] : ConjunctionClass454_long G -> ConjunctionClass454 G :=
+theorem AT454_implied_by_long (G : Type*) [Magma G] : AssociativeTheory454_long G -> AssociativeTheory454 G :=
 fun ⟨_, h4276, _, h4321, h4369, h4512⟩ => ⟨h4276, h4321, h4369, h4512⟩
 
-theorem CC454_equiv (G : Type*) [Magma G] : ConjunctionClass454 G <-> ConjunctionClass454_long G :=
-Iff.intro (CC454_implies_long G) (CC454_implied_by_long G)
+theorem AT454_equiv (G : Type*) [Magma G] : AssociativeTheory454 G <-> AssociativeTheory454_long G :=
+Iff.intro (AT454_implies_long G) (AT454_implied_by_long G)
 
-theorem CC455_implies_long (G : Type*) [Magma G] (h : ConjunctionClass455 G) : ConjunctionClass455_long G := by
+theorem AT455_implies_long (G : Type*) [Magma G] (h : AssociativeTheory455 G) : AssociativeTheory455_long G := by
   obtain ⟨eq4284, eq4321, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -9460,13 +9460,13 @@ theorem CC455_implies_long (G : Type*) [Magma G] (h : ConjunctionClass455 G) : C
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   exact ⟨eq1, eq4284, eq4290, eq4293, eq4321, eq4343, eq4369, eq4512⟩
 
-theorem CC455_implied_by_long (G : Type*) [Magma G] : ConjunctionClass455_long G -> ConjunctionClass455 G :=
+theorem AT455_implied_by_long (G : Type*) [Magma G] : AssociativeTheory455_long G -> AssociativeTheory455 G :=
 fun ⟨_, h4284, _, _, h4321, _, h4369, h4512⟩ => ⟨h4284, h4321, h4369, h4512⟩
 
-theorem CC455_equiv (G : Type*) [Magma G] : ConjunctionClass455 G <-> ConjunctionClass455_long G :=
-Iff.intro (CC455_implies_long G) (CC455_implied_by_long G)
+theorem AT455_equiv (G : Type*) [Magma G] : AssociativeTheory455 G <-> AssociativeTheory455_long G :=
+Iff.intro (AT455_implies_long G) (AT455_implied_by_long G)
 
-theorem CC456_implies_long (G : Type*) [Magma G] (h : ConjunctionClass456 G) : ConjunctionClass456_long G := by
+theorem AT456_implies_long (G : Type*) [Magma G] (h : AssociativeTheory456 G) : AssociativeTheory456_long G := by
   obtain ⟨eq4276, eq4284, eq4321, eq4369, eq4512⟩ := h
   have eq1 := Equation4512_implies_Equation1 G eq4512
   have eq4290 := Equation4369_4512_implies_Equation4290 G eq4369 eq4512
@@ -9474,9 +9474,9 @@ theorem CC456_implies_long (G : Type*) [Magma G] (h : ConjunctionClass456 G) : C
   have eq4343 := Equation4284_4290_4512_implies_Equation4343 G eq4284 eq4290 eq4512
   exact ⟨eq1, eq4276, eq4284, eq4290, eq4293, eq4321, eq4343, eq4369, eq4512⟩
 
-theorem CC456_implied_by_long (G : Type*) [Magma G] : ConjunctionClass456_long G -> ConjunctionClass456 G :=
+theorem AT456_implied_by_long (G : Type*) [Magma G] : AssociativeTheory456_long G -> AssociativeTheory456 G :=
 fun ⟨_, h4276, h4284, _, _, h4321, _, h4369, h4512⟩ => ⟨h4276, h4284, h4321, h4369, h4512⟩
 
-theorem CC456_equiv (G : Type*) [Magma G] : ConjunctionClass456 G <-> ConjunctionClass456_long G :=
-Iff.intro (CC456_implies_long G) (CC456_implied_by_long G)
+theorem AT456_equiv (G : Type*) [Magma G] : AssociativeTheory456 G <-> AssociativeTheory456_long G :=
+Iff.intro (AT456_implies_long G) (AT456_implied_by_long G)
 

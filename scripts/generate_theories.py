@@ -39,9 +39,9 @@ for imax in reps:
 #print([ec[:-1] for ec in early_class_to_long_class.keys()])
 json_items = []
 for i, (ec, lc) in enumerate(early_class_to_long_class.items()):
-    json_items.append(f'  {{"id": {i + 1}, "lexicographic": {list(ec)}, "long": {list(lc)}}}')
+    json_items.append(f'  {{"id": {i + 1}, "early": {list(ec)}, "long": {list(lc)}}}')
 
-with open("../data/associative_conjunctions.json", "w") as f:
+with open("../data/associative_theories.json", "w") as f:
     print("[", file=f)
     print(",\n".join(json_items), file=f)
     print("]", file=f)
@@ -50,12 +50,12 @@ preamble = "import equational_theories.Equations.All\n"
 preamble += "import equational_theories.FactsSyntax\n\n"
 preamble += "/- Generated file defining the conjunction representatives -/\n\n"
 
-with open("../associative_theories/ConjunctionRepresentatives.lean", "w") as f:
+with open("../associative_theories/AssociativeTheoriesEarly.lean", "w") as f:
     print(preamble, file=f)
     for i, (ec, lc) in enumerate(early_class_to_long_class.items()):
-        print(f'def ConjunctionClass{i + 1} (G: Type*) [Magma G] := Facts G [{", ".join(map(str, ec))}] []', file=f)
+        print(f'def AssociativeTheory{i + 1} (G: Type*) [Magma G] := Facts G [{", ".join(map(str, ec))}] []', file=f)
 
-with open("../associative_theories/ConjunctionRepresentativesLong.lean", "w") as f:
+with open("../associative_theories/AssociativeTheoriesLong.lean", "w") as f:
     print(preamble, file=f)
     for i, (ec, lc) in enumerate(early_class_to_long_class.items()):
-        print(f'def ConjunctionClass{i + 1}_long (G: Type*) [Magma G] := Facts G [{", ".join(map(str, lc))}] []', file=f)
+        print(f'def AssociativeTheory{i + 1}_long (G: Type*) [Magma G] := Facts G [{", ".join(map(str, lc))}] []', file=f)
