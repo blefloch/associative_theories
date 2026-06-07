@@ -184,8 +184,29 @@ theorem Equation307_4269_4512_implies_Equation309 (G : Type*) [Magma G]
 theorem Equation307_4272_4512_implies_Equation312 (G : Type*) [Magma G]
     (h307 : Equation307 G) (h4272 : Equation4272 G) (h4512 : Equation4512 G) : Equation312 G := sorry
 
+theorem Equation307_4283_4343_4512_implies_Equation4284 (G : Type*) [Magma G]
+    (h307 : Equation307 G) (h4283 : Equation4283 G) (h4343 : Equation4343 G) (h4512 : Equation4512 G) : Equation4284 G := sorry
+
 theorem Equation307_4284_4321_4512_implies_Equation4293 (G : Type*) [Magma G]
     (h307 : Equation307 G) (h4284 : Equation4284 G) (h4321 : Equation4321 G) (h4512 : Equation4512 G) : Equation4293 G := sorry
+
+theorem Equation307_4290_4291_4512_implies_Equation4283 (G : Type*) [Magma G]
+    (h307 : Equation307 G) (h4290 : Equation4290 G) (h4291 : Equation4291 G) (h4512 : Equation4512 G) : Equation4283 G := sorry
+
+theorem Equation307_4290_4321_4512_implies_Equation4284 (G : Type*) [Magma G]
+    (h307 : Equation307 G) (h4290 : Equation4290 G) (h4321 : Equation4321 G) (h4512 : Equation4512 G) : Equation4284 G := sorry
+
+theorem Equation307_4291_4343_4512_implies_Equation4283 (G : Type*) [Magma G]
+    (h307 : Equation307 G) (h4291 : Equation4291 G) (h4343 : Equation4343 G) (h4512 : Equation4512 G) : Equation4283 G := sorry
+
+theorem Equation307_4293_4314_4512_implies_Equation4283 (G : Type*) [Magma G]
+    (h307 : Equation307 G) (h4293 : Equation4293 G) (h4314 : Equation4314 G) (h4512 : Equation4512 G) : Equation4283 G := sorry
+
+theorem Equation307_4293_4320_4512_implies_Equation4283 (G : Type*) [Magma G]
+    (h307 : Equation307 G) (h4293 : Equation4293 G) (h4320 : Equation4320 G) (h4512 : Equation4512 G) : Equation4283 G := sorry
+
+theorem Equation307_4293_4343_4512_implies_Equation4284 (G : Type*) [Magma G]
+    (h307 : Equation307 G) (h4293 : Equation4293 G) (h4343 : Equation4343 G) (h4512 : Equation4512 G) : Equation4284 G := sorry
 
 theorem Equation307_4321_4369_4512_implies_Equation4293 (G : Type*) [Magma G]
     (h307 : Equation307 G) (h4321 : Equation4321 G) (h4369 : Equation4369 G) (h4512 : Equation4512 G) : Equation4293 G := sorry
@@ -306,6 +327,9 @@ theorem Equation411_4275_4512_implies_Equation8 (G : Type*) [Magma G]
 
 theorem Equation411_4276_4512_implies_Equation2 (G : Type*) [Magma G]
     (h411 : Equation411 G) (h4276 : Equation4276 G) (h4512 : Equation4512 G) : Equation2 G := sorry
+
+theorem Equation411_4283_4290_4512_implies_Equation43 (G : Type*) [Magma G]
+    (h411 : Equation411 G) (h4283 : Equation4283 G) (h4290 : Equation4290 G) (h4512 : Equation4512 G) : Equation43 G := sorry
 
 theorem Equation411_4284_4512_implies_Equation3 (G : Type*) [Magma G]
     (h411 : Equation411 G) (h4284 : Equation4284 G) (h4512 : Equation4512 G) : Equation3 G := sorry

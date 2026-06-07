@@ -92,9 +92,22 @@ for i, j, k in edge_list:
     if k not in consequences:
         explicit_consequences[i, j].add(k)
 
-# Add two explicit consequences by hand
+# Add by hand two explicit consequences needed for early-long equivalence
 explicit_consequences[307, 4284, 4321] = {4293}
 explicit_consequences[307, 4321, 4369] = {4293}
+
+# Add by hand some explicit consequences needed for other implications
+explicit_consequences[307, 4290, 4291] = {4283}
+explicit_consequences[307, 4293, 4314] = {4283}
+explicit_consequences[307, 4293, 4320] = {4283}
+explicit_consequences[307, 4290, 4321] = {4284}
+explicit_consequences[307, 4283, 4343] = {4284}
+explicit_consequences[307, 4291, 4343] = {4283}
+explicit_consequences[307, 4293, 4343] = {4284}
+explicit_consequences[411, 4283, 4290] = {43}
+
+for premises, kset in explicit_consequences.items():
+    assert(kset.issubset(find_class(premises)))
 
 ######### Store the explicitly proven implications in a JSON file
 
@@ -136,3 +149,23 @@ for at in associative_theories:
     consequences = get_pair_consequences(mcl)
     assert(sorted(consequences) == lcl)
 
+###### For each equation plus class, their conjunction needs to be equivalent to a known class
+
+long_explicit = [set(premises) for premises in explicit_consequences.keys() if len(premises) >= 3]
+print("                ", end="\r")
+for eq_id in reps:
+    print(eq_id, end="\r")
+    for at in associative_theories:
+        lcl = at["long"]
+        if eq_id in lcl:
+            continue
+        candidate = get_pair_consequences(lcl + [eq_id])
+        actual = find_class(candidate)
+        if len(candidate) == len(actual):
+            continue
+        for s in long_explicit:
+            if s.issubset(candidate):
+                candidate = get_pair_consequences(candidate + list(explicit_consequences[tuple(sorted(s))]))
+        if len(candidate) == len(actual):
+            continue
+        print(eq_id, at["early"], candidate, actual, sorted(set(actual).difference(candidate)))
