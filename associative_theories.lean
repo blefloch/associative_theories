@@ -7,3 +7,4 @@ import associative_theories.OneImpliDeduced
 import associative_theories.AssociativeTheoriesEarly
 import associative_theories.AssociativeTheoriesLong
 import associative_theories.EarlyLongEquiv
+import associative_theories.Conjunction
