@@ -113,7 +113,7 @@ for premises, kset in explicit_consequences.items():
 
 with open("../data/explicitly_proven.json", "w") as f:
     print("[", file=f)
-    print(",\n".join('  ' + str([list(premises) + [4512], sorted(kset)])
+    print(",\n".join('  ' + str([sorted(premises) + [4512], sorted(kset)])
                      for premises, kset in sorted(explicit_consequences.items()) if kset),
           file=f)
     print("]", file=f)
@@ -151,7 +151,8 @@ for at in associative_theories:
 
 ###### For each equation plus class, their conjunction needs to be equivalent to a known class
 
-long_explicit = [set(premises) for premises in explicit_consequences.keys() if len(premises) >= 3]
+long_explicit = [set(premises) for premises, consequences in explicit_consequences.items() if len(premises) >= 3 and consequences]
+
 print("                ", end="\r")
 for eq_id in reps:
     print(eq_id, end="\r")
