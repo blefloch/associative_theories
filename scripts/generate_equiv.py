@@ -10,7 +10,7 @@ with open("../data/eq_to_long_class.json", 'r') as f:
     eq_to_long_class = {int(k): v for k, v in json.load(f).items()}
 eq_to_long_class[4512] = [1, 4512]
 with open("../data/associative_theories.json", 'r') as f:
-    representative_data = json.load(f)
+    associative_theories = json.load(f)
 with open("../data/explicitly_proven.json", 'r') as f:
     available_theorems = defaultdict(set)
     for k, v in json.load(f):
@@ -32,16 +32,18 @@ for eq_id in reps:
     available_theorems[eq_id, 4512] = eq_to_long_class[eq_id]
 
 preamble = \
-"""import equational_theories.Equations.All
+"""/- Generated file proving equivalence of conjunction representatives -/
+
+import equational_theories.Equations.All
 import equational_theories.FactsSyntax
+import associative_theories.AssociativeTheoriesIndex
 import associative_theories.AssociativeTheoriesEarly
 import associative_theories.AssociativeTheoriesLong
 import associative_theories.ConjecturesOneImpli
 import associative_theories.ConjecturesTwo
 import associative_theories.OneImpliDeduced
 
-/- Generated file proving equivalence of conjunction representatives -/
-
+open ATIndex
 open Conjectures
 
 """
@@ -55,7 +57,7 @@ def lean_have_one_eq(ids, id2):
             + " eq".join(map(str, ids)))
 
 def lean_implies_long(clid, scl, lcl):
-    lines = [f"theorem AT{clid}_implies_long (G : Type*) [Magma G] (h : AssociativeTheory{clid} G) : AssociativeTheory{clid}_long G := by"]
+    lines = [f"private theorem AT{clid}_implies_long (G : Type*) [Magma G] (h : AssociativeTheory{clid} G) : AssociativeTheory{clid}_long G := by"]
     if scl == [4512]:
         return lines[0] + "\n  constructor\n  rw [Equation1]; intros; rfl\n  exact h"
     lines.append("  obtain ⟨" + ", ".join(f"eq{eq_id}" for eq_id in scl) + "⟩ := h")
@@ -85,13 +87,16 @@ def lean_implies_long(clid, scl, lcl):
 
 def lean_equiv(clid, scl, lcl):
     return (lean_implies_long(clid, scl, lcl) + "\n\n"
-            + f"theorem AT{clid}_implied_by_long (G : Type*) [Magma G] : AssociativeTheory{clid}_long G -> AssociativeTheory{clid} G :=\n"
+            + f"private theorem AT{clid}_implied_by_long (G : Type*) [Magma G] : AssociativeTheory{clid}_long G -> AssociativeTheory{clid} G :=\n"
             + "fun ⟨" + ", ".join(map(lambda i: f"h{i}" if i in scl else "_", lcl)) + "⟩ => "
-            + ("⟨" if clid > 1 else "") + ", ".join(map(lambda i: f"h{i}", scl)) + ("⟩" if clid > 1 else "") + "\n\n"
-            + f"theorem AT{clid}_equiv (G : Type*) [Magma G] : AssociativeTheory{clid} G <-> AssociativeTheory{clid}_long G :=\n"
-            + f"Iff.intro (AT{clid}_implies_long G) (AT{clid}_implied_by_long G)")
+            + ("⟨" if clid > 1 else "") + ", ".join(map(lambda i: f"h{i}", scl)) + ("⟩" if clid > 1 else "") + "\n")
 
 with open("../associative_theories/EarlyLongEquiv.lean", "w") as f:
     print(preamble, file=f)
-    for d in representative_data:
-        print(lean_equiv(d["id"], d["early"], d["long"]) + "\n", file=f)
+    for at in associative_theories:
+        print(lean_equiv(at["id"], at["early"], at["long"]), file=f)
+    print('theorem AT_equiv (G : Type*) [Magma G] (ati : ATIndex) : (ATearly G ati) <-> (ATlong G ati) :=\n'
+          + 'match ati with', file=f)
+    for at in associative_theories:
+        at_id = at['id']
+        print(f'| at{at_id} => ⟨AT{at_id}_implies_long G, AT{at_id}_implied_by_long G⟩', file=f)

@@ -5,6 +5,7 @@ from collections import defaultdict
 with open("../data/associative_equation_classes.json", 'r') as f:
     eq_classes = json.load(f)
 reps = [min(cl) for cl in eq_classes]
+all_eqs = list(reps) + [4512]
 with open("../data/eq_to_long_class.json", 'r') as f:
     eq_to_long_class = {int(k): v for k, v in json.load(f).items()}
 eq_to_long_class[4512] = [1, 4512]
@@ -24,18 +25,20 @@ for eq_id in reps:
     available_theorems[eq_id, 4512] = eq_to_long_class[eq_id]
 
 long_class_to_at = {}
+atid_to_at = {}
 for at in associative_theories:
     long_class_to_at[tuple(at["long"])] = at
+    atid_to_at[at['id']] = at
 
 long_explicit = [tuple(sorted(premises)) for premises, _ in explicitly_proven if len(premises) >= 4]
 
 def find_class(eq_set):
     eq_set = set(eq_set)
-    s = set(reps)
+    s = set(all_eqs)
     for c in long_classes:
         if eq_set.issubset(c):
             s = s.intersection(c)
-    result = sorted(s) + [4512]
+    result = sorted(s)
     if result in long_classes:
         return result
     else:
@@ -44,6 +47,8 @@ def find_class(eq_set):
 preamble = \
 """import equational_theories.Equations.All
 import equational_theories.FactsSyntax
+import associative_theories.EquationIndex
+import associative_theories.AssociativeTheoriesIndex
 import associative_theories.AssociativeTheoriesEarly
 import associative_theories.AssociativeTheoriesLong
 import associative_theories.ConjecturesOneImpli
@@ -53,6 +58,8 @@ import associative_theories.EarlyLongEquiv
 
 /- Generated file proving equivalence of conjunction representatives -/
 
+open EQIndex
+open ATIndex
 open Conjectures
 
 """
@@ -74,14 +81,15 @@ def lean_conj_implies_at(at1, id2, at3):
     at1_id = at1["id"]
     at1_long = at1["long"]
     at3_id = at3["id"]
-    lines = [f"theorem AT{at1_id}_Equation{id2}_implies_AT{at3_id} (G : Type*) [Magma G] (h : (AssociativeTheory{at1_id} G) ∧ (Equation{id2} G)) : AssociativeTheory{at3_id} G := by"]
+    lines = [f"theorem AT{at1_id}_Equation{id2}_implies (G : Type*) [Magma G] (h : (AssociativeTheory{at1_id} G) ∧ (Equation{id2} G)) : AssociativeTheory{at3_id} G := by"]
     lines.append(f"  obtain ⟨h1, eq{id2}⟩ := h")
     if at3_id == at1_id:
         lines.append("  exact h1")
         return "\n".join(lines)
+    lines.append(f"  obtain ⟨g, _⟩ := AT_equiv G at{at1_id}")
     lines.append("  obtain ⟨"
                  + ", ".join(f"eq{eq_id}" for eq_id in at1_long)
-                 + f"⟩ := AT{at1_id}_implies_long G h1")
+                 + f"⟩ := g h1")
     proofs = []
     available = set(at1_long)
     available.add(id2)
@@ -128,32 +136,37 @@ def lean_conj_equiv(at1, id2, at3):
     at1_id = at1["id"]
     at3_id = at3["id"]
     return (lean_conj_implies_at(at1, id2, at3) + "\n\n"
-            + f"theorem AT{at1_id}_Equation{id2}_implied_by_AT{at3_id} (G : Type*) [Magma G] (h : AssociativeTheory{at3_id} G) : (AssociativeTheory{at1_id} G) ∧ (Equation{id2} G) := by\n"
-            + "  obtain " + lean_eq_list(at3["long"]) + f" := AT{at3_id}_implies_long G h\n"
-            + f"  exact ⟨" + lean_eq_list(at1["early"]) + f", h{id2}⟩\n\n"
-            + f"theorem AT{at1_id}_Equation{id2}_equiv_AT{at3_id} (G : Type*) [Magma G] : ((AssociativeTheory{at1_id} G) ∧ (Equation{id2} G)) <-> AssociativeTheory{at3_id} G :=\n"
-            + f"  Iff.intro (AT{at1_id}_Equation{id2}_implies_AT{at3_id} G) (AT{at1_id}_Equation{id2}_implied_by_AT{at3_id} G)")
+            + f"theorem AT{at1_id}_Equation{id2}_implied_by (G : Type*) [Magma G] (h : AssociativeTheory{at3_id} G) : (AssociativeTheory{at1_id} G) ∧ (Equation{id2} G) := by\n"
+            + f"  obtain ⟨g, _⟩ := AT_equiv G at{at3_id}\n"
+            + "  obtain " + lean_eq_list(at3["long"]) + f" := g h\n"
+            + f"  exact ⟨" + lean_eq_list(at1["early"]) + f", h{id2}⟩\n")
 
-to_prove = []
+
+def lean_conj_map(at1, pairs):
+    at1_id = at1['id']
+    return (f'def conj{at1_id} : EQIndex → ATIndex\n'
+            + ''.join(f'| eq{id2} => at{at3["id"]}\n' for (id2, at3) in pairs))
+
+def lean_conj_theorem(at1):
+    at1_id = at1['id']
+    return (f'theorem AT{at1_id}_conj (G: Type*) [Magma G] (eqid : EQIndex) : (AssociativeTheory{at1_id} G) ∧ (EQeq G eqid) <-> (ATearly G (conj{at1_id} eqid)) :=\n'
+            + 'match eqid with\n'
+            + ''.join(f'| eq{eqid} => ⟨AT{at1_id}_Equation{eqid}_implies G, AT{at1_id}_Equation{eqid}_implied_by G⟩\n' for eqid in all_eqs))
+
+to_prove = defaultdict(list)
 for at in associative_theories:
     print(at["id"], end="\r")
-    for eq_id in reps:
+    for eq_id in all_eqs:
         lcl = at["long"]
         goals_at = long_class_to_at[tuple(find_class(at["early"] + [eq_id]))]
-        if goals_at["id"] == at["id"]:
-            continue
-        to_prove.append((at, eq_id, goals_at))
-
-#tally = defaultdict(int)
-#for (at1, id2, at3) in to_prove:
-#    tally[at3["id"]] += 1
-#print(sorted(tally.items()))
-#quit()
+        to_prove[at['id']].append((eq_id, goals_at))
 
 for atid in range(1, 457):
     print(atid, end="    \r")
+    at1 = atid_to_at[atid]
     with open(f"../associative_theories/Conjunction/Conjunction{atid}.lean", "w") as f:
         print(preamble, file=f)
-        for (at1, id2, at3) in to_prove:
-            if at1["id"] == atid:
-                print(lean_conj_equiv(at1, id2, at3) + "\n", file=f)
+        print(lean_conj_map(at1, to_prove[atid]) + "\n", file=f)
+        for (id2, at3) in to_prove[atid]:
+            print(lean_conj_equiv(at1, id2, at3) + "\n", file=f)
+        print(lean_conj_theorem(at1), file=f)

@@ -38,3 +38,20 @@ with open("../associative_theories/AssociativeTheoriesLong.lean", "w") as f:
     for at in associative_theories:
         at_id = at["id"]
         print(f'| at{at_id} => AssociativeTheory{at_id}_long G', file=f)
+
+
+####
+
+preamble = "/- Generated file defining the equation index -/\n\n"
+preamble += "import equational_theories.Equations.All\n"
+preamble += "import equational_theories.FactsSyntax\n"
+
+with open("../associative_theories/EquationIndex.lean", "w") as f:
+    all_eqs = sorted(set(reps).union({4512}))
+    print(preamble + '\n', file=f)
+    print('inductive EQIndex\n'
+          + ''.join(f'| eq{eqid} ' for eqid in all_eqs),
+          file=f)
+    print('def EQeq (G: Type*) [Magma G] : EQIndex → Prop\n'
+          + ''.join(f'| .eq{eqid} => Equation{eqid} G\n' for eqid in all_eqs),
+          file=f)
