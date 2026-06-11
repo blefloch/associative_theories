@@ -62,15 +62,17 @@ open EQIndex
 open ATIndex
 open Conjectures
 
+set_option maxHeartbeats 1000000
+
 """
 
 #####################
 def lean_have_one_eq(ids, id2):
     ids = sorted(set(ids))
-    return (f"  have eq{id2} := Equation"
+    return (f"  have h{id2} := Equation"
             + "_".join(map(str, ids))
-            + f"_implies_Equation{id2} G eq"
-            + " eq".join(map(str, ids)))
+            + f"_implies_Equation{id2} G h"
+            + " h".join(map(str, ids)))
 
 def lean_eq_list(eqs, prefix="h"):
     if len(eqs) > 1:
@@ -82,14 +84,14 @@ def lean_conj_implies_at(at1, id2, at3):
     at1_long = at1["long"]
     at3_id = at3["id"]
     lines = [f"private theorem AT{at1_id}_Equation{id2}_implies (G : Type*) [Magma G] (h : (AssociativeTheory{at1_id} G) ∧ (Equation{id2} G)) : AssociativeTheory{at3_id} G := by"]
-    lines.append(f"  obtain ⟨h1, eq{id2}⟩ := h")
+    lines.append(f"  obtain ⟨hh, h{id2}⟩ := h")
     if at3_id == at1_id:
-        lines.append("  exact h1")
+        lines.append("  exact hh")
         return "\n".join(lines)
     lines.append(f"  obtain ⟨g, _⟩ := AT_equiv G at{at1_id}")
     lines.append("  obtain ⟨"
-                 + ", ".join(f"eq{eq_id}" for eq_id in at1_long)
-                 + f"⟩ := g h1")
+                 + ", ".join(f"h{eq_id}" for eq_id in at1_long)
+                 + f"⟩ := g hh")
     proofs = []
     available = set(at1_long)
     available.add(id2)
@@ -129,29 +131,27 @@ def lean_conj_implies_at(at1, id2, at3):
     for premises, c in proofs:
         if c in needed:
             lines.append(lean_have_one_eq(premises, c))
-    lines.append("  exact " + lean_eq_list(at3["early"], "eq"))
+    lines.append("  exact " + lean_eq_list(at3["early"], "h"))
     return "\n".join(lines)
-
-def lean_conj_equiv(at1, id2, at3):
-    at1_id = at1["id"]
-    at3_id = at3["id"]
-    return (lean_conj_implies_at(at1, id2, at3) + "\n\n"
-            + f"private theorem AT{at1_id}_Equation{id2}_implied_by (G : Type*) [Magma G] (h : AssociativeTheory{at3_id} G) : (AssociativeTheory{at1_id} G) ∧ (Equation{id2} G) := by\n"
-            + f"  obtain ⟨g, _⟩ := AT_equiv G at{at3_id}\n"
-            + "  obtain " + lean_eq_list(at3["long"]) + f" := g h\n"
-            + f"  exact ⟨" + lean_eq_list(at1["early"]) + f", h{id2}⟩\n")
-
 
 def lean_conj_map(at1, pairs):
     at1_id = at1['id']
     return (f'def conj{at1_id} : EQIndex → ATIndex\n'
             + ''.join(f'| eq{id2} => at{at3["id"]}\n' for (id2, at3) in pairs))
 
-def lean_conj_theorem(at1):
+def lean_conj_theorem(at1, pairs):
     at1_id = at1['id']
-    return (f'theorem AT{at1_id}_conj (G: Type*) [Magma G] (eqid : EQIndex) : (AssociativeTheory{at1_id} G) ∧ (EQeq G eqid) <-> (ATearly G (conj{at1_id} eqid)) :=\n'
-            + 'match eqid with\n'
-            + ''.join(f'| eq{eqid} => ⟨AT{at1_id}_Equation{eqid}_implies G, AT{at1_id}_Equation{eqid}_implied_by G⟩\n' for eqid in all_eqs))
+    return (f'theorem AT{at1_id}_conj_implied (G: Type*) [Magma G] (eqid : EQIndex) (h : ATearly G (conj{at1_id} eqid)) : (AssociativeTheory{at1_id} G) ∧ (EQeq G eqid) := by\n'
+            + f'have hh := (AT_equiv G (conj{at1_id} eqid)).mp h\n'
+            + 'rcases eqid\n'
+            + 'all_goals\n'
+            + '  obtain ⟨_, _⟩ := hh\n'
+            + '  tauto\n'
+            + '\n'
+            + f'theorem AT{at1_id}_conj (G: Type*) [Magma G] (eqid : EQIndex) : (AssociativeTheory{at1_id} G) ∧ (EQeq G eqid) <-> (ATearly G (conj{at1_id} eqid)) :=\n'
+            + '⟨match eqid with\n'
+            + ''.join(f'| eq{eqid} => AT{at1_id}_Equation{eqid}_implies G\n' for eqid in all_eqs)
+            + f', AT{at1_id}_conj_implied G eqid⟩\n')
 
 to_prove = defaultdict(list)
 for at in associative_theories:
@@ -168,8 +168,8 @@ for atid in range(1, 457):
         print(preamble, file=f)
         print(lean_conj_map(at1, to_prove[atid]) + "\n", file=f)
         for (id2, at3) in to_prove[atid]:
-            print(lean_conj_equiv(at1, id2, at3) + "\n", file=f)
-        print(lean_conj_theorem(at1), file=f)
+            print(lean_conj_implies_at(at1, id2, at3) + "\n", file=f)
+        print(lean_conj_theorem(at1, to_prove[atid]), file=f)
 
 contents = ('/- Generated file collecting ConjunctionNN files -/\n\n'
             + ''.join(f'import associative_theories.Conjunction.Conjunction{at["id"]}\n' for at in associative_theories)
