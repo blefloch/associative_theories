@@ -45,7 +45,9 @@ def find_class(eq_set):
         raise ValueError(result)
 
 preamble = \
-"""import equational_theories.Equations.All
+"""/- Generated file proving equivalence of conjunction representatives -/
+
+import equational_theories.Equations.All
 import equational_theories.FactsSyntax
 import associative_theories.EquationIndex
 import associative_theories.AssociativeTheoriesIndex
@@ -55,8 +57,6 @@ import associative_theories.ConjecturesOneImpli
 import associative_theories.ConjecturesTwo
 import associative_theories.OneImpliDeduced
 import associative_theories.EarlyLongEquiv
-
-/- Generated file proving equivalence of conjunction representatives -/
 
 open EQIndex
 open ATIndex
@@ -81,7 +81,7 @@ def lean_conj_implies_at(at1, id2, at3):
     at1_id = at1["id"]
     at1_long = at1["long"]
     at3_id = at3["id"]
-    lines = [f"theorem AT{at1_id}_Equation{id2}_implies (G : Type*) [Magma G] (h : (AssociativeTheory{at1_id} G) ∧ (Equation{id2} G)) : AssociativeTheory{at3_id} G := by"]
+    lines = [f"private theorem AT{at1_id}_Equation{id2}_implies (G : Type*) [Magma G] (h : (AssociativeTheory{at1_id} G) ∧ (Equation{id2} G)) : AssociativeTheory{at3_id} G := by"]
     lines.append(f"  obtain ⟨h1, eq{id2}⟩ := h")
     if at3_id == at1_id:
         lines.append("  exact h1")
@@ -136,7 +136,7 @@ def lean_conj_equiv(at1, id2, at3):
     at1_id = at1["id"]
     at3_id = at3["id"]
     return (lean_conj_implies_at(at1, id2, at3) + "\n\n"
-            + f"theorem AT{at1_id}_Equation{id2}_implied_by (G : Type*) [Magma G] (h : AssociativeTheory{at3_id} G) : (AssociativeTheory{at1_id} G) ∧ (Equation{id2} G) := by\n"
+            + f"private theorem AT{at1_id}_Equation{id2}_implied_by (G : Type*) [Magma G] (h : AssociativeTheory{at3_id} G) : (AssociativeTheory{at1_id} G) ∧ (Equation{id2} G) := by\n"
             + f"  obtain ⟨g, _⟩ := AT_equiv G at{at3_id}\n"
             + "  obtain " + lean_eq_list(at3["long"]) + f" := g h\n"
             + f"  exact ⟨" + lean_eq_list(at1["early"]) + f", h{id2}⟩\n")
@@ -170,3 +170,17 @@ for atid in range(1, 457):
         for (id2, at3) in to_prove[atid]:
             print(lean_conj_equiv(at1, id2, at3) + "\n", file=f)
         print(lean_conj_theorem(at1), file=f)
+
+contents = ('/- Generated file collecting ConjunctionNN files -/\n\n'
+            + ''.join(f'import associative_theories.Conjunction.Conjunction{at["id"]}\n' for at in associative_theories)
+            + '''
+open ATIndex
+
+theorem AT_conj (G: Type*) [Magma G] (atid : ATIndex) (eqid : EQIndex) : ∃ (atid2 : ATIndex), (ATearly G atid) ∧ (EQeq G eqid) <-> (ATearly G atid2) :=
+match atid with
+'''
+            + ''.join(f'| at{at["id"]} => ⟨_, AT{at["id"]}_conj G eqid⟩\n' for at in associative_theories))
+
+with open(f"../associative_theories/Conjunction.lean", "w") as f:
+    print(contents, file=f)
+
