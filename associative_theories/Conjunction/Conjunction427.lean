@@ -10,6 +10,7 @@ import associative_theories.ConjecturesOneImpli
 import associative_theories.ConjecturesTwo
 import associative_theories.OneImpliDeduced
 import associative_theories.EarlyLongEquiv
+import associative_theories.ImplicationsAT
 
 open EQIndex
 open ATIndex
@@ -967,11 +968,12 @@ private theorem AT427_Equation4512_implies (G : Type*) [Magma G] (h : (Associati
   exact hh
 
 theorem AT427_conj_implied (G: Type*) [Magma G] (eqid : EQIndex) (h : ATearly G (conj427 eqid)) : (AssociativeTheory427 G) ∧ (EQeq G eqid) := by
-have hh := (AT_equiv G (conj427 eqid)).mp h
-rcases eqid
-all_goals
-  obtain ⟨_, _⟩ := hh
-  tauto
+  have h0 := (AT_equiv G (conj427 eqid)).mp h
+  rcases eqid
+  all_goals
+    constructor
+    exact AT_implies G _ h at427 True.intro
+    repeat' (obtain ⟨h1, h0⟩ := h0 ; try exact h1) ; try exact h0
 
 theorem AT427_conj (G: Type*) [Magma G] (eqid : EQIndex) : (AssociativeTheory427 G) ∧ (EQeq G eqid) <-> (ATearly G (conj427 eqid)) :=
 ⟨match eqid with
