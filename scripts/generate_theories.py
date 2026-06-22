@@ -52,6 +52,6 @@ with open("../associative_theories/EquationIndex.lean", "w") as f:
     print('inductive EQIndex\n'
           + ''.join(f'| eq{eqid} ' for eqid in all_eqs),
           file=f)
-    print('def EQeq (G: Type*) [Magma G] : EQIndex → Prop\n'
+    print('\ndef EQeq (G: Type*) [Magma G] : EQIndex → Prop\n'
           + ''.join(f'| .eq{eqid} => Equation{eqid} G\n' for eqid in all_eqs),
           file=f)

@@ -6,6 +6,7 @@ import equational_theories.FactsSyntax
 
 inductive EQIndex
 | eq1 | eq2 | eq3 | eq4 | eq5 | eq8 | eq10 | eq11 | eq14 | eq16 | eq38 | eq39 | eq40 | eq41 | eq43 | eq47 | eq56 | eq66 | eq75 | eq307 | eq308 | eq309 | eq310 | eq311 | eq312 | eq313 | eq314 | eq315 | eq316 | eq318 | eq323 | eq325 | eq326 | eq327 | eq329 | eq332 | eq333 | eq343 | eq411 | eq419 | eq429 | eq440 | eq477 | eq504 | eq513 | eq3253 | eq3255 | eq3256 | eq3258 | eq3259 | eq3260 | eq3261 | eq3264 | eq3265 | eq3267 | eq3271 | eq3273 | eq3274 | eq3275 | eq3277 | eq3278 | eq3290 | eq3292 | eq3300 | eq3306 | eq3308 | eq3309 | eq3315 | eq3316 | eq3319 | eq3322 | eq3323 | eq3326 | eq3331 | eq3334 | eq3342 | eq3346 | eq3350 | eq3353 | eq3388 | eq3414 | eq4268 | eq4269 | eq4270 | eq4271 | eq4272 | eq4273 | eq4274 | eq4275 | eq4276 | eq4277 | eq4278 | eq4279 | eq4280 | eq4283 | eq4284 | eq4286 | eq4287 | eq4288 | eq4290 | eq4291 | eq4293 | eq4296 | eq4297 | eq4299 | eq4300 | eq4301 | eq4304 | eq4305 | eq4314 | eq4315 | eq4318 | eq4320 | eq4321 | eq4325 | eq4327 | eq4331 | eq4343 | eq4358 | eq4362 | eq4364 | eq4369 | eq4512 
+
 def EQeq (G: Type*) [Magma G] : EQIndex → Prop
 | .eq1 => Equation1 G
 | .eq2 => Equation2 G
