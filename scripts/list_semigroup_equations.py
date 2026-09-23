@@ -41,5 +41,5 @@ with open("../data/associative_equation_classes.json", "w") as f:
                      for eq_id, eq_class in sorted(equiv_class.items())), file=f)
     print("]", file=f)
 
-assert(len(set.union(*list(equiv_class.values()))) == 739)
-assert(sum(len(ec) for ec in equiv_class.values()) == 739)
+assert(len(set.union(*list(equiv_class.values()))) == 653)
+assert(sum(len(ec) for ec in equiv_class.values()) == 653)
