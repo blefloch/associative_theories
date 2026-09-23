@@ -7,7 +7,6 @@ PIPE = subprocess.PIPE
 
 MACE4 = "./mace4"
 PROVER9 = "./prover9"
-ISOFILTER = "./isofilter"
 MAX_SECONDS = 1
 
 ### Helpers about processes
@@ -127,7 +126,7 @@ formulas(goals).
 end_of_list.'''
 
 ### models, prove, models_or_prove
-def models(eq1, eq2, *, max_models=1, max_seconds=0, check_timeout=False, extra0='', extra1='', extra2='', debug=False, isofilter=True, timeout=None):
+def models(eq1, eq2, *, max_models=1, max_seconds=0, check_timeout=False, extra0='', extra1='', extra2='', debug=False, timeout=None):
     if max_seconds == 0:
         max_seconds = MAX_SECONDS
     eq1_list = to_list(eq1)
@@ -146,17 +145,7 @@ def models(eq1, eq2, *, max_models=1, max_seconds=0, check_timeout=False, extra0
     if check_timeout and (maceproc.returncode in [1, 4, 5, 7]):
         #print(f"timeout for Equation {eq.id}: {eq}")
         return False
-    mace4models = '\n'.join(re.findall('(?s)interpretation.*?\\]\\)\\.', maceproc.stdout))
-    if isofilter:
-        try:
-            isoproc = run_one(ISOFILTER, input=mace4models, timeout=timeout)
-        except subprocess.TimeoutExpired as exc:
-            if check_timeout:
-                return False
-            return False
-        interpretations = '\n'.join(re.findall('(?s)interpretation.*?\\]\\)\\.', isoproc.stdout))
-    else:
-        interpretations = mace4models
+    interpretations = '\n'.join(re.findall('(?s)interpretation.*?\\]\\)\\.', maceproc.stdout))
     return [[[int(s) for s in row.split(",")]
              for row in re.split(",\n\\s*", model)]
             for model in re.findall("\\d+(?:,\\s?\\d+)+(?:,\n\\s*\\d+(?:,\\s?\\d+)+)+", interpretations)]

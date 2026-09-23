@@ -62,7 +62,7 @@ def aux_implication(eqs_id, extra1, eqB_id, extra2):
         if prove([], [], extra1=extra1, extra2=extra2):
             implies = True
         else:
-            mods = models([], [], extra0="assign(iterate_up_to, 27). assign(max_models, 1).", extra1=extra1, extra2=extra2, isofilter=False, max_seconds=10)
+            mods = models([], [], extra0="assign(iterate_up_to, 27). assign(max_models, 1).", extra1=extra1, extra2=extra2, max_seconds=10)
             if mods:
                 m = to_tuples(mods[0])
                 print(f"add_model({m})")
