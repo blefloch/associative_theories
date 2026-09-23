@@ -12,6 +12,7 @@ Running `lake exe cache get` (the first time only?) before `lake build` seems us
 
 ## Other files
 - `CITATION.cff` gives information on how to cite this project
+- `commentary` describes some features of individual associative theories
 - `data` contains the output of the project, mostly as json files
 - `LICENSE` has the license
 - `paper` contains the TeX files for the paper
