@@ -1,11 +1,24 @@
-from find_equation_id import Equation, all_eqs
+from find_equation_id import Equation, all_eqs, shape_order, canonicalize_rhyme
 from semigroups_to_rep_out import one_to_rep
 from collections import defaultdict
+
+def right_associative_shape(n):
+    return (None, right_associative_shape(n - 1)) if n > 0 else None
+
+def right_associate(shape):
+    return right_associative_shape(shape_order(shape))
 
 eqs_found = {"x = x": 1}
 for order in range(5):
     for eq in all_eqs(order):
-        semigroup_eq = str(eq).replace("(", "").replace(")", "")
+        lhs_shape = right_associate(eq.lhs_shape)
+        rhs_shape = right_associate(eq.rhs_shape)
+        rhyme = eq.rhyme
+        if lhs_shape == rhs_shape:
+            m = 1 + shape_order(lhs_shape)
+            rhyme = min(rhyme, canonicalize_rhyme(rhyme[m:] + rhyme[:m]))
+        eq_right = Equation(lhs_shape, rhs_shape, rhyme)
+        semigroup_eq = str(eq_right).replace("(", "").replace(")", "")
         lhs, rhs = semigroup_eq.split(" = ")
         if lhs != rhs and semigroup_eq not in eqs_found:
             eqs_found[semigroup_eq] = eq.id
