@@ -1,1 +1,0 @@
-../../../vampire_proofs_conj.py

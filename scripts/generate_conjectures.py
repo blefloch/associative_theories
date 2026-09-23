@@ -1,4 +1,4 @@
-from vampire_proofs_conj import prove_lean
+from vampire_to_lean import prove_lean
 import json
 with open("../data/associative_equation_classes.json", 'r') as f:
     eq_classes = json.load(f)
@@ -63,6 +63,3 @@ with open("../associative_theories/ConjecturesTwo.lean", "w") as f:
                 proof = prove_lean(premises, k)
                 print(proof, end="", file=f)
     print(conjecture_postamble(), file=f)
-
-
-
