@@ -83,7 +83,9 @@ for eq1_id in range(3, 4695):
     eq1 = Equation.from_id(eq1_id)
     eq1_str = str(eq1).replace("◇", "*")
     print(eq1_id, eq1_str, end="   \r")
+    # The first line may build a broken equation such as x*(y*z)=x*(z*z), then normalized to x*(y*y)=x*(z*y) by the line below
     eq1_right_assoc = Equation(right_associate(eq1.lhs_shape), right_associate(eq1.rhs_shape), eq1.rhyme)
+    eq1_right_assoc = Equation.from_str(str(eq1_right_assoc))
     i = max(eq1_right_assoc.id, 1) # tautological eqs have id 0, equivalent to equation 1
     if i < eq1_id:
         one_to_rep[eq1_id] = one_to_rep[i]
