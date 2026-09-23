@@ -14,7 +14,7 @@ authors:
 repository-code: https://github.com/blefloch/associative_theories
 url: https://github.com/blefloch/associative_theories
 abstract: >
-  A project to determine implications between conjunctions of 738 equational laws of semigroups, and formalize them in the Lean4 proof assistant language. Sequel to the Equational Theories Project.
+  A project to determine implications between conjunctions of low-order equational laws of semigroups, and formalize them in the Lean4 proof assistant language. Sequel to the Equational Theories Project.
 
 keywords:
   - universal algebra
