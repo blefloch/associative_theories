@@ -24,10 +24,10 @@ The main file is `associative_theories.lean`, which loads files containing vario
 
 ## The associative_theories directory
 
-### Conjectures (to be proven with Vampire)
-- `ConjecturesOneEquiv.lean` are cyclic implications in each equivalence class of associative equation
-- `ConjecturesOneImpli.lean` are a minimal set of implication to generate the single-equation implication graph
-- `ConjecturesTwo.lean` are minimal implications of the form E∧E'∧E4512 ⊨ E''
+### Proofs converted from Vampire output
+- `VampireProvenEquiv.lean` are cyclic implications in each equivalence class of associative equation
+- `VampireProvenOne.lean` are a minimal set of implication to generate the single-equation implication graph
+- `VampireProvenTwo.lean` are minimal implications of the form E∧E'∧E4512 ⊨ E''
 
 ### Countermodels
 - `Countermodels.lean` imports all of the models

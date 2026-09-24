@@ -1,8 +1,8 @@
 import equational_theories.Equations.All
 import associative_theories.Countermodels
-import associative_theories.ConjecturesOneEquiv
-import associative_theories.ConjecturesOneImpli
-import associative_theories.ConjecturesTwo
+import associative_theories.VampireProvenEquiv
+import associative_theories.VampireProvenOne
+import associative_theories.VampireProvenTwo
 import associative_theories.OneImpliDeduced
 import associative_theories.AssociativeTheoriesEarly
 import associative_theories.AssociativeTheoriesLong
