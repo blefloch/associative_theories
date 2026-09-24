@@ -7341,17 +7341,15 @@ theorem Equation3404_4512_implies_Equation3417 (G : Type*) [Magma G]
   subsumption eq93 eq11
 
 
-/- Equivalence of [4268, 4282, 4395] -/
-theorem Equation4395_4512_implies_Equation4268 (G : Type*) [Magma G]
-    (h4395 : Equation4395 G) (_ : Equation4512 G) : Equation4268 G := by
+/- Equivalence of [4268, 4282] -/
+theorem Equation4282_4512_implies_Equation4268 (G : Type*) [Magma G]
+    (h4282 : Equation4282 G) (_ : Equation4512 G) : Equation4268 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X0 ◇ X1)) = ((X0 ◇ X0) ◇ X0) := mod_symm (h4395 ..)
+  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X0 ◇ (X0 ◇ X2)) := mod_symm (h4282 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := mod_symm nh
-  have eq15 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X0 ◇ (X0 ◇ X2)) := superpose eq11 eq11 -- superposition 11,11
-  have eq54 (X0 : G) : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK0 ◇ (sK0 ◇ X0)) := superpose eq15 eq13 -- superposition 13,15
-  subsumption eq54 eq15
+  subsumption eq13 eq11
 
 theorem Equation4268_4512_implies_Equation4282 (G : Type*) [Magma G]
     (h4268 : Equation4268 G) (_ : Equation4512 G) : Equation4282 G := by
@@ -7363,29 +7361,16 @@ theorem Equation4268_4512_implies_Equation4282 (G : Type*) [Magma G]
   have eq14 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq11 eq13 -- forward demodulation 13,11
   subsumption eq14 eq11
 
-theorem Equation4282_4512_implies_Equation4395 (G : Type*) [Magma G]
-    (h4282 : Equation4282 G) (h4512 : Equation4512 G) : Equation4395 G := by
+
+/- Equivalence of [4269, 4316] -/
+theorem Equation4316_4512_implies_Equation4269 (G : Type*) [Magma G]
+    (h4316 : Equation4316 G) (_ : Equation4512 G) : Equation4269 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X0 ◇ (X0 ◇ X2)) := mod_symm (h4282 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ ((sK0 ◇ sK0) ◇ sK0) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
-
-
-/- Equivalence of [4269, 4316, 4432] -/
-theorem Equation4432_4512_implies_Equation4269 (G : Type*) [Magma G]
-    (h4432 : Equation4432 G) (_ : Equation4512 G) : Equation4269 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) = ((X0 ◇ X0) ◇ X0) := mod_symm (h4432 ..)
+  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X0 ◇ (X2 ◇ X0)) := mod_symm (h4316 ..)
   have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := mod_symm nh
-  have eq15 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X0 ◇ (X2 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq52 (X0 : G) : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK0 ◇ (X0 ◇ sK0)) := superpose eq15 eq13 -- superposition 13,15
-  subsumption eq52 eq15
+  subsumption eq13 eq11
 
 theorem Equation4269_4512_implies_Equation4316 (G : Type*) [Magma G]
     (h4269 : Equation4269 G) (_ : Equation4512 G) : Equation4316 G := by
@@ -7397,29 +7382,16 @@ theorem Equation4269_4512_implies_Equation4316 (G : Type*) [Magma G]
   have eq14 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq11 eq13 -- forward demodulation 13,11
   subsumption eq14 eq11
 
-theorem Equation4316_4512_implies_Equation4432 (G : Type*) [Magma G]
-    (h4316 : Equation4316 G) (h4512 : Equation4512 G) : Equation4432 G := by
+
+/- Equivalence of [4270, 4341] -/
+theorem Equation4341_4512_implies_Equation4270 (G : Type*) [Magma G]
+    (h4341 : Equation4341 G) (_ : Equation4512 G) : Equation4270 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X0 ◇ (X2 ◇ X0)) := mod_symm (h4316 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK0 ◇ sK0) ◇ sK0) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
-
-
-/- Equivalence of [4270, 4341, 4469] -/
-theorem Equation4469_4512_implies_Equation4270 (G : Type*) [Magma G]
-    (h4469 : Equation4469 G) (_ : Equation4512 G) : Equation4270 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) = ((X0 ◇ X0) ◇ X0) := mod_symm (h4469 ..)
+  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = (X0 ◇ (X2 ◇ X2)) := mod_symm (h4341 ..)
   have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := mod_symm nh
-  have eq14 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = (X0 ◇ (X2 ◇ X2)) := superpose eq11 eq11 -- superposition 11,11
-  have eq52 (X0 : G) : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK0 ◇ (X0 ◇ X0)) := superpose eq14 eq13 -- superposition 13,14
-  subsumption eq52 eq14
+  subsumption eq13 eq11
 
 theorem Equation4270_4512_implies_Equation4341 (G : Type*) [Magma G]
     (h4270 : Equation4270 G) (_ : Equation4512 G) : Equation4341 G := by
@@ -7431,29 +7403,16 @@ theorem Equation4270_4512_implies_Equation4341 (G : Type*) [Magma G]
   have eq14 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq11 eq13 -- forward demodulation 13,11
   subsumption eq14 eq11
 
-theorem Equation4341_4512_implies_Equation4469 (G : Type*) [Magma G]
-    (h4341 : Equation4341 G) (h4512 : Equation4512 G) : Equation4469 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = (X0 ◇ (X2 ◇ X2)) := mod_symm (h4341 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK0 ◇ sK0) ◇ sK0) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
 
-
-/- Equivalence of [4271, 4285, 4289, 4317, 4319, 4342, 4359, 4361, 4506, 4507, 4509, 4514, 4518, 4519, 4521] -/
-theorem Equation4521_4512_implies_Equation4271 (G : Type*) [Magma G]
-    (h4521 : Equation4521 G) (_ : Equation4512 G) : Equation4271 G := by
+/- Equivalence of [4271, 4285, 4289, 4317, 4319, 4342, 4359, 4361] -/
+theorem Equation4361_4512_implies_Equation4271 (G : Type*) [Magma G]
+    (h4361 : Equation4361 G) (_ : Equation4512 G) : Equation4271 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X3) ◇ X3) := mod_symm (h4521 ..)
+  have eq11 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X3 ◇ X4)) := mod_symm (h4361 ..)
   have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := mod_symm nh
-  have eq20 (X0 X2 X3 X4 X5 : G) : (X0 ◇ (X2 ◇ X3)) = (X0 ◇ (X4 ◇ X5)) := superpose eq11 eq11 -- superposition 11,11
-  have eq137 (X0 X1 : G) : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK0 ◇ (X0 ◇ X1)) := superpose eq20 eq13 -- superposition 13,20
-  subsumption eq137 eq20
+  subsumption eq13 eq11
 
 theorem Equation4271_4512_implies_Equation4285 (G : Type*) [Magma G]
     (h4271 : Equation4271 G) (_ : Equation4512 G) : Equation4285 G := by
@@ -7534,110 +7493,16 @@ theorem Equation4359_4512_implies_Equation4361 (G : Type*) [Magma G]
   have eq22 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (X0 ◇ sK3)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq22 eq16
 
-theorem Equation4361_4512_implies_Equation4506 (G : Type*) [Magma G]
-    (h4361 : Equation4361 G) (h4512 : Equation4512 G) : Equation4506 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X3 ◇ X4)) := mod_symm (h4361 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK0) ◇ sK0) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
 
-theorem Equation4506_4512_implies_Equation4507 (G : Type*) [Magma G]
-    (h4506 : Equation4506 G) (h4512 : Equation4512 G) : Equation4507 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X0) ◇ X0) := mod_symm (h4506 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK0) ◇ sK1) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq12 eq13 -- forward demodulation 13,12
-  have eq17 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X3 ◇ X4)) := superpose eq11 eq11 -- superposition 11,11
-  have eq59 (X0 X1 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (X0 ◇ X1)) := superpose eq17 eq14 -- superposition 14,17
-  subsumption eq59 eq17
-
-theorem Equation4507_4512_implies_Equation4509 (G : Type*) [Magma G]
-    (h4507 : Equation4507 G) (h4512 : Equation4512 G) : Equation4509 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X0) ◇ X1) := mod_symm (h4507 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK0) ◇ sK3) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK0 ◇ sK3)) := superpose eq12 eq13 -- forward demodulation 13,12
-  have eq19 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X1 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq36 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X0 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq46 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq36 eq14 -- backward demodulation 14,36
-  have eq143 : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq36 eq46 -- superposition 46,36
-  subsumption eq143 eq19
-
-theorem Equation4509_4512_implies_Equation4514 (G : Type*) [Magma G]
-    (h4509 : Equation4509 G) (h4512 : Equation4512 G) : Equation4514 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X0) ◇ X3) := mod_symm (h4509 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK2) ◇ sK0) := mod_symm nh
-  have eq19 (X0 X2 X3 X4 X5 : G) : (X0 ◇ (X2 ◇ X3)) = (X0 ◇ (X4 ◇ X5)) := superpose eq11 eq11 -- superposition 11,11
-  have eq28 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK2 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq28 eq19
-
-theorem Equation4514_4512_implies_Equation4518 (G : Type*) [Magma G]
-    (h4514 : Equation4514 G) (h4512 : Equation4512 G) : Equation4518 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X2) ◇ X0) := mod_symm (h4514 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK3) ◇ sK0) := mod_symm nh
-  have eq19 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (X0 ◇ sK3)) := superpose eq11 eq13 -- superposition 13,11
-  have eq25 (X0 X1 X2 : G) : (X0 ◇ (X2 ◇ X1)) = (X0 ◇ (X1 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq38 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK3 ◇ (X1 ◇ X0))) := superpose eq11 eq19 -- superposition 19,11
-  have eq97 (X0 X1 X2 : G) : (X0 ◇ (X2 ◇ X1)) = (X0 ◇ (X0 ◇ X0)) := superpose eq25 eq25 -- superposition 25,25
-  have eq138 (X0 X1 : G) : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK0 ◇ (sK3 ◇ (X1 ◇ X0))) := superpose eq97 eq38 -- backward demodulation 38,97
-  subsumption eq138 eq97
-
-theorem Equation4518_4512_implies_Equation4519 (G : Type*) [Magma G]
-    (h4518 : Equation4518 G) (h4512 : Equation4512 G) : Equation4519 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X3) ◇ X0) := mod_symm (h4518 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK3) ◇ sK1) := mod_symm nh
-  have eq19 (X0 X2 X3 X4 X5 : G) : (X0 ◇ (X2 ◇ X3)) = (X0 ◇ (X4 ◇ X5)) := superpose eq11 eq11 -- superposition 11,11
-  have eq26 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK3 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq26 eq19
-
-theorem Equation4519_4512_implies_Equation4521 (G : Type*) [Magma G]
-    (h4519 : Equation4519 G) (h4512 : Equation4512 G) : Equation4521 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X3) ◇ X1) := mod_symm (h4519 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK3) ◇ sK3) := mod_symm nh
-  have eq22 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK3 ◇ X0)) := superpose eq11 eq13 -- superposition 13,11
-  have eq32 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X2 ◇ X3)) := superpose eq11 eq12 -- superposition 12,11
-  have eq185 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X3 ◇ X1)) = (X0 ◇ (X2 ◇ X4)) := superpose eq32 eq32 -- superposition 32,32
-  have eq215 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (X0 ◇ X1)) := superpose eq32 eq22 -- superposition 22,32
-  subsumption eq215 eq185
-
-
-/- Equivalence of [4272, 4351, 4483] -/
-theorem Equation4483_4512_implies_Equation4272 (G : Type*) [Magma G]
-    (h4483 : Equation4483 G) (_ : Equation4512 G) : Equation4272 G := by
+/- Equivalence of [4272, 4351] -/
+theorem Equation4351_4512_implies_Equation4272 (G : Type*) [Magma G]
+    (h4351 : Equation4351 G) (_ : Equation4512 G) : Equation4272 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) = ((X1 ◇ X1) ◇ X1) := mod_symm (h4483 ..)
+  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = (X2 ◇ (X1 ◇ X1)) := mod_symm (h4351 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK1 ◇ (sK0 ◇ sK0)) := mod_symm nh
-  have eq16 (X0 X1 X2 : G) : (X1 ◇ (X0 ◇ X0)) = (X2 ◇ (X0 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq56 (X0 : G) : (sK0 ◇ (sK0 ◇ sK0)) ≠ (X0 ◇ (sK0 ◇ sK0)) := superpose eq16 eq13 -- superposition 13,16
-  subsumption eq56 eq16
+  subsumption eq13 eq11
 
 theorem Equation4272_4512_implies_Equation4351 (G : Type*) [Magma G]
     (h4272 : Equation4272 G) (_ : Equation4512 G) : Equation4351 G := by
@@ -7650,29 +7515,16 @@ theorem Equation4272_4512_implies_Equation4351 (G : Type*) [Magma G]
   have eq16 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK1 ◇ (sK1 ◇ sK1)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq16 eq14
 
-theorem Equation4351_4512_implies_Equation4483 (G : Type*) [Magma G]
-    (h4351 : Equation4351 G) (h4512 : Equation4512 G) : Equation4483 G := by
+
+/- Equivalence of [4273, 4332] -/
+theorem Equation4332_4512_implies_Equation4273 (G : Type*) [Magma G]
+    (h4332 : Equation4332 G) (_ : Equation4512 G) : Equation4273 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = (X2 ◇ (X1 ◇ X1)) := mod_symm (h4351 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK1 ◇ sK1) ◇ sK1) := mod_symm nh
-  have eq28 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK1 ◇ (sK1 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq28 eq11
-
-
-/- Equivalence of [4273, 4332, 4446] -/
-theorem Equation4446_4512_implies_Equation4273 (G : Type*) [Magma G]
-    (h4446 : Equation4446 G) (_ : Equation4512 G) : Equation4273 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) = ((X1 ◇ X1) ◇ X1) := mod_symm (h4446 ..)
+  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X2 ◇ (X1 ◇ X2)) := mod_symm (h4332 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK1 ◇ (sK0 ◇ sK1)) := mod_symm nh
-  have eq15 (X0 X1 X2 : G) : (X1 ◇ (X0 ◇ X1)) = (X2 ◇ (X0 ◇ X2)) := superpose eq11 eq11 -- superposition 11,11
-  have eq54 (X0 : G) : (sK0 ◇ (sK0 ◇ sK0)) ≠ (X0 ◇ (sK0 ◇ X0)) := superpose eq15 eq13 -- superposition 13,15
-  subsumption eq54 eq15
+  subsumption eq13 eq11
 
 theorem Equation4273_4512_implies_Equation4332 (G : Type*) [Magma G]
     (h4273 : Equation4273 G) (_ : Equation4512 G) : Equation4332 G := by
@@ -7685,29 +7537,16 @@ theorem Equation4273_4512_implies_Equation4332 (G : Type*) [Magma G]
   have eq17 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK1 ◇ (sK1 ◇ sK1)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq17 eq14
 
-theorem Equation4332_4512_implies_Equation4446 (G : Type*) [Magma G]
-    (h4332 : Equation4332 G) (h4512 : Equation4512 G) : Equation4446 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X2 ◇ (X1 ◇ X2)) := mod_symm (h4332 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK1 ◇ sK1) ◇ sK1) := mod_symm nh
-  have eq31 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK1 ◇ (sK1 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq31 eq11
 
-
-/- Equivalence of [4274, 4281, 4292, 4295, 4298, 4302, 4303, 4306, 4309, 4313, 4322, 4326, 4328, 4329, 4333, 4335, 4338, 4344, 4345, 4347, 4349, 4350, 4352, 4353, 4356, 4363, 4365, 4366, 4368, 4370, 4371, 4372, 4373, 4375, 4376, 4377, 4379, 4523, 4524, 4527, 4528, 4530, 4532, 4536, 4538, 4540, 4543, 4545, 4548, 4549, 4551, 4555, 4557, 4558, 4560, 4561, 4562, 4563, 4565, 4567, 4570, 4572, 4573, 4575, 4576, 4577, 4578, 4580, 4581] -/
-theorem Equation4581_4512_implies_Equation4274 (G : Type*) [Magma G]
-    (h4581 : Equation4581 G) (_ : Equation4512 G) : Equation4274 G := by
+/- Equivalence of [4274, 4281, 4292, 4295, 4298, 4302, 4303, 4306, 4309, 4313, 4322, 4326, 4328, 4329, 4333, 4335, 4338, 4344, 4345, 4347, 4349, 4350, 4352, 4353, 4356, 4363, 4365, 4366, 4368, 4370, 4371, 4372, 4373, 4375, 4376, 4377, 4379] -/
+theorem Equation4379_4512_implies_Equation4274 (G : Type*) [Magma G]
+    (h4379 : Equation4379 G) (_ : Equation4512 G) : Equation4274 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X4) ◇ X4) := mod_symm (h4581 ..)
+  have eq11 (X0 X1 X2 X3 X4 X5 : G) : (X0 ◇ (X1 ◇ X2)) = (X3 ◇ (X4 ◇ X5)) := mod_symm (h4379 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK1 ◇ (sK0 ◇ sK2)) := mod_symm nh
-  have eq20 (X2 X3 X4 X5 X6 X7 : G) : (X2 ◇ (X3 ◇ X4)) = (X5 ◇ (X6 ◇ X7)) := superpose eq11 eq11 -- superposition 11,11
-  have eq111 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq20 eq13 -- superposition 13,20
-  subsumption eq111 eq20
+  subsumption eq13 eq11
 
 theorem Equation4274_4512_implies_Equation4281 (G : Type*) [Magma G]
     (h4274 : Equation4274 G) (_ : Equation4512 G) : Equation4281 G := by
@@ -8179,510 +8018,16 @@ theorem Equation4377_4512_implies_Equation4379 (G : Type*) [Magma G]
   have eq22 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK5 ◇ X1)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq22 eq16
 
-theorem Equation4379_4512_implies_Equation4523 (G : Type*) [Magma G]
-    (h4379 : Equation4379 G) (h4512 : Equation4512 G) : Equation4523 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 X4 X5 : G) : (X0 ◇ (X1 ◇ X2)) = (X3 ◇ (X4 ◇ X5)) := mod_symm (h4379 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK0) ◇ sK0) := mod_symm nh
-  have eq31 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK0 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq31 eq11
 
-theorem Equation4523_4512_implies_Equation4524 (G : Type*) [Magma G]
-    (h4523 : Equation4523 G) (h4512 : Equation4512 G) : Equation4524 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X1 ◇ X0) ◇ X0) := mod_symm (h4523 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK0) ◇ sK1) := mod_symm nh
-  have eq18 (X0 X1 X2 X3 : G) : (X1 ◇ (X0 ◇ X2)) = (X1 ◇ (X0 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq28 (X0 X1 X2 : G) : (X1 ◇ (X0 ◇ X2)) = (X0 ◇ (X1 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq30 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK0 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  have eq39 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK1 ◇ sK1)) := superpose eq28 eq30 -- forward demodulation 30,28
-  subsumption eq39 eq18
-
-theorem Equation4524_4512_implies_Equation4527 (G : Type*) [Magma G]
-    (h4524 : Equation4524 G) (h4512 : Equation4512 G) : Equation4527 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X1 ◇ X0) ◇ X1) := mod_symm (h4524 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK1) ◇ sK0) := mod_symm nh
-  have eq14 (X0 X1 X3 : G) : ((X0 ◇ X3) ◇ X0) = (X3 ◇ ((X1 ◇ X0) ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq18 (X0 X1 X2 X3 : G) : (X1 ◇ (X0 ◇ X2)) = (X1 ◇ (X0 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq20 (X0 X1 X3 : G) : ((X0 ◇ X3) ◇ X0) = (X3 ◇ (X1 ◇ (X0 ◇ X1))) := superpose eq12 eq14 -- forward demodulation 14,12
-  have eq30 (X0 X1 X2 : G) : (X1 ◇ (X0 ◇ X2)) = (X0 ◇ (X1 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq31 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ (X2 ◇ X3))) = ((X2 ◇ (X0 ◇ X1)) ◇ X2) := superpose eq11 eq12 -- superposition 12,11
-  have eq32 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK1 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  have eq63 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK1 ◇ X0)) := superpose eq18 eq32 -- superposition 32,18
-  have eq113 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X1 ◇ (X0 ◇ X3)) := superpose eq18 eq30 -- superposition 30,18
-  have eq210 (X0 X1 X2 : G) : (X1 ◇ (X0 ◇ X1)) = ((X2 ◇ X0) ◇ X2) := superpose eq30 eq20 -- superposition 20,30
-  have eq1718 (X0 X1 X2 X3 X4 : G) : (X3 ◇ ((X2 ◇ X1) ◇ X2)) = (X0 ◇ (X3 ◇ X4)) := superpose eq210 eq113 -- superposition 113,210
-  have eq1852 (X0 X1 X2 X3 X4 : G) : (X3 ◇ (X2 ◇ (X1 ◇ X2))) = (X0 ◇ (X3 ◇ X4)) := superpose eq12 eq1718 -- forward demodulation 1718,12
-  have eq2003 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ ((X1 ◇ (sK1 ◇ X0)) ◇ X1)) := superpose eq31 eq63 -- superposition 63,31
-  have eq2320 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (X1 ◇ ((sK1 ◇ X0) ◇ X1))) := superpose eq12 eq2003 -- forward demodulation 2003,12
-  subsumption eq2320 eq1852
-
-theorem Equation4527_4512_implies_Equation4528 (G : Type*) [Magma G]
-    (h4527 : Equation4527 G) (h4512 : Equation4512 G) : Equation4528 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X1 ◇ X1) ◇ X0) := mod_symm (h4527 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK1) ◇ sK1) := mod_symm nh
-  have eq21 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK1 ◇ X0)) := superpose eq11 eq13 -- superposition 13,11
-  have eq39 (X0 X1 X2 : G) : (X1 ◇ (X0 ◇ X2)) = (X0 ◇ (X0 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq149 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK1 ◇ X1)) := superpose eq39 eq21 -- superposition 21,39
-  subsumption eq149 rfl
-
-theorem Equation4528_4512_implies_Equation4530 (G : Type*) [Magma G]
-    (h4528 : Equation4528 G) (h4512 : Equation4512 G) : Equation4530 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X1 ◇ X1) ◇ X1) := mod_symm (h4528 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK1) ◇ sK3) := mod_symm nh
-  have eq18 (X0 X1 X2 X3 X4 : G) : (X1 ◇ (X0 ◇ X2)) = (X3 ◇ (X0 ◇ X4)) := superpose eq11 eq11 -- superposition 11,11
-  have eq32 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK1 ◇ sK3)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq32 eq18
-
-theorem Equation4530_4512_implies_Equation4532 (G : Type*) [Magma G]
-    (h4530 : Equation4530 G) (h4512 : Equation4512 G) : Equation4532 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X1 ◇ X1) ◇ X3) := mod_symm (h4530 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK2) ◇ sK1) := mod_symm nh
-  have eq17 (X0 X1 X3 X4 X5 : G) : (X3 ◇ (X0 ◇ X4)) = ((X1 ◇ X1) ◇ X5) := superpose eq11 eq11 -- superposition 11,11
-  have eq20 (X0 X2 X3 X4 X5 : G) : (X2 ◇ (X0 ◇ X3)) = (X4 ◇ (X0 ◇ X5)) := superpose eq11 eq11 -- superposition 11,11
-  have eq32 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK2 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  have eq98 (X2 X3 X4 X5 X6 X7 : G) : (X2 ◇ (X3 ◇ X4)) = (X5 ◇ (X6 ◇ X7)) := superpose eq17 eq17 -- superposition 17,17
-  have eq179 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK2 ◇ X1)) := superpose eq20 eq32 -- superposition 32,20
-  subsumption eq179 eq98
-
-theorem Equation4532_4512_implies_Equation4536 (G : Type*) [Magma G]
-    (h4532 : Equation4532 G) (h4512 : Equation4512 G) : Equation4536 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X1 ◇ X2) ◇ X1) := mod_symm (h4532 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK3) ◇ sK1) := mod_symm nh
-  have eq14 (X0 X1 X2 X3 : G) : ((X0 ◇ X1) ◇ X0) = (X3 ◇ ((X0 ◇ X1) ◇ X2)) := superpose eq11 eq11 -- superposition 11,11
-  have eq15 (X0 X1 X2 X3 : G) : (X3 ◇ ((X1 ◇ X2) ◇ X1)) = (((X1 ◇ X2) ◇ X1) ◇ X0) := superpose eq11 eq11 -- superposition 11,11
-  have eq17 (X0 X1 X2 X3 : G) : (X2 ◇ (X0 ◇ X1)) = (X3 ◇ (X0 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq19 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK1 ◇ sK3)) := superpose eq11 eq13 -- superposition 13,11
-  have eq20 (X0 X1 X2 X3 : G) : ((X0 ◇ X1) ◇ X0) = (X3 ◇ (X0 ◇ (X1 ◇ X2))) := superpose eq12 eq14 -- forward demodulation 14,12
-  have eq21 (X0 X1 X2 X3 : G) : (X3 ◇ (X1 ◇ (X2 ◇ X1))) = ((X1 ◇ (X2 ◇ X1)) ◇ X0) := superpose eq12 eq15 -- forward demodulation 15,12
-  have eq22 (X0 X1 X2 : G) : ((X1 ◇ X2) ◇ X1) = ((X1 ◇ (X2 ◇ X1)) ◇ X0) := superpose eq20 eq21 -- forward demodulation 21,20
-  have eq23 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X1)) = ((X1 ◇ (X2 ◇ X1)) ◇ X0) := superpose eq12 eq22 -- forward demodulation 22,12
-  have eq62 (X0 X1 : G) : (X1 ◇ (sK1 ◇ sK3)) ≠ (X0 ◇ (sK1 ◇ sK2)) := superpose eq17 eq19 -- superposition 19,17
-  have eq315 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X0)) = (X4 ◇ (X2 ◇ X3)) := superpose eq17 eq23 -- superposition 23,17
-  have eq330 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) ≠ (X2 ◇ (sK1 ◇ sK2)) := superpose eq23 eq62 -- superposition 62,23
-  subsumption eq330 eq315
-
-theorem Equation4536_4512_implies_Equation4538 (G : Type*) [Magma G]
-    (h4536 : Equation4536 G) (h4512 : Equation4512 G) : Equation4538 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X1 ◇ X3) ◇ X1) := mod_symm (h4536 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK3) ◇ sK3) := mod_symm nh
-  have eq20 (X0 X2 X3 X4 X5 : G) : (X2 ◇ (X0 ◇ X3)) = (X4 ◇ (X0 ◇ X5)) := superpose eq11 eq11 -- superposition 11,11
-  have eq31 (X0 X1 X2 X3 : G) : (X2 ◇ (X0 ◇ X3)) = (X0 ◇ (X1 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq37 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK3 ◇ sK3)) := superpose eq12 eq13 -- superposition 13,12
-  have eq112 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK3 ◇ X1)) := superpose eq20 eq37 -- superposition 37,20
-  have eq173 (X0 X1 X2 X3 X4 X5 : G) : (X4 ◇ (X0 ◇ X5)) = (X2 ◇ (X1 ◇ X3)) := superpose eq20 eq31 -- superposition 31,20
-  have eq300 (X0 X1 X2 X3 : G) : (X0 ◇ (sK1 ◇ X1)) ≠ (X2 ◇ (sK3 ◇ X3)) := superpose eq20 eq112 -- superposition 112,20
-  subsumption eq300 eq173
-
-theorem Equation4538_4512_implies_Equation4540 (G : Type*) [Magma G]
-    (h4538 : Equation4538 G) (_ : Equation4512 G) : Equation4540 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X1 ◇ X3) ◇ X3) := mod_symm (h4538 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK0) ◇ sK0) := mod_symm nh
-  have eq17 (X0 X1 X3 X4 X5 : G) : (X3 ◇ (X0 ◇ X4)) = ((X1 ◇ X5) ◇ X5) := superpose eq11 eq11 -- superposition 11,11
-  have eq22 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK2 ◇ X1)) := superpose eq11 eq13 -- superposition 13,11
-  have eq42 (X2 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ X2) ◇ X2) := superpose eq11 eq22 -- superposition 22,11
-  subsumption eq42 eq17
-
-theorem Equation4540_4512_implies_Equation4543 (G : Type*) [Magma G]
-    (h4540 : Equation4540 G) (h4512 : Equation4512 G) : Equation4543 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X0) ◇ X0) := mod_symm (h4540 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK0) ◇ sK3) := mod_symm nh
-  have eq15 (X0 X1 X2 X3 : G) : ((X1 ◇ X3) ◇ X3) = (X3 ◇ (X1 ◇ (X2 ◇ X0))) := superpose eq11 eq11 -- superposition 11,11
-  have eq18 (X0 X1 X2 X3 : G) : (X1 ◇ (X2 ◇ X0)) = (X1 ◇ (X3 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq25 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) = (X0 ◇ (X1 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq27 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (sK0 ◇ sK3)) := superpose eq12 eq13 -- superposition 13,12
-  have eq30 (X0 X1 X2 X3 : G) : (X3 ◇ (X0 ◇ (X1 ◇ X2))) = ((X2 ◇ X3) ◇ X3) := superpose eq12 eq11 -- superposition 11,12
-  have eq62 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (X0 ◇ sK3)) := superpose eq18 eq27 -- superposition 27,18
-  have eq95 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) = ((X1 ◇ X0) ◇ X0) := superpose eq11 eq25 -- superposition 25,11
-  have eq138 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK2) ◇ sK2) := superpose eq11 eq62 -- superposition 62,11
-  have eq347 (X0 X1 X3 : G) : ((X1 ◇ X0) ◇ X0) = ((X3 ◇ X0) ◇ X0) := superpose eq15 eq30 -- superposition 30,15
-  have eq745 (X0 X1 X2 X3 : G) : ((X3 ◇ X1) ◇ X1) = (X0 ◇ (X2 ◇ X1)) := superpose eq95 eq347 -- superposition 347,95
-  have eq3530 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((X0 ◇ sK2) ◇ sK2) := superpose eq347 eq138 -- superposition 138,347
-  subsumption eq3530 eq745
-
-theorem Equation4543_4512_implies_Equation4545 (G : Type*) [Magma G]
-    (h4543 : Equation4543 G) (h4512 : Equation4512 G) : Equation4545 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X0) ◇ X3) := mod_symm (h4543 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK1) ◇ sK1) := mod_symm nh
-  have eq22 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (X0 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
-  have eq29 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X1 ◇ (X3 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq148 (X0 X1 X2 X3 X4 : G) : (X2 ◇ (X0 ◇ X3)) = (X1 ◇ (X4 ◇ X0)) := superpose eq29 eq29 -- superposition 29,29
-  have eq178 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (X1 ◇ sK1)) := superpose eq29 eq22 -- superposition 22,29
-  subsumption eq178 eq148
-
-theorem Equation4545_4512_implies_Equation4548 (G : Type*) [Magma G]
-    (h4545 : Equation4545 G) (h4512 : Equation4512 G) : Equation4548 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X1) ◇ X1) := mod_symm (h4545 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK2) ◇ sK0) := mod_symm nh
-  have eq14 (X0 X1 X2 X3 : G) : (((X1 ◇ X2) ◇ X0) ◇ X0) = (X3 ◇ ((X2 ◇ X1) ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq19 (X0 X1 X2 X3 : G) : (X2 ◇ (X1 ◇ X0)) = (X3 ◇ (X1 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq21 (X0 X1 X2 X3 : G) : (((X1 ◇ X2) ◇ X0) ◇ X0) = (X3 ◇ (X2 ◇ (X1 ◇ X1))) := superpose eq12 eq14 -- forward demodulation 14,12
-  have eq22 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ (X1 ◇ X1))) = ((X1 ◇ (X2 ◇ X0)) ◇ X0) := superpose eq12 eq21 -- forward demodulation 21,12
-  have eq34 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (sK2 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  have eq57 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK2 ◇ sK0)) := superpose eq19 eq34 -- superposition 34,19
-  have eq980 (X0 X1 X2 X3 X4 X5 : G) : (X4 ◇ (X2 ◇ X3)) = (X5 ◇ (X1 ◇ (X0 ◇ X0))) := superpose eq19 eq22 -- superposition 22,19
-  have eq1049 (X0 X1 X2 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X2 ◇ (X1 ◇ (X0 ◇ X0))) := superpose eq22 eq57 -- superposition 57,22
-  subsumption eq1049 eq980
-
-theorem Equation4548_4512_implies_Equation4549 (G : Type*) [Magma G]
-    (h4548 : Equation4548 G) (h4512 : Equation4512 G) : Equation4549 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X2) ◇ X0) := mod_symm (h4548 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK2) ◇ sK1) := mod_symm nh
-  have eq14 (X0 X1 X2 X3 : G) : (((X1 ◇ X2) ◇ (X1 ◇ X2)) ◇ X3) = (X3 ◇ ((X2 ◇ X2) ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq15 (X0 X1 X2 X3 : G) : ((X1 ◇ X1) ◇ X3) = (X3 ◇ (X1 ◇ (X2 ◇ X0))) := superpose eq11 eq11 -- superposition 11,11
-  have eq18 (X0 X1 X2 X3 : G) : (X2 ◇ (X3 ◇ (X0 ◇ X0))) = (((X0 ◇ X0) ◇ (X1 ◇ X0)) ◇ X2) := superpose eq11 eq11 -- superposition 11,11
-  have eq19 (X0 X1 X2 X3 : G) : (X1 ◇ (X2 ◇ X0)) = (X1 ◇ (X3 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq22 (X0 X1 X2 X3 : G) : (((X1 ◇ X2) ◇ (X1 ◇ X2)) ◇ X3) = (X3 ◇ (X2 ◇ (X2 ◇ X0))) := superpose eq12 eq14 -- forward demodulation 14,12
-  have eq23 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ (X2 ◇ X0))) = ((X1 ◇ (X2 ◇ (X1 ◇ X2))) ◇ X3) := superpose eq12 eq22 -- forward demodulation 22,12
-  have eq24 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ (X2 ◇ X0))) = (((X2 ◇ X2) ◇ X1) ◇ X3) := superpose eq15 eq23 -- backward demodulation 23,15
-  have eq25 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ (X2 ◇ X0))) = ((X2 ◇ (X2 ◇ X1)) ◇ X3) := superpose eq12 eq24 -- forward demodulation 24,12
-  have eq26 (X1 X2 X3 : G) : ((X2 ◇ (X2 ◇ X1)) ◇ X3) = ((X2 ◇ X2) ◇ X3) := superpose eq15 eq25 -- forward demodulation 25,15
-  have eq27 (X1 X2 X3 : G) : ((X2 ◇ (X2 ◇ X1)) ◇ X3) = (X2 ◇ (X2 ◇ X3)) := superpose eq12 eq26 -- forward demodulation 26,12
-  have eq31 (X0 X1 X2 X3 : G) : (X2 ◇ (X3 ◇ (X0 ◇ X0))) = ((X0 ◇ (X0 ◇ (X1 ◇ X0))) ◇ X2) := superpose eq12 eq18 -- forward demodulation 18,12
-  have eq32 (X0 X2 X3 : G) : (X2 ◇ (X3 ◇ (X0 ◇ X0))) = (X0 ◇ (X0 ◇ X2)) := superpose eq27 eq31 -- forward demodulation 31,27
-  have eq36 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) = (X0 ◇ (X0 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq38 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (sK2 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  have eq79 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (X0 ◇ sK1)) := superpose eq19 eq38 -- superposition 38,19
-  have eq126 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) = ((X1 ◇ X1) ◇ X0) := superpose eq11 eq36 -- superposition 36,11
-  have eq336 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK1) ◇ sK2) := superpose eq11 eq79 -- superposition 79,11
-  have eq589 (X0 X1 X2 : G) : (X2 ◇ (X2 ◇ X0)) = ((X1 ◇ X1) ◇ X0) := superpose eq15 eq32 -- superposition 32,15
-  have eq1205 (X0 X1 X2 X3 : G) : (X0 ◇ (X2 ◇ X1)) = (X3 ◇ (X3 ◇ X1)) := superpose eq126 eq589 -- superposition 589,126
-  have eq2511 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (X0 ◇ sK2)) := superpose eq589 eq336 -- superposition 336,589
-  subsumption eq2511 eq1205
-
-theorem Equation4549_4512_implies_Equation4551 (G : Type*) [Magma G]
-    (h4549 : Equation4549 G) (h4512 : Equation4512 G) : Equation4551 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X2) ◇ X1) := mod_symm (h4549 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK2) ◇ sK3) := mod_symm nh
-  have eq14 (X0 X1 X2 X3 : G) : (((X1 ◇ X2) ◇ (X1 ◇ X2)) ◇ X0) = (X3 ◇ ((X2 ◇ X2) ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq16 (X0 X1 X2 X3 : G) : ((X2 ◇ X2) ◇ X1) = (X3 ◇ ((X1 ◇ X2) ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq19 (X0 X1 X2 X3 : G) : (X2 ◇ (X1 ◇ X0)) = (X3 ◇ (X1 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq21 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK3 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
-  have eq22 (X0 X1 X2 X3 : G) : (((X1 ◇ X2) ◇ (X1 ◇ X2)) ◇ X0) = (X3 ◇ (X2 ◇ (X2 ◇ X1))) := superpose eq12 eq14 -- forward demodulation 14,12
-  have eq23 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ (X2 ◇ X1))) = (((X2 ◇ X2) ◇ X1) ◇ X0) := superpose eq11 eq22 -- forward demodulation 22,11
-  have eq24 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ (X2 ◇ X1))) = ((X2 ◇ (X2 ◇ X1)) ◇ X0) := superpose eq12 eq23 -- forward demodulation 23,12
-  have eq25 (X0 X1 X2 X3 : G) : ((X2 ◇ X2) ◇ X1) = (X3 ◇ (X1 ◇ (X2 ◇ X0))) := superpose eq12 eq16 -- forward demodulation 16,12
-  have eq34 (X0 X1 X2 : G) : (X2 ◇ (X1 ◇ X0)) = (X0 ◇ (X0 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq72 (X0 X1 : G) : (X1 ◇ (sK3 ◇ sK2)) ≠ (X0 ◇ (sK1 ◇ sK2)) := superpose eq19 eq21 -- superposition 21,19
-  have eq214 (X0 X1 X2 X3 : G) : (X3 ◇ ((X1 ◇ X2) ◇ X0)) = ((X1 ◇ X1) ◇ X0) := superpose eq34 eq25 -- superposition 25,34
-  have eq282 (X0 X1 X2 X3 : G) : ((X1 ◇ X1) ◇ X0) = (X3 ◇ (X1 ◇ (X2 ◇ X0))) := superpose eq12 eq214 -- forward demodulation 214,12
-  have eq285 (X0 X1 X2 : G) : ((X2 ◇ X2) ◇ X1) = ((X2 ◇ (X2 ◇ X1)) ◇ X0) := superpose eq282 eq24 -- backward demodulation 24,282
-  have eq288 (X0 X1 X2 : G) : (X2 ◇ (X2 ◇ X1)) = ((X2 ◇ (X2 ◇ X1)) ◇ X0) := superpose eq12 eq285 -- forward demodulation 285,12
-  have eq604 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X0 ◇ X1)) = (X4 ◇ (X2 ◇ X3)) := superpose eq19 eq288 -- superposition 288,19
-  have eq627 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) ≠ (X2 ◇ (sK3 ◇ sK2)) := superpose eq288 eq72 -- superposition 72,288
-  subsumption eq627 eq604
-
-theorem Equation4551_4512_implies_Equation4555 (G : Type*) [Magma G]
-    (h4551 : Equation4551 G) (h4512 : Equation4512 G) : Equation4555 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X2) ◇ X3) := mod_symm (h4551 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK3) ◇ sK3) := mod_symm nh
-  have eq17 (X0 X2 X3 X4 X5 : G) : (X3 ◇ (X4 ◇ X0)) = ((X2 ◇ X2) ◇ X5) := superpose eq11 eq11 -- superposition 11,11
-  have eq20 (X0 X2 X3 X4 X5 : G) : (X2 ◇ (X3 ◇ X0)) = (X4 ◇ (X5 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq34 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (sK3 ◇ sK3)) := superpose eq12 eq13 -- superposition 13,12
-  have eq93 (X2 X3 X4 X5 X6 X7 : G) : (X2 ◇ (X3 ◇ X4)) = (X5 ◇ (X6 ◇ X7)) := superpose eq17 eq17 -- superposition 17,17
-  have eq163 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (X1 ◇ sK3)) := superpose eq20 eq34 -- superposition 34,20
-  subsumption eq163 eq93
-
-theorem Equation4555_4512_implies_Equation4557 (G : Type*) [Magma G]
-    (h4555 : Equation4555 G) (_ : Equation4512 G) : Equation4557 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X3) ◇ X3) := mod_symm (h4555 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK0) ◇ sK0) := mod_symm nh
-  have eq17 (X0 X2 X3 X4 X5 : G) : (X3 ◇ (X4 ◇ X0)) = ((X2 ◇ X5) ◇ X5) := superpose eq11 eq11 -- superposition 11,11
-  have eq22 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (X1 ◇ sK3)) := superpose eq11 eq13 -- superposition 13,11
-  have eq41 (X2 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ X2) ◇ X2) := superpose eq11 eq22 -- superposition 22,11
-  subsumption eq41 eq17
-
-theorem Equation4557_4512_implies_Equation4558 (G : Type*) [Magma G]
-    (h4557 : Equation4557 G) (h4512 : Equation4512 G) : Equation4558 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X0) ◇ X0) := mod_symm (h4557 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK0) ◇ sK1) := mod_symm nh
-  have eq24 (X0 X1 X2 X3 : G) : (X1 ◇ (X2 ◇ X3)) = (X0 ◇ (X1 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq26 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (sK0 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  have eq132 (X0 X1 X2 X3 X4 : G) : (X1 ◇ (X2 ◇ X3)) = (X4 ◇ (X0 ◇ X0)) := superpose eq24 eq24 -- superposition 24,24
-  have eq158 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK3 ◇ sK3)) := superpose eq24 eq26 -- superposition 26,24
-  subsumption eq158 eq132
-
-theorem Equation4558_4512_implies_Equation4560 (G : Type*) [Magma G]
-    (h4558 : Equation4558 G) (h4512 : Equation4512 G) : Equation4560 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X0) ◇ X1) := mod_symm (h4558 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK0) ◇ sK3) := mod_symm nh
-  have eq20 (X1 X2 X3 X4 : G) : (X1 ◇ (X2 ◇ X3)) = (X1 ◇ (X2 ◇ X4)) := superpose eq11 eq11 -- superposition 11,11
-  have eq22 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK3 ◇ X0)) := superpose eq11 eq13 -- superposition 13,11
-  have eq30 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X1 ◇ (X2 ◇ X3)) := superpose eq11 eq12 -- superposition 12,11
-  have eq199 (X0 X1 X2 X3 X4 X5 : G) : (X4 ◇ (X1 ◇ (X2 ◇ X3))) = (X4 ◇ (X0 ◇ X5)) := superpose eq30 eq20 -- superposition 20,30
-  have eq206 (X0 X1 X2 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (X0 ◇ (X1 ◇ X2))) := superpose eq30 eq22 -- superposition 22,30
-  subsumption eq206 eq199
-
-theorem Equation4560_4512_implies_Equation4561 (G : Type*) [Magma G]
-    (h4560 : Equation4560 G) (h4512 : Equation4512 G) : Equation4561 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, sK4, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X0) ◇ X3) := mod_symm (h4560 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK0) ◇ sK4) := mod_symm nh
-  have eq28 (X0 X1 X2 X3 : G) : (X1 ◇ (X2 ◇ X3)) = (X0 ◇ (X1 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq30 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (sK0 ◇ sK4)) := superpose eq12 eq13 -- superposition 13,12
-  have eq162 (X0 X1 X2 X3 X4 : G) : (X1 ◇ (X2 ◇ X3)) = (X4 ◇ (X0 ◇ X4)) := superpose eq28 eq28 -- superposition 28,28
-  have eq196 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK3 ◇ X0)) := superpose eq28 eq30 -- superposition 30,28
-  subsumption eq196 eq162
-
-theorem Equation4561_4512_implies_Equation4562 (G : Type*) [Magma G]
-    (h4561 : Equation4561 G) (h4512 : Equation4512 G) : Equation4562 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X0) ◇ X4) := mod_symm (h4561 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK1) ◇ sK0) := mod_symm nh
-  have eq22 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (X0 ◇ X1)) := superpose eq11 eq13 -- superposition 13,11
-  have eq27 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = (X1 ◇ (X3 ◇ X4)) := superpose eq11 eq12 -- superposition 12,11
-  have eq147 (X0 X1 X3 X4 X5 X6 : G) : (X3 ◇ (X0 ◇ X4)) = (X1 ◇ (X5 ◇ X6)) := superpose eq27 eq27 -- superposition 27,27
-  have eq189 (X0 X2 X3 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (X2 ◇ X3)) := superpose eq27 eq22 -- superposition 22,27
-  subsumption eq189 eq147
-
-theorem Equation4562_4512_implies_Equation4563 (G : Type*) [Magma G]
-    (h4562 : Equation4562 G) (h4512 : Equation4512 G) : Equation4563 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X1) ◇ X0) := mod_symm (h4562 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK1) ◇ sK1) := mod_symm nh
-  have eq22 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK1 ◇ X0)) := superpose eq11 eq13 -- superposition 13,11
-  have eq29 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X2 ◇ (X1 ◇ X3)) := superpose eq11 eq12 -- superposition 12,11
-  have eq162 (X0 X1 X2 X3 X4 : G) : (X3 ◇ (X1 ◇ X0)) = (X2 ◇ (X1 ◇ X4)) := superpose eq29 eq29 -- superposition 29,29
-  have eq192 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK1 ◇ X1)) := superpose eq29 eq22 -- superposition 22,29
-  subsumption eq192 eq162
-
-theorem Equation4563_4512_implies_Equation4565 (G : Type*) [Magma G]
-    (h4563 : Equation4563 G) (h4512 : Equation4512 G) : Equation4565 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X1) ◇ X1) := mod_symm (h4563 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK1) ◇ sK3) := mod_symm nh
-  have eq20 (X1 X2 X3 X4 X5 : G) : (X2 ◇ (X1 ◇ X3)) = (X4 ◇ (X1 ◇ X5)) := superpose eq11 eq11 -- superposition 11,11
-  have eq32 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (sK1 ◇ sK3)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq32 eq20
-
-theorem Equation4565_4512_implies_Equation4567 (G : Type*) [Magma G]
-    (h4565 : Equation4565 G) (h4512 : Equation4512 G) : Equation4567 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X1) ◇ X3) := mod_symm (h4565 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK2) ◇ sK0) := mod_symm nh
-  have eq17 (X0 X2 X3 X4 X5 : G) : ((X5 ◇ X0) ◇ X5) = (X3 ◇ (X2 ◇ X4)) := superpose eq11 eq11 -- superposition 11,11
-  have eq20 (X1 X2 X3 X4 X5 : G) : (X2 ◇ (X1 ◇ X3)) = (X4 ◇ (X1 ◇ X5)) := superpose eq11 eq11 -- superposition 11,11
-  have eq30 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (sK2 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  have eq82 (X2 X3 X4 X5 X6 X7 : G) : (X2 ◇ (X3 ◇ X4)) = (X5 ◇ (X6 ◇ X7)) := superpose eq17 eq17 -- superposition 17,17
-  have eq182 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK2 ◇ X1)) := superpose eq20 eq30 -- superposition 30,20
-  subsumption eq182 eq82
-
-theorem Equation4567_4512_implies_Equation4570 (G : Type*) [Magma G]
-    (h4567 : Equation4567 G) (h4512 : Equation4512 G) : Equation4570 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X2) ◇ X0) := mod_symm (h4567 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK2) ◇ sK3) := mod_symm nh
-  have eq20 (X1 X2 X3 X4 : G) : (X2 ◇ (X3 ◇ X1)) = (X2 ◇ (X4 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq22 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (X0 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
-  have eq28 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X2 ◇ (X3 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq147 (X0 X1 X2 X3 X4 : G) : (X2 ◇ (X4 ◇ X1)) = (X0 ◇ (X3 ◇ X2)) := superpose eq20 eq28 -- superposition 28,20
-  have eq186 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (X1 ◇ X0)) := superpose eq28 eq22 -- superposition 22,28
-  subsumption eq186 eq147
-
-theorem Equation4570_4512_implies_Equation4572 (G : Type*) [Magma G]
-    (h4570 : Equation4570 G) (h4512 : Equation4512 G) : Equation4572 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X2) ◇ X3) := mod_symm (h4570 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK3) ◇ sK0) := mod_symm nh
-  have eq17 (X1 X2 X3 X4 X5 : G) : (X3 ◇ (X4 ◇ X2)) = ((X5 ◇ X1) ◇ X5) := superpose eq11 eq11 -- superposition 11,11
-  have eq20 (X1 X2 X3 X4 X5 : G) : (X2 ◇ (X3 ◇ X1)) = (X4 ◇ (X5 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq29 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (sK3 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  have eq96 (X2 X3 X4 X5 X6 X7 : G) : (X2 ◇ (X3 ◇ X4)) = (X5 ◇ (X6 ◇ X7)) := superpose eq17 eq17 -- superposition 17,17
-  have eq167 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (X1 ◇ sK0)) := superpose eq20 eq29 -- superposition 29,20
-  subsumption eq167 eq96
-
-theorem Equation4572_4512_implies_Equation4573 (G : Type*) [Magma G]
-    (h4572 : Equation4572 G) (h4512 : Equation4512 G) : Equation4573 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X3) ◇ X0) := mod_symm (h4572 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK3) ◇ sK1) := mod_symm nh
-  have eq22 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (X0 ◇ X1)) := superpose eq11 eq13 -- superposition 13,11
-  have eq28 (X0 X1 X2 X3 : G) : (X1 ◇ (X2 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq166 (X0 X1 X2 X3 X4 : G) : (X1 ◇ (X2 ◇ X3)) = (X4 ◇ (X4 ◇ X0)) := superpose eq28 eq28 -- superposition 28,28
-  have eq204 (X2 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X2 ◇ (X2 ◇ sK1)) := superpose eq28 eq22 -- superposition 22,28
-  subsumption eq204 eq166
-
-theorem Equation4573_4512_implies_Equation4575 (G : Type*) [Magma G]
-    (h4573 : Equation4573 G) (_ : Equation4512 G) : Equation4575 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X3) ◇ X1) := mod_symm (h4573 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK3) ◇ sK3) := mod_symm nh
-  have eq20 (X1 X2 X3 X4 X5 : G) : (X2 ◇ (X1 ◇ X3)) = (X4 ◇ (X1 ◇ X5)) := superpose eq11 eq11 -- superposition 11,11
-  have eq22 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK3 ◇ X1)) := superpose eq11 eq13 -- superposition 13,11
-  have eq98 (X0 X1 X3 X4 X5 X6 X7 : G) : (X6 ◇ (X0 ◇ X7)) = (X5 ◇ (X3 ◇ (X1 ◇ X4))) := superpose eq20 eq20 -- superposition 20,20
-  have eq132 (X0 X2 X3 X4 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X4 ◇ (X2 ◇ (X0 ◇ X3))) := superpose eq20 eq22 -- superposition 22,20
-  subsumption eq132 eq98
-
-theorem Equation4575_4512_implies_Equation4576 (G : Type*) [Magma G]
-    (h4575 : Equation4575 G) (h4512 : Equation4512 G) : Equation4576 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, sK4, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X3) ◇ X3) := mod_symm (h4575 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK3) ◇ sK4) := mod_symm nh
-  have eq19 (X1 X2 X3 X4 X5 X6 : G) : (X1 ◇ (X2 ◇ X3)) = (X4 ◇ (X5 ◇ X6)) := superpose eq11 eq11 -- superposition 11,11
-  have eq27 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (sK3 ◇ sK4)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq27 eq19
-
-theorem Equation4576_4512_implies_Equation4577 (G : Type*) [Magma G]
-    (h4576 : Equation4576 G) (h4512 : Equation4512 G) : Equation4577 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, sK4, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X3) ◇ X4) := mod_symm (h4576 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK4) ◇ sK0) := mod_symm nh
-  have eq20 (X2 X3 X4 X5 X6 X7 : G) : (X2 ◇ (X3 ◇ X4)) = (X5 ◇ (X6 ◇ X7)) := superpose eq11 eq11 -- superposition 11,11
-  have eq28 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (sK4 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq28 eq20
-
-theorem Equation4577_4512_implies_Equation4578 (G : Type*) [Magma G]
-    (h4577 : Equation4577 G) (h4512 : Equation4512 G) : Equation4578 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, sK4, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X4) ◇ X0) := mod_symm (h4577 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK4) ◇ sK1) := mod_symm nh
-  have eq22 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (X0 ◇ X1)) := superpose eq11 eq13 -- superposition 13,11
-  have eq26 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = (X2 ◇ (X3 ◇ X4)) := superpose eq11 eq12 -- superposition 12,11
-  have eq140 (X0 X2 X3 X4 X5 X6 : G) : (X3 ◇ (X4 ◇ X0)) = (X2 ◇ (X5 ◇ X6)) := superpose eq26 eq26 -- superposition 26,26
-  have eq182 (X1 X2 X3 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X1 ◇ (X2 ◇ X3)) := superpose eq26 eq22 -- superposition 22,26
-  subsumption eq182 eq140
-
-theorem Equation4578_4512_implies_Equation4580 (G : Type*) [Magma G]
-    (h4578 : Equation4578 G) (h4512 : Equation4512 G) : Equation4580 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, sK4, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X4) ◇ X1) := mod_symm (h4578 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK4) ◇ sK3) := mod_symm nh
-  have eq22 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK3 ◇ X1)) := superpose eq11 eq13 -- superposition 13,11
-  have eq29 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = (X3 ◇ (X2 ◇ X4)) := superpose eq11 eq12 -- superposition 12,11
-  have eq159 (X1 X2 X3 X4 X5 X6 : G) : (X3 ◇ (X4 ◇ X1)) = (X5 ◇ (X2 ◇ X6)) := superpose eq29 eq29 -- superposition 29,29
-  have eq189 (X1 X2 X3 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X2 ◇ (X1 ◇ X3)) := superpose eq29 eq22 -- superposition 22,29
-  subsumption eq189 eq159
-
-theorem Equation4580_4512_implies_Equation4581 (G : Type*) [Magma G]
-    (h4580 : Equation4580 G) (h4512 : Equation4512 G) : Equation4581 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, sK4, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X4) ◇ X3) := mod_symm (h4580 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK4) ◇ sK4) := mod_symm nh
-  have eq20 (X2 X3 X4 X5 X6 X7 : G) : (X2 ◇ (X3 ◇ X4)) = (X5 ◇ (X6 ◇ X7)) := superpose eq11 eq11 -- superposition 11,11
-  have eq32 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (sK4 ◇ sK4)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq32 eq20
-
-
-/- Equivalence of [4275, 4307, 4409] -/
-theorem Equation4409_4512_implies_Equation4275 (G : Type*) [Magma G]
-    (h4409 : Equation4409 G) (_ : Equation4512 G) : Equation4275 G := by
+/- Equivalence of [4275, 4307] -/
+theorem Equation4307_4512_implies_Equation4275 (G : Type*) [Magma G]
+    (h4307 : Equation4307 G) (_ : Equation4512 G) : Equation4275 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X0 ◇ X1)) = ((X1 ◇ X1) ◇ X1) := mod_symm (h4409 ..)
+  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X2 ◇ X1)) := mod_symm (h4307 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK1 ◇ (sK1 ◇ sK0)) := mod_symm nh
-  have eq15 (X0 X1 X2 : G) : (X1 ◇ (X1 ◇ X0)) = (X2 ◇ (X2 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq49 (X0 : G) : (sK0 ◇ (sK0 ◇ sK0)) ≠ (X0 ◇ (X0 ◇ sK0)) := superpose eq15 eq13 -- superposition 13,15
-  subsumption eq49 eq15
+  subsumption eq13 eq11
 
 theorem Equation4275_4512_implies_Equation4307 (G : Type*) [Magma G]
     (h4275 : Equation4275 G) (_ : Equation4512 G) : Equation4307 G := by
@@ -8695,29 +8040,16 @@ theorem Equation4275_4512_implies_Equation4307 (G : Type*) [Magma G]
   have eq15 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK1 ◇ (sK1 ◇ sK1)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq15 eq14
 
-theorem Equation4307_4512_implies_Equation4409 (G : Type*) [Magma G]
-    (h4307 : Equation4307 G) (h4512 : Equation4512 G) : Equation4409 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X2 ◇ X1)) := mod_symm (h4307 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ ((sK1 ◇ sK1) ◇ sK1) := mod_symm nh
-  have eq31 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK1 ◇ (sK1 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq31 eq11
 
-
-/- Equivalence of [4277, 4294, 4308, 4423, 4425] -/
-theorem Equation4425_4512_implies_Equation4277 (G : Type*) [Magma G]
-    (h4425 : Equation4425 G) (_ : Equation4512 G) : Equation4277 G := by
+/- Equivalence of [4277, 4294, 4308] -/
+theorem Equation4308_4512_implies_Equation4277 (G : Type*) [Magma G]
+    (h4308 : Equation4308 G) (_ : Equation4512 G) : Equation4277 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = ((X2 ◇ X2) ◇ X2) := mod_symm (h4425 ..)
+  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X2 ◇ X3)) := mod_symm (h4308 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK1 ◇ (sK1 ◇ sK2)) := mod_symm nh
-  have eq17 (X1 X2 X3 X4 : G) : (X1 ◇ (X1 ◇ X2)) = (X3 ◇ (X3 ◇ X4)) := superpose eq11 eq11 -- superposition 11,11
-  have eq78 (X0 X1 : G) : (X0 ◇ (X0 ◇ X1)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq17 eq13 -- superposition 13,17
-  subsumption eq78 eq17
+  subsumption eq13 eq11
 
 theorem Equation4277_4512_implies_Equation4294 (G : Type*) [Magma G]
     (h4277 : Equation4277 G) (_ : Equation4512 G) : Equation4294 G := by
@@ -8740,43 +8072,16 @@ theorem Equation4294_4512_implies_Equation4308 (G : Type*) [Magma G]
   have eq22 (X0 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (X0 ◇ (X0 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq22 eq16
 
-theorem Equation4308_4512_implies_Equation4423 (G : Type*) [Magma G]
-    (h4308 : Equation4308 G) (h4512 : Equation4512 G) : Equation4423 G := by
+
+/- Equivalence of [4278, 4310, 4323, 4334, 4348, 4354, 4367, 4378] -/
+theorem Equation4378_4512_implies_Equation4278 (G : Type*) [Magma G]
+    (h4378 : Equation4378 G) (_ : Equation4512 G) : Equation4278 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X2 ◇ X3)) := mod_symm (h4308 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ ((sK2 ◇ sK2) ◇ sK0) := mod_symm nh
-  have eq27 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK2 ◇ (sK2 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq27 eq11
-
-theorem Equation4423_4512_implies_Equation4425 (G : Type*) [Magma G]
-    (h4423 : Equation4423 G) (h4512 : Equation4512 G) : Equation4425 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = ((X2 ◇ X2) ◇ X0) := mod_symm (h4423 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ ((sK2 ◇ sK2) ◇ sK2) := mod_symm nh
-  have eq18 (X0 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK2 ◇ (sK2 ◇ X0)) := superpose eq11 eq13 -- superposition 13,11
-  have eq23 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X1 ◇ (X1 ◇ X2)) := superpose eq11 eq12 -- superposition 12,11
-  have eq174 (X0 X1 X2 X3 : G) : (X2 ◇ (X2 ◇ X0)) = (X1 ◇ (X1 ◇ X3)) := superpose eq23 eq23 -- superposition 23,23
-  have eq202 (X0 X1 : G) : (X0 ◇ (X0 ◇ X1)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq23 eq18 -- superposition 18,23
-  subsumption eq202 eq174
-
-
-/- Equivalence of [4278, 4310, 4323, 4334, 4348, 4354, 4367, 4378, 4533, 4542, 4550, 4554, 4559, 4569, 4574] -/
-theorem Equation4574_4512_implies_Equation4278 (G : Type*) [Magma G]
-    (h4574 : Equation4574 G) (_ : Equation4512 G) : Equation4278 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X3) ◇ X2) := mod_symm (h4574 ..)
+  have eq11 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = (X3 ◇ (X4 ◇ X2)) := mod_symm (h4378 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK1 ◇ (sK2 ◇ sK0)) := mod_symm nh
-  have eq20 (X1 X2 X3 X4 X5 : G) : (X2 ◇ (X3 ◇ X1)) = (X4 ◇ (X5 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq115 (X0 X1 : G) : (sK0 ◇ (sK0 ◇ sK0)) ≠ (X0 ◇ (X1 ◇ sK0)) := superpose eq20 eq13 -- superposition 13,20
-  subsumption eq115 eq20
+  subsumption eq13 eq11
 
 theorem Equation4278_4512_implies_Equation4310 (G : Type*) [Magma G]
     (h4278 : Equation4278 G) (_ : Equation4512 G) : Equation4310 G := by
@@ -8857,107 +8162,16 @@ theorem Equation4367_4512_implies_Equation4378 (G : Type*) [Magma G]
   have eq22 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (sK3 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq22 eq16
 
-theorem Equation4378_4512_implies_Equation4533 (G : Type*) [Magma G]
-    (h4378 : Equation4378 G) (h4512 : Equation4512 G) : Equation4533 G := by
+
+/- Equivalence of [4279, 4324, 4336] -/
+theorem Equation4336_4512_implies_Equation4279 (G : Type*) [Magma G]
+    (h4336 : Equation4336 G) (_ : Equation4512 G) : Equation4279 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 X4 : G) : (X0 ◇ (X1 ◇ X2)) = (X3 ◇ (X4 ◇ X2)) := mod_symm (h4378 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK2) ◇ sK2) := mod_symm nh
-  have eq31 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK2 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq31 eq11
-
-theorem Equation4533_4512_implies_Equation4542 (G : Type*) [Magma G]
-    (h4533 : Equation4533 G) (h4512 : Equation4512 G) : Equation4542 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X1 ◇ X2) ◇ X2) := mod_symm (h4533 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK0) ◇ sK2) := mod_symm nh
-  have eq17 (X0 X1 X2 X3 : G) : (X2 ◇ (X0 ◇ X1)) = (X3 ◇ (X0 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq25 (X0 X1 X2 : G) : (X2 ◇ (X0 ◇ X1)) = (X0 ◇ (X1 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq27 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (sK0 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  have eq83 (X0 X1 X2 X3 : G) : (X3 ◇ (X0 ◇ X1)) = (X2 ◇ (X1 ◇ X1)) := superpose eq17 eq25 -- superposition 25,17
-  have eq97 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK2 ◇ sK2)) := superpose eq25 eq27 -- superposition 27,25
-  subsumption eq97 eq83
-
-theorem Equation4542_4512_implies_Equation4550 (G : Type*) [Magma G]
-    (h4542 : Equation4542 G) (h4512 : Equation4512 G) : Equation4550 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X0) ◇ X2) := mod_symm (h4542 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK2) ◇ sK2) := mod_symm nh
-  have eq21 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (X0 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
-  have eq31 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) = (X0 ◇ (X1 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq127 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (X1 ◇ sK2)) := superpose eq31 eq21 -- superposition 21,31
-  subsumption eq127 rfl
-
-theorem Equation4550_4512_implies_Equation4554 (G : Type*) [Magma G]
-    (h4550 : Equation4550 G) (h4512 : Equation4512 G) : Equation4554 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X2) ◇ X2) := mod_symm (h4550 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK3) ◇ sK2) := mod_symm nh
-  have eq18 (X0 X1 X2 X3 X4 : G) : (X1 ◇ (X2 ◇ X0)) = (X3 ◇ (X4 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq27 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (sK3 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq27 eq18
-
-theorem Equation4554_4512_implies_Equation4559 (G : Type*) [Magma G]
-    (h4554 : Equation4554 G) (h4512 : Equation4512 G) : Equation4559 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X3) ◇ X2) := mod_symm (h4554 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK0) ◇ sK2) := mod_symm nh
-  have eq20 (X0 X2 X3 X4 X5 : G) : (X2 ◇ (X3 ◇ X0)) = (X4 ◇ (X5 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq30 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (sK0 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq30 eq20
-
-theorem Equation4559_4512_implies_Equation4569 (G : Type*) [Magma G]
-    (h4559 : Equation4559 G) (h4512 : Equation4512 G) : Equation4569 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X0) ◇ X2) := mod_symm (h4559 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK2) ◇ sK2) := mod_symm nh
-  have eq22 (X0 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (X0 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
-  have eq28 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X1 ◇ (X3 ◇ X2)) := superpose eq11 eq12 -- superposition 12,11
-  have eq143 (X0 X1 X2 X3 X4 : G) : (X3 ◇ (X0 ◇ X2)) = (X1 ◇ (X4 ◇ X2)) := superpose eq28 eq28 -- superposition 28,28
-  have eq173 (X0 X1 : G) : (sK0 ◇ (sK1 ◇ sK2)) ≠ (X0 ◇ (X1 ◇ sK2)) := superpose eq28 eq22 -- superposition 22,28
-  subsumption eq173 eq143
-
-theorem Equation4569_4512_implies_Equation4574 (G : Type*) [Magma G]
-    (h4569 : Equation4569 G) (h4512 : Equation4512 G) : Equation4574 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = ((X3 ◇ X2) ◇ X2) := mod_symm (h4569 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK3 ◇ sK3) ◇ sK2) := mod_symm nh
-  have eq20 (X1 X2 X3 X4 X5 : G) : (X2 ◇ (X3 ◇ X1)) = (X4 ◇ (X5 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq29 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK3 ◇ (sK3 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq29 eq20
-
-
-/- Equivalence of [4279, 4324, 4336, 4454, 4462] -/
-theorem Equation4462_4512_implies_Equation4279 (G : Type*) [Magma G]
-    (h4462 : Equation4462 G) (_ : Equation4512 G) : Equation4279 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = ((X2 ◇ X2) ◇ X2) := mod_symm (h4462 ..)
+  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X0)) = (X2 ◇ (X3 ◇ X2)) := mod_symm (h4336 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK1 ◇ (sK2 ◇ sK1)) := mod_symm nh
-  have eq17 (X1 X2 X3 X4 : G) : (X1 ◇ (X2 ◇ X1)) = (X3 ◇ (X4 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq80 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq17 eq13 -- superposition 13,17
-  subsumption eq80 eq17
+  subsumption eq13 eq11
 
 theorem Equation4279_4512_implies_Equation4324 (G : Type*) [Magma G]
     (h4279 : Equation4279 G) (_ : Equation4512 G) : Equation4324 G := by
@@ -8980,43 +8194,16 @@ theorem Equation4324_4512_implies_Equation4336 (G : Type*) [Magma G]
   have eq22 (X0 : G) : (sK0 ◇ (sK1 ◇ sK0)) ≠ (X0 ◇ (sK2 ◇ X0)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq22 eq16
 
-theorem Equation4336_4512_implies_Equation4454 (G : Type*) [Magma G]
-    (h4336 : Equation4336 G) (h4512 : Equation4512 G) : Equation4454 G := by
+
+/- Equivalence of [4280, 4346, 4355] -/
+theorem Equation4355_4512_implies_Equation4280 (G : Type*) [Magma G]
+    (h4355 : Equation4355 G) (_ : Equation4512 G) : Equation4280 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X0)) = (X2 ◇ (X3 ◇ X2)) := mod_symm (h4336 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK2 ◇ sK0) ◇ sK2) := mod_symm nh
-  have eq27 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK2 ◇ (sK0 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq27 eq11
-
-theorem Equation4454_4512_implies_Equation4462 (G : Type*) [Magma G]
-    (h4454 : Equation4454 G) (h4512 : Equation4512 G) : Equation4462 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = ((X2 ◇ X0) ◇ X2) := mod_symm (h4454 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK2 ◇ sK2) ◇ sK2) := mod_symm nh
-  have eq20 (X0 : G) : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK2 ◇ (X0 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
-  have eq26 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X1 ◇ (X2 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq141 (X0 X1 X2 X3 : G) : (X2 ◇ (X0 ◇ X2)) = (X1 ◇ (X3 ◇ X1)) := superpose eq26 eq26 -- superposition 26,26
-  have eq165 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) ≠ (sK0 ◇ (sK1 ◇ sK0)) := superpose eq26 eq20 -- superposition 20,26
-  subsumption eq165 eq141
-
-
-/- Equivalence of [4280, 4346, 4355, 4489, 4499] -/
-theorem Equation4499_4512_implies_Equation4280 (G : Type*) [Magma G]
-    (h4499 : Equation4499 G) (_ : Equation4512 G) : Equation4280 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = ((X2 ◇ X2) ◇ X2) := mod_symm (h4499 ..)
+  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X1)) = (X2 ◇ (X3 ◇ X3)) := mod_symm (h4355 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK0)) ≠ (sK1 ◇ (sK2 ◇ sK2)) := mod_symm nh
-  have eq18 (X1 X2 X3 X4 : G) : (X1 ◇ (X2 ◇ X2)) = (X3 ◇ (X4 ◇ X4)) := superpose eq11 eq11 -- superposition 11,11
-  have eq91 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) ≠ (sK0 ◇ (sK0 ◇ sK0)) := superpose eq18 eq13 -- superposition 13,18
-  subsumption eq91 eq18
+  subsumption eq13 eq11
 
 theorem Equation4280_4512_implies_Equation4346 (G : Type*) [Magma G]
     (h4280 : Equation4280 G) (_ : Equation4512 G) : Equation4346 G := by
@@ -9039,119 +8226,16 @@ theorem Equation4346_4512_implies_Equation4355 (G : Type*) [Magma G]
   have eq20 (X0 : G) : (sK0 ◇ (sK1 ◇ sK1)) ≠ (X0 ◇ (sK2 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq20 eq15
 
-theorem Equation4355_4512_implies_Equation4489 (G : Type*) [Magma G]
-    (h4355 : Equation4355 G) (h4512 : Equation4512 G) : Equation4489 G := by
+
+/- Equivalence of [4287, 4340, 4360] -/
+theorem Equation4360_4512_implies_Equation4287 (G : Type*) [Magma G]
+    (h4360 : Equation4360 G) (_ : Equation4512 G) : Equation4287 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X1)) = (X2 ◇ (X3 ◇ X3)) := mod_symm (h4355 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK2 ◇ sK0) ◇ sK0) := mod_symm nh
-  have eq31 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK2 ◇ (sK0 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq31 eq11
-
-theorem Equation4489_4512_implies_Equation4499 (G : Type*) [Magma G]
-    (h4489 : Equation4489 G) (h4512 : Equation4512 G) : Equation4499 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = ((X2 ◇ X0) ◇ X0) := mod_symm (h4489 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK2 ◇ sK2) ◇ sK2) := mod_symm nh
-  have eq18 (X0 : G) : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK2 ◇ (X0 ◇ X0)) := superpose eq11 eq13 -- superposition 13,11
-  have eq23 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = (X1 ◇ (X2 ◇ X2)) := superpose eq11 eq12 -- superposition 12,11
-  have eq126 (X0 X1 X2 X3 : G) : (X2 ◇ (X0 ◇ X0)) = (X1 ◇ (X3 ◇ X3)) := superpose eq23 eq23 -- superposition 23,23
-  have eq148 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) ≠ (sK0 ◇ (sK1 ◇ sK1)) := superpose eq23 eq18 -- superposition 18,23
-  subsumption eq148 eq126
-
-
-/- Equivalence of [4283, 4433] -/
-theorem Equation4433_4512_implies_Equation4283 (G : Type*) [Magma G]
-    (h4433 : Equation4433 G) (h4512 : Equation4512 G) : Equation4283 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) = ((X0 ◇ X0) ◇ X1) := mod_symm (h4433 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := mod_symm nh
-  have eq21 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) = (X0 ◇ (X0 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq42 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq21 eq13 -- superposition 13,21
-  subsumption eq42 rfl
-
-theorem Equation4283_4512_implies_Equation4433 (G : Type*) [Magma G]
-    (h4283 : Equation4283 G) (h4512 : Equation4512 G) : Equation4433 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X0 ◇ X1)) = (X0 ◇ (X1 ◇ X0)) := mod_symm (h4283 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK0 ◇ sK0) ◇ sK1) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
-
-
-/- Equivalence of [4284, 4470] -/
-theorem Equation4470_4512_implies_Equation4284 (G : Type*) [Magma G]
-    (h4470 : Equation4470 G) (h4512 : Equation4512 G) : Equation4284 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) = ((X0 ◇ X0) ◇ X1) := mod_symm (h4470 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := mod_symm nh
-  have eq23 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) = (X0 ◇ (X0 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq48 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq23 eq13 -- superposition 13,23
-  subsumption eq48 rfl
-
-theorem Equation4284_4512_implies_Equation4470 (G : Type*) [Magma G]
-    (h4284 : Equation4284 G) (h4512 : Equation4512 G) : Equation4470 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X0 ◇ X1)) = (X0 ◇ (X1 ◇ X1)) := mod_symm (h4284 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK0 ◇ sK0) ◇ sK1) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
-
-
-/- Equivalence of [4286, 4434] -/
-theorem Equation4434_4512_implies_Equation4286 (G : Type*) [Magma G]
-    (h4434 : Equation4434 G) (h4512 : Equation4512 G) : Equation4286 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = ((X0 ◇ X0) ◇ X2) := mod_symm (h4434 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (sK2 ◇ sK0)) := mod_symm nh
-  have eq19 (X0 X2 X3 : G) : (X0 ◇ (X2 ◇ X0)) = (X0 ◇ (X3 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq28 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X0 ◇ (X2 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq113 (X0 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (X0 ◇ sK0)) := superpose eq19 eq13 -- superposition 13,19
-  subsumption eq113 eq28
-
-theorem Equation4286_4512_implies_Equation4434 (G : Type*) [Magma G]
-    (h4286 : Equation4286 G) (h4512 : Equation4512 G) : Equation4434 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X0 ◇ (X2 ◇ X0)) := mod_symm (h4286 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK0 ◇ sK0) ◇ sK2) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (sK0 ◇ sK2)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
-
-
-/- Equivalence of [4287, 4340, 4360, 4508, 4516] -/
-theorem Equation4516_4512_implies_Equation4287 (G : Type*) [Magma G]
-    (h4516 : Equation4516 G) (_ : Equation4512 G) : Equation4287 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X2) ◇ X2) := mod_symm (h4516 ..)
+  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X3 ◇ X2)) := mod_symm (h4360 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (sK2 ◇ sK1)) := mod_symm nh
-  have eq19 (X0 X1 X2 X3 : G) : (X0 ◇ (X2 ◇ X1)) = (X0 ◇ (X3 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq70 (X0 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (X0 ◇ sK1)) := superpose eq19 eq13 -- superposition 13,19
-  subsumption eq70 eq19
+  subsumption eq13 eq11
 
 theorem Equation4287_4512_implies_Equation4340 (G : Type*) [Magma G]
     (h4287 : Equation4287 G) (_ : Equation4512 G) : Equation4340 G := by
@@ -9174,171 +8258,16 @@ theorem Equation4340_4512_implies_Equation4360 (G : Type*) [Magma G]
   have eq19 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK2 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq19 eq16
 
-theorem Equation4360_4512_implies_Equation4508 (G : Type*) [Magma G]
-    (h4360 : Equation4360 G) (h4512 : Equation4512 G) : Equation4508 G := by
+
+/- Equivalence of [4299, 4312] -/
+theorem Equation4312_4512_implies_Equation4299 (G : Type*) [Magma G]
+    (h4312 : Equation4312 G) (_ : Equation4512 G) : Equation4299 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X3 ◇ X2)) := mod_symm (h4360 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK0) ◇ sK2) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK0 ◇ sK2)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
-
-theorem Equation4508_4512_implies_Equation4516 (G : Type*) [Magma G]
-    (h4508 : Equation4508 G) (h4512 : Equation4512 G) : Equation4516 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X0) ◇ X2) := mod_symm (h4508 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK2) ◇ sK2) := mod_symm nh
-  have eq18 (X0 X1 X2 X3 : G) : (X0 ◇ (X2 ◇ X1)) = (X0 ◇ (X3 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq38 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK2 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq38 eq18
-
-
-/- Equivalence of [4288, 4471] -/
-theorem Equation4471_4512_implies_Equation4288 (G : Type*) [Magma G]
-    (h4471 : Equation4471 G) (h4512 : Equation4512 G) : Equation4288 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = ((X0 ◇ X0) ◇ X2) := mod_symm (h4471 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (sK2 ◇ sK2)) := mod_symm nh
-  have eq18 (X0 X2 X3 : G) : (X0 ◇ (X2 ◇ X2)) = (X0 ◇ (X3 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq25 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X0 ◇ (X2 ◇ X2)) := superpose eq11 eq12 -- superposition 12,11
-  have eq110 (X0 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (X0 ◇ X0)) := superpose eq18 eq13 -- superposition 13,18
-  subsumption eq110 eq25
-
-theorem Equation4288_4512_implies_Equation4471 (G : Type*) [Magma G]
-    (h4288 : Equation4288 G) (h4512 : Equation4512 G) : Equation4471 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X0 ◇ (X2 ◇ X2)) := mod_symm (h4288 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK0 ◇ sK0) ◇ sK2) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK2)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
-
-
-/- Equivalence of [4290, 4482] -/
-theorem Equation4482_4512_implies_Equation4290 (G : Type*) [Magma G]
-    (h4482 : Equation4482 G) (h4512 : Equation4512 G) : Equation4290 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) = ((X1 ◇ X1) ◇ X0) := mod_symm (h4482 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK1 ◇ (sK0 ◇ sK0)) := mod_symm nh
-  have eq17 (X0 X1 : G) : (X0 ◇ (X0 ◇ X1)) = (X1 ◇ (X0 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq44 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq17 eq13 -- superposition 13,17
-  subsumption eq44 rfl
-
-theorem Equation4290_4512_implies_Equation4482 (G : Type*) [Magma G]
-    (h4290 : Equation4290 G) (h4512 : Equation4512 G) : Equation4482 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X0 ◇ X1)) = (X1 ◇ (X0 ◇ X0)) := mod_symm (h4290 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK1 ◇ sK1) ◇ sK0) := mod_symm nh
-  have eq22 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK1 ◇ (sK1 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq22 eq11
-
-
-/- Equivalence of [4291, 4445] -/
-theorem Equation4445_4512_implies_Equation4291 (G : Type*) [Magma G]
-    (h4445 : Equation4445 G) (h4512 : Equation4512 G) : Equation4291 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) = ((X1 ◇ X1) ◇ X0) := mod_symm (h4445 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK1 ◇ (sK0 ◇ sK1)) := mod_symm nh
-  have eq21 (X0 X1 : G) : (X0 ◇ (X0 ◇ X1)) = (X1 ◇ (X0 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq48 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq21 eq13 -- superposition 13,21
-  subsumption eq48 rfl
-
-theorem Equation4291_4512_implies_Equation4445 (G : Type*) [Magma G]
-    (h4291 : Equation4291 G) (h4512 : Equation4512 G) : Equation4445 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X0 ◇ X1)) = (X1 ◇ (X0 ◇ X1)) := mod_symm (h4291 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK1 ◇ sK1) ◇ sK0) := mod_symm nh
-  have eq21 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK1 ◇ (sK1 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq21 eq11
-
-
-/- Equivalence of [4296, 4460] -/
-theorem Equation4460_4512_implies_Equation4296 (G : Type*) [Magma G]
-    (h4460 : Equation4460 G) (h4512 : Equation4512 G) : Equation4296 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = ((X2 ◇ X2) ◇ X0) := mod_symm (h4460 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK1 ◇ (sK2 ◇ sK1)) := mod_symm nh
-  have eq17 (X1 X2 X3 : G) : (X1 ◇ (X2 ◇ X1)) = (X1 ◇ (X3 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq22 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X1 ◇ (X2 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq100 (X0 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK1 ◇ (X0 ◇ sK1)) := superpose eq17 eq13 -- superposition 13,17
-  subsumption eq100 eq22
-
-theorem Equation4296_4512_implies_Equation4460 (G : Type*) [Magma G]
-    (h4296 : Equation4296 G) (h4512 : Equation4512 G) : Equation4460 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X1 ◇ (X2 ◇ X1)) := mod_symm (h4296 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK2 ◇ sK2) ◇ sK0) := mod_symm nh
-  have eq27 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK2 ◇ (sK2 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq27 eq11
-
-
-/- Equivalence of [4297, 4497] -/
-theorem Equation4497_4512_implies_Equation4297 (G : Type*) [Magma G]
-    (h4497 : Equation4497 G) (h4512 : Equation4512 G) : Equation4297 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = ((X2 ◇ X2) ◇ X0) := mod_symm (h4497 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK1 ◇ (sK2 ◇ sK2)) := mod_symm nh
-  have eq20 (X1 X2 X3 : G) : (X1 ◇ (X2 ◇ X2)) = (X1 ◇ (X3 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq29 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X1 ◇ (X2 ◇ X2)) := superpose eq11 eq12 -- superposition 12,11
-  have eq123 (X0 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK1 ◇ (X0 ◇ X0)) := superpose eq20 eq13 -- superposition 13,20
-  subsumption eq123 eq29
-
-theorem Equation4297_4512_implies_Equation4497 (G : Type*) [Magma G]
-    (h4297 : Equation4297 G) (h4512 : Equation4512 G) : Equation4497 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X1 ◇ (X2 ◇ X2)) := mod_symm (h4297 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK2 ◇ sK2) ◇ sK0) := mod_symm nh
-  have eq26 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK2 ◇ (sK2 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq26 eq11
-
-
-/- Equivalence of [4299, 4312, 4484, 4500] -/
-theorem Equation4500_4512_implies_Equation4299 (G : Type*) [Magma G]
-    (h4500 : Equation4500 G) (h4512 : Equation4512 G) : Equation4299 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X1)) = ((X2 ◇ X2) ◇ X3) := mod_symm (h4500 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
+  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X3 ◇ X3)) := mod_symm (h4312 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK2 ◇ (sK0 ◇ sK0)) := mod_symm nh
-  have eq20 (X2 X3 X4 X5 : G) : (X2 ◇ (X3 ◇ X3)) = (X4 ◇ (X5 ◇ X5)) := superpose eq11 eq11 -- superposition 11,11
-  have eq27 (X0 X1 X2 X3 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X3 ◇ X3)) := superpose eq11 eq12 -- superposition 12,11
-  have eq119 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq20 eq13 -- superposition 13,20
-  subsumption eq119 eq27
+  subsumption eq13 eq11
 
 theorem Equation4299_4512_implies_Equation4312 (G : Type*) [Magma G]
     (h4299 : Equation4299 G) (h4512 : Equation4512 G) : Equation4312 G := by
@@ -9358,41 +8287,16 @@ theorem Equation4299_4512_implies_Equation4312 (G : Type*) [Magma G]
   have eq396 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) ≠ (X2 ◇ (sK3 ◇ sK3)) := superpose eq26 eq183 -- superposition 183,26
   subsumption eq396 eq343
 
-theorem Equation4312_4512_implies_Equation4484 (G : Type*) [Magma G]
-    (h4312 : Equation4312 G) (h4512 : Equation4512 G) : Equation4484 G := by
+
+/- Equivalence of [4300, 4330, 4374] -/
+theorem Equation4374_4512_implies_Equation4300 (G : Type*) [Magma G]
+    (h4374 : Equation4374 G) (_ : Equation4512 G) : Equation4300 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X3 ◇ X3)) := mod_symm (h4312 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK1 ◇ sK1) ◇ sK2) := mod_symm nh
-  have eq26 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK1 ◇ (sK1 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq26 eq11
-
-theorem Equation4484_4512_implies_Equation4500 (G : Type*) [Magma G]
-    (h4484 : Equation4484 G) (_ : Equation4512 G) : Equation4500 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = ((X1 ◇ X1) ◇ X2) := mod_symm (h4484 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK2 ◇ sK2) ◇ sK3) := mod_symm nh
-  have eq15 (X0 X1 X2 X3 : G) : ((X1 ◇ X1) ◇ X3) = (X2 ◇ (X0 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq20 (X0 : G) : (sK0 ◇ (sK1 ◇ sK1)) ≠ (X0 ◇ (sK2 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
-  have eq35 (X1 : G) : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK2 ◇ sK2) ◇ X1) := superpose eq11 eq20 -- superposition 20,11
-  subsumption eq35 eq15
-
-
-/- Equivalence of [4300, 4330, 4374, 4529, 4546] -/
-theorem Equation4546_4512_implies_Equation4300 (G : Type*) [Magma G]
-    (h4546 : Equation4546 G) (_ : Equation4512 G) : Equation4300 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X1) ◇ X2) := mod_symm (h4546 ..)
+  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X3 ◇ (X1 ◇ X2)) := mod_symm (h4374 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK2 ◇ (sK0 ◇ sK1)) := mod_symm nh
-  have eq19 (X0 X1 X2 X3 : G) : (X2 ◇ (X1 ◇ X0)) = (X3 ◇ (X1 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq59 (X0 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (X0 ◇ (sK0 ◇ sK1)) := superpose eq19 eq13 -- superposition 13,19
-  subsumption eq59 eq19
+  subsumption eq13 eq11
 
 theorem Equation4300_4512_implies_Equation4330 (G : Type*) [Magma G]
     (h4300 : Equation4300 G) (_ : Equation4512 G) : Equation4330 G := by
@@ -9416,43 +8320,16 @@ theorem Equation4330_4512_implies_Equation4374 (G : Type*) [Magma G]
   have eq17 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (sK1 ◇ sK2)) := superpose eq11 eq13 -- superposition 13,11
   subsumption eq17 eq14
 
-theorem Equation4374_4512_implies_Equation4529 (G : Type*) [Magma G]
-    (h4374 : Equation4374 G) (h4512 : Equation4512 G) : Equation4529 G := by
+
+/- Equivalence of [4301, 4311] -/
+theorem Equation4311_4512_implies_Equation4301 (G : Type*) [Magma G]
+    (h4311 : Equation4311 G) (_ : Equation4512 G) : Equation4301 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X3 ◇ (X1 ◇ X2)) := mod_symm (h4374 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK1 ◇ sK1) ◇ sK2) := mod_symm nh
-  have eq25 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK1 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq25 eq11
-
-theorem Equation4529_4512_implies_Equation4546 (G : Type*) [Magma G]
-    (h4529 : Equation4529 G) (h4512 : Equation4512 G) : Equation4546 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X1 ◇ X1) ◇ X2) := mod_symm (h4529 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK1) ◇ sK2) := mod_symm nh
-  have eq19 (X0 X1 X2 X3 : G) : (X2 ◇ (X0 ◇ X1)) = (X3 ◇ (X0 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq34 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (sK1 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq34 eq19
-
-
-/- Equivalence of [4301, 4311, 4447, 4463] -/
-theorem Equation4463_4512_implies_Equation4301 (G : Type*) [Magma G]
-    (h4463 : Equation4463 G) (h4512 : Equation4512 G) : Equation4301 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X0)) = ((X2 ◇ X2) ◇ X3) := mod_symm (h4463 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
+  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X3 ◇ X2)) := mod_symm (h4311 ..)
   have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK2 ◇ (sK0 ◇ sK2)) := mod_symm nh
-  have eq19 (X2 X3 X4 X5 : G) : (X2 ◇ (X3 ◇ X2)) = (X4 ◇ (X5 ◇ X4)) := superpose eq11 eq11 -- superposition 11,11
-  have eq25 (X0 X1 X2 X3 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X3 ◇ X2)) := superpose eq11 eq12 -- superposition 12,11
-  have eq110 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) ≠ (sK0 ◇ (sK0 ◇ sK1)) := superpose eq19 eq13 -- superposition 13,19
-  subsumption eq110 eq25
+  subsumption eq13 eq11
 
 theorem Equation4301_4512_implies_Equation4311 (G : Type*) [Magma G]
     (h4301 : Equation4301 G) (_ : Equation4512 G) : Equation4311 G := by
@@ -9470,118 +8347,16 @@ theorem Equation4301_4512_implies_Equation4311 (G : Type*) [Magma G]
   have eq502 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) ≠ (sK0 ◇ (sK0 ◇ X2)) := superpose eq18 eq221 -- superposition 221,18
   subsumption eq502 eq460
 
-theorem Equation4311_4512_implies_Equation4447 (G : Type*) [Magma G]
-    (h4311 : Equation4311 G) (h4512 : Equation4512 G) : Equation4447 G := by
+
+/- Equivalence of [4315, 4339, 4357] -/
+theorem Equation4357_4512_implies_Equation4315 (G : Type*) [Magma G]
+    (h4357 : Equation4357 G) (_ : Equation4512 G) : Equation4315 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X3 ◇ X2)) := mod_symm (h4311 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK1 ◇ sK1) ◇ sK2) := mod_symm nh
-  have eq27 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK1 ◇ (sK1 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq27 eq11
-
-theorem Equation4447_4512_implies_Equation4463 (G : Type*) [Magma G]
-    (h4447 : Equation4447 G) (_ : Equation4512 G) : Equation4463 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = ((X1 ◇ X1) ◇ X2) := mod_symm (h4447 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK2 ◇ sK2) ◇ sK3) := mod_symm nh
-  have eq17 (X0 X1 X2 X3 : G) : (X2 ◇ (X0 ◇ X2)) = ((X1 ◇ X1) ◇ X3) := superpose eq11 eq11 -- superposition 11,11
-  have eq21 (X0 : G) : (sK0 ◇ (sK1 ◇ sK0)) ≠ (X0 ◇ (sK2 ◇ X0)) := superpose eq11 eq13 -- superposition 13,11
-  have eq41 (X1 : G) : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK2 ◇ sK2) ◇ X1) := superpose eq11 eq21 -- superposition 21,11
-  subsumption eq41 eq17
-
-
-/- Equivalence of [4304, 4498] -/
-theorem Equation4498_4512_implies_Equation4304 (G : Type*) [Magma G]
-    (h4498 : Equation4498 G) (h4512 : Equation4512 G) : Equation4304 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = ((X2 ◇ X2) ◇ X1) := mod_symm (h4498 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK2 ◇ (sK1 ◇ sK1)) := mod_symm nh
-  have eq18 (X1 X2 X3 : G) : (X2 ◇ (X1 ◇ X1)) = (X3 ◇ (X1 ◇ X1)) := superpose eq11 eq11 -- superposition 11,11
-  have eq27 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X1 ◇ X1)) := superpose eq11 eq12 -- superposition 12,11
-  have eq109 (X0 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (X0 ◇ (sK1 ◇ sK1)) := superpose eq18 eq13 -- superposition 13,18
-  subsumption eq109 eq27
-
-theorem Equation4304_4512_implies_Equation4498 (G : Type*) [Magma G]
-    (h4304 : Equation4304 G) (h4512 : Equation4512 G) : Equation4498 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X1 ◇ X1)) := mod_symm (h4304 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK2 ◇ sK2) ◇ sK1) := mod_symm nh
-  have eq28 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK2 ◇ (sK2 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq28 eq11
-
-
-/- Equivalence of [4305, 4461] -/
-theorem Equation4461_4512_implies_Equation4305 (G : Type*) [Magma G]
-    (h4461 : Equation4461 G) (h4512 : Equation4512 G) : Equation4305 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = ((X2 ◇ X2) ◇ X1) := mod_symm (h4461 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK0 ◇ sK1)) ≠ (sK2 ◇ (sK1 ◇ sK2)) := mod_symm nh
-  have eq19 (X1 X2 X3 : G) : (X2 ◇ (X1 ◇ X2)) = (X3 ◇ (X1 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq30 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X1 ◇ X2)) := superpose eq11 eq12 -- superposition 12,11
-  have eq117 (X0 : G) : (sK0 ◇ (sK0 ◇ sK1)) ≠ (X0 ◇ (sK1 ◇ X0)) := superpose eq19 eq13 -- superposition 13,19
-  subsumption eq117 eq30
-
-theorem Equation4305_4512_implies_Equation4461 (G : Type*) [Magma G]
-    (h4305 : Equation4305 G) (h4512 : Equation4512 G) : Equation4461 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X0 ◇ X1)) = (X2 ◇ (X1 ◇ X2)) := mod_symm (h4305 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ ((sK2 ◇ sK2) ◇ sK1) := mod_symm nh
-  have eq29 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK2 ◇ (sK2 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq29 eq11
-
-
-/- Equivalence of [4314, 4472] -/
-theorem Equation4472_4512_implies_Equation4314 (G : Type*) [Magma G]
-    (h4472 : Equation4472 G) (h4512 : Equation4512 G) : Equation4314 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) = ((X0 ◇ X1) ◇ X0) := mod_symm (h4472 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK0 ◇ (sK1 ◇ sK0)) := mod_symm nh
-  have eq21 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) = (X0 ◇ (X1 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq45 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (sK1 ◇ sK0)) := superpose eq21 eq13 -- superposition 13,21
-  subsumption eq45 rfl
-
-theorem Equation4314_4512_implies_Equation4472 (G : Type*) [Magma G]
-    (h4314 : Equation4314 G) (h4512 : Equation4512 G) : Equation4472 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) = (X0 ◇ (X1 ◇ X1)) := mod_symm (h4314 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK0 ◇ sK1) ◇ sK0) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK0 ◇ (sK1 ◇ sK0)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
-
-
-/- Equivalence of [4315, 4339, 4357, 4510, 4511] -/
-theorem Equation4511_4512_implies_Equation4315 (G : Type*) [Magma G]
-    (h4511 : Equation4511 G) (_ : Equation4512 G) : Equation4315 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X1) := mod_symm (h4511 ..)
+  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X1 ◇ X3)) := mod_symm (h4357 ..)
   have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK1 ◇ sK0)) := mod_symm nh
-  have eq18 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X1 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq73 (X0 : G) : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (sK1 ◇ X0)) := superpose eq18 eq13 -- superposition 13,18
-  subsumption eq73 eq18
+  subsumption eq13 eq11
 
 theorem Equation4315_4512_implies_Equation4339 (G : Type*) [Magma G]
     (h4315 : Equation4315 G) (_ : Equation4512 G) : Equation4339 G := by
@@ -9603,147 +8378,16 @@ theorem Equation4339_4512_implies_Equation4357 (G : Type*) [Magma G]
   have eq14 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK1 ◇ sK1)) := superpose eq11 eq13 -- forward demodulation 13,11
   subsumption eq14 eq11
 
-theorem Equation4357_4512_implies_Equation4510 (G : Type*) [Magma G]
-    (h4357 : Equation4357 G) (h4512 : Equation4512 G) : Equation4510 G := by
+
+/- Equivalence of [4331, 4337] -/
+theorem Equation4337_4512_implies_Equation4331 (G : Type*) [Magma G]
+    (h4337 : Equation4337 G) (_ : Equation4512 G) : Equation4331 G := by
   by_contra nh
   simp only [not_forall] at nh
   obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X1 ◇ X3)) := mod_symm (h4357 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK1) ◇ sK0) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK1 ◇ sK0)) := superpose eq12 eq13 -- forward demodulation 13,12
-  subsumption eq14 eq11
-
-theorem Equation4510_4512_implies_Equation4511 (G : Type*) [Magma G]
-    (h4510 : Equation4510 G) (h4512 : Equation4512 G) : Equation4511 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X0) := mod_symm (h4510 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK0 ◇ sK1) ◇ sK1) := mod_symm nh
-  have eq14 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK1 ◇ sK1)) := superpose eq12 eq13 -- forward demodulation 13,12
-  have eq19 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X2)) = (X0 ◇ (X1 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq64 (X0 : G) : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK0 ◇ (sK1 ◇ X0)) := superpose eq19 eq14 -- superposition 14,19
-  subsumption eq64 eq19
-
-
-/- Equivalence of [4318, 4475] -/
-theorem Equation4475_4512_implies_Equation4318 (G : Type*) [Magma G]
-    (h4475 : Equation4475 G) (h4512 : Equation4512 G) : Equation4318 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = ((X0 ◇ X2) ◇ X0) := mod_symm (h4475 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (sK2 ◇ sK2)) := mod_symm nh
-  have eq17 (X0 X2 X3 : G) : (X0 ◇ (X2 ◇ X2)) = (X0 ◇ (X3 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq22 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X0 ◇ (X2 ◇ X2)) := superpose eq11 eq12 -- superposition 12,11
-  have eq108 (X0 : G) : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (X0 ◇ X0)) := superpose eq17 eq13 -- superposition 13,17
-  subsumption eq108 eq22
-
-theorem Equation4318_4512_implies_Equation4475 (G : Type*) [Magma G]
-    (h4318 : Equation4318 G) (h4512 : Equation4512 G) : Equation4475 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X0 ◇ (X2 ◇ X2)) := mod_symm (h4318 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK0 ◇ sK2) ◇ sK0) := mod_symm nh
-  have eq25 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK0 ◇ (sK2 ◇ sK0)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq25 eq11
-
-
-/- Equivalence of [4320, 4480] -/
-theorem Equation4480_4512_implies_Equation4320 (G : Type*) [Magma G]
-    (h4480 : Equation4480 G) (h4512 : Equation4512 G) : Equation4320 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) = ((X1 ◇ X0) ◇ X1) := mod_symm (h4480 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK1 ◇ (sK0 ◇ sK0)) := mod_symm nh
-  have eq18 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) = (X1 ◇ (X0 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq41 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK0 ◇ (sK1 ◇ sK0)) := superpose eq18 eq13 -- superposition 13,18
-  subsumption eq41 rfl
-
-theorem Equation4320_4512_implies_Equation4480 (G : Type*) [Magma G]
-    (h4320 : Equation4320 G) (h4512 : Equation4512 G) : Equation4480 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, nh⟩ := nh
-  have eq11 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) = (X1 ◇ (X0 ◇ X0)) := mod_symm (h4320 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK1 ◇ sK0) ◇ sK1) := mod_symm nh
-  have eq26 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK1 ◇ (sK0 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq26 eq11
-
-
-/- Equivalence of [4325, 4491] -/
-theorem Equation4491_4512_implies_Equation4325 (G : Type*) [Magma G]
-    (h4491 : Equation4491 G) (h4512 : Equation4512 G) : Equation4325 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = ((X2 ◇ X0) ◇ X2) := mod_symm (h4491 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK1 ◇ (sK2 ◇ sK2)) := mod_symm nh
-  have eq19 (X1 X2 X3 : G) : (X1 ◇ (X2 ◇ X2)) = (X1 ◇ (X3 ◇ X3)) := superpose eq11 eq11 -- superposition 11,11
-  have eq29 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X1 ◇ (X2 ◇ X2)) := superpose eq11 eq12 -- superposition 12,11
-  have eq115 (X0 : G) : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK1 ◇ (X0 ◇ X0)) := superpose eq19 eq13 -- superposition 13,19
-  subsumption eq115 eq29
-
-theorem Equation4325_4512_implies_Equation4491 (G : Type*) [Magma G]
-    (h4325 : Equation4325 G) (h4512 : Equation4512 G) : Equation4491 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X1 ◇ (X2 ◇ X2)) := mod_symm (h4325 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK2 ◇ sK0) ◇ sK2) := mod_symm nh
-  have eq27 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK2 ◇ (sK0 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq27 eq11
-
-
-/- Equivalence of [4327, 4486] -/
-theorem Equation4486_4512_implies_Equation4327 (G : Type*) [Magma G]
-    (h4486 : Equation4486 G) (h4512 : Equation4512 G) : Equation4327 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = ((X1 ◇ X2) ◇ X1) := mod_symm (h4486 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK2 ◇ (sK0 ◇ sK0)) := mod_symm nh
-  have eq19 (X0 X2 X3 : G) : (X2 ◇ (X0 ◇ X0)) = (X3 ◇ (X0 ◇ X0)) := superpose eq11 eq11 -- superposition 11,11
-  have eq30 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X2 ◇ (X0 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq114 (X0 : G) : (sK0 ◇ (sK1 ◇ sK0)) ≠ (X0 ◇ (sK0 ◇ sK0)) := superpose eq19 eq13 -- superposition 13,19
-  subsumption eq114 eq30
-
-theorem Equation4327_4512_implies_Equation4486 (G : Type*) [Magma G]
-    (h4327 : Equation4327 G) (h4512 : Equation4512 G) : Equation4486 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X0)) = (X2 ◇ (X0 ◇ X0)) := mod_symm (h4327 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK1 ◇ sK2) ◇ sK1) := mod_symm nh
-  have eq28 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK1 ◇ (sK2 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq28 eq11
-
-
-/- Equivalence of [4331, 4337, 4495, 4503] -/
-theorem Equation4503_4512_implies_Equation4331 (G : Type*) [Magma G]
-    (h4503 : Equation4503 G) (h4512 : Equation4512 G) : Equation4331 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X1)) = ((X2 ◇ X3) ◇ X2) := mod_symm (h4503 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
+  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X0)) = (X2 ◇ (X3 ◇ X3)) := mod_symm (h4337 ..)
   have eq13 : (sK0 ◇ (sK1 ◇ sK0)) ≠ (sK2 ◇ (sK1 ◇ sK1)) := mod_symm nh
-  have eq19 (X2 X3 X4 X5 : G) : (X2 ◇ (X3 ◇ X3)) = (X4 ◇ (X5 ◇ X5)) := superpose eq11 eq11 -- superposition 11,11
-  have eq26 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X0)) = (X2 ◇ (X3 ◇ X3)) := superpose eq11 eq12 -- superposition 12,11
-  have eq108 (X0 X1 : G) : (X0 ◇ (X1 ◇ X1)) ≠ (sK0 ◇ (sK1 ◇ sK0)) := superpose eq19 eq13 -- superposition 13,19
-  subsumption eq108 eq26
+  subsumption eq13 eq11
 
 theorem Equation4331_4512_implies_Equation4337 (G : Type*) [Magma G]
     (h4331 : Equation4331 G) (_ : Equation4512 G) : Equation4337 G := by
@@ -9758,54 +8402,6 @@ theorem Equation4331_4512_implies_Equation4337 (G : Type*) [Magma G]
   have eq62 (X0 X1 X2 X3 : G) : (X3 ◇ (X0 ◇ X0)) = ((X1 ◇ X1) ◇ (X2 ◇ (X1 ◇ X1))) := superpose eq16 eq11 -- superposition 11,16
   have eq142 (X0 X1 X2 : G) : ((X0 ◇ X0) ◇ (X1 ◇ (X0 ◇ X0))) ≠ (X2 ◇ (sK1 ◇ sK1)) := superpose eq16 eq38 -- superposition 38,16
   subsumption eq142 eq62
-
-theorem Equation4337_4512_implies_Equation4495 (G : Type*) [Magma G]
-    (h4337 : Equation4337 G) (h4512 : Equation4512 G) : Equation4495 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 X3 : G) : (X0 ◇ (X1 ◇ X0)) = (X2 ◇ (X3 ◇ X3)) := mod_symm (h4337 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK2 ◇ sK1) ◇ sK2) := mod_symm nh
-  have eq26 : (sK0 ◇ (sK1 ◇ sK1)) ≠ (sK2 ◇ (sK1 ◇ sK2)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq26 eq11
-
-theorem Equation4495_4512_implies_Equation4503 (G : Type*) [Magma G]
-    (h4495 : Equation4495 G) (_ : Equation4512 G) : Equation4503 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, sK3, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X1)) = ((X2 ◇ X1) ◇ X2) := mod_symm (h4495 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((sK2 ◇ sK3) ◇ sK2) := mod_symm nh
-  have eq16 (X0 X1 X2 X3 : G) : (X2 ◇ (X1 ◇ X1)) = ((X3 ◇ X0) ◇ X3) := superpose eq11 eq11 -- superposition 11,11
-  have eq21 (X0 : G) : (sK0 ◇ (sK1 ◇ sK1)) ≠ (X0 ◇ (sK3 ◇ sK3)) := superpose eq11 eq13 -- superposition 13,11
-  have eq39 (X1 : G) : (sK0 ◇ (sK1 ◇ sK1)) ≠ ((X1 ◇ sK3) ◇ X1) := superpose eq11 eq21 -- superposition 21,11
-  subsumption eq39 eq16
-
-
-/- Equivalence of [4364, 4541] -/
-theorem Equation4541_4512_implies_Equation4364 (G : Type*) [Magma G]
-    (h4541 : Equation4541 G) (h4512 : Equation4512 G) : Equation4364 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X0) ◇ X1) := mod_symm (h4541 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK1 ◇ (sK2 ◇ sK0)) := mod_symm nh
-  have eq17 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = (X1 ◇ (X2 ◇ X0)) := superpose eq11 eq12 -- superposition 12,11
-  have eq46 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK0 ◇ (sK1 ◇ sK2)) := superpose eq17 eq13 -- superposition 13,17
-  subsumption eq46 rfl
-
-theorem Equation4364_4512_implies_Equation4541 (G : Type*) [Magma G]
-    (h4364 : Equation4364 G) (h4512 : Equation4512 G) : Equation4541 G := by
-  by_contra nh
-  simp only [not_forall] at nh
-  obtain ⟨sK0, sK1, sK2, nh⟩ := nh
-  have eq11 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = (X1 ◇ (X2 ◇ X0)) := mod_symm (h4364 ..)
-  have eq12 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X0 ◇ X1) ◇ X2) := mod_symm (h4512 ..)
-  have eq13 : (sK0 ◇ (sK1 ◇ sK2)) ≠ ((sK2 ◇ sK0) ◇ sK1) := mod_symm nh
-  have eq27 : (sK0 ◇ (sK1 ◇ sK2)) ≠ (sK2 ◇ (sK0 ◇ sK1)) := superpose eq12 eq13 -- superposition 13,12
-  subsumption eq27 eq11
 
 
 end VampireProven

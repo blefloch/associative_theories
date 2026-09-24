@@ -2289,10 +2289,10 @@ theorem Equation411_4283_4290_4512_implies_Equation43 (G : Type*) [Magma G]
   have eq3936 (X0 X1 : G) : ((X0 ◇ (X0 ◇ (X0 ◇ (X0 ◇ X0)))) ◇ X1) = (X0 ◇ (X1 ◇ ((X0 ◇ X0) ◇ (X0 ◇ X0)))) := superpose eq42 eq3210 -- forward demodulation 3210,42
   have eq3937 (X0 X1 : G) : ((X0 ◇ (X0 ◇ (X0 ◇ (X0 ◇ X0)))) ◇ X1) = (X0 ◇ (X1 ◇ (X0 ◇ (X0 ◇ (X0 ◇ X0))))) := superpose eq16 eq3936 -- forward demodulation 3936,16
   have eq3938 (X0 X1 : G) : (X0 ◇ X1) = (X0 ◇ (X1 ◇ (X0 ◇ (X0 ◇ (X0 ◇ X0))))) := superpose eq14 eq3937 -- forward demodulation 3937,14
-  have eq17991 (X0 X1 : G) : (X0 ◇ X1) = (X1 ◇ (X0 ◇ (X0 ◇ (X0 ◇ (X0 ◇ X0))))) := superpose eq2498 eq3938 -- superposition 3938,2498
-  have eq18035 (X0 X1 : G) : (X0 ◇ X1) = (X1 ◇ X0) := superpose eq14 eq17991 -- forward demodulation 17991,14
-  have eq18552 : (sK0 ◇ sK1) ≠ (sK0 ◇ sK1) := superpose eq18035 eq18 -- superposition 18,18035
-  subsumption eq18552 rfl
+  have eq16972 (X0 X1 : G) : (X0 ◇ X1) = (X1 ◇ (X0 ◇ (X0 ◇ (X0 ◇ (X0 ◇ X0))))) := superpose eq2498 eq3938 -- superposition 3938,2498
+  have eq17016 (X0 X1 : G) : (X0 ◇ X1) = (X1 ◇ X0) := superpose eq14 eq16972 -- forward demodulation 16972,14
+  have eq17533 : (sK0 ◇ sK1) ≠ (sK0 ◇ sK1) := superpose eq17016 eq18 -- superposition 18,17016
+  subsumption eq17533 rfl
 
 theorem Equation411_4284_4512_implies_Equation3 (G : Type*) [Magma G]
     (h411 : Equation411 G) (h4284 : Equation4284 G) (h4512 : Equation4512 G) : Equation3 G := by
@@ -2507,9 +2507,9 @@ theorem Equation411_4364_4512_implies_Equation43 (G : Type*) [Magma G]
   have eq61 (X0 X1 : G) : (X0 ◇ X1) = (X0 ◇ (X0 ◇ ((X0 ◇ (X0 ◇ X0)) ◇ X1))) := superpose eq14 eq46 -- forward demodulation 46,14
   have eq62 (X0 X1 : G) : (X0 ◇ X1) = (X0 ◇ (X0 ◇ (X0 ◇ ((X0 ◇ X0) ◇ X1)))) := superpose eq14 eq61 -- forward demodulation 61,14
   have eq63 (X0 X1 : G) : (X0 ◇ X1) = (X0 ◇ (X0 ◇ (X0 ◇ (X0 ◇ (X0 ◇ X1))))) := superpose eq14 eq62 -- forward demodulation 62,14
-  have eq4636 (X0 X1 : G) : (X0 ◇ X1) = (X1 ◇ X0) := superpose eq28 eq63 -- superposition 63,28
-  have eq5064 : (sK0 ◇ sK1) ≠ (sK0 ◇ sK1) := superpose eq4636 eq15 -- superposition 15,4636
-  subsumption eq5064 rfl
+  have eq4400 (X0 X1 : G) : (X0 ◇ X1) = (X1 ◇ X0) := superpose eq28 eq63 -- superposition 63,28
+  have eq4828 : (sK0 ◇ sK1) ≠ (sK0 ◇ sK1) := superpose eq4400 eq15 -- superposition 15,4400
+  subsumption eq4828 rfl
 
 theorem Equation411_4369_4512_implies_Equation43 (G : Type*) [Magma G]
     (h411 : Equation411 G) (h4369 : Equation4369 G) (h4512 : Equation4512 G) : Equation43 G := by
@@ -2528,9 +2528,9 @@ theorem Equation411_4369_4512_implies_Equation43 (G : Type*) [Magma G]
   have eq84 (X0 X1 : G) : (X1 ◇ X0) = (X0 ◇ ((X0 ◇ (X0 ◇ X0)) ◇ (X0 ◇ X1))) := superpose eq14 eq16 -- superposition 16,14
   have eq156 (X0 X1 : G) : (X1 ◇ X0) = (X0 ◇ (X0 ◇ ((X0 ◇ X0) ◇ (X0 ◇ X1)))) := superpose eq14 eq84 -- forward demodulation 84,14
   have eq157 (X0 X1 : G) : (X1 ◇ X0) = (X0 ◇ (X0 ◇ (X0 ◇ (X0 ◇ (X0 ◇ X1))))) := superpose eq14 eq156 -- forward demodulation 156,14
-  have eq3652 (X0 X1 : G) : (X1 ◇ X0) = (X0 ◇ X1) := superpose eq45 eq157 -- superposition 157,45
-  have eq5502 : (sK0 ◇ sK1) ≠ (sK0 ◇ sK1) := superpose eq3652 eq15 -- superposition 15,3652
-  subsumption eq5502 rfl
+  have eq3612 (X0 X1 : G) : (X1 ◇ X0) = (X0 ◇ X1) := superpose eq45 eq157 -- superposition 157,45
+  have eq5125 : (sK0 ◇ sK1) ≠ (sK0 ◇ sK1) := superpose eq3612 eq15 -- superposition 15,3612
+  subsumption eq5125 rfl
 
 theorem Equation429_3315_4512_implies_Equation11 (G : Type*) [Magma G]
     (h429 : Equation429 G) (h3315 : Equation3315 G) (h4512 : Equation4512 G) : Equation11 G := by
