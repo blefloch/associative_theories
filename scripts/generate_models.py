@@ -25,7 +25,6 @@ import Mathlib.Data.Finite.Prod
 
 private def model{index}_op := finOpTable "{mul_table}"
 
-@[equational_result]
 theorem facts_from_model{index} :
   ∃ (G : Type) (_ : Magma G) (_: Finite G), Facts G
   {eqs_obeyed}

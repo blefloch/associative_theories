@@ -6,7 +6,6 @@ import Mathlib.Data.Finite.Prod
 
 private def model11_op := finOpTable "[[0,1,2],[1,2,0],[2,0,1]]"
 
-@[equational_result]
 theorem facts_from_model11 :
   ∃ (G : Type) (_ : Magma G) (_: Finite G), Facts G
   [1, 43, 47, 56, 66, 75, 4276, 4283, 4290, 4320, 4358, 4362, 4364, 4369, 4512]
