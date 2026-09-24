@@ -18,9 +18,9 @@ def one_proof(p):
 
 def oneimplideduced_preamble():
     preamble = "import equational_theories.Equations.All\n"
-    preamble += "import associative_theories.ConjecturesOneImpli\n\n"
+    preamble += "import associative_theories.VampireProvenOne\n\n"
     preamble += "/- Generated file for the single-equation implication graph -/\n\n"
-    preamble += "open Conjectures\n\n"
+    preamble += "open VampireProven\n\n"
     return preamble
 
 DG = nx.DiGraph()

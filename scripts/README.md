@@ -72,7 +72,7 @@ To regenerate all generated data files, run python3 successively on
   of individual implications, mostly taken from the Equational Theories
   Project `vampire_proofs.py` script
 
-- `generate_conjectures.py`
+- `generate_vampire_proven.py`
 
 - `generate_conjunctions.py`
 

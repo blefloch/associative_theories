@@ -53,15 +53,15 @@ import associative_theories.EquationIndex
 import associative_theories.AssociativeTheoriesIndex
 import associative_theories.AssociativeTheoriesEarly
 import associative_theories.AssociativeTheoriesLong
-import associative_theories.ConjecturesOneImpli
-import associative_theories.ConjecturesTwo
+import associative_theories.VampireProvenOne
+import associative_theories.VampireProvenTwo
 import associative_theories.OneImpliDeduced
 import associative_theories.EarlyLongEquiv
 import associative_theories.ImplicationsAT
 
 open EQIndex
 open ATIndex
-open Conjectures
+open VampireProven
 
 set_option maxHeartbeats 1000000
 

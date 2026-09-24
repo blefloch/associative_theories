@@ -7,7 +7,7 @@ with open("../data/explicitly_proven.json", 'r') as f:
 
 ##### Generate Lean files
 
-def conjecture_preamble(how_many = "single", facts = False, superposition = False):
+def vampire_proven_preamble(how_many = "single", facts = False, superposition = False):
     preamble = ""
     if facts: preamble += "import equational_theories.FactsSyntax\n"
     if superposition:
@@ -15,35 +15,26 @@ def conjecture_preamble(how_many = "single", facts = False, superposition = Fals
                      "import Mathlib.Tactic.TypeStar\n"
                      "import Mathlib.Tactic.ByContra\n")
     preamble += "import equational_theories.Equations.All\n"
-    preamble += f"\n/- Generated file collecting conjectures about {how_many} equations -/\n"
-    preamble += "\nnamespace Conjectures\n"
+    preamble += f"\n/- Generated file collecting results about {how_many} equations -/\n"
+    preamble += "\nnamespace VampireProven\n"
     return preamble
-def conjecture_postamble():
-    return "\nend Conjectures\n"
+def vampire_proven_postamble():
+    return "\nend VampireProven\n"
 
-#def one_conjecture(id1, id2):
-#    return f"theorem Equation{id1}_4512_implies_Equation{id2} (G : Type*) [Magma G]\n    (eq{id1} : Equation{id1} G) (eq4512 : Equation4512 G) : Equation{id2} G := sorry\n"
-#
-#def multi_conjecture(ids, id2):
-#    return (f"theorem Equation{'_'.join(map(str, ids))}_implies_Equation{id2} (G : Type*) [Magma G]\n    "
-#            + " ".join(f"(h{eq_id} : Equation{eq_id} G)" for eq_id in ids)
-#            + f" : Equation{id2} G := sorry\n")
-
-with open("../associative_theories/ConjecturesOneEquiv.lean", "w") as f:
-    print(conjecture_preamble(superposition = True), file=f)
+with open("../associative_theories/VampireProvenEquiv.lean", "w") as f:
+    print(vampire_proven_preamble(superposition = True), file=f)
     for cl in eq_classes:
         if len(cl) > 1:
             print(f"\n/- Equivalence of {cl} -/", file=f)
             for i in range(len(cl)):
-                #print(one_conjecture(cl[i - 1], cl[i]), file=f)
                 problem = ([cl[i - 1], 4512], cl[i])
                 print(problem, end="     \r")
                 proof = prove_lean(*problem)
                 print(proof, end="", file=f)
-    print(conjecture_postamble(), file=f)
+    print(vampire_proven_postamble(), file=f)
 
-with open("../associative_theories/ConjecturesOneImpli.lean", "w") as f:
-    print(conjecture_preamble(superposition = True), file=f)
+with open("../associative_theories/VampireProvenOne.lean", "w") as f:
+    print(vampire_proven_preamble(superposition = True), file=f)
     for premises, kset in explicitly_proven:
         if len(premises) == 2:
             id1 = premises[0]
@@ -51,15 +42,15 @@ with open("../associative_theories/ConjecturesOneImpli.lean", "w") as f:
                 print((premises, k), end="     \r")
                 proof = prove_lean(premises, k)
                 print(proof, end="", file=f)
-    print(conjecture_postamble(), file=f)
+    print(vampire_proven_postamble(), file=f)
 
 
-with open("../associative_theories/ConjecturesTwo.lean", "w") as f:
-    print(conjecture_preamble("pairs of", superposition = True), file=f)
+with open("../associative_theories/VampireProvenTwo.lean", "w") as f:
+    print(vampire_proven_preamble("pairs of", superposition = True), file=f)
     for premises, kset in explicitly_proven:
         if len(premises) > 2:
             for k in sorted(kset):
                 print((premises, k), end="     \r")
                 proof = prove_lean(premises, k)
                 print(proof, end="", file=f)
-    print(conjecture_postamble(), file=f)
+    print(vampire_proven_postamble(), file=f)

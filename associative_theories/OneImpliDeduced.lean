@@ -1,9 +1,9 @@
 import equational_theories.Equations.All
-import associative_theories.ConjecturesOneImpli
+import associative_theories.VampireProvenOne
 
 /- Generated file for the single-equation implication graph -/
 
-open Conjectures
+open VampireProven
 
 
 theorem Equation4512_implies_Equation1 (G : Type*) [Magma G] (_ : Equation4512 G) : Equation1 G := by rw [Equation1]; intros; rfl

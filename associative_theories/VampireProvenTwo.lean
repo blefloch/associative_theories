@@ -3,9 +3,9 @@ import Mathlib.Tactic.TypeStar
 import Mathlib.Tactic.ByContra
 import equational_theories.Equations.All
 
-/- Generated file collecting conjectures about pairs of equations -/
+/- Generated file collecting results about pairs of equations -/
 
-namespace Conjectures
+namespace VampireProven
 
 theorem Equation3_56_4512_implies_Equation4 (G : Type*) [Magma G]
     (h3 : Equation3 G) (h56 : Equation56 G) (_ : Equation4512 G) : Equation4 G := by
@@ -7147,5 +7147,5 @@ theorem Equation4364_4369_4512_implies_Equation4358 (G : Type*) [Magma G]
   subsumption eq120 rfl
 
 
-end Conjectures
+end VampireProven
 

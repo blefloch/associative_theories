@@ -3,9 +3,9 @@ import Mathlib.Tactic.TypeStar
 import Mathlib.Tactic.ByContra
 import equational_theories.Equations.All
 
-/- Generated file collecting conjectures about single equations -/
+/- Generated file collecting results about single equations -/
 
-namespace Conjectures
+namespace VampireProven
 
 
 /- Equivalence of [2, 6, 7, 15, 17, 18, 20, 21, 22, 63, 64, 67, 69, 70, 71, 74, 76, 77, 79, 80, 81, 83, 84, 85, 87, 88, 89, 91, 92, 93, 95, 96, 97, 98, 465, 467, 468, 470, 471, 472, 474, 475, 478, 480, 482, 484, 485, 486, 488, 490, 493, 494, 496, 497, 498, 499, 501, 502, 505, 507, 509, 512, 514, 515, 517, 518, 519, 521, 523, 525, 526, 527, 529, 530, 531, 533, 534, 535, 536, 538, 539, 540, 542, 544, 547, 548, 550, 551, 552, 553, 555, 557, 559, 560, 561, 563, 564, 565, 567, 568, 569, 570, 573, 574, 576, 577, 578, 580, 581, 582, 584, 585, 586, 587, 589, 590, 591, 592, 594, 595, 596, 597, 599, 600, 601, 602, 604, 605, 606, 607, 609, 610, 611, 612, 613] -/
@@ -9808,5 +9808,5 @@ theorem Equation4364_4512_implies_Equation4541 (G : Type*) [Magma G]
   subsumption eq27 eq11
 
 
-end Conjectures
+end VampireProven
 
