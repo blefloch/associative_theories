@@ -11,6 +11,9 @@ with open("../data/eq_to_long_class.json", 'r') as f:
 eq_to_long_class[4512] = [1, 4512]
 with open("../data/associative_theories.json", 'r') as f:
     associative_theories = json.load(f)
+long_to_at = {}
+for at in associative_theories:
+    long_to_at[tuple(sorted(at['long']))] = at
 with open("../data/explicitly_proven.json", 'r') as f:
     available_theorems = defaultdict(set)
     for k, v in json.load(f):
@@ -27,6 +30,9 @@ def find_class(eq_set):
         return result
     else:
         raise ValueError(result)
+
+def eq_to_at(eqid):
+    return long_to_at[tuple(find_class((eqid,)))]
 
 for eq_id in reps:
     available_theorems[eq_id, 4512] = eq_to_long_class[eq_id]
@@ -100,3 +106,24 @@ with open("../associative_theories/EarlyLongEquiv.lean", "w") as f:
     for at in associative_theories:
         at_id = at['id']
         print(f'| at{at_id} => ⟨AT{at_id}_implies_long G, AT{at_id}_implied_by_long G⟩', file=f)
+
+
+##########################################
+
+with open("../associative_theories/EQATEquiv.lean", "w") as f:
+    print("""/- Generated file mapping equations to associative theories -/
+
+import associative_theories.AssociativeTheoriesEarly
+import associative_theories.EquationIndex
+import associative_theories.Conjunction.Conjunction1
+
+open ATIndex
+open EQIndex
+
+"""
+          + 'def EQ_to_AT : EQIndex -> ATIndex\n'
+          + ''.join(f'| eq{eqid} => at{eq_to_at(eqid)["id"]}\n' for eqid in reps + [4512])
+          + '\ntheorem EQ_equiv (G : Type*) [Magma G] (eqid : EQIndex) : (Equation4512 G) ∧ (EQeq G eqid) <-> ATearly G (EQ_to_AT eqid) := AT1_conj G eqid\n'
+          , file=f)
+
+

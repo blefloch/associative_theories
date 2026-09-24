@@ -9,3 +9,4 @@ import associative_theories.AssociativeTheoriesLong
 import associative_theories.EarlyLongEquiv
 import associative_theories.ImplicationsAT
 import associative_theories.Conjunction
+import associative_theories.EQATEquiv

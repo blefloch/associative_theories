@@ -1,0 +1,136 @@
+/- Generated file mapping equations to associative theories -/
+
+import associative_theories.AssociativeTheoriesEarly
+import associative_theories.EquationIndex
+import associative_theories.Conjunction.Conjunction1
+
+open ATIndex
+open EQIndex
+
+def EQ_to_AT : EQIndex -> ATIndex
+| eq1 => at1
+| eq2 => at2
+| eq3 => at3
+| eq4 => at4
+| eq5 => at5
+| eq8 => at6
+| eq10 => at7
+| eq11 => at8
+| eq14 => at9
+| eq16 => at10
+| eq38 => at11
+| eq39 => at12
+| eq40 => at14
+| eq41 => at13
+| eq43 => at15
+| eq47 => at19
+| eq56 => at21
+| eq66 => at22
+| eq75 => at23
+| eq307 => at25
+| eq308 => at29
+| eq309 => at30
+| eq310 => at33
+| eq311 => at34
+| eq312 => at37
+| eq313 => at31
+| eq314 => at35
+| eq315 => at39
+| eq316 => at26
+| eq318 => at40
+| eq323 => at41
+| eq325 => at45
+| eq326 => at49
+| eq327 => at47
+| eq329 => at43
+| eq332 => at42
+| eq333 => at51
+| eq343 => at44
+| eq411 => at54
+| eq419 => at56
+| eq429 => at57
+| eq440 => at58
+| eq477 => at59
+| eq504 => at60
+| eq513 => at61
+| eq3253 => at63
+| eq3255 => at65
+| eq3256 => at67
+| eq3258 => at68
+| eq3259 => at71
+| eq3260 => at72
+| eq3261 => at74
+| eq3264 => at75
+| eq3265 => at81
+| eq3267 => at89
+| eq3271 => at94
+| eq3273 => at73
+| eq3274 => at95
+| eq3275 => at76
+| eq3277 => at90
+| eq3278 => at97
+| eq3290 => at82
+| eq3292 => at98
+| eq3300 => at102
+| eq3306 => at104
+| eq3308 => at111
+| eq3309 => at50
+| eq3315 => at113
+| eq3316 => at117
+| eq3319 => at120
+| eq3322 => at66
+| eq3323 => at115
+| eq3326 => at69
+| eq3331 => at107
+| eq3334 => at108
+| eq3342 => at106
+| eq3346 => at122
+| eq3350 => at105
+| eq3353 => at124
+| eq3388 => at109
+| eq3414 => at110
+| eq4268 => at127
+| eq4269 => at129
+| eq4270 => at131
+| eq4271 => at136
+| eq4272 => at138
+| eq4273 => at145
+| eq4274 => at144
+| eq4275 => at150
+| eq4276 => at158
+| eq4277 => at151
+| eq4278 => at160
+| eq4279 => at148
+| eq4280 => at142
+| eq4283 => at161
+| eq4284 => at174
+| eq4286 => at130
+| eq4287 => at185
+| eq4288 => at133
+| eq4290 => at187
+| eq4291 => at205
+| eq4293 => at222
+| eq4296 => at152
+| eq4297 => at153
+| eq4299 => at139
+| eq4300 => at228
+| eq4301 => at147
+| eq4304 => at154
+| eq4305 => at156
+| eq4314 => at230
+| eq4315 => at239
+| eq4318 => at134
+| eq4320 => at241
+| eq4321 => at263
+| eq4325 => at149
+| eq4327 => at140
+| eq4331 => at143
+| eq4343 => at285
+| eq4358 => at306
+| eq4362 => at351
+| eq4364 => at408
+| eq4369 => at420
+| eq4512 => at1
+
+theorem EQ_equiv (G : Type*) [Magma G] (eqid : EQIndex) : (Equation4512 G) ∧ (EQeq G eqid) <-> ATearly G (EQ_to_AT eqid) := AT1_conj G eqid
+
