@@ -162,17 +162,125 @@
 \tableofcontents
 }
 
-\input{intro}
-\input{informal}
-\input{formalization}
-\input{nicetheories}
-\input{countermodels}
+% ===========================================
+\section{Introduction and conclusions}
+
+\subsection{Semigroups and equational laws}
+
+% TODO
+
+magmas, semigroups, equational theories,
+
+Should we have a section setting up Mathematical Foundations more precisely as we do in the ETP?
+
+Note about the numbering we use, which is strange from the semigroup point of view but which comes from the ETP.
+
+\subsection{Outcome}
+
+The finite and infinite implication graphs are identical.
+
+\begin{theorem}
+  Any associative equational law of order at most~$4$ is equivalent to one of $122$ laws.
+  Any conjunction of such laws sits in one of $456$ equivalence classes, given in \autoref{app:alltheories} by maximal conjunctions of equations.
+  Implication and conjunction are the subset and join relations.
+\end{theorem}
+
+\subsection{Automation vs formalization}
+
+Distinguish two axes: manual--automated and informal--formalized, so
+\begin{itemize}
+\item manual \& informal is what we do chatting on Zulip
+\item manual \& formalized is writing one theorem (such as the end-to-end theorem)
+\item automated \& informal is the use of ATPs such as Mace4/Prover9 to initially get the implication graph
+\item automated \& formal is the Vampire--Lean integration
+\end{itemize}
+
+\subsection{Future work}
+
+Extend to order~$5$ and then~$6$ to see if there ends up being any distinctions between finite and infinite implication graphs.
+Actually, maybe there are theorems forbidding this in associative equations, who knows?
+
+Much harder: all conjunctions of magma equations of order up to $4$.  This will at last include the case of groups, Boolean algebras, etc.
+
+
+% =========================================
+\section{Determining the implication graph}
+
+Explain what was done with Mace4/Prover9/Python to find the implication graph in the first place.
+
+There is some slight trickiness involved concerning the order in which things are done to avoid recomputing some implications multiple times, making sure to store countermodels as we go and use them for later implications, etc.  Useful to document for later projects.
+
+Emphasize that this is not sufficient because the Python script could have bugs and conceivably Mace4/Prover9 could too.
+
+% =========================================
+\section{Lean formalization}
+
+\subsection{Built on the Equational Theories Project}
+
+The Lean framework we use for the formalization is largely based on tools developed in the Equational Theories Project (ETP\@).
+For clarity, we isolate code from that project into the \texttt{equational\_theories} directory, which we treat as a library on the same footing as \texttt{mathlib}, while new code goes in a separate directory \texttt{associative\_theories} (see the lakefile in \autoref{fig:lakefile}).
+
+\begin{figure}
+\lstinputlisting[basicstyle=\ttfamily]{../lakefile.toml}
+\caption{\label{fig:lakefile}Configuration file \texttt{lakefile.toml}}
+\end{figure}
+
+The Lean formalization splits into several tasks.
+\begin{itemize}
+\item Prove that all equations of order $\leq 4$ are in a set of \num{653} equations.  This follows the \texttt{laws\_complete} theorem from the ETP\@.
+
+\item Prove that these \num{653} equations are all equivalent to \num{122}.  This is done by establishing pairs of implications from each equation to its (lowest-numbered) representative.
+
+\item .....
+
+\item To disprove implications, we use finite countermodels (cf.\ the \texttt{Countermodels} directory), based on ETP tools to manipulate finite operation tables.  The structure of the files differs slightly from the ETP: given the centralized nature of this project, the countermodels are numbered sequentially instead of using their operation table as a name of the model and of the corresponding Lean theorem.  In this way the operation table is only specified once in the file.
+\end{itemize}
+
+\begin{figure}
+\lstinputlisting[language=lean]{../associative_theories/Countermodels/Model10.lean}
+\caption{\label{fig:lakefile}An example countermodel file}
+\end{figure}
+
+\subsection{Vampire for positive proofs}
+
+The implications checked by ATPs must also be formalized in Lean.  For this we rely on ETP tools, which we now describe.
+
+\subsection{End-to-end theorem}
+
+Discuss here also how complete the verification is, what are the loose ends such as if we had to write the list of equations by hand, or similar.
+
+% =========================================
+\section{Interesting associative equational theories}
+
+Select 10--30 theories of special interest.
+
+% =========================================
+\section{Mathematical description of the countermodels}
+
+Groups
+
+Almost-constant ones
 
 \appendix
 \crefalias{section}{appendix}
 \raggedbottom
-\input{alltheories}
-\input{acknowledgements}
+
+
+% =========================================
+\section{List of associative equational theories}
+\label{app:alltheories}
+
+First list the equivalence classes of 4694 equations down to 122 classes.
+
+Then out of these 122 classes, list all equivalence classes of conjunctions, with sets of equations (among the 122 only).
+
+% =========================================
+\section*{Acknowledgements}
+
+Both authors thank collaborators in the Equational Theories Project for a motivating and fun research setting.
+Jose Brox is supported by a postdoctoral fellowship “Convocatoria 2021” funded by Universidad de Valladolid, and partially supported by grant PID2022-137283NB-C22 funded by MCIN/AEI/10.13039/501100011033 and ERDF “A way of making Europe”.
+Bruno Le Floch is partially supported by the grants Projet-ANR-23-CE40-0010 and HORIZON-MSCA-2022-SE/101131233.
+
 
 \bibliographystyle{plainurl}
 \bibliography{references}
