@@ -1,30 +1,13 @@
 \documentclass[12pt]{amsart}
-
-% Packages
-\usepackage{amsaddr}
-\usepackage{amsmath, amssymb, amsthm}
-% \usepackage{thmtools}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
 \usepackage{geometry}
-% \usepackage{graphicx}
-% \usepackage{enumitem}
-\usepackage{xcolor}
-% \usepackage{mathtools}
-% \usepackage{tikz}
-% \usepackage{tikz-cd}
-% \usepackage{quiver}
-% \usepackage{mathrsfs}
-% \usepackage{proof}
-% \usepackage{todonotes}
-% \usepackage{array}
-% \usepackage{booktabs}
+\usepackage{xcolor, graphicx}
+\usepackage{array, booktabs}
 \usepackage{siunitx}
-% \usepackage[utf8]{inputenc}
-% \usepackage[T1]{fontenc}
-% \usepackage{lmodern}
-% \usepackage{fancyvrb}
-% \fvset{commandchars=\\\{\}}
-% \usepackage{pmboxdraw}
-% \usepackage{comment}
+% \usepackage{enumitem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Minimal set of definitions, keywords etc to highlight
@@ -92,8 +75,6 @@
 
 % Page Setup
 \geometry{a4paper, margin=1in}
-% \setlength{\parindent}{0pt} % No indent for paragraphs
-%\setlength{\parskip}{0.8\baselineskip plus 0.2\baselineskip minus 0.2\baselineskip}   % Spacing between paragraphs
 % Theorem Styles
 \newtheorem{theorem}{Theorem}[section]
 \renewcommand{\theHtheorem}{\theHsection.\the\value{theorem}}
@@ -133,11 +114,9 @@
 
 % Title Information
 \title[Associative Equational Theories]{Implication semilattice of associative equational theories}
-\author{Jose Brox}
-\address{IMUVA-Mathematics Research Institute, Universidad de Valladolid, josebrox@uva.es, ORCID 0000-0001-9822-5838}
 \author{Bruno Le Floch}
 \address{CNRS and Laboratoire de Physique Th\'eorique et Hautes \'Energies, Sorbonne Universit\'e, blefloch@lpthe.jussieu.fr, ORCID 0000-0002-3965-9705}
-\date{April 2026}
+\date{September 2026}
 
 \begin{document}
 
@@ -156,11 +135,8 @@
 \maketitle
 \endgroup
 
-{
-%\setlength{\parskip}{0em}
 \setcounter{tocdepth}{1}
 \tableofcontents
-}
 
 % ===========================================
 \section{Introduction and conclusions}
@@ -277,10 +253,12 @@ Then out of these 122 classes, list all equivalence classes of conjunctions, wit
 % =========================================
 \section*{Acknowledgements}
 
-Both authors thank collaborators in the Equational Theories Project for a motivating and fun research setting.
-Jose Brox is supported by a postdoctoral fellowship “Convocatoria 2021” funded by Universidad de Valladolid, and partially supported by grant PID2022-137283NB-C22 funded by MCIN/AEI/10.13039/501100011033 and ERDF “A way of making Europe”.
+The author thanks collaborators in the Equational Theories Project for a motivating and fun research setting, and especially Jose Brox for collaboration at early stages of this project.
 Bruno Le Floch is partially supported by the grants Projet-ANR-23-CE40-0010 and HORIZON-MSCA-2022-SE/101131233.
 
+\section*{AI use statement}
+
+No AI was used in the research or writing, except possibly within the code underlying the Vampire and Prover9/Mace4 automated theorem provers.
 
 \bibliographystyle{plainurl}
 \bibliography{references}
