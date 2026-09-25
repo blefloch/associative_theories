@@ -31,8 +31,8 @@ for eq_id in associative_eq_ids:
     equiv_class[one_to_rep[eq_id]].add(eq_id)
 
 with open("../data/associative_equations.txt", "w") as f:
-    for eq_str in eqs_found.keys():
-        print(eq_str, file=f)
+    for eq_str, eq_id in eqs_found.items():
+        print(f"{eq_id}: {eq_str}", file=f)
 
 with open("../data/associative_equation_ids.json", "w") as f:
     print(associative_eq_ids, file=f)
