@@ -123,7 +123,9 @@ open EQIndex
 """
           + 'def EQ_to_AT : EQIndex -> ATIndex\n'
           + ''.join(f'| eq{eqid} => at{eq_to_at(eqid)["id"]}\n' for eqid in reps + [4512])
-          + '\ntheorem EQ_equiv (G : Type*) [Magma G] (eqid : EQIndex) : (Equation4512 G) ∧ (EQeq G eqid) <-> ATearly G (EQ_to_AT eqid) := AT1_conj G eqid\n'
+          + '\ntheorem EQ_equiv (eqid : EQIndex) (G : Type*) [Magma G] : (Equation4512 G) ∧ (EQeq G eqid) <-> ATearly G (EQ_to_AT eqid) := AT1_conj eqid G\n'
           , file=f)
 
 
+
+# theorem conjunction_equiv (G : Type*) [Magma G] (eqlist : List EQIndex) : (Equation4512 G) ∧ True <-> True := sorry

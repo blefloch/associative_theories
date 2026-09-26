@@ -1694,7 +1694,7 @@ private theorem AT246_Equation4512_implies (G : Type*) [Magma G] (h : (Associati
   obtain ⟨hh, h4512⟩ := h
   exact hh
 
-theorem AT246_conj_implied (G: Type*) [Magma G] (eqid : EQIndex) (h : ATearly G (conj246 eqid)) : (AssociativeTheory246 G) ∧ (EQeq G eqid) := by
+theorem AT246_conj_implied (eqid : EQIndex) (G: Type*) [Magma G] (h : ATearly G (conj246 eqid)) : (AssociativeTheory246 G) ∧ (EQeq G eqid) := by
   have h0 := (AT_equiv G (conj246 eqid)).mp h
   rcases eqid
   all_goals
@@ -1702,7 +1702,7 @@ theorem AT246_conj_implied (G: Type*) [Magma G] (eqid : EQIndex) (h : ATearly G 
     exact AT_implies G _ h at246 True.intro
     repeat' (obtain ⟨h1, h0⟩ := h0 ; try exact h1) ; try exact h0
 
-theorem AT246_conj (G: Type*) [Magma G] (eqid : EQIndex) : (AssociativeTheory246 G) ∧ (EQeq G eqid) <-> (ATearly G (conj246 eqid)) :=
+theorem AT246_conj (eqid : EQIndex) (G: Type*) [Magma G] : (AssociativeTheory246 G) ∧ (EQeq G eqid) <-> (ATearly G (conj246 eqid)) :=
 ⟨match eqid with
 | eq1 => AT246_Equation1_implies G
 | eq2 => AT246_Equation2_implies G
@@ -1827,5 +1827,5 @@ theorem AT246_conj (G: Type*) [Magma G] (eqid : EQIndex) : (AssociativeTheory246
 | eq4364 => AT246_Equation4364_implies G
 | eq4369 => AT246_Equation4369_implies G
 | eq4512 => AT246_Equation4512_implies G
-, AT246_conj_implied G eqid⟩
+, AT246_conj_implied eqid G⟩
 

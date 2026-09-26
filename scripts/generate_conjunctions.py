@@ -140,7 +140,7 @@ def lean_conj_map(at1, pairs):
 
 def lean_conj_theorem(at1, pairs):
     at1_id = at1['id']
-    return (f'theorem AT{at1_id}_conj_implied (G: Type*) [Magma G] (eqid : EQIndex) (h : ATearly G (conj{at1_id} eqid)) : (AssociativeTheory{at1_id} G) ∧ (EQeq G eqid) := by\n'
+    return (f'theorem AT{at1_id}_conj_implied (eqid : EQIndex) (G: Type*) [Magma G] (h : ATearly G (conj{at1_id} eqid)) : (AssociativeTheory{at1_id} G) ∧ (EQeq G eqid) := by\n'
             + f'  have h0 := (AT_equiv G (conj{at1_id} eqid)).mp h\n'
             + '  rcases eqid\n'
             + '  all_goals\n'
@@ -148,10 +148,10 @@ def lean_conj_theorem(at1, pairs):
             + f'    exact AT_implies G _ h at{at1_id} True.intro\n'
             + "    repeat' (obtain ⟨h1, h0⟩ := h0 ; try exact h1) ; try exact h0\n"
             + '\n'
-            + f'theorem AT{at1_id}_conj (G: Type*) [Magma G] (eqid : EQIndex) : (AssociativeTheory{at1_id} G) ∧ (EQeq G eqid) <-> (ATearly G (conj{at1_id} eqid)) :=\n'
+            + f'theorem AT{at1_id}_conj (eqid : EQIndex) (G: Type*) [Magma G] : (AssociativeTheory{at1_id} G) ∧ (EQeq G eqid) <-> (ATearly G (conj{at1_id} eqid)) :=\n'
             + '⟨match eqid with\n'
             + ''.join(f'| eq{eqid} => AT{at1_id}_Equation{eqid}_implies G\n' for eqid in all_eqs)
-            + f', AT{at1_id}_conj_implied G eqid⟩\n')
+            + f', AT{at1_id}_conj_implied eqid G⟩\n')
 
 to_prove = defaultdict(list)
 for at in associative_theories:
@@ -176,10 +176,10 @@ contents = ('/- Generated file collecting ConjunctionNN files -/\n\n'
             + '''
 open ATIndex
 
-theorem AT_conj (G: Type*) [Magma G] (atid : ATIndex) (eqid : EQIndex) : ∃ (atid2 : ATIndex), (ATearly G atid) ∧ (EQeq G eqid) <-> (ATearly G atid2) :=
+theorem AT_conj (atid : ATIndex) (eqid : EQIndex) : ∃ (atid2 : ATIndex), ∀ (G: Type*) [Magma G], (ATearly G atid) ∧ (EQeq G eqid) <-> (ATearly G atid2) :=
 match atid with
 '''
-            + ''.join(f'| at{at["id"]} => ⟨_, AT{at["id"]}_conj G eqid⟩\n' for at in associative_theories))
+            + ''.join(f'| at{at["id"]} => ⟨_, AT{at["id"]}_conj eqid⟩\n' for at in associative_theories))
 
 with open(f'../associative_theories/Conjunction.lean', 'w') as f:
     print(contents, file=f)
