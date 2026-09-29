@@ -19,9 +19,10 @@ Equational Theories Project.
   an associative theory, namely an equivalence class of conjunctions of
   the 653 equations (on an associative binary operation), with
   properties
-  - `id`, ETP id,
-  - `early`, lexicographically-first collection of ETP equations whose
-    conjunction describes the equivalence class,
+  - `id`, index in the reverse-lexicographic order used to define
+    "early" representatives,
+  - `early`, reverse-lexicographically-first collection of ETP equations
+    whose conjunction describes the equivalence class,
   - `long`, full list of ETP ids implied by the equivalence class,
   - `dual`, the `early` property of the dual associative theory
 
