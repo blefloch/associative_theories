@@ -1,7 +1,7 @@
 import json
 from collections import defaultdict
 from find_equation_id import Equation, all_eqs, shape_order, canonicalize_rhyme
-from semigroups_to_rep_out import one_to_rep
+from one_to_rep import one_to_rep
 from collections import defaultdict
 
 def right_shape_n(n):

@@ -158,11 +158,8 @@ print(len(multi_rep), sorted(multi_rep, key=(lambda x:(len(x), x))))
 long_classes = sorted(tuple(sorted(v.union([4512]))) for v in consequences.values() if v)
 eq_to_long_class = {k[0]: tuple(sorted(v.union([4512]))) for k, v in consequences.items() if len(k) == 1 and v}
 
-with open("semigroups_to_rep_out.py", "w") as f:
-    print(f"one_rep_list = {sorted(one_rep)}", file=f)
-    print(f"multi_rep_list = {sorted([eqs for eqs in multi_rep if len(eqs) > 1], key=(lambda x:(len(x), x)))}", file=f)
+with open("one_to_rep.py", "w") as f:
     print(f"one_to_rep = {one_to_rep}", file=f)
-    print(f"multi_to_rep = {multi_to_rep}", file=f)
 
 with open("../data/long_classes.json", "w") as f:
     f.write('[\n    ' + ',\n    '.join(str(list(c)) for c in long_classes) + '\n]\n')
