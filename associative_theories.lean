@@ -18,12 +18,8 @@ open VampireProven in
 open ATIndex
 open EQIndex
 
-#check (AT_conj : ∀ (atid : ATIndex), ∀ (eqid : EQIndex), ∃ (atid2 : ATIndex), ∀ (G: Type*) [Magma G], (ATearly G atid) ∧ (EQeq G eqid) <-> (ATearly G atid2))
-
-theorem AT_conj' (G: Type*) [Magma G] (atid : ATIndex) (eqid : EQIndex) :
-  ∃ (atid2 : ATIndex), (ATearly G atid) ∧ (EQeq G eqid) <-> (ATearly G atid2) := by
-  have ⟨_, h⟩ := AT_conj atid eqid
-  exact ⟨_, h G⟩
+#check (AT_conj : ∀ (atid : ATIndex), ∀ (eqid : EQIndex), ∃ (atid2 : ATIndex),
+  ∀ (G: Type*) [Magma G], (ATearly G atid) ∧ (EQeq G eqid) <-> (ATearly G atid2))
 
 #check (EQ_equiv : ∀ (eqid : EQIndex), ∀ (G : Type*) [Magma G],
   (Equation4512 G) ∧ (EQeq G eqid) <-> ATearly G (EQ_to_AT eqid))
