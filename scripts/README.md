@@ -17,7 +17,7 @@ first.
 
 To regenerate all generated data files, run python3 successively on
 `semigroups-1.py`, `semigroups-2-organize.py`,
-`semigroups-3-minimal.py`,
+`semigroups-3-minimal.py`, then all the `generated_*.py` files
 
 ## Scripts used to find 456 associative theories
 
