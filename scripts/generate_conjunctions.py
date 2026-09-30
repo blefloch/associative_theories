@@ -173,13 +173,14 @@ for atid in range(1, 457):
 
 contents = ('/- Generated file collecting ConjunctionNN files -/\n\n'
             + ''.join(f'import associative_theories.Conjunction.Conjunction{at["id"]}\n' for at in associative_theories)
-            + '''
-open ATIndex
-
-theorem AT_conj (atid : ATIndex) (eqid : EQIndex) : ∃ (atid2 : ATIndex), ∀ (G: Type*) [Magma G], (ATearly atid G) ∧ (EQeq eqid G) <-> (ATearly atid2 G) :=
-match atid with
-'''
-            + ''.join(f'| at{at["id"]} => ⟨_, AT{at["id"]}_conj eqid⟩\n' for at in associative_theories))
+            + '\nopen ATIndex\n'
+            + 'def conj : ATIndex -> EQIndex -> ATIndex\n'
+            + ''.join(f'| at{at["id"]} => conj{at["id"]}\n' for at in associative_theories)
+            + '\n'
+            + 'theorem AT_conj (atid : ATIndex) (eqid : EQIndex) :\n'
+            + '  ∀ (G: Type*) [Magma G], (ATearly atid G) ∧ (EQeq eqid G) <-> (ATearly (conj atid eqid) G) :=\n'
+            + 'match atid with\n'
+            + ''.join(f'| at{at["id"]} => AT{at["id"]}_conj eqid\n' for at in associative_theories))
 
 with open(f'../associative_theories/Conjunction.lean', 'w') as f:
     print(contents, file=f)
