@@ -459,7 +459,7 @@ import associative_theories.Conjunction.Conjunction456
 
 open ATIndex
 
-theorem AT_conj (atid : ATIndex) (eqid : EQIndex) : ∃ (atid2 : ATIndex), ∀ (G: Type*) [Magma G], (ATearly G atid) ∧ (EQeq G eqid) <-> (ATearly G atid2) :=
+theorem AT_conj (atid : ATIndex) (eqid : EQIndex) : ∃ (atid2 : ATIndex), ∀ (G: Type*) [Magma G], (ATearly atid G) ∧ (EQeq eqid G) <-> (ATearly atid2 G) :=
 match atid with
 | at1 => ⟨_, AT1_conj eqid⟩
 | at2 => ⟨_, AT2_conj eqid⟩

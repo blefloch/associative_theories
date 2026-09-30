@@ -101,7 +101,7 @@ with open("../associative_theories/EarlyLongEquiv.lean", "w") as f:
     print(preamble, file=f)
     for at in associative_theories:
         print(lean_equiv(at["id"], at["early"], at["long"]), file=f)
-    print('theorem AT_equiv (G : Type*) [Magma G] (ati : ATIndex) : (ATearly G ati) <-> (ATlong G ati) :=\n'
+    print('theorem AT_equiv (ati : ATIndex) (G : Type*) [Magma G] : (ATearly ati G) <-> (ATlong ati G) :=\n'
           + 'match ati with', file=f)
     for at in associative_theories:
         at_id = at['id']
@@ -123,7 +123,7 @@ open EQIndex
 """
           + 'def EQ_to_AT : EQIndex -> ATIndex\n'
           + ''.join(f'| eq{eqid} => at{eq_to_at(eqid)["id"]}\n' for eqid in reps + [4512])
-          + '\ntheorem EQ_equiv (eqid : EQIndex) (G : Type*) [Magma G] : (Equation4512 G) ∧ (EQeq G eqid) <-> ATearly G (EQ_to_AT eqid) := AT1_conj eqid G\n'
+          + '\ntheorem EQ_equiv (eqid : EQIndex) (G : Type*) [Magma G] : (Equation4512 G) ∧ (EQeq eqid G) <-> ATearly (EQ_to_AT eqid) G := AT1_conj eqid G\n'
           , file=f)
 
 

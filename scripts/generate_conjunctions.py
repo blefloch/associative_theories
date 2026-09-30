@@ -89,7 +89,7 @@ def lean_conj_implies_at(at1, id2, at3):
     if at3_id == at1_id:
         lines.append('  exact hh')
         return '\n'.join(lines)
-    lines.append(f'  obtain ⟨g, _⟩ := AT_equiv G at{at1_id}')
+    lines.append(f'  obtain ⟨g, _⟩ := AT_equiv at{at1_id} G')
     lines.append('  obtain ' + lean_eq_list(at1_long) + ' := g hh')
     proofs = []
     available = set(at1_long)
@@ -140,15 +140,15 @@ def lean_conj_map(at1, pairs):
 
 def lean_conj_theorem(at1, pairs):
     at1_id = at1['id']
-    return (f'theorem AT{at1_id}_conj_implied (eqid : EQIndex) (G: Type*) [Magma G] (h : ATearly G (conj{at1_id} eqid)) : (AssociativeTheory{at1_id} G) ∧ (EQeq G eqid) := by\n'
-            + f'  have h0 := (AT_equiv G (conj{at1_id} eqid)).mp h\n'
+    return (f'theorem AT{at1_id}_conj_implied (eqid : EQIndex) (G: Type*) [Magma G] (h : ATearly (conj{at1_id} eqid) G) : (AssociativeTheory{at1_id} G) ∧ (EQeq eqid G) := by\n'
+            + f'  have h0 := (AT_equiv (conj{at1_id} eqid) G).mp h\n'
             + '  rcases eqid\n'
             + '  all_goals\n'
             + '    constructor\n'
-            + f'    exact AT_implies G _ h at{at1_id} True.intro\n'
+            + f"    exact AT_implies' _ G h at{at1_id} True.intro\n"
             + "    repeat' (obtain ⟨h1, h0⟩ := h0 ; try exact h1) ; try exact h0\n"
             + '\n'
-            + f'theorem AT{at1_id}_conj (eqid : EQIndex) (G: Type*) [Magma G] : (AssociativeTheory{at1_id} G) ∧ (EQeq G eqid) <-> (ATearly G (conj{at1_id} eqid)) :=\n'
+            + f'theorem AT{at1_id}_conj (eqid : EQIndex) (G: Type*) [Magma G] : (AssociativeTheory{at1_id} G) ∧ (EQeq eqid G) <-> (ATearly (conj{at1_id} eqid) G) :=\n'
             + '⟨match eqid with\n'
             + ''.join(f'| eq{eqid} => AT{at1_id}_Equation{eqid}_implies G\n' for eqid in all_eqs)
             + f', AT{at1_id}_conj_implied eqid G⟩\n')
@@ -176,7 +176,7 @@ contents = ('/- Generated file collecting ConjunctionNN files -/\n\n'
             + '''
 open ATIndex
 
-theorem AT_conj (atid : ATIndex) (eqid : EQIndex) : ∃ (atid2 : ATIndex), ∀ (G: Type*) [Magma G], (ATearly G atid) ∧ (EQeq G eqid) <-> (ATearly G atid2) :=
+theorem AT_conj (atid : ATIndex) (eqid : EQIndex) : ∃ (atid2 : ATIndex), ∀ (G: Type*) [Magma G], (ATearly atid G) ∧ (EQeq eqid G) <-> (ATearly atid2 G) :=
 match atid with
 '''
             + ''.join(f'| at{at["id"]} => ⟨_, AT{at["id"]}_conj eqid⟩\n' for at in associative_theories))

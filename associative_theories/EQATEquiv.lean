@@ -132,5 +132,5 @@ def EQ_to_AT : EQIndex -> ATIndex
 | eq4369 => at420
 | eq4512 => at1
 
-theorem EQ_equiv (eqid : EQIndex) (G : Type*) [Magma G] : (Equation4512 G) ∧ (EQeq G eqid) <-> ATearly G (EQ_to_AT eqid) := AT1_conj eqid G
+theorem EQ_equiv (eqid : EQIndex) (G : Type*) [Magma G] : (Equation4512 G) ∧ (EQeq eqid G) <-> ATearly (EQ_to_AT eqid) G := AT1_conj eqid G
 

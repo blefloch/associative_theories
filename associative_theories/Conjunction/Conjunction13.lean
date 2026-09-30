@@ -151,13 +151,13 @@ private theorem AT13_Equation1_implies (G : Type*) [Magma G] (h : (AssociativeTh
 
 private theorem AT13_Equation2_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation2 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h2⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   exact ⟨h2, h4512⟩
 
 private theorem AT13_Equation3_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation3 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h3⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h47 := Equation3_4512_implies_Equation47 G h3 h4512
   have h2 := Equation47_4273_4512_implies_Equation2 G h47 h4273 h4512
@@ -165,7 +165,7 @@ private theorem AT13_Equation3_implies (G : Type*) [Magma G] (h : (AssociativeTh
 
 private theorem AT13_Equation4_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation4 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h4⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h47 := Equation4_4512_implies_Equation47 G h4 h4512
   have h2 := Equation47_4273_4512_implies_Equation2 G h47 h4273 h4512
@@ -173,7 +173,7 @@ private theorem AT13_Equation4_implies (G : Type*) [Magma G] (h : (AssociativeTh
 
 private theorem AT13_Equation5_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation5 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h5⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h47 := Equation5_4512_implies_Equation47 G h5 h4512
   have h2 := Equation47_4273_4512_implies_Equation2 G h47 h4273 h4512
@@ -181,7 +181,7 @@ private theorem AT13_Equation5_implies (G : Type*) [Magma G] (h : (AssociativeTh
 
 private theorem AT13_Equation8_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation8 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h8⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h411 := Equation8_4512_implies_Equation411 G h8 h4512
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
@@ -189,7 +189,7 @@ private theorem AT13_Equation8_implies (G : Type*) [Magma G] (h : (AssociativeTh
 
 private theorem AT13_Equation10_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation10 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h10⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h47 := Equation10_4512_implies_Equation47 G h10 h4512
   have h2 := Equation47_4273_4512_implies_Equation2 G h47 h4273 h4512
@@ -197,7 +197,7 @@ private theorem AT13_Equation10_implies (G : Type*) [Magma G] (h : (AssociativeT
 
 private theorem AT13_Equation11_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation11 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h11⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h411 := Equation11_4512_implies_Equation411 G h11 h4512
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
@@ -205,7 +205,7 @@ private theorem AT13_Equation11_implies (G : Type*) [Magma G] (h : (AssociativeT
 
 private theorem AT13_Equation14_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation14 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h14⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h411 := Equation14_4512_implies_Equation411 G h14 h4512
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
@@ -213,7 +213,7 @@ private theorem AT13_Equation14_implies (G : Type*) [Magma G] (h : (AssociativeT
 
 private theorem AT13_Equation16_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation16 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h16⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h411 := Equation16_4512_implies_Equation411 G h16 h4512
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
@@ -241,14 +241,14 @@ private theorem AT13_Equation43_implies (G : Type*) [Magma G] (h : (AssociativeT
 
 private theorem AT13_Equation47_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation47 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h47⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h2 := Equation47_4273_4512_implies_Equation2 G h47 h4273 h4512
   exact ⟨h2, h4512⟩
 
 private theorem AT13_Equation56_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation56 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h56⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h47 := Equation56_4512_implies_Equation47 G h56 h4512
   have h2 := Equation47_4273_4512_implies_Equation2 G h47 h4273 h4512
@@ -256,7 +256,7 @@ private theorem AT13_Equation56_implies (G : Type*) [Magma G] (h : (AssociativeT
 
 private theorem AT13_Equation66_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation66 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h66⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h47 := Equation66_4512_implies_Equation47 G h66 h4512
   have h2 := Equation47_4273_4512_implies_Equation2 G h47 h4273 h4512
@@ -264,7 +264,7 @@ private theorem AT13_Equation66_implies (G : Type*) [Magma G] (h : (AssociativeT
 
 private theorem AT13_Equation75_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation75 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h75⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h47 := Equation75_4512_implies_Equation47 G h75 h4512
   have h2 := Equation47_4273_4512_implies_Equation2 G h47 h4273 h4512
@@ -348,14 +348,14 @@ private theorem AT13_Equation343_implies (G : Type*) [Magma G] (h : (Associative
 
 private theorem AT13_Equation411_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation411 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h411⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
   exact ⟨h2, h4512⟩
 
 private theorem AT13_Equation419_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation419 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h419⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h411 := Equation419_4512_implies_Equation411 G h419 h4512
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
@@ -363,7 +363,7 @@ private theorem AT13_Equation419_implies (G : Type*) [Magma G] (h : (Associative
 
 private theorem AT13_Equation429_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation429 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h429⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h411 := Equation429_4512_implies_Equation411 G h429 h4512
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
@@ -371,7 +371,7 @@ private theorem AT13_Equation429_implies (G : Type*) [Magma G] (h : (Associative
 
 private theorem AT13_Equation440_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation440 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h440⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h411 := Equation440_4512_implies_Equation411 G h440 h4512
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
@@ -379,7 +379,7 @@ private theorem AT13_Equation440_implies (G : Type*) [Magma G] (h : (Associative
 
 private theorem AT13_Equation477_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation477 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h477⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h411 := Equation477_4512_implies_Equation411 G h477 h4512
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
@@ -387,7 +387,7 @@ private theorem AT13_Equation477_implies (G : Type*) [Magma G] (h : (Associative
 
 private theorem AT13_Equation504_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation504 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h504⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h411 := Equation504_4512_implies_Equation411 G h504 h4512
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
@@ -395,7 +395,7 @@ private theorem AT13_Equation504_implies (G : Type*) [Magma G] (h : (Associative
 
 private theorem AT13_Equation513_implies (G : Type*) [Magma G] (h : (AssociativeTheory13 G) ∧ (Equation513 G)) : AssociativeTheory2 G := by
   obtain ⟨hh, h513⟩ := h
-  obtain ⟨g, _⟩ := AT_equiv G at13
+  obtain ⟨g, _⟩ := AT_equiv at13 G
   obtain ⟨h1, h38, h39, h40, h41, h43, h307, h308, h309, h310, h311, h312, h313, h314, h315, h316, h318, h323, h325, h326, h327, h329, h332, h333, h343, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h3306, h3308, h3309, h3315, h3316, h3319, h3322, h3323, h3326, h3331, h3334, h3342, h3346, h3350, h3353, h3388, h3414, h4268, h4269, h4270, h4271, h4272, h4273, h4274, h4275, h4276, h4277, h4278, h4279, h4280, h4283, h4284, h4286, h4287, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4300, h4301, h4304, h4305, h4314, h4315, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4358, h4362, h4364, h4369, h4512⟩ := g hh
   have h411 := Equation513_4512_implies_Equation411 G h513 h4512
   have h2 := Equation411_4276_4512_implies_Equation2 G h411 h4276 h4512
@@ -713,15 +713,15 @@ private theorem AT13_Equation4512_implies (G : Type*) [Magma G] (h : (Associativ
   obtain ⟨hh, h4512⟩ := h
   exact hh
 
-theorem AT13_conj_implied (eqid : EQIndex) (G: Type*) [Magma G] (h : ATearly G (conj13 eqid)) : (AssociativeTheory13 G) ∧ (EQeq G eqid) := by
-  have h0 := (AT_equiv G (conj13 eqid)).mp h
+theorem AT13_conj_implied (eqid : EQIndex) (G: Type*) [Magma G] (h : ATearly (conj13 eqid) G) : (AssociativeTheory13 G) ∧ (EQeq eqid G) := by
+  have h0 := (AT_equiv (conj13 eqid) G).mp h
   rcases eqid
   all_goals
     constructor
-    exact AT_implies G _ h at13 True.intro
+    exact AT_implies' _ G h at13 True.intro
     repeat' (obtain ⟨h1, h0⟩ := h0 ; try exact h1) ; try exact h0
 
-theorem AT13_conj (eqid : EQIndex) (G: Type*) [Magma G] : (AssociativeTheory13 G) ∧ (EQeq G eqid) <-> (ATearly G (conj13 eqid)) :=
+theorem AT13_conj (eqid : EQIndex) (G: Type*) [Magma G] : (AssociativeTheory13 G) ∧ (EQeq eqid G) <-> (ATearly (conj13 eqid) G) :=
 ⟨match eqid with
 | eq1 => AT13_Equation1_implies G
 | eq2 => AT13_Equation2_implies G

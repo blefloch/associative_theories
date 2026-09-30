@@ -472,8 +472,8 @@ def AT362_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT362_implies (G: Type*) [Magma G] (h: AssociativeTheory362 G) (atid: ATIndex) (hh: AT362_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h3253, h4320, h4362, h4512⟩ := (AT_equiv G at362).mp h
+theorem AT362_implies (atid: ATIndex) (hh: AT362_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory362 G) : ATearly atid G := by
+  obtain ⟨h1, h3253, h4320, h4362, h4512⟩ := (AT_equiv at362 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h3253, h4512⟩
@@ -940,8 +940,8 @@ def AT363_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT363_implies (G: Type*) [Magma G] (h: AssociativeTheory363 G) (atid: ATIndex) (hh: AT363_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h3253, h3261, h3271, h3278, h4275, h4320, h4362, h4512⟩ := (AT_equiv G at363).mp h
+theorem AT363_implies (atid: ATIndex) (hh: AT363_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory363 G) : ATearly atid G := by
+  obtain ⟨h1, h3253, h3261, h3271, h3278, h4275, h4320, h4362, h4512⟩ := (AT_equiv at363 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h3253, h4512⟩
@@ -1416,8 +1416,8 @@ def AT364_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT364_implies (G: Type*) [Magma G] (h: AssociativeTheory364 G) (atid: ATIndex) (hh: AT364_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h40, h307, h308, h309, h310, h312, h313, h315, h316, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h4268, h4269, h4270, h4272, h4273, h4275, h4276, h4277, h4279, h4280, h4283, h4284, h4286, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4301, h4304, h4305, h4314, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4362, h4512⟩ := (AT_equiv G at364).mp h
+theorem AT364_implies (atid: ATIndex) (hh: AT364_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory364 G) : ATearly atid G := by
+  obtain ⟨h1, h40, h307, h308, h309, h310, h312, h313, h315, h316, h3253, h3255, h3256, h3258, h3259, h3260, h3261, h3264, h3265, h3267, h3271, h3273, h3274, h3275, h3277, h3278, h3290, h3292, h3300, h4268, h4269, h4270, h4272, h4273, h4275, h4276, h4277, h4279, h4280, h4283, h4284, h4286, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4301, h4304, h4305, h4314, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4362, h4512⟩ := (AT_equiv at364 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h40, h4512⟩
@@ -2110,8 +2110,8 @@ def AT365_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT365_implies (G: Type*) [Magma G] (h: AssociativeTheory365 G) (atid: ATIndex) (hh: AT365_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h307, h309, h312, h315, h3253, h3255, h3258, h3261, h3264, h3271, h3274, h3278, h3292, h3300, h4269, h4272, h4275, h4284, h4291, h4296, h4304, h4320, h4327, h4362, h4512⟩ := (AT_equiv G at365).mp h
+theorem AT365_implies (atid: ATIndex) (hh: AT365_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory365 G) : ATearly atid G := by
+  obtain ⟨h1, h307, h309, h312, h315, h3253, h3255, h3258, h3261, h3264, h3271, h3274, h3278, h3292, h3300, h4269, h4272, h4275, h4284, h4291, h4296, h4304, h4320, h4327, h4362, h4512⟩ := (AT_equiv at365 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h307, h4512⟩
@@ -2627,8 +2627,8 @@ def AT366_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT366_implies (G: Type*) [Magma G] (h: AssociativeTheory366 G) (atid: ATIndex) (hh: AT366_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h3253, h3306, h4320, h4362, h4512⟩ := (AT_equiv G at366).mp h
+theorem AT366_implies (atid: ATIndex) (hh: AT366_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory366 G) : ATearly atid G := by
+  obtain ⟨h1, h3253, h3306, h4320, h4362, h4512⟩ := (AT_equiv at366 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h3253, h4512⟩
@@ -3098,8 +3098,8 @@ def AT367_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT367_implies (G: Type*) [Magma G] (h: AssociativeTheory367 G) (atid: ATIndex) (hh: AT367_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h3253, h3306, h3319, h3346, h3353, h4320, h4362, h4512⟩ := (AT_equiv G at367).mp h
+theorem AT367_implies (atid: ATIndex) (hh: AT367_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory367 G) : ATearly atid G := by
+  obtain ⟨h1, h3253, h3306, h3319, h3346, h3353, h4320, h4362, h4512⟩ := (AT_equiv at367 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h3253, h4512⟩
@@ -3575,8 +3575,8 @@ def AT368_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT368_implies (G: Type*) [Magma G] (h: AssociativeTheory368 G) (atid: ATIndex) (hh: AT368_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4268, h4275, h4276, h4277, h4293, h4320, h4362, h4512⟩ := (AT_equiv G at368).mp h
+theorem AT368_implies (atid: ATIndex) (hh: AT368_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory368 G) : ATearly atid G := by
+  obtain ⟨h1, h4268, h4275, h4276, h4277, h4293, h4320, h4362, h4512⟩ := (AT_equiv at368 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4268, h4512⟩
@@ -4056,8 +4056,8 @@ def AT369_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT369_implies (G: Type*) [Magma G] (h: AssociativeTheory369 G) (atid: ATIndex) (hh: AT369_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4269, h4272, h4320, h4327, h4362, h4512⟩ := (AT_equiv G at369).mp h
+theorem AT369_implies (atid: ATIndex) (hh: AT369_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory369 G) : ATearly atid G := by
+  obtain ⟨h1, h4269, h4272, h4320, h4327, h4362, h4512⟩ := (AT_equiv at369 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4269, h4512⟩
@@ -4525,8 +4525,8 @@ def AT370_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT370_implies (G: Type*) [Magma G] (h: AssociativeTheory370 G) (atid: ATIndex) (hh: AT370_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4268, h4269, h4270, h4272, h4273, h4275, h4276, h4277, h4279, h4280, h4283, h4284, h4286, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4301, h4304, h4305, h4314, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4362, h4512⟩ := (AT_equiv G at370).mp h
+theorem AT370_implies (atid: ATIndex) (hh: AT370_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory370 G) : ATearly atid G := by
+  obtain ⟨h1, h4268, h4269, h4270, h4272, h4273, h4275, h4276, h4277, h4279, h4280, h4283, h4284, h4286, h4288, h4290, h4291, h4293, h4296, h4297, h4299, h4301, h4304, h4305, h4314, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4362, h4512⟩ := (AT_equiv at370 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4268, h4512⟩
@@ -5125,8 +5125,8 @@ def AT371_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT371_implies (G: Type*) [Magma G] (h: AssociativeTheory371 G) (atid: ATIndex) (hh: AT371_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4270, h4273, h4320, h4325, h4362, h4512⟩ := (AT_equiv G at371).mp h
+theorem AT371_implies (atid: ATIndex) (hh: AT371_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory371 G) : ATearly atid G := by
+  obtain ⟨h1, h4270, h4273, h4320, h4325, h4362, h4512⟩ := (AT_equiv at371 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4270, h4512⟩
@@ -5594,8 +5594,8 @@ def AT372_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT372_implies (G: Type*) [Magma G] (h: AssociativeTheory372 G) (atid: ATIndex) (hh: AT372_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4269, h4270, h4272, h4273, h4276, h4279, h4280, h4314, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4362, h4512⟩ := (AT_equiv G at372).mp h
+theorem AT372_implies (atid: ATIndex) (hh: AT372_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory372 G) : ATearly atid G := by
+  obtain ⟨h1, h4269, h4270, h4272, h4273, h4276, h4279, h4280, h4314, h4318, h4320, h4321, h4325, h4327, h4331, h4343, h4362, h4512⟩ := (AT_equiv at372 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4269, h4512⟩
@@ -6089,8 +6089,8 @@ def AT373_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT373_implies (G: Type*) [Magma G] (h: AssociativeTheory373 G) (atid: ATIndex) (hh: AT373_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4275, h4320, h4362, h4512⟩ := (AT_equiv G at373).mp h
+theorem AT373_implies (atid: ATIndex) (hh: AT373_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory373 G) : ATearly atid G := by
+  obtain ⟨h1, h4275, h4320, h4362, h4512⟩ := (AT_equiv at373 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4275, h4512⟩
@@ -6557,8 +6557,8 @@ def AT374_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT374_implies (G: Type*) [Magma G] (h: AssociativeTheory374 G) (atid: ATIndex) (hh: AT374_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4269, h4272, h4275, h4284, h4291, h4296, h4304, h4320, h4327, h4362, h4512⟩ := (AT_equiv G at374).mp h
+theorem AT374_implies (atid: ATIndex) (hh: AT374_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory374 G) : ATearly atid G := by
+  obtain ⟨h1, h4269, h4272, h4275, h4284, h4291, h4296, h4304, h4320, h4327, h4362, h4512⟩ := (AT_equiv at374 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4269, h4512⟩
@@ -7039,8 +7039,8 @@ def AT375_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT375_implies (G: Type*) [Magma G] (h: AssociativeTheory375 G) (atid: ATIndex) (hh: AT375_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4270, h4273, h4275, h4283, h4290, h4297, h4305, h4320, h4325, h4362, h4512⟩ := (AT_equiv G at375).mp h
+theorem AT375_implies (atid: ATIndex) (hh: AT375_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory375 G) : ATearly atid G := by
+  obtain ⟨h1, h4270, h4273, h4275, h4283, h4290, h4297, h4305, h4320, h4325, h4362, h4512⟩ := (AT_equiv at375 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4270, h4512⟩
@@ -7521,8 +7521,8 @@ def AT376_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT376_implies (G: Type*) [Magma G] (h: AssociativeTheory376 G) (atid: ATIndex) (hh: AT376_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4276, h4320, h4362, h4512⟩ := (AT_equiv G at376).mp h
+theorem AT376_implies (atid: ATIndex) (hh: AT376_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory376 G) : ATearly atid G := by
+  obtain ⟨h1, h4276, h4320, h4362, h4512⟩ := (AT_equiv at376 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4276, h4512⟩
@@ -7989,8 +7989,8 @@ def AT377_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT377_implies (G: Type*) [Magma G] (h: AssociativeTheory377 G) (atid: ATIndex) (hh: AT377_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4283, h4290, h4320, h4362, h4512⟩ := (AT_equiv G at377).mp h
+theorem AT377_implies (atid: ATIndex) (hh: AT377_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory377 G) : ATearly atid G := by
+  obtain ⟨h1, h4283, h4290, h4320, h4362, h4512⟩ := (AT_equiv at377 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4283, h4512⟩
@@ -8458,8 +8458,8 @@ def AT378_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT378_implies (G: Type*) [Magma G] (h: AssociativeTheory378 G) (atid: ATIndex) (hh: AT378_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h307, h3253, h4283, h4290, h4320, h4362, h4512⟩ := (AT_equiv G at378).mp h
+theorem AT378_implies (atid: ATIndex) (hh: AT378_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory378 G) : ATearly atid G := by
+  obtain ⟨h1, h307, h3253, h4283, h4290, h4320, h4362, h4512⟩ := (AT_equiv at378 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h307, h4512⟩
@@ -8941,8 +8941,8 @@ def AT379_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT379_implies (G: Type*) [Magma G] (h: AssociativeTheory379 G) (atid: ATIndex) (hh: AT379_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h3253, h4283, h4290, h4320, h4362, h4512⟩ := (AT_equiv G at379).mp h
+theorem AT379_implies (atid: ATIndex) (hh: AT379_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory379 G) : ATearly atid G := by
+  obtain ⟨h1, h3253, h4283, h4290, h4320, h4362, h4512⟩ := (AT_equiv at379 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h3253, h4512⟩
@@ -9417,8 +9417,8 @@ def AT380_impliesQ : ATIndex -> Prop
 | at455 => False
 | at456 => False
 
-theorem AT380_implies (G: Type*) [Magma G] (h: AssociativeTheory380 G) (atid: ATIndex) (hh: AT380_impliesQ atid) : ATearly G atid := by
-  obtain ⟨h1, h4276, h4283, h4290, h4320, h4362, h4512⟩ := (AT_equiv G at380).mp h
+theorem AT380_implies (atid: ATIndex) (hh: AT380_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory380 G) : ATearly atid G := by
+  obtain ⟨h1, h4276, h4283, h4290, h4320, h4362, h4512⟩ := (AT_equiv at380 G).mp h
   rcases atid <;> try exact False.elim hh
   exact h4512
   exact ⟨h4276, h4512⟩

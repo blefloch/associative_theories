@@ -8114,7 +8114,7 @@ private theorem AT456_implies_long (G : Type*) [Magma G] (h : AssociativeTheory4
 private theorem AT456_implied_by_long (G : Type*) [Magma G] : AssociativeTheory456_long G -> AssociativeTheory456 G :=
 fun ⟨_, h4276, h4284, _, _, h4321, _, h4369, h4512⟩ => ⟨h4276, h4284, h4321, h4369, h4512⟩
 
-theorem AT_equiv (G : Type*) [Magma G] (ati : ATIndex) : (ATearly G ati) <-> (ATlong G ati) :=
+theorem AT_equiv (ati : ATIndex) (G : Type*) [Magma G] : (ATearly ati G) <-> (ATlong ati G) :=
 match ati with
 | at1 => ⟨AT1_implies_long G, AT1_implied_by_long G⟩
 | at2 => ⟨AT2_implies_long G, AT2_implied_by_long G⟩

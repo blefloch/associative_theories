@@ -67,8 +67,8 @@ def lean_implications(at1):
     return (f'def AT{id1}_impliesQ : ATIndex -> Prop\n'
             + ''.join(f'| at{at2["id"]} => {lcl1s.issuperset(at2["early"])}\n' for at2 in associative_theories)
             + '\n'
-            + f'theorem AT{id1}_implies (G: Type*) [Magma G] (h: AssociativeTheory{id1} G) (atid: ATIndex) (hh: AT{id1}_impliesQ atid) : ATearly G atid := by\n'
-            + '  obtain ' + lean_eq_list(at1['long']) + f' := (AT_equiv G at{id1}).mp h\n'
+            + f'theorem AT{id1}_implies (atid: ATIndex) (hh: AT{id1}_impliesQ atid) (G: Type*) [Magma G] (h: AssociativeTheory{id1} G) : ATearly atid G := by\n'
+            + '  obtain ' + lean_eq_list(at1['long']) + f' := (AT_equiv at{id1} G).mp h\n'
             + '  rcases atid <;> try exact False.elim hh\n'
             + ''.join('  exact ' + lean_eq_list(at2['early']) + '\n'
                       for at2 in associative_theories
@@ -83,8 +83,14 @@ with open('../associative_theories/ImplicationsAT.lean', 'w') as f:
           + 'def AT_impliesQ : ATIndex -> ATIndex -> Prop\n'
           + ''.join(f'| at{i} => AT{i}_impliesQ\n' for i in range(1, 457))
           + '\n'
-          + 'theorem AT_implies (G: Type*) [Magma G] : (atid: ATIndex) -> (ATearly G atid) -> (atid2: ATIndex) -> (AT_impliesQ atid atid2) -> (ATearly G atid2)\n'
-          + ''.join(f'| at{i} => AT{i}_implies G\n' for i in range(1, 457)),
+          + 'theorem AT_implies (atid: ATIndex) (atid2: ATIndex) (hh: AT_impliesQ atid atid2) :\n'
+          + '  ∀(G: Type*) [Magma G], (ATearly atid G) -> (ATearly atid2 G) :=\n'
+          + 'match atid with\n'
+          + ''.join(f'| at{i} => AT{i}_implies atid2 hh\n' for i in range(1, 457))
+          + '\n'
+          + "theorem AT_implies' (atid: ATIndex) (G: Type*) [Magma G] (h: ATearly atid G)\n"
+          + '  (atid2: ATIndex) (hh: AT_impliesQ atid atid2) : (ATearly atid2 G) :=\n'
+          + '  AT_implies atid atid2 hh G h\n',
           file=f)
 
 for k in range(1, 25):

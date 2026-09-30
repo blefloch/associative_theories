@@ -25,19 +25,19 @@ with open("../associative_theories/AssociativeTheoriesEarly.lean", "w") as f:
     print(preamble + '\n', file=f)
     for at in associative_theories:
         print(f'def AssociativeTheory{at["id"]} (G: Type*) [Magma G] := Facts G [{", ".join(map(str, at["early"]))}] []', file=f)
-    print('\ndef ATearly (G: Type*) [Magma G] : ATIndex → Prop\n', file=f)
+    print('\ndef ATearly : ATIndex → ∀(G: Type*) [Magma G], Prop', file=f)
     for at in associative_theories:
         at_id = at["id"]
-        print(f'| at{at_id} => AssociativeTheory{at_id} G', file=f)
+        print(f'| at{at_id} => AssociativeTheory{at_id}', file=f)
 
 with open("../associative_theories/AssociativeTheoriesLong.lean", "w") as f:
     print(preamble + '\n', file=f)
     for at in associative_theories:
         print(f'def AssociativeTheory{at["id"]}_long (G: Type*) [Magma G] := Facts G [{", ".join(map(str, at["long"]))}] []', file=f)
-    print('\ndef ATlong (G: Type*) [Magma G] : ATIndex → Prop\n', file=f)
+    print('\ndef ATlong : ATIndex → ∀(G: Type*) [Magma G], Prop', file=f)
     for at in associative_theories:
         at_id = at["id"]
-        print(f'| at{at_id} => AssociativeTheory{at_id}_long G', file=f)
+        print(f'| at{at_id} => AssociativeTheory{at_id}_long', file=f)
 
 
 ####
@@ -52,6 +52,6 @@ with open("../associative_theories/EquationIndex.lean", "w") as f:
     print('inductive EQIndex\n'
           + ''.join(f'| eq{eqid} ' for eqid in all_eqs),
           file=f)
-    print('\ndef EQeq (G: Type*) [Magma G] : EQIndex → Prop\n'
-          + ''.join(f'| .eq{eqid} => Equation{eqid} G\n' for eqid in all_eqs),
+    print('\ndef EQeq : EQIndex → ∀(G: Type*) [Magma G], Prop\n'
+          + ''.join(f'| .eq{eqid} => Equation{eqid}\n' for eqid in all_eqs),
           file=f)

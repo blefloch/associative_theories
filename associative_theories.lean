@@ -19,7 +19,7 @@ open ATIndex
 open EQIndex
 
 #check (AT_conj : ∀ (atid : ATIndex), ∀ (eqid : EQIndex), ∃ (atid2 : ATIndex),
-  ∀ (G: Type*) [Magma G], (ATearly G atid) ∧ (EQeq G eqid) <-> (ATearly G atid2))
+  ∀ (G: Type*) [Magma G], (ATearly atid G) ∧ (EQeq eqid G) <-> (ATearly atid2 G))
 
 #check (EQ_equiv : ∀ (eqid : EQIndex), ∀ (G : Type*) [Magma G],
-  (Equation4512 G) ∧ (EQeq G eqid) <-> ATearly G (EQ_to_AT eqid))
+  (Equation4512 G) ∧ (EQeq eqid G) <-> ATearly (EQ_to_AT eqid) G)
