@@ -1,3 +1,10 @@
+\makeatletter
+\newcommand{\input@path}{%
+  {../data/}%
+  {../associative_theories/}%
+  {../associative_theories/Countermodels/}%
+  {../}}\makeatother
+
 \documentclass[12pt]{amsart}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -129,7 +136,7 @@
 \ExplSyntaxOn
 \exp_args_generate:n { xV }
 \ior_new:N \g_my_ior
-\ior_open:Nn \g_my_ior { ../data/associative_equations.txt }
+\ior_open:Nn \g_my_ior { associative_equations.txt }
 \ior_map_inline:Nn \g_my_ior
   {
     \seq_set_split:Nnn \l_tmpa_seq { : } {#1}
@@ -168,7 +175,7 @@
 
 \subsection{Semigroup equational laws}
 
-Many algebraic structures are defined as a set equipped with unary, binary or other operations on that set, subject to certain equations such as associativity or commutativity.  Here we concentrate on \emph{semigroups}, which are sets~$S$ equipped with a binary operation $\op:S\times S\to S$ that is associative, namely
+Many algebraic structures can be defined as a set equipped with unary, binary or other operations on that set, subject to certain equations such as associativity or commutativity.  Here we concentrate on \emph{semigroups}, which are sets~$S$ equipped with a binary operation $\op:S\times S\to S$ that is associative, namely
 \begin{equation}\label{eq4512-intro}
   \forall x,y,z\in S , \ x \op (y \op z) = (x \op y) \op z ,
 \end{equation}
@@ -552,7 +559,7 @@ The Lean framework we use for the formalization is largely based on tools develo
 For clarity, we isolate code from that project into the \texttt{equational\_theories} directory, which we treat as a library on the same footing as \texttt{mathlib}, while new code goes in a separate directory \texttt{associative\_theories} (see the \texttt{lakefile} in \autoref{fig:lakefile}).
 
 \begin{figure}\centering
-\fbox{\lstinputlisting[basicstyle=\ttfamily\scriptsize]{../lakefile.toml}}
+\fbox{\lstinputlisting[basicstyle=\ttfamily\scriptsize]{lakefile.toml}}
 \caption{\label{fig:lakefile}Configuration file \texttt{lakefile.toml}}
 \end{figure}
 
@@ -575,7 +582,7 @@ theorem AT_implies (atid: ATIndex) (atid2: ATIndex) :
 \end{center}
 
 The Lean formalization splits into several tasks.
-\begin{itemize}\setlength{\itemsep}{3pt}
+\begin{itemize}\setlength{\itemsep}{3pt plus 3pt}
 \item \emph{Formalization skipped.} Prove that all equations of order $\leq 4$ are in a set of $653$ equations.  This has not been formalized in Lean.  The \texttt{laws\_complete} theorem from the ETP would be useful, but there are difficulties in defining and manipulating a map from the $4694$ equations of the ETP to their right-associated counterpart.
 
 \item Prove that these $653$ equations are all equivalent to $122$.  This is done by establishing pairs of implications from each equation to its (lowest-numbered) representative using the Vampire--Lean integration.
@@ -584,7 +591,7 @@ The Lean formalization splits into several tasks.
 
 \begin{figure}\centering
 \renewcommand{\leancomment}[1]{}
-\fbox{\lstinputlisting[firstline=10,lastline=21,language=lean]{../associative_theories/VampireProvenTwo.lean}}
+\fbox{\lstinputlisting[firstline=10,lastline=21,language=lean]{VampireProvenTwo.lean}}
 \caption{\label{fig:vampireproventwo}Implication \Equaref{3}${}\wedge{}$\Equaref{56}${}\wedge{}$associativity$\implies$\Equaref{4} formalized by converting a Vampire proof to Lean using code from the Equational Theories Project}
 \end{figure}
 
@@ -602,7 +609,7 @@ The Lean formalization splits into several tasks.
 \end{itemize}
 
 \begin{figure}\centering
-\fbox{\hbox to .88\textwidth{\lstinputlisting[language=lean,linewidth=.9\textwidth,breaklines=true]{../associative_theories/Countermodels/Model10.lean}\hss}}
+\fbox{\hbox to .88\textwidth{\lstinputlisting[language=lean,linewidth=.9\textwidth,breaklines=true]{Model10.lean}\hss}}
 \caption{\label{fig:countermodel}An example countermodel file.  Contrarily to the Equational Theories Project, the operation table $[[0,0,2],[0,1,2],[0,2,2]]$ (which states that $x\op 1=x$ and other $x\op y=y$) only appears once in the file.}
 \end{figure}
 
@@ -632,9 +639,12 @@ A much more difficult endeavour would be to determine all conjunctions of \emph{
 It would be interesting to compare the low-order results obtained in this work to the complete descriptions that are known for bands (idempotent semigroups) \cite{biryukov1970varieties,fennemore1970all,GERHARD1970195} and for commutative semigroups~\cite{kisielewicz1994varieties}.
 Quasivarieties, defined by conditions of the form $\forall x,\dots,\forall y,(u_1=v_1\wedge\dots\wedge u_k=v_k)\implies u_0=v_0$ where $u_i,v_i$ are words in the variables $x,\dots,y$, are also very interesting~\cite{sapir1985lattice,adams2003quasivarieties} and worth exploring at low orders.
 
-
+\begin{raggedright}
 \bibliographystyle{plainurl}
 \bibliography{references}
+\par
+\end{raggedright}
+
 
 \appendix
 \crefalias{section}{appendix}
@@ -655,7 +665,7 @@ The list here is extracted automatically from the file \texttt{data/associative\
 \begin{itemize}\setlength{\itemsep}{3pt}\raggedright
 \ExplSyntaxOn
 \cs_generate_variant:Nn \prop_set_from_keyval:Nn { Nx }
-\file_get:nnN {../data/associative_equation_classes.json} {} \l_tmpa_tl
+\file_get:nnN {associative_equation_classes.json} {} \l_tmpa_tl
 \tl_replace_all:Nnn \l_tmpa_tl [ { { \if_false: } \fi: }
 \tl_replace_all:Nnn \l_tmpa_tl ] { \if_false: { \fi: } }
 \use:x { \exp_not:n { \clist_set:Nn \l_tmpa_clist } \l_tmpa_tl }
@@ -684,7 +694,7 @@ The following list is extracted automatically from the file \texttt{data/associa
 \cs_generate_variant:Nn \prop_set_from_keyval:Nn { Nx }
 \cs_generate_variant:Nn \clist_use:nn { x }
 \cs_generate_variant:Nn \prop_const_from_keyval:Nn { cx }
-\file_get:nnN {../data/associative_theories.json} {} \l_tmpa_tl
+\file_get:nnN {associative_theories.json} {} \l_tmpa_tl
 \cs_set:Npn \tmp:w [#1] {#1}
 \tl_set:Nx \l_tmpa_clist { \exp_last_unbraced:NV \tmp:w \l_tmpa_tl }
 \int_new:N \l_my_id_int
