@@ -3,13 +3,1984 @@ import equational_theories.FactsSyntax
 import equational_theories.MemoFinOp
 import equational_theories.DecideBang
 import Mathlib.Data.Finite.Prod
+import associative_theories.AssociativeTheoriesEarly
 
 private def model26_op := finOpTable "[[0,0,0,0,0,0,0],[0,0,0,0,5,0,0],[0,3,0,0,0,6,0],[0,0,0,0,6,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]"
+private def model26 : Magma (Fin 7) where op := model26_op
+private instance : Magma (Fin 7) := model26
 
-theorem facts_from_model26 :
-  ∃ (G : Type) (_ : Magma G) (_: Finite G), Facts G
-  [1, 40, 307, 308, 309, 310, 312, 313, 315, 316, 3253, 3255, 3256, 3258, 3259, 3260, 3261, 3264, 3265, 3267, 3271, 3273, 3274, 3275, 3277, 3278, 3290, 3292, 3300, 4268, 4269, 4270, 4272, 4273, 4275, 4276, 4277, 4279, 4280, 4283, 4284, 4286, 4288, 4290, 4291, 4293, 4296, 4297, 4299, 4301, 4304, 4305, 4314, 4318, 4320, 4321, 4325, 4327, 4331, 4343, 4512]
-  [2, 3, 4, 5, 8, 10, 11, 14, 16, 38, 39, 41, 43, 47, 56, 66, 75, 311, 314, 318, 323, 325, 326, 327, 329, 332, 333, 343, 411, 419, 429, 440, 477, 504, 513, 3306, 3308, 3309, 3315, 3316, 3319, 3322, 3323, 3326, 3331, 3334, 3342, 3346, 3350, 3353, 3388, 3414, 4271, 4274, 4278, 4287, 4300, 4315, 4358, 4362, 4364, 4369]
-  :=
-  ⟨_, Magma.mk model26_op, Finite.of_fintype _, by decideFin!⟩
+private theorem model26_eq1 : Equation1 (Fin 7) := by decideFin!
+private theorem model26_eq40 : Equation40 (Fin 7) := by decideFin!
+private theorem model26_eq307 : Equation307 (Fin 7) := by decideFin!
+private theorem model26_eq308 : Equation308 (Fin 7) := by decideFin!
+private theorem model26_eq309 : Equation309 (Fin 7) := by decideFin!
+private theorem model26_eq310 : Equation310 (Fin 7) := by decideFin!
+private theorem model26_eq312 : Equation312 (Fin 7) := by decideFin!
+private theorem model26_eq313 : Equation313 (Fin 7) := by decideFin!
+private theorem model26_eq315 : Equation315 (Fin 7) := by decideFin!
+private theorem model26_eq316 : Equation316 (Fin 7) := by decideFin!
+private theorem model26_eq3253 : Equation3253 (Fin 7) := by decideFin!
+private theorem model26_eq3255 : Equation3255 (Fin 7) := by decideFin!
+private theorem model26_eq3256 : Equation3256 (Fin 7) := by decideFin!
+private theorem model26_eq3258 : Equation3258 (Fin 7) := by decideFin!
+private theorem model26_eq3259 : Equation3259 (Fin 7) := by decideFin!
+private theorem model26_eq3260 : Equation3260 (Fin 7) := by decideFin!
+private theorem model26_eq3261 : Equation3261 (Fin 7) := by decideFin!
+private theorem model26_eq3264 : Equation3264 (Fin 7) := by decideFin!
+private theorem model26_eq3265 : Equation3265 (Fin 7) := by decideFin!
+private theorem model26_eq3267 : Equation3267 (Fin 7) := by decideFin!
+private theorem model26_eq3271 : Equation3271 (Fin 7) := by decideFin!
+private theorem model26_eq3273 : Equation3273 (Fin 7) := by decideFin!
+private theorem model26_eq3274 : Equation3274 (Fin 7) := by decideFin!
+private theorem model26_eq3275 : Equation3275 (Fin 7) := by decideFin!
+private theorem model26_eq3277 : Equation3277 (Fin 7) := by decideFin!
+private theorem model26_eq3278 : Equation3278 (Fin 7) := by decideFin!
+private theorem model26_eq3290 : Equation3290 (Fin 7) := by decideFin!
+private theorem model26_eq3292 : Equation3292 (Fin 7) := by decideFin!
+private theorem model26_eq3300 : Equation3300 (Fin 7) := by decideFin!
+private theorem model26_eq4268 : Equation4268 (Fin 7) := by decideFin!
+private theorem model26_eq4269 : Equation4269 (Fin 7) := by decideFin!
+private theorem model26_eq4270 : Equation4270 (Fin 7) := by decideFin!
+private theorem model26_eq4272 : Equation4272 (Fin 7) := by decideFin!
+private theorem model26_eq4273 : Equation4273 (Fin 7) := by decideFin!
+private theorem model26_eq4275 : Equation4275 (Fin 7) := by decideFin!
+private theorem model26_eq4276 : Equation4276 (Fin 7) := by decideFin!
+private theorem model26_eq4277 : Equation4277 (Fin 7) := by decideFin!
+private theorem model26_eq4279 : Equation4279 (Fin 7) := by decideFin!
+private theorem model26_eq4280 : Equation4280 (Fin 7) := by decideFin!
+private theorem model26_eq4283 : Equation4283 (Fin 7) := by decideFin!
+private theorem model26_eq4284 : Equation4284 (Fin 7) := by decideFin!
+private theorem model26_eq4286 : Equation4286 (Fin 7) := by decideFin!
+private theorem model26_eq4288 : Equation4288 (Fin 7) := by decideFin!
+private theorem model26_eq4290 : Equation4290 (Fin 7) := by decideFin!
+private theorem model26_eq4291 : Equation4291 (Fin 7) := by decideFin!
+private theorem model26_eq4293 : Equation4293 (Fin 7) := by decideFin!
+private theorem model26_eq4296 : Equation4296 (Fin 7) := by decideFin!
+private theorem model26_eq4297 : Equation4297 (Fin 7) := by decideFin!
+private theorem model26_eq4299 : Equation4299 (Fin 7) := by decideFin!
+private theorem model26_eq4301 : Equation4301 (Fin 7) := by decideFin!
+private theorem model26_eq4304 : Equation4304 (Fin 7) := by decideFin!
+private theorem model26_eq4305 : Equation4305 (Fin 7) := by decideFin!
+private theorem model26_eq4314 : Equation4314 (Fin 7) := by decideFin!
+private theorem model26_eq4318 : Equation4318 (Fin 7) := by decideFin!
+private theorem model26_eq4320 : Equation4320 (Fin 7) := by decideFin!
+private theorem model26_eq4321 : Equation4321 (Fin 7) := by decideFin!
+private theorem model26_eq4325 : Equation4325 (Fin 7) := by decideFin!
+private theorem model26_eq4327 : Equation4327 (Fin 7) := by decideFin!
+private theorem model26_eq4331 : Equation4331 (Fin 7) := by decideFin!
+private theorem model26_eq4343 : Equation4343 (Fin 7) := by decideFin!
+private theorem model26_eq4512 : Equation4512 (Fin 7) := by decideFin!
+private theorem not_model26_eq2 : Not (Equation2 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3 : Not (Equation3 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4 : Not (Equation4 (Fin 7)) := by decideFin!
+private theorem not_model26_eq5 : Not (Equation5 (Fin 7)) := by decideFin!
+private theorem not_model26_eq8 : Not (Equation8 (Fin 7)) := by decideFin!
+private theorem not_model26_eq10 : Not (Equation10 (Fin 7)) := by decideFin!
+private theorem not_model26_eq11 : Not (Equation11 (Fin 7)) := by decideFin!
+private theorem not_model26_eq14 : Not (Equation14 (Fin 7)) := by decideFin!
+private theorem not_model26_eq16 : Not (Equation16 (Fin 7)) := by decideFin!
+private theorem not_model26_eq38 : Not (Equation38 (Fin 7)) := by decideFin!
+private theorem not_model26_eq39 : Not (Equation39 (Fin 7)) := by decideFin!
+private theorem not_model26_eq41 : Not (Equation41 (Fin 7)) := by decideFin!
+private theorem not_model26_eq43 : Not (Equation43 (Fin 7)) := by decideFin!
+private theorem not_model26_eq47 : Not (Equation47 (Fin 7)) := by decideFin!
+private theorem not_model26_eq56 : Not (Equation56 (Fin 7)) := by decideFin!
+private theorem not_model26_eq66 : Not (Equation66 (Fin 7)) := by decideFin!
+private theorem not_model26_eq75 : Not (Equation75 (Fin 7)) := by decideFin!
+private theorem not_model26_eq311 : Not (Equation311 (Fin 7)) := by decideFin!
+private theorem not_model26_eq314 : Not (Equation314 (Fin 7)) := by decideFin!
+private theorem not_model26_eq318 : Not (Equation318 (Fin 7)) := by decideFin!
+private theorem not_model26_eq323 : Not (Equation323 (Fin 7)) := by decideFin!
+private theorem not_model26_eq325 : Not (Equation325 (Fin 7)) := by decideFin!
+private theorem not_model26_eq326 : Not (Equation326 (Fin 7)) := by decideFin!
+private theorem not_model26_eq327 : Not (Equation327 (Fin 7)) := by decideFin!
+private theorem not_model26_eq329 : Not (Equation329 (Fin 7)) := by decideFin!
+private theorem not_model26_eq332 : Not (Equation332 (Fin 7)) := by decideFin!
+private theorem not_model26_eq333 : Not (Equation333 (Fin 7)) := by decideFin!
+private theorem not_model26_eq343 : Not (Equation343 (Fin 7)) := by decideFin!
+private theorem not_model26_eq411 : Not (Equation411 (Fin 7)) := by decideFin!
+private theorem not_model26_eq419 : Not (Equation419 (Fin 7)) := by decideFin!
+private theorem not_model26_eq429 : Not (Equation429 (Fin 7)) := by decideFin!
+private theorem not_model26_eq440 : Not (Equation440 (Fin 7)) := by decideFin!
+private theorem not_model26_eq477 : Not (Equation477 (Fin 7)) := by decideFin!
+private theorem not_model26_eq504 : Not (Equation504 (Fin 7)) := by decideFin!
+private theorem not_model26_eq513 : Not (Equation513 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3306 : Not (Equation3306 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3308 : Not (Equation3308 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3309 : Not (Equation3309 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3315 : Not (Equation3315 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3316 : Not (Equation3316 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3319 : Not (Equation3319 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3322 : Not (Equation3322 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3323 : Not (Equation3323 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3326 : Not (Equation3326 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3331 : Not (Equation3331 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3334 : Not (Equation3334 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3342 : Not (Equation3342 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3346 : Not (Equation3346 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3350 : Not (Equation3350 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3353 : Not (Equation3353 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3388 : Not (Equation3388 (Fin 7)) := by decideFin!
+private theorem not_model26_eq3414 : Not (Equation3414 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4271 : Not (Equation4271 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4274 : Not (Equation4274 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4278 : Not (Equation4278 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4287 : Not (Equation4287 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4300 : Not (Equation4300 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4315 : Not (Equation4315 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4358 : Not (Equation4358 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4362 : Not (Equation4362 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4364 : Not (Equation4364 (Fin 7)) := by decideFin!
+private theorem not_model26_eq4369 : Not (Equation4369 (Fin 7)) := by decideFin!
 
+theorem model26_at1 : AssociativeTheory1 (Fin 7) :=
+  model26_eq4512
+
+theorem not_model26_at2 : Not (AssociativeTheory2 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq2
+
+theorem not_model26_at3 : Not (AssociativeTheory3 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3
+
+theorem not_model26_at4 : Not (AssociativeTheory4 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4
+
+theorem not_model26_at5 : Not (AssociativeTheory5 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq5
+
+theorem not_model26_at6 : Not (AssociativeTheory6 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq8
+
+theorem not_model26_at7 : Not (AssociativeTheory7 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq10
+
+theorem not_model26_at8 : Not (AssociativeTheory8 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq11
+
+theorem not_model26_at9 : Not (AssociativeTheory9 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq14
+
+theorem not_model26_at10 : Not (AssociativeTheory10 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq16
+
+theorem not_model26_at11 : Not (AssociativeTheory11 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq38
+
+theorem not_model26_at12 : Not (AssociativeTheory12 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq39
+
+theorem not_model26_at13 : Not (AssociativeTheory13 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq38
+
+theorem model26_at14 : AssociativeTheory14 (Fin 7) :=
+  ⟨model26_eq40, model26_eq4512⟩
+
+theorem not_model26_at15 : Not (AssociativeTheory15 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem not_model26_at16 : Not (AssociativeTheory16 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3
+
+theorem not_model26_at17 : Not (AssociativeTheory17 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq8
+
+theorem not_model26_at18 : Not (AssociativeTheory18 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem not_model26_at19 : Not (AssociativeTheory19 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq47
+
+theorem not_model26_at20 : Not (AssociativeTheory20 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem not_model26_at21 : Not (AssociativeTheory21 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq56
+
+theorem not_model26_at22 : Not (AssociativeTheory22 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem not_model26_at23 : Not (AssociativeTheory23 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq75
+
+theorem not_model26_at24 : Not (AssociativeTheory24 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq56
+
+theorem model26_at25 : AssociativeTheory25 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4512⟩
+
+theorem model26_at26 : AssociativeTheory26 (Fin 7) :=
+  ⟨model26_eq40, model26_eq307, model26_eq4512⟩
+
+theorem not_model26_at27 : Not (AssociativeTheory27 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem not_model26_at28 : Not (AssociativeTheory28 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem model26_at29 : AssociativeTheory29 (Fin 7) :=
+  ⟨model26_eq308, model26_eq4512⟩
+
+theorem model26_at30 : AssociativeTheory30 (Fin 7) :=
+  ⟨model26_eq309, model26_eq4512⟩
+
+theorem model26_at31 : AssociativeTheory31 (Fin 7) :=
+  ⟨model26_eq40, model26_eq309, model26_eq4512⟩
+
+theorem model26_at32 : AssociativeTheory32 (Fin 7) :=
+  ⟨model26_eq308, model26_eq309, model26_eq4512⟩
+
+theorem model26_at33 : AssociativeTheory33 (Fin 7) :=
+  ⟨model26_eq310, model26_eq4512⟩
+
+theorem not_model26_at34 : Not (AssociativeTheory34 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq311
+
+theorem not_model26_at35 : Not (AssociativeTheory35 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq311
+
+theorem not_model26_at36 : Not (AssociativeTheory36 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem model26_at37 : AssociativeTheory37 (Fin 7) :=
+  ⟨model26_eq312, model26_eq4512⟩
+
+theorem model26_at38 : AssociativeTheory38 (Fin 7) :=
+  ⟨model26_eq309, model26_eq312, model26_eq4512⟩
+
+theorem model26_at39 : AssociativeTheory39 (Fin 7) :=
+  ⟨model26_eq315, model26_eq4512⟩
+
+theorem not_model26_at40 : Not (AssociativeTheory40 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq318
+
+theorem not_model26_at41 : Not (AssociativeTheory41 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem not_model26_at42 : Not (AssociativeTheory42 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem not_model26_at43 : Not (AssociativeTheory43 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem not_model26_at44 : Not (AssociativeTheory44 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem not_model26_at45 : Not (AssociativeTheory45 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq325
+
+theorem not_model26_at46 : Not (AssociativeTheory46 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3
+
+theorem not_model26_at47 : Not (AssociativeTheory47 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq325
+
+theorem not_model26_at48 : Not (AssociativeTheory48 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem not_model26_at49 : Not (AssociativeTheory49 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq326
+
+theorem not_model26_at50 : Not (AssociativeTheory50 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem not_model26_at51 : Not (AssociativeTheory51 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq333
+
+theorem not_model26_at52 : Not (AssociativeTheory52 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3
+
+theorem not_model26_at53 : Not (AssociativeTheory53 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq326
+
+theorem not_model26_at54 : Not (AssociativeTheory54 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq411
+
+theorem not_model26_at55 : Not (AssociativeTheory55 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem not_model26_at56 : Not (AssociativeTheory56 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq419
+
+theorem not_model26_at57 : Not (AssociativeTheory57 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq429
+
+theorem not_model26_at58 : Not (AssociativeTheory58 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq440
+
+theorem not_model26_at59 : Not (AssociativeTheory59 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem not_model26_at60 : Not (AssociativeTheory60 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq504
+
+theorem not_model26_at61 : Not (AssociativeTheory61 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq513
+
+theorem not_model26_at62 : Not (AssociativeTheory62 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq440
+
+theorem model26_at63 : AssociativeTheory63 (Fin 7) :=
+  ⟨model26_eq3253, model26_eq4512⟩
+
+theorem not_model26_at64 : Not (AssociativeTheory64 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem model26_at65 : AssociativeTheory65 (Fin 7) :=
+  ⟨model26_eq3255, model26_eq4512⟩
+
+theorem not_model26_at66 : Not (AssociativeTheory66 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq326
+
+theorem model26_at67 : AssociativeTheory67 (Fin 7) :=
+  ⟨model26_eq3256, model26_eq4512⟩
+
+theorem model26_at68 : AssociativeTheory68 (Fin 7) :=
+  ⟨model26_eq3258, model26_eq4512⟩
+
+theorem not_model26_at69 : Not (AssociativeTheory69 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem model26_at70 : AssociativeTheory70 (Fin 7) :=
+  ⟨model26_eq3255, model26_eq3258, model26_eq4512⟩
+
+theorem model26_at71 : AssociativeTheory71 (Fin 7) :=
+  ⟨model26_eq3259, model26_eq4512⟩
+
+theorem model26_at72 : AssociativeTheory72 (Fin 7) :=
+  ⟨model26_eq3260, model26_eq4512⟩
+
+theorem model26_at73 : AssociativeTheory73 (Fin 7) :=
+  ⟨model26_eq40, model26_eq3260, model26_eq4512⟩
+
+theorem model26_at74 : AssociativeTheory74 (Fin 7) :=
+  ⟨model26_eq3261, model26_eq4512⟩
+
+theorem model26_at75 : AssociativeTheory75 (Fin 7) :=
+  ⟨model26_eq3264, model26_eq4512⟩
+
+theorem model26_at76 : AssociativeTheory76 (Fin 7) :=
+  ⟨model26_eq40, model26_eq3264, model26_eq4512⟩
+
+theorem model26_at77 : AssociativeTheory77 (Fin 7) :=
+  ⟨model26_eq308, model26_eq3264, model26_eq4512⟩
+
+theorem model26_at78 : AssociativeTheory78 (Fin 7) :=
+  ⟨model26_eq312, model26_eq3264, model26_eq4512⟩
+
+theorem model26_at79 : AssociativeTheory79 (Fin 7) :=
+  ⟨model26_eq3260, model26_eq3264, model26_eq4512⟩
+
+theorem model26_at80 : AssociativeTheory80 (Fin 7) :=
+  ⟨model26_eq40, model26_eq3260, model26_eq3264, model26_eq4512⟩
+
+theorem model26_at81 : AssociativeTheory81 (Fin 7) :=
+  ⟨model26_eq3265, model26_eq4512⟩
+
+theorem model26_at82 : AssociativeTheory82 (Fin 7) :=
+  ⟨model26_eq40, model26_eq3265, model26_eq4512⟩
+
+theorem model26_at83 : AssociativeTheory83 (Fin 7) :=
+  ⟨model26_eq3260, model26_eq3265, model26_eq4512⟩
+
+theorem model26_at84 : AssociativeTheory84 (Fin 7) :=
+  ⟨model26_eq40, model26_eq3260, model26_eq3265, model26_eq4512⟩
+
+theorem model26_at85 : AssociativeTheory85 (Fin 7) :=
+  ⟨model26_eq3264, model26_eq3265, model26_eq4512⟩
+
+theorem model26_at86 : AssociativeTheory86 (Fin 7) :=
+  ⟨model26_eq40, model26_eq3264, model26_eq3265, model26_eq4512⟩
+
+theorem model26_at87 : AssociativeTheory87 (Fin 7) :=
+  ⟨model26_eq3260, model26_eq3264, model26_eq3265, model26_eq4512⟩
+
+theorem model26_at88 : AssociativeTheory88 (Fin 7) :=
+  ⟨model26_eq40, model26_eq3260, model26_eq3264, model26_eq3265, model26_eq4512⟩
+
+theorem model26_at89 : AssociativeTheory89 (Fin 7) :=
+  ⟨model26_eq3267, model26_eq4512⟩
+
+theorem model26_at90 : AssociativeTheory90 (Fin 7) :=
+  ⟨model26_eq40, model26_eq3267, model26_eq4512⟩
+
+theorem not_model26_at91 : Not (AssociativeTheory91 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem model26_at92 : AssociativeTheory92 (Fin 7) :=
+  ⟨model26_eq309, model26_eq3267, model26_eq4512⟩
+
+theorem model26_at93 : AssociativeTheory93 (Fin 7) :=
+  ⟨model26_eq40, model26_eq309, model26_eq3267, model26_eq4512⟩
+
+theorem model26_at94 : AssociativeTheory94 (Fin 7) :=
+  ⟨model26_eq3271, model26_eq4512⟩
+
+theorem model26_at95 : AssociativeTheory95 (Fin 7) :=
+  ⟨model26_eq3274, model26_eq4512⟩
+
+theorem model26_at96 : AssociativeTheory96 (Fin 7) :=
+  ⟨model26_eq3264, model26_eq3274, model26_eq4512⟩
+
+theorem model26_at97 : AssociativeTheory97 (Fin 7) :=
+  ⟨model26_eq3278, model26_eq4512⟩
+
+theorem model26_at98 : AssociativeTheory98 (Fin 7) :=
+  ⟨model26_eq3292, model26_eq4512⟩
+
+theorem model26_at99 : AssociativeTheory99 (Fin 7) :=
+  ⟨model26_eq3264, model26_eq3292, model26_eq4512⟩
+
+theorem model26_at100 : AssociativeTheory100 (Fin 7) :=
+  ⟨model26_eq3274, model26_eq3292, model26_eq4512⟩
+
+theorem model26_at101 : AssociativeTheory101 (Fin 7) :=
+  ⟨model26_eq3264, model26_eq3274, model26_eq3292, model26_eq4512⟩
+
+theorem model26_at102 : AssociativeTheory102 (Fin 7) :=
+  ⟨model26_eq3300, model26_eq4512⟩
+
+theorem model26_at103 : AssociativeTheory103 (Fin 7) :=
+  ⟨model26_eq309, model26_eq3300, model26_eq4512⟩
+
+theorem not_model26_at104 : Not (AssociativeTheory104 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem not_model26_at105 : Not (AssociativeTheory105 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem not_model26_at106 : Not (AssociativeTheory106 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem not_model26_at107 : Not (AssociativeTheory107 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem not_model26_at108 : Not (AssociativeTheory108 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem not_model26_at109 : Not (AssociativeTheory109 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem not_model26_at110 : Not (AssociativeTheory110 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem not_model26_at111 : Not (AssociativeTheory111 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3308
+
+theorem not_model26_at112 : Not (AssociativeTheory112 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq8
+
+theorem not_model26_at113 : Not (AssociativeTheory113 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3315
+
+theorem not_model26_at114 : Not (AssociativeTheory114 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq8
+
+theorem not_model26_at115 : Not (AssociativeTheory115 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3315
+
+theorem not_model26_at116 : Not (AssociativeTheory116 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem not_model26_at117 : Not (AssociativeTheory117 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3316
+
+theorem not_model26_at118 : Not (AssociativeTheory118 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem not_model26_at119 : Not (AssociativeTheory119 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq326
+
+theorem not_model26_at120 : Not (AssociativeTheory120 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3319
+
+theorem not_model26_at121 : Not (AssociativeTheory121 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem not_model26_at122 : Not (AssociativeTheory122 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3346
+
+theorem not_model26_at123 : Not (AssociativeTheory123 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq8
+
+theorem not_model26_at124 : Not (AssociativeTheory124 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3353
+
+theorem not_model26_at125 : Not (AssociativeTheory125 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq8
+
+theorem not_model26_at126 : Not (AssociativeTheory126 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3319
+
+theorem model26_at127 : AssociativeTheory127 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4512⟩
+
+theorem not_model26_at128 : Not (AssociativeTheory128 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem model26_at129 : AssociativeTheory129 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4512⟩
+
+theorem model26_at130 : AssociativeTheory130 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4269, model26_eq4512⟩
+
+theorem model26_at131 : AssociativeTheory131 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4512⟩
+
+theorem not_model26_at132 : Not (AssociativeTheory132 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem model26_at133 : AssociativeTheory133 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4270, model26_eq4512⟩
+
+theorem model26_at134 : AssociativeTheory134 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4270, model26_eq4512⟩
+
+theorem model26_at135 : AssociativeTheory135 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4269, model26_eq4270, model26_eq4512⟩
+
+theorem not_model26_at136 : Not (AssociativeTheory136 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4271
+
+theorem not_model26_at137 : Not (AssociativeTheory137 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem model26_at138 : AssociativeTheory138 (Fin 7) :=
+  ⟨model26_eq4272, model26_eq4512⟩
+
+theorem model26_at139 : AssociativeTheory139 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4272, model26_eq4512⟩
+
+theorem model26_at140 : AssociativeTheory140 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4272, model26_eq4512⟩
+
+theorem model26_at141 : AssociativeTheory141 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4269, model26_eq4272, model26_eq4512⟩
+
+theorem model26_at142 : AssociativeTheory142 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4272, model26_eq4512⟩
+
+theorem model26_at143 : AssociativeTheory143 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4270, model26_eq4272, model26_eq4512⟩
+
+theorem not_model26_at144 : Not (AssociativeTheory144 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4271
+
+theorem model26_at145 : AssociativeTheory145 (Fin 7) :=
+  ⟨model26_eq4273, model26_eq4512⟩
+
+theorem model26_at146 : AssociativeTheory146 (Fin 7) :=
+  ⟨model26_eq40, model26_eq4273, model26_eq4512⟩
+
+theorem model26_at147 : AssociativeTheory147 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4273, model26_eq4512⟩
+
+theorem model26_at148 : AssociativeTheory148 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4273, model26_eq4512⟩
+
+theorem model26_at149 : AssociativeTheory149 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4273, model26_eq4512⟩
+
+theorem model26_at150 : AssociativeTheory150 (Fin 7) :=
+  ⟨model26_eq4275, model26_eq4512⟩
+
+theorem model26_at151 : AssociativeTheory151 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4275, model26_eq4512⟩
+
+theorem model26_at152 : AssociativeTheory152 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4275, model26_eq4512⟩
+
+theorem model26_at153 : AssociativeTheory153 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4275, model26_eq4512⟩
+
+theorem model26_at154 : AssociativeTheory154 (Fin 7) :=
+  ⟨model26_eq4272, model26_eq4275, model26_eq4512⟩
+
+theorem model26_at155 : AssociativeTheory155 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4272, model26_eq4275, model26_eq4512⟩
+
+theorem model26_at156 : AssociativeTheory156 (Fin 7) :=
+  ⟨model26_eq4273, model26_eq4275, model26_eq4512⟩
+
+theorem model26_at157 : AssociativeTheory157 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4273, model26_eq4275, model26_eq4512⟩
+
+theorem model26_at158 : AssociativeTheory158 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4512⟩
+
+theorem not_model26_at159 : Not (AssociativeTheory159 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem not_model26_at160 : Not (AssociativeTheory160 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4278
+
+theorem model26_at161 : AssociativeTheory161 (Fin 7) :=
+  ⟨model26_eq4283, model26_eq4512⟩
+
+theorem not_model26_at162 : Not (AssociativeTheory162 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq47
+
+theorem not_model26_at163 : Not (AssociativeTheory163 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq56
+
+theorem model26_at164 : AssociativeTheory164 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4283, model26_eq4512⟩
+
+theorem not_model26_at165 : Not (AssociativeTheory165 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq326
+
+theorem not_model26_at166 : Not (AssociativeTheory166 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq411
+
+theorem not_model26_at167 : Not (AssociativeTheory167 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq440
+
+theorem model26_at168 : AssociativeTheory168 (Fin 7) :=
+  ⟨model26_eq3253, model26_eq4283, model26_eq4512⟩
+
+theorem model26_at169 : AssociativeTheory169 (Fin 7) :=
+  ⟨model26_eq3256, model26_eq4283, model26_eq4512⟩
+
+theorem not_model26_at170 : Not (AssociativeTheory170 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3319
+
+theorem model26_at171 : AssociativeTheory171 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4283, model26_eq4512⟩
+
+theorem model26_at172 : AssociativeTheory172 (Fin 7) :=
+  ⟨model26_eq4272, model26_eq4283, model26_eq4512⟩
+
+theorem model26_at173 : AssociativeTheory173 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4283, model26_eq4512⟩
+
+theorem model26_at174 : AssociativeTheory174 (Fin 7) :=
+  ⟨model26_eq4284, model26_eq4512⟩
+
+theorem not_model26_at175 : Not (AssociativeTheory175 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem model26_at176 : AssociativeTheory176 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4284, model26_eq4512⟩
+
+theorem not_model26_at177 : Not (AssociativeTheory177 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem model26_at178 : AssociativeTheory178 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4284, model26_eq4512⟩
+
+theorem model26_at179 : AssociativeTheory179 (Fin 7) :=
+  ⟨model26_eq4273, model26_eq4284, model26_eq4512⟩
+
+theorem model26_at180 : AssociativeTheory180 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4284, model26_eq4512⟩
+
+theorem not_model26_at181 : Not (AssociativeTheory181 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq43
+
+theorem model26_at182 : AssociativeTheory182 (Fin 7) :=
+  ⟨model26_eq4283, model26_eq4284, model26_eq4512⟩
+
+theorem model26_at183 : AssociativeTheory183 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4283, model26_eq4284, model26_eq4512⟩
+
+theorem model26_at184 : AssociativeTheory184 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4283, model26_eq4284, model26_eq4512⟩
+
+theorem not_model26_at185 : Not (AssociativeTheory185 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4287
+
+theorem not_model26_at186 : Not (AssociativeTheory186 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4287
+
+theorem model26_at187 : AssociativeTheory187 (Fin 7) :=
+  ⟨model26_eq4290, model26_eq4512⟩
+
+theorem model26_at188 : AssociativeTheory188 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4290, model26_eq4512⟩
+
+theorem not_model26_at189 : Not (AssociativeTheory189 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq411
+
+theorem model26_at190 : AssociativeTheory190 (Fin 7) :=
+  ⟨model26_eq3253, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at191 : AssociativeTheory191 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at192 : AssociativeTheory192 (Fin 7) :=
+  ⟨model26_eq4273, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at193 : AssociativeTheory193 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at194 : AssociativeTheory194 (Fin 7) :=
+  ⟨model26_eq4283, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at195 : AssociativeTheory195 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4283, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at196 : AssociativeTheory196 (Fin 7) :=
+  ⟨model26_eq3253, model26_eq4283, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at197 : AssociativeTheory197 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4283, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at198 : AssociativeTheory198 (Fin 7) :=
+  ⟨model26_eq4284, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at199 : AssociativeTheory199 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4284, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at200 : AssociativeTheory200 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4284, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at201 : AssociativeTheory201 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4284, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at202 : AssociativeTheory202 (Fin 7) :=
+  ⟨model26_eq4283, model26_eq4284, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at203 : AssociativeTheory203 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4283, model26_eq4284, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at204 : AssociativeTheory204 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4283, model26_eq4284, model26_eq4290, model26_eq4512⟩
+
+theorem model26_at205 : AssociativeTheory205 (Fin 7) :=
+  ⟨model26_eq4291, model26_eq4512⟩
+
+theorem model26_at206 : AssociativeTheory206 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at207 : AssociativeTheory207 (Fin 7) :=
+  ⟨model26_eq312, model26_eq4291, model26_eq4512⟩
+
+theorem not_model26_at208 : Not (AssociativeTheory208 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq326
+
+theorem model26_at209 : AssociativeTheory209 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at210 : AssociativeTheory210 (Fin 7) :=
+  ⟨model26_eq4272, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at211 : AssociativeTheory211 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at212 : AssociativeTheory212 (Fin 7) :=
+  ⟨model26_eq4283, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at213 : AssociativeTheory213 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4283, model26_eq4291, model26_eq4512⟩
+
+theorem not_model26_at214 : Not (AssociativeTheory214 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq326
+
+theorem model26_at215 : AssociativeTheory215 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4283, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at216 : AssociativeTheory216 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4283, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at217 : AssociativeTheory217 (Fin 7) :=
+  ⟨model26_eq4284, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at218 : AssociativeTheory218 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4284, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at219 : AssociativeTheory219 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4284, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at220 : AssociativeTheory220 (Fin 7) :=
+  ⟨model26_eq4290, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at221 : AssociativeTheory221 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4290, model26_eq4291, model26_eq4512⟩
+
+theorem model26_at222 : AssociativeTheory222 (Fin 7) :=
+  ⟨model26_eq4293, model26_eq4512⟩
+
+theorem model26_at223 : AssociativeTheory223 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4293, model26_eq4512⟩
+
+theorem model26_at224 : AssociativeTheory224 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4293, model26_eq4512⟩
+
+theorem model26_at225 : AssociativeTheory225 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4293, model26_eq4512⟩
+
+theorem model26_at226 : AssociativeTheory226 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4270, model26_eq4293, model26_eq4512⟩
+
+theorem model26_at227 : AssociativeTheory227 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4293, model26_eq4512⟩
+
+theorem not_model26_at228 : Not (AssociativeTheory228 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4300
+
+theorem not_model26_at229 : Not (AssociativeTheory229 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4300
+
+theorem model26_at230 : AssociativeTheory230 (Fin 7) :=
+  ⟨model26_eq4314, model26_eq4512⟩
+
+theorem model26_at231 : AssociativeTheory231 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4314, model26_eq4512⟩
+
+theorem model26_at232 : AssociativeTheory232 (Fin 7) :=
+  ⟨model26_eq308, model26_eq4314, model26_eq4512⟩
+
+theorem not_model26_at233 : Not (AssociativeTheory233 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem model26_at234 : AssociativeTheory234 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4314, model26_eq4512⟩
+
+theorem model26_at235 : AssociativeTheory235 (Fin 7) :=
+  ⟨model26_eq4275, model26_eq4314, model26_eq4512⟩
+
+theorem model26_at236 : AssociativeTheory236 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4314, model26_eq4512⟩
+
+theorem model26_at237 : AssociativeTheory237 (Fin 7) :=
+  ⟨model26_eq4293, model26_eq4314, model26_eq4512⟩
+
+theorem model26_at238 : AssociativeTheory238 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4293, model26_eq4314, model26_eq4512⟩
+
+theorem not_model26_at239 : Not (AssociativeTheory239 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4315
+
+theorem not_model26_at240 : Not (AssociativeTheory240 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4315
+
+theorem model26_at241 : AssociativeTheory241 (Fin 7) :=
+  ⟨model26_eq4320, model26_eq4512⟩
+
+theorem not_model26_at242 : Not (AssociativeTheory242 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq47
+
+theorem not_model26_at243 : Not (AssociativeTheory243 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq75
+
+theorem model26_at244 : AssociativeTheory244 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4320, model26_eq4512⟩
+
+theorem not_model26_at245 : Not (AssociativeTheory245 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem not_model26_at246 : Not (AssociativeTheory246 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq411
+
+theorem not_model26_at247 : Not (AssociativeTheory247 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq513
+
+theorem model26_at248 : AssociativeTheory248 (Fin 7) :=
+  ⟨model26_eq3253, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at249 : AssociativeTheory249 (Fin 7) :=
+  ⟨model26_eq3261, model26_eq4320, model26_eq4512⟩
+
+theorem not_model26_at250 : Not (AssociativeTheory250 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem model26_at251 : AssociativeTheory251 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at252 : AssociativeTheory252 (Fin 7) :=
+  ⟨model26_eq4275, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at253 : AssociativeTheory253 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at254 : AssociativeTheory254 (Fin 7) :=
+  ⟨model26_eq4293, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at255 : AssociativeTheory255 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4293, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at256 : AssociativeTheory256 (Fin 7) :=
+  ⟨model26_eq4314, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at257 : AssociativeTheory257 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4314, model26_eq4320, model26_eq4512⟩
+
+theorem not_model26_at258 : Not (AssociativeTheory258 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem model26_at259 : AssociativeTheory259 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4314, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at260 : AssociativeTheory260 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4314, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at261 : AssociativeTheory261 (Fin 7) :=
+  ⟨model26_eq4293, model26_eq4314, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at262 : AssociativeTheory262 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4293, model26_eq4314, model26_eq4320, model26_eq4512⟩
+
+theorem model26_at263 : AssociativeTheory263 (Fin 7) :=
+  ⟨model26_eq4321, model26_eq4512⟩
+
+theorem model26_at264 : AssociativeTheory264 (Fin 7) :=
+  ⟨model26_eq40, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at265 : AssociativeTheory265 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at266 : AssociativeTheory266 (Fin 7) :=
+  ⟨model26_eq3260, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at267 : AssociativeTheory267 (Fin 7) :=
+  ⟨model26_eq3265, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at268 : AssociativeTheory268 (Fin 7) :=
+  ⟨model26_eq3260, model26_eq3265, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at269 : AssociativeTheory269 (Fin 7) :=
+  ⟨model26_eq3267, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at270 : AssociativeTheory270 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at271 : AssociativeTheory271 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at272 : AssociativeTheory272 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4270, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at273 : AssociativeTheory273 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at274 : AssociativeTheory274 (Fin 7) :=
+  ⟨model26_eq4284, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at275 : AssociativeTheory275 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4284, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at276 : AssociativeTheory276 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4284, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at277 : AssociativeTheory277 (Fin 7) :=
+  ⟨model26_eq4290, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at278 : AssociativeTheory278 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4290, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at279 : AssociativeTheory279 (Fin 7) :=
+  ⟨model26_eq4284, model26_eq4290, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at280 : AssociativeTheory280 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4284, model26_eq4290, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at281 : AssociativeTheory281 (Fin 7) :=
+  ⟨model26_eq4293, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at282 : AssociativeTheory282 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4293, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at283 : AssociativeTheory283 (Fin 7) :=
+  ⟨model26_eq4270, model26_eq4293, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at284 : AssociativeTheory284 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4293, model26_eq4321, model26_eq4512⟩
+
+theorem model26_at285 : AssociativeTheory285 (Fin 7) :=
+  ⟨model26_eq4343, model26_eq4512⟩
+
+theorem model26_at286 : AssociativeTheory286 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at287 : AssociativeTheory287 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at288 : AssociativeTheory288 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at289 : AssociativeTheory289 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4269, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at290 : AssociativeTheory290 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at291 : AssociativeTheory291 (Fin 7) :=
+  ⟨model26_eq4283, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at292 : AssociativeTheory292 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4283, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at293 : AssociativeTheory293 (Fin 7) :=
+  ⟨model26_eq4291, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at294 : AssociativeTheory294 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4291, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at295 : AssociativeTheory295 (Fin 7) :=
+  ⟨model26_eq4283, model26_eq4291, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at296 : AssociativeTheory296 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4283, model26_eq4291, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at297 : AssociativeTheory297 (Fin 7) :=
+  ⟨model26_eq4293, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at298 : AssociativeTheory298 (Fin 7) :=
+  ⟨model26_eq4269, model26_eq4293, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at299 : AssociativeTheory299 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4293, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at300 : AssociativeTheory300 (Fin 7) :=
+  ⟨model26_eq4321, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at301 : AssociativeTheory301 (Fin 7) :=
+  ⟨model26_eq307, model26_eq4321, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at302 : AssociativeTheory302 (Fin 7) :=
+  ⟨model26_eq4268, model26_eq4321, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at303 : AssociativeTheory303 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4321, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at304 : AssociativeTheory304 (Fin 7) :=
+  ⟨model26_eq4293, model26_eq4321, model26_eq4343, model26_eq4512⟩
+
+theorem model26_at305 : AssociativeTheory305 (Fin 7) :=
+  ⟨model26_eq4276, model26_eq4293, model26_eq4321, model26_eq4343, model26_eq4512⟩
+
+theorem not_model26_at306 : Not (AssociativeTheory306 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at307 : Not (AssociativeTheory307 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3
+
+theorem not_model26_at308 : Not (AssociativeTheory308 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq8
+
+theorem not_model26_at309 : Not (AssociativeTheory309 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at310 : Not (AssociativeTheory310 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq47
+
+theorem not_model26_at311 : Not (AssociativeTheory311 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at312 : Not (AssociativeTheory312 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at313 : Not (AssociativeTheory313 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at314 : Not (AssociativeTheory314 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem not_model26_at315 : Not (AssociativeTheory315 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq326
+
+theorem not_model26_at316 : Not (AssociativeTheory316 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq411
+
+theorem not_model26_at317 : Not (AssociativeTheory317 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at318 : Not (AssociativeTheory318 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at319 : Not (AssociativeTheory319 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at320 : Not (AssociativeTheory320 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at321 : Not (AssociativeTheory321 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem not_model26_at322 : Not (AssociativeTheory322 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3319
+
+theorem not_model26_at323 : Not (AssociativeTheory323 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at324 : Not (AssociativeTheory324 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at325 : Not (AssociativeTheory325 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at326 : Not (AssociativeTheory326 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at327 : Not (AssociativeTheory327 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at328 : Not (AssociativeTheory328 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at329 : Not (AssociativeTheory329 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at330 : Not (AssociativeTheory330 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at331 : Not (AssociativeTheory331 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at332 : Not (AssociativeTheory332 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at333 : Not (AssociativeTheory333 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at334 : Not (AssociativeTheory334 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at335 : Not (AssociativeTheory335 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at336 : Not (AssociativeTheory336 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at337 : Not (AssociativeTheory337 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at338 : Not (AssociativeTheory338 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at339 : Not (AssociativeTheory339 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at340 : Not (AssociativeTheory340 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at341 : Not (AssociativeTheory341 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at342 : Not (AssociativeTheory342 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at343 : Not (AssociativeTheory343 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at344 : Not (AssociativeTheory344 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at345 : Not (AssociativeTheory345 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at346 : Not (AssociativeTheory346 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at347 : Not (AssociativeTheory347 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at348 : Not (AssociativeTheory348 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at349 : Not (AssociativeTheory349 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at350 : Not (AssociativeTheory350 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at351 : Not (AssociativeTheory351 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at352 : Not (AssociativeTheory352 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3
+
+theorem not_model26_at353 : Not (AssociativeTheory353 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq8
+
+theorem not_model26_at354 : Not (AssociativeTheory354 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at355 : Not (AssociativeTheory355 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq47
+
+theorem not_model26_at356 : Not (AssociativeTheory356 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at357 : Not (AssociativeTheory357 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at358 : Not (AssociativeTheory358 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at359 : Not (AssociativeTheory359 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq323
+
+theorem not_model26_at360 : Not (AssociativeTheory360 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq326
+
+theorem not_model26_at361 : Not (AssociativeTheory361 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq411
+
+theorem not_model26_at362 : Not (AssociativeTheory362 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at363 : Not (AssociativeTheory363 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at364 : Not (AssociativeTheory364 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at365 : Not (AssociativeTheory365 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at366 : Not (AssociativeTheory366 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3306
+
+theorem not_model26_at367 : Not (AssociativeTheory367 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq3319
+
+theorem not_model26_at368 : Not (AssociativeTheory368 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at369 : Not (AssociativeTheory369 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at370 : Not (AssociativeTheory370 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at371 : Not (AssociativeTheory371 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at372 : Not (AssociativeTheory372 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at373 : Not (AssociativeTheory373 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at374 : Not (AssociativeTheory374 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at375 : Not (AssociativeTheory375 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at376 : Not (AssociativeTheory376 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at377 : Not (AssociativeTheory377 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at378 : Not (AssociativeTheory378 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at379 : Not (AssociativeTheory379 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at380 : Not (AssociativeTheory380 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at381 : Not (AssociativeTheory381 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at382 : Not (AssociativeTheory382 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at383 : Not (AssociativeTheory383 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at384 : Not (AssociativeTheory384 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at385 : Not (AssociativeTheory385 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at386 : Not (AssociativeTheory386 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at387 : Not (AssociativeTheory387 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at388 : Not (AssociativeTheory388 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at389 : Not (AssociativeTheory389 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at390 : Not (AssociativeTheory390 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at391 : Not (AssociativeTheory391 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at392 : Not (AssociativeTheory392 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at393 : Not (AssociativeTheory393 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at394 : Not (AssociativeTheory394 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at395 : Not (AssociativeTheory395 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4362
+
+theorem not_model26_at396 : Not (AssociativeTheory396 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at397 : Not (AssociativeTheory397 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at398 : Not (AssociativeTheory398 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at399 : Not (AssociativeTheory399 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at400 : Not (AssociativeTheory400 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at401 : Not (AssociativeTheory401 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at402 : Not (AssociativeTheory402 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at403 : Not (AssociativeTheory403 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at404 : Not (AssociativeTheory404 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at405 : Not (AssociativeTheory405 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at406 : Not (AssociativeTheory406 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at407 : Not (AssociativeTheory407 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4358
+
+theorem not_model26_at408 : Not (AssociativeTheory408 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at409 : Not (AssociativeTheory409 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at410 : Not (AssociativeTheory410 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at411 : Not (AssociativeTheory411 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at412 : Not (AssociativeTheory412 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at413 : Not (AssociativeTheory413 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at414 : Not (AssociativeTheory414 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at415 : Not (AssociativeTheory415 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at416 : Not (AssociativeTheory416 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at417 : Not (AssociativeTheory417 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at418 : Not (AssociativeTheory418 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at419 : Not (AssociativeTheory419 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4364
+
+theorem not_model26_at420 : Not (AssociativeTheory420 (Fin 7)) := by
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at421 : Not (AssociativeTheory421 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at422 : Not (AssociativeTheory422 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at423 : Not (AssociativeTheory423 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at424 : Not (AssociativeTheory424 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at425 : Not (AssociativeTheory425 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at426 : Not (AssociativeTheory426 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at427 : Not (AssociativeTheory427 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at428 : Not (AssociativeTheory428 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at429 : Not (AssociativeTheory429 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at430 : Not (AssociativeTheory430 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at431 : Not (AssociativeTheory431 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at432 : Not (AssociativeTheory432 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at433 : Not (AssociativeTheory433 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at434 : Not (AssociativeTheory434 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at435 : Not (AssociativeTheory435 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at436 : Not (AssociativeTheory436 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at437 : Not (AssociativeTheory437 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at438 : Not (AssociativeTheory438 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at439 : Not (AssociativeTheory439 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at440 : Not (AssociativeTheory440 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at441 : Not (AssociativeTheory441 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at442 : Not (AssociativeTheory442 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at443 : Not (AssociativeTheory443 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at444 : Not (AssociativeTheory444 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at445 : Not (AssociativeTheory445 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at446 : Not (AssociativeTheory446 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at447 : Not (AssociativeTheory447 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at448 : Not (AssociativeTheory448 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at449 : Not (AssociativeTheory449 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at450 : Not (AssociativeTheory450 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at451 : Not (AssociativeTheory451 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at452 : Not (AssociativeTheory452 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at453 : Not (AssociativeTheory453 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at454 : Not (AssociativeTheory454 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at455 : Not (AssociativeTheory455 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
+
+theorem not_model26_at456 : Not (AssociativeTheory456 (Fin 7)) := by
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_right _ ?_
+  refine not_and_of_not_left _ ?_
+  exact not_model26_eq4369
