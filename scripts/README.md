@@ -75,7 +75,9 @@ To regenerate all generated data files, run python3 successively on
 - `generate_long_implications.py`
 
 - `generate_models.py` generates the Lean files for all countermodels
-  used to disprove implications between associative theories
+  (`CounterModels/Model0.lean` etc.), and disproofs of implications
+  between associative theories (`NonImplications/NonImplications1.lean`
+  etc.)
 
 - `generate_theories.py` produces two Lean files, with the "early" and
   "long" representatives of associative theories

@@ -11,8 +11,8 @@ eqs_to_test = [1, 2, 3, 4, 5, 8, 10, 11, 14, 16, 38, 39, 40, 41, 43, 47, 56, 66,
 # Add associativity, which we will need to know about
 eqs_to_test.append(4512)
 
-def generate_model(index, t):
-    size = len(t)
+model_eqs = []
+for t in countermodel_list:
     mul_table = str([list(ti) for ti in t]).replace(' ', '')
     eqs_obeyed = []
     eqs_refuted = []
@@ -21,6 +21,12 @@ def generate_model(index, t):
             eqs_obeyed.append(eq_id)
         else:
             eqs_refuted.append(eq_id)
+    model_eqs.append([eqs_obeyed, eqs_refuted])
+
+def generate_model(index, t):
+    size = len(t)
+    mul_table = str([list(ti) for ti in t]).replace(' ', '')
+    eqs_obeyed, eqs_refuted = model_eqs[index]
     with open(f"../associative_theories/Countermodels/Model{index}.lean", "w") as f:
         print(f"""import equational_theories.Equations.All
 import equational_theories.FactsSyntax
@@ -59,3 +65,43 @@ with open("../associative_theories/Countermodels.lean", "w") as f:
         print("model", i, end="     \r")
         generate_model(i, t)
         print(f"import associative_theories.Countermodels.Model{i}", file=f)
+
+with open(f'../associative_theories/NonImplications.lean', 'w') as f:
+    print('/- Generated file proving non-implications between associative theories -/\n', file=f)
+    for at in associative_theories:
+        print(f'import associative_theories.NonImplications.NonImplications{at["id"]}', file=f)
+    print('''
+theorem AT_not_implies (atid : ATIndex) :
+  (atid2 : ATIndex) -> (hh : Not (AT_impliesQ atid atid2)) ->
+  ∃ (G : Type) (_ : Magma G) (_ : Finite G), (ATearly atid G) ∧ Not (ATearly atid2 G) :=
+match atid with''', file=f)
+    for at in associative_theories:
+        print(f'| .at{at["id"]} => AT{at["id"]}_not_implies', file=f)
+
+for at in associative_theories:
+    print('Associative theory', at['id'], end='\r')
+    with open(f'../associative_theories/NonImplications/NonImplications{at["id"]}.lean', 'w') as f:
+        usable_models = {}
+        for i, t in enumerate(countermodel_list):
+            eqs_obeyed, eqs_refuted = model_eqs[i]
+            if set(at['long']).issubset(eqs_obeyed):
+                usable_models[i] = (t, eqs_obeyed, eqs_refuted)
+        print(f'''/- Generated file proving non-implications from the associative theory {at["id"]} -/
+
+import Mathlib.Data.Finite.Prod
+import associative_theories.AssociativeTheoriesEarly
+import associative_theories.ImplicationsAT
+import associative_theories.Countermodels
+''',
+            file=f)
+        print(f'theorem AT{at["id"]}_not_implies (atid : ATIndex) (hh : Not (AT{at["id"]}_impliesQ atid)) :', file=f)
+        print(f'  ∃ (G : Type) (_ : Magma G) (_ : Finite G), AssociativeTheory{at["id"]} G ∧ Not (ATearly atid G) :=', file=f)
+        print('match atid with', file=f)
+        for at2 in associative_theories:
+            if set(at2['long']).issubset(at['long']):
+                print(f'| .at{at2["id"]} => (hh True.intro).elim', file=f)
+            else:
+                for i, (t, eqs_obeyed, eqs_refuted) in usable_models.items():
+                    if not set(at2['long']).issubset(eqs_obeyed):
+                        print(f'| .at{at2["id"]} => ⟨_, _, Finite.of_fintype _, model{i}_at{at["id"]}, not_model{i}_at{at2["id"]}⟩', file=f)
+                        break
