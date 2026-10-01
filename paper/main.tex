@@ -554,6 +554,38 @@ The scripts, Lean code and results of our exploration are available in the repos
 \section{Lean formalization}
 \label{sec:lean}
 
+\begin{figure}\centering
+\begin{minipage}{76ex}
+\begin{lstlisting}[language=lean,linewidth=74ex,frame=single]
+theorem AT_implies (atid: ATIndex) (atid2: ATIndex) :
+  AT_impliesQ atid atid2 ->
+  ∀ (G: Type*) [Magma G], (ATearly atid G) -> (ATearly atid2 G)
+
+theorem AT_not_implies (atid : ATIndex) (atid2 : ATIndex) :
+  Not (AT_impliesQ atid atid2) ->
+  ∃ (G : Type) (_ : Magma G) (_ : Finite G),
+    (ATearly atid G) ∧ Not (ATearly atid2 G)
+
+theorem EQ_equiv (eqid : EQIndex) : ∀ (G : Type*) [Magma G],
+  (Equation4512 G) ∧ (EQeq eqid G) <-> ATearly (EQ_to_AT eqid) G
+
+theorem AT_conj (atid : ATIndex) (eqid : EQIndex) : ∃ (atid2 : ATIndex),
+  ∀ (G: Type*) [Magma G], (ATearly atid G) ∧ (EQeq eqid G) <-> (ATearly atid2 G)
+
+theorem conj_equiv_AT (eqids : List EQIndex) :
+  ∀ (G : Type*) [Magma G],
+  (Equation4512 G) ∧ (EQand eqids G) <-> ATearly (reduce_conj eqids) G
+\end{lstlisting}
+\end{minipage}
+\caption{\label{fig:theorems}Five main theorems formalized in Lean.}
+\end{figure}
+
+The main theorems established in Lean are listed in \autoref{fig:theorems}.
+The first two state that for any pair of associative theories, depending on the outcome of the (explicitly defined) function \texttt{AT\_impliesQ}, then either the first associative theory implies the second (first theorem), or there exists a finite counterexample.
+The third states that for any of the $122$ equations a magma~$G$ satisfies associativity and this equation if and only if it satisfies the appropriate one of $456$ associative theories.
+The fourth states that for any of the $456$ associative theories, and any of the $122$ equations, there exists an associative theory that is equivalent to their conjunction (for any semigroup~$G$).
+The fifth states that for any list of equations their conjunction (together with associativity \Equaref{4512}) is equivalent to a suitable associative theory.
+
 The Lean framework we use for the formalization is largely based on tools developed in the Equational Theories Project (ETP\@), most importantly the conversion from the Vampire automated theorem prover to Lean code.
 For clarity, we isolate code from that project into the \texttt{equational\_theories} directory, which we treat as a library on the same footing as \texttt{mathlib}, while new code goes in a separate directory \texttt{associative\_theories} (see the \texttt{lakefile} in \autoref{fig:lakefile}).
 
@@ -562,32 +594,9 @@ For clarity, we isolate code from that project into the \texttt{equational\_theo
 \caption{\label{fig:lakefile}Configuration file \texttt{lakefile.toml}}
 \end{figure}
 
-The main theorems established in Lean are as follows.  The first states that for any of the $122$ equations a magma~$G$ satisfies associativity and this equation if and only if it satisfies the appropriate one of $456$ associative theories.
-The second states that for any of the $456$ associative theories, and any of the $122$ equations, there exists an associative theory that is equivalent to their conjunction (for any semigroup~$G$).  The third states that for any pair of associative theories, if the (explicitly defined) function \texttt{AT\_impliesQ} gives True, then indeed the first associative theory implies the second.
-The fourth states that for any list of equations their conjunction (together with associativity \Equaref{4512}) is equivalent to a suitable associative theory.
-\begin{center}
-\begin{minipage}{76ex}
-\begin{lstlisting}[language=lean,linewidth=74ex,frame=single]
-theorem EQ_equiv (eqid : EQIndex) : ∀ (G : Type*) [Magma G],
-  (Equation4512 G) ∧ (EQeq eqid G) <-> ATearly (EQ_to_AT eqid) G
-
-theorem AT_conj (atid : ATIndex) (eqid : EQIndex) : ∃ (atid2 : ATIndex),
-  ∀ (G: Type*) [Magma G], (ATearly atid G) ∧ (EQeq eqid G) <-> (ATearly atid2 G)
-
-theorem AT_implies (atid: ATIndex) (atid2: ATIndex) :
-  AT_impliesQ atid atid2 ->
-  ∀ (G: Type*) [Magma G], (ATearly atid G) -> (ATearly atid2 G)
-
-theorem conj_equiv_AT (eqids : List EQIndex) :
-  ∀ (G : Type*) [Magma G],
-  (Equation4512 G) ∧ (EQand eqids G) <-> ATearly (reduce_conj eqids) G
-\end{lstlisting}
-\end{minipage}
-\end{center}
-
 The Lean formalization splits into several tasks.
 \begin{itemize}\setlength{\itemsep}{3pt plus 3pt}
-\item \emph{Formalization skipped.} Prove that all equations of order $\leq 4$ are in a set of $653$ equations.  This has not been formalized in Lean.  The \texttt{laws\_complete} theorem from the ETP would be useful, but there are difficulties in defining and manipulating a map from the $4694$ equations of the ETP to their right-associated counterpart.
+\item Prove that all equations of order $\leq 4$ are in a set of $653$ equations.  \emph{This step has not been formalized in Lean.}  The \texttt{laws\_complete} theorem from the ETP would be useful, but there are difficulties in defining and manipulating a map from the $4694$ equations of the ETP to their right-associated counterpart.
 
 \item Prove that these $653$ equations are all equivalent to $122$.  This is done by establishing pairs of implications from each equation to its (lowest-numbered) representative using the Vampire--Lean integration.
 
@@ -609,12 +618,19 @@ The Lean formalization splits into several tasks.
 
 \item Prove that for any subset of the $653$ semigroup equations their conjunction is one of the associative theory.
 
-\item \emph{Formalization skipped.} The above description concentrates on proving positive implications and equivalence, not proving that theories are really distinct.  The necessary countermodels are formalized (cf.\ the \texttt{Countermodels} directory and \autoref{fig:countermodel}), based on ETP tools to manipulate finite operation tables.  The structure of the files differs slightly from the ETP: given the centralized nature of this project, the countermodels are numbered sequentially instead of using their operation table as a name of the model and of the corresponding Lean theorem.  In this way the operation table is only specified once in the file.  However, the countermodels have not yet been used to formalize the disproof of implications.
+\item The above description concentrates on proving positive implications and equivalence, not proving that theories are really distinct.  The necessary countermodels are formalized (cf.\ the \texttt{Countermodels} directory and \autoref{fig:countermodel}), based on ETP tools to manipulate finite operation tables.  The structure of the files differs slightly from the ETP: given the centralized nature of this project, the countermodels are numbered sequentially instead of using their operation table as a name of the model and of the corresponding Lean theorems.  In this way the operation table is only specified once in the file.  The countermodels are then used to formalize the disproof of implications in the \texttt{NonImplications} directory by listing for each pair of associative theories (that do not imply each other) the index of the countermodel used.
 \end{itemize}
 
 \begin{figure}\centering
-\fbox{\hbox to .88\textwidth{\lstinputlisting[language=lean,linewidth=.9\textwidth,breaklines=true]{Model10.lean}\hss}}
-\caption{\label{fig:countermodel}An example countermodel file.  Contrarily to the Equational Theories Project, the operation table $[[0,0,2],[0,1,2],[0,2,2]]$ (which states that $x\op 1=x$ and other $x\op y=y$) only appears once in the file.}
+\fbox{\hbox to .88\textwidth{\lstinputlisting[language=lean,linewidth=.9\textwidth,breaklines=true,lastline=15]{Model10.lean}\hss}}
+
+$\vdots\strut$
+
+\fbox{\hbox to .88\textwidth{\lstinputlisting[language=lean,linewidth=.9\textwidth,breaklines=true,firstline=590,lastline=596]{Model10.lean}\hss}}
+
+$\vdots\strut$
+
+\caption{\label{fig:countermodel}Extracts from an example countermodel file.  Contrarily to the Equational Theories Project, the operation table $[[0,0,2],[0,1,2],[0,2,2]]$ (which states that $x\op 1=x$ and other $x\op y=y$) only appears once in the file.}
 \end{figure}
 
 All in all the main theorems are \texttt{AT\_implies} and \texttt{AT\_conj}, corresponding to the order and meet operation on the lattice of semigroup varities.

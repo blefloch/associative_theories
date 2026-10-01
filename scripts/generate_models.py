@@ -40,10 +40,11 @@ private def model{index} : Magma (Fin {size}) where op := model{index}_op
 private instance : Magma (Fin {size}) := model{index}
 """
               , file=f)
-        for eq in eqs_obeyed:
-            print(f'private theorem model{index}_eq{eq} : Equation{eq} (Fin {size}) := by decideFin!', file=f)
-        for eq in eqs_refuted:
-            print(f'private theorem not_model{index}_eq{eq} : Not (Equation{eq} (Fin {size})) := by decideFin!', file=f)
+        for eq in eqs_to_test:
+            if eq in eqs_obeyed:
+                print(f'private theorem model{index}_eq{eq} : Equation{eq} (Fin {size}) := by decideFin!', file=f)
+            else:
+                print(f'private theorem not_model{index}_eq{eq} : Not (Equation{eq} (Fin {size})) := by decideFin!', file=f)
         for at in associative_theories:
             if set(at['early']).issubset(eqs_obeyed):
                 print(f'\ntheorem model{index}_at{at["id"]} : AssociativeTheory{at["id"]} (Fin {size}) :=', file=f)

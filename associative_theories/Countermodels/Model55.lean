@@ -10,10 +10,6 @@ private def model55 : Magma (Fin 32) where op := model55_op
 private instance : Magma (Fin 32) := model55
 
 private theorem model55_eq1 : Equation1 (Fin 32) := by decideFin!
-private theorem model55_eq411 : Equation411 (Fin 32) := by decideFin!
-private theorem model55_eq440 : Equation440 (Fin 32) := by decideFin!
-private theorem model55_eq513 : Equation513 (Fin 32) := by decideFin!
-private theorem model55_eq4512 : Equation4512 (Fin 32) := by decideFin!
 private theorem not_model55_eq2 : Not (Equation2 (Fin 32)) := by decideFin!
 private theorem not_model55_eq3 : Not (Equation3 (Fin 32)) := by decideFin!
 private theorem not_model55_eq4 : Not (Equation4 (Fin 32)) := by decideFin!
@@ -51,10 +47,13 @@ private theorem not_model55_eq329 : Not (Equation329 (Fin 32)) := by decideFin!
 private theorem not_model55_eq332 : Not (Equation332 (Fin 32)) := by decideFin!
 private theorem not_model55_eq333 : Not (Equation333 (Fin 32)) := by decideFin!
 private theorem not_model55_eq343 : Not (Equation343 (Fin 32)) := by decideFin!
+private theorem model55_eq411 : Equation411 (Fin 32) := by decideFin!
 private theorem not_model55_eq419 : Not (Equation419 (Fin 32)) := by decideFin!
 private theorem not_model55_eq429 : Not (Equation429 (Fin 32)) := by decideFin!
+private theorem model55_eq440 : Equation440 (Fin 32) := by decideFin!
 private theorem not_model55_eq477 : Not (Equation477 (Fin 32)) := by decideFin!
 private theorem not_model55_eq504 : Not (Equation504 (Fin 32)) := by decideFin!
+private theorem model55_eq513 : Equation513 (Fin 32) := by decideFin!
 private theorem not_model55_eq3253 : Not (Equation3253 (Fin 32)) := by decideFin!
 private theorem not_model55_eq3255 : Not (Equation3255 (Fin 32)) := by decideFin!
 private theorem not_model55_eq3256 : Not (Equation3256 (Fin 32)) := by decideFin!
@@ -132,6 +131,7 @@ private theorem not_model55_eq4358 : Not (Equation4358 (Fin 32)) := by decideFin
 private theorem not_model55_eq4362 : Not (Equation4362 (Fin 32)) := by decideFin!
 private theorem not_model55_eq4364 : Not (Equation4364 (Fin 32)) := by decideFin!
 private theorem not_model55_eq4369 : Not (Equation4369 (Fin 32)) := by decideFin!
+private theorem model55_eq4512 : Equation4512 (Fin 32) := by decideFin!
 
 theorem model55_at1 : AssociativeTheory1 (Fin 32) :=
   model55_eq4512
